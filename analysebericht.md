@@ -1,105 +1,95 @@
-# Prüfung und Änderungen · Revision 5.7
+# Architektur, Lager und Erdarbeiten · Revision 5.8
 
-## Ausgangspunkt und Architektur
+## Entwurfsrichtung
 
-Basis ist die unveränderte Revision 5.6. Hauptgrundriss, Ausrichtung, sechs
-Residenzen, drei Keller, Pool und Dachkontur bleiben Grundlage. Die neue Version
-hat 78.600 eindeutige Positionen, gegenüber 78.586 in der Basis.
+Auf Nutzerwunsch ist der Entwurf ein ruhigeres viktorianisches Herrenhaus. Die hohe
+Observatoriumskuppel und die hohen Eckturmaufsätze entfallen. Stattdessen gibt es
+eine klare Haupthalle, zwei etwas niedrigere Wohnflügel, eine quer dazu angeordnete
+Bibliothek und den eingeschossigen Ostflügel mit niedrigem Eingangsvorbau.
+Durchlaufende Gesimse, ruhigere Steinflächen und zwei kleine Schornsteine verbinden
+die Baukörper. Die vier vorhandenen Erker bleiben erhalten und werden niedrig gekappt.
 
-Die bestehende Darstellung von Treppen, Türen, Stufen, Fenstern und Einrichtung
-wurde übernommen. Ein lokaler WebGL-Renderer übernimmt Kameras und Geometrie,
-sodass die Website keine externe Three.js-Datei mehr nachladen muss.
-Transparenz wird näherungsweise nach Schichten gezeichnet; komplexe überlagerte
-Glasflächen können Darstellungsartefakte zeigen. Blockauswahl verwendet wie vorher
-Voxelzellen, keine exakten Kollisionsformen der Teilblöcke.
+Die Dachkörper sind gemeinsam als Höhenhülle berechnet, damit Überschneidungen nicht
+erneut massive Füllvolumen erzeugen. Die Hülle hat eine Unterdeckung und eine obere
+Treppen-/Stufenschicht. Innere Dachböden erhalten untere Holzstufen. Die tatsächlichen
+Mengen und Firsthöhen stehen in `check_report.json` und der Blockliste. Eine aktuelle
+Lichtsimulation gibt es weiterhin nicht; Spawnfreiheit wird nicht zugesichert.
 
-## Reparierte Modellfehler
+## Lagerplanung und Kapazität
 
-- Die beiden fehlenden Förderhopper bei X=-675/Y=123/Z=795 und 796 ergänzt.
-- Pro Bulkfilter die fehlenden Hopper bei Y=122/Z=781 und 780 ergänzt. Die
-  Ausgabestrecke erreicht damit die vorhandene Truhe bei Z=779.
-- Die verwaiste obere Türhälfte bei X=-689/Y=123/Z=787 entfernt und die Tür
-  vollständig bei Z=788 auf dem vorhandenen Boden rekonstruiert. Die Redstoneleitung
-  bei Z=787 bleibt erhalten.
-- Die alte einzelne Türhälfte vor dem Geheimzugang bei X=-689/Y=106/Z=793 entfernt.
-  Die Geheimtür bei Z=794 auf Y=106/107 abgesenkt, sodass sie auf dem Boden Y=105 steht.
+Der zweite Keller wurde östlich des bestehenden Verzauberungsraums geöffnet.
+Die westliche Treppe und der zentrale fünf Blöcke breite Gang bleiben erhalten.
+50 Buchten enthalten je zwei Fässer nebeneinander auf vier Höhen: acht Fässer bzw.
+216 Inventarplätze pro Bucht. Zusammen 400 Fässer / 10.800 Plätze. Quergänge führen
+zu jeder Fassfront; die Rückseiten werden als geordnete Regalrücken aus Holz gebaut.
 
-Jede Änderung steht in `aenderungen_5.6_zu_5.7.csv`. Die Topologieprüfung folgt
-den Hopperrichtungen vom Einwurf zur Kupfertruhe und von sechs Filterausgängen
-bis zur Zieltruhe. **Das belegt den räumlichen Förderweg, keine funktionierende
-Redstone-Filterlogik.** Signalstärken, Haltesignale, Kapazität, Inventare und
-Golem-Sortierung müssen weiterhin im Spiel entwickelt und getestet werden.
+Im dritten Keller gibt es zusätzlich sechs persönliche Buchten mit je acht Fässern:
+48 Fässer / 1.296 Plätze. Das Sortierlager in Keller 1 bleibt erhalten.
+Die neuen Buchten ersetzen ältere Einrichtung und einige kleine Lager; ihre 12.096
+Plätze sind deshalb die Kapazität der neuen Buchten, nicht der Nettozuwachs des
+gesamten Anwesens. Die Gesamtkapazität wird aus allen tatsächlich vorhandenen
+Fass-, Truhen- und Kupfertruhenblöcken mit je 27 Inventarplätzen berechnet.
 
-## Gelände und Aushub
+Kategorien, ID und Kapazität sind im Bauatlas dokumentiert. Fassbeschriftungen sind
+keine fertig befüllten Schild-NBT-Daten. Alle neuen Lagerbuchten sind manuell zu
+befüllen. Die bestehende Redstone-/Golemsortierung ist weiterhin als Technikentwurf
+zu verstehen; mehr Lagerkapazität macht daraus keine bereits getestete Schaltung.
 
-Die Palette und Blockzustandsdaten der Originalregion `r.-2.1.mca` wurden direkt
-aus `mca.zip` gelesen. Der Leser unterstützt die im Snapshot tatsächlich
-vorkommenden Paletteneinträge als Strings sowie als NBT-Compounds und die gepackten
-Blockindices. Fehlende Chunks und Sektionen führen zu Fehlern statt zu angenommener Luft.
+Die neue Prüfung benutzt eine 2D-Flutsuche auf der tatsächlichen Kellerbodenhöhe,
+mit zwei freien Blöcken über dem Boden. Sie kontrolliert Wege zu allen 56 Buchten
+und freie Fronten aller 448 Fässer. Das ist eine lokale geometrische Prüfung der
+Lageretagen, keine vollständige Spielerbewegungs-/Treppen- oder Interaktionssimulation.
 
-Alle 16.428 gespeicherten Bodenpositionen entsprechen dem jeweiligen Block in der
-Originalregion. Das bestätigt das Material auf der gespeicherten Höhe; es ist keine
-neue automatische Klassifizierung aller Pflanzen, Baumkronen und Oberflächen.
+## Erweiterte Weltvermessung
 
-Die 2.988 Aushubspalten der Revision 5.6 wurden übernommen. Zwischen ihrer jeweiligen
-Unterkante und der gespeicherten Bodenhöhe liegen **52.120 Nicht-Luft-Blöcke**.
-`aushub_blockliste.csv` führt jeden davon auf; vorhandene Höhlenluft wird abgezogen.
-Die alte Revision enthielt widersprüchliche Mengen: 50.931 in der Geländeansicht
-und 43.676 im historischen Prüfbericht. Beide werden durch die einheitliche neue
-Zählung ersetzt. Die neue Zahl kann trotz Abzug von Luft größer sein, weil die alte
-Schätzung keine konsistente Zählung der vorhandenen Spalten war.
+Originalquelle: `mca.zip`, Region `r.-2.1.mca`. Der Ausschnitt reicht von
+X=-805 bis -585 und Z=705 bis 875, insgesamt 37.791 Säulen gegenüber vorher 16.428.
+Die obere tatsächliche feste Oberfläche wird gelesen; Blumen, Gräser, Holzstämme und
+Blätter werden beim Bestimmen des Bodens ausgelassen. Menschliche Bauwerke können
+als Oberfläche erhalten bleiben. Höhlenluft in Baugruben wird nicht als Stein gezählt.
 
-Prüfgrenzen: Die Baugrubenform selbst wurde nicht neu unabhängig abgeleitet. Es wird
-auch kein minimaler Block-für-Block-Umbauplan berechnet: Blöcke an späteren Baupositionen
-werden beim Freiräumen mitgezählt, selbst wenn sie eventuell weiterverwendet werden
-könnten. Pflanzen oberhalb der gespeicherten Bodenhöhe sind ausgeschlossen. Die
-Gelände-3D-Ansicht ist weiterhin eine vereinfachte Oberfläche, keine vollständige
-Höhlengeometrie. Das neue SVG zeigt echte Blöcke im Schnitt Z=790, Y=65…132.
+In der 3D-Ansicht wird der gleiche vermessene Ausschnitt als Höhenfläche dargestellt:
+Original, geplante Geländeoberfläche oder geplante Oberfläche mit Arbeitsfarben.
+Damit sind Hangkanten und Höhenübergänge erkennbar; die 3D-Fläche zeigt jedoch keine
+vollständigen Höhlen und keine exakten unterirdischen Materialschichten.
 
-## Dach und Survival-Aufwand
+## Abtrag und Auffüllung
 
-Das Dach wurde nicht automatisch ausgehöhlt. 13.717 Dachziegelpositionen sind an
-allen sechs Seiten von weiteren Dachziegeln umgeben. Das ist ein konkreter Hinweis
-auf Einsparpotenzial, keine pauschal sichere Löschliste. Eine Dachüberarbeitung
-muss Innenraum, Anschlüsse, Auflager und Beleuchtung gemeinsam behandeln; sonst
-entstehen neue dunkle Hohlräume. Die Dachmaterialmenge bleibt in 5.7 deshalb ehrlich
-in den aus dem Modell erzeugten Listen enthalten.
+Die Baugrube folgt dem Kellerrechteck und endet unter der Bodenplatte bei Y=104.
+Unter dem übrigen Hauptbaukörper liegt der Unterbau bis Y=128. Westterrasse und Pool
+bekommen keine pauschal angehobene Klippe; ihre bisherigen Stützen bleiben erhalten.
+Nord und Süd erhalten schmale Böschungsübergänge. Sichtbare Sockelkanten werden mit
+Tiefenschieferziegeln gefasst. Die Zufahrt verläuft fünf Blöcke breit über den
+südöstlichen Plateaustreifen; Höhenänderungen erfolgen als Stufen im Zielgelände.
 
-Wasser bleibt mit seinen Positionen in der Blockliste und im 3D-Modell. Material-
-Itemmengen enthalten keine Wasserpositionen als vermeintlich benötigte Wassereimer.
-Türen und Betten zählen je einmal; Schilder werden mit Stackgröße 16 verpackt.
+Die Abtragliste nennt vorhandene Nicht-Luft-Blöcke, die entfernt werden müssen.
+Zusätzlich werden Kollisionen einzelner Baupositionen mit dem Originalboden geprüft,
+damit auch einzeln versenkte Fundamente unterhalb des Zielniveaus erfasst werden.
+Identische vorhandene Materialien an Baupositionen werden wiederverwendet und nicht
+als Abtrag gezählt. Die Auffüllliste enthält alle Zielpositionen oberhalb des
+vermessen natürlichen Bodens, einschließlich vorhandener modellierter Tragblöcke.
+Diese Positionen stehen auch in der Blockliste; sie sind keine zusätzliche Menge
+außerhalb der Gesamtmaterialliste. Oberflächenwechsel auf derselben Höhe können
+Abtrag und eine neue Oberfläche erfordern, ohne dass Gelände in der Höhe wächst.
 
-## Oberfläche und Datenpflege
+Vegetation oberhalb des Bodens wird separat ausgewiesen. Vorhandene Eisen-/Beacon-
+Marker und andere betroffene Baucontainer stehen in `bestandskonflikte.csv`.
+Es wird ausschließlich ein Plan erzeugt; die Minecraft-Welt wird nicht verändert.
 
-`gcounts` war in 5.6 eine reine Blockzahl je Baugruppe, während die Materialansicht
-dort ein Material-Dictionary erwartete. Jetzt wird es aus den tatsächlichen
-Positionen als Materialmenge je Gruppe erzeugt. Alle 35 Baugruppen erscheinen in
-den Bauphasen; zuvor fehlten neu hinzugefügte Logistikbereiche und Hangstützen.
-Die Koordinatensuche vergleicht X, Y und Z in der angegebenen Reihenfolge.
-Der Ebenenexport verwendet tatsächlich die gewählte Schnittrichtung und Position;
-zuvor wurde bei X-/Z-Schnitten stattdessen die Y-Ebene 130 exportiert.
+Die Arbeitslisten sind an den gelieferten Weltstand gebunden. Nach späteren
+Änderungen im Spiel müssen die Mengen und vorhandenen Bauwerke erneut abgeglichen
+werden. Stützwände, Böschungen, Wasserführung und Anschlüsse sind vor Ort zu prüfen.
 
-Fortschritt wird in einem eigenen Speicherbereich abgelegt. Ein Backup enthält
-Baugruppen, Zuständigkeiten, Koordinaten-Häkchen und die drei aktuellen Lagerzonen.
-Das Importformat prüft Typen, bekannte Koordinaten und Modellfingerabdruck vor
-Änderungen. Der Import ersetzt einen vollständigen Stand; die UI sagt dies vor der
-Bestätigung ausdrücklich. Ältere nummernbasierte Daten werden nicht vermischt.
+## Daten, Fortschritt und Prüfgrenzen
 
-## Prüfung und offene Grenzen
+Alle Positionen, Mengen, Gruppensummen und CSVs werden aus einem Modell erzeugt.
+Die Revision hat einen eigenen Modellfingerabdruck und Speicherbereich für
+Fortschritt. Alte Häkchen werden nicht auf verschobene oder entfernte Blöcke übertragen.
+Der lokale Atlas benötigt kein CDN und kann per `index.html` geöffnet werden.
 
-`tools/validate.py` kontrolliert eindeutige Koordinaten, komprimierte Daten gegen
-CSV, Material- und Gruppensummen, Türhälften samt Auflager, gerichtete Förderwege,
-Geländepositionen, Einzel-Aushubdaten, lokale Ressourcen und die Unverändertheit
-aller 173 Originaldateien anhand des Übergabemanifests.
-
-`tools/test_app.mjs` führt die wirklichen Anwendungsskripte mit einem kleinen
-DOM-/Canvas-Testadapter aus. Es prüft Navigation, Materialfilter, alle Bauphasen,
-Blockstatus, Speicherung, Backup-Validierung, X/Y/Z-CSV-Schnitte, Kamerabasis,
-Projektionsmatrizen, Blockauswahl und den Geometrieaufbau. 126 Prüfungen erfolgreich. Dieser Test
-ist kein Browser und kein GPU-Sichttest. Der installierte Chromium konnte hier
-wegen gesperrter Betriebssystem-Sockets nicht gestartet werden.
-Beide WebGL-Shader wurden zusätzlich mit `glslangValidator` erfolgreich übersetzt.
-
-Die historischen Licht-/Begehbarkeitswerte bleiben nur als alte Modelldaten erhalten,
-werden aber nicht mehr als aktuelle Zusicherung angezeigt. Eine Minecraft-Testwelt
-und ein Sichttest im normalen Browser bleiben erforderlich.
+Die Software-Vorschauen wurden aus genau den Geometrien des Viewers berechnet.
+Sie dienen der Entwurfsprüfung und werden als Modellvorschau gekennzeichnet.
+Der Browserstart ist hier wegen gesperrter Betriebssystem-Sockets nicht möglich;
+es liegt kein bestätigter GPU-/Browser-Sichttest vor. Die Anwendungsskripte werden
+mit dem vorhandenen DOM-/Canvas-Testadapter auf Navigation, Datenfilter, Backup,
+Kameras und Geometrieaufbau geprüft. Ein Ingame-Test steht weiterhin aus.

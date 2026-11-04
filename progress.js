@@ -2,13 +2,13 @@
 (() => {
   'use strict';
   const data=JSON.parse(document.getElementById('data').textContent);
-  const KEY='blackthorn:5.7:progress', groups=new Set(data.groups), validBlocks=new Set();
+  const KEY='blackthorn:5.8:progress', groups=new Set(data.groups), validBlocks=new Set();
   for(const [y,z,x,n] of data.runs)for(let i=0;i<n;i++)validBlocks.add(`${x+i},${y},${z}`);
   const empty=()=>({groups:{},people:{},blocks:{},inventory:{}});
   const state=empty();let storageOK=true;
   function validate(snapshot) {
     if(!snapshot || snapshot.format!=='blackthorn-progress' || snapshot.schema!==1 || snapshot.blueprint!==data.meta.fingerprint)
-      throw Error('Das Backup gehört nicht zu diesem Bauplan. Bitte eine Fortschrittsdatei der Revision 5.7 verwenden.');
+      throw Error('Das Backup gehört nicht zu diesem Bauplan. Bitte eine Fortschrittsdatei der Revision 5.8 verwenden.');
     if(!snapshot.state || typeof snapshot.state!=='object')throw Error('Im Backup fehlt der Fortschritt.');
     const result=empty();
     for(const kind of Object.keys(result)) {
@@ -35,7 +35,7 @@
   window.BT={state,save,validate,snapshot,escape,storageOK:()=>storageOK};
   document.getElementById('dlProg').onclick=()=>{
     const a=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(snapshot(),null,2)],{type:'application/json'}));
-    a.href=url;a.download='blackthorn-5.7-fortschritt-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    a.href=url;a.download='blackthorn-5.8-fortschritt-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
     message('Backup enthält Baugruppen, Zuständigkeiten, Blockstatus und Lagerbestand.');
   };
   document.getElementById('impProg').onchange=async e=>{

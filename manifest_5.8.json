@@ -1,0 +1,197 @@
+[
+  {
+    "path": "README.md",
+    "size": 3679,
+    "sha256": "d85d97e9438c1dbfd98a35423b057342d81766264440bf65a4c31daf1f2f37bd"
+  },
+  {
+    "path": "aenderungen_5.7_zu_5.8.csv",
+    "size": 3665815,
+    "sha256": "04d9c1c817c8a799e638fd1db531d000305a4c0f76fe6f54bd6943af4f414185"
+  },
+  {
+    "path": "analysebericht.md",
+    "size": 6059,
+    "sha256": "597e9e7acd41e0c5b481aa39eedb9458f256ffa02354de2ee9b4d1d1c57ccfa8"
+  },
+  {
+    "path": "app.js",
+    "size": 55068,
+    "sha256": "12389c0cbade584beeff982aee6ac89c313f9d4063ae2eb7837ae66c443b4e7a"
+  },
+  {
+    "path": "assets/anwesen_ost.png",
+    "size": 390762,
+    "sha256": "ef3b9c3ec9dab6fb609e46e13774968163f21c6586aa8439a028918303a11c7c"
+  },
+  {
+    "path": "assets/anwesen_west.png",
+    "size": 398822,
+    "sha256": "95e354860ef302a1227b2eb0492ed40613b0f5d040349a80e8ea6c1cddb8c734"
+  },
+  {
+    "path": "assets/gelaende_gesamt.png",
+    "size": 465852,
+    "sha256": "7999a8c443bac431151a916a6bc7520d6656cae9f6ebd5a6e8944471d0e212ba"
+  },
+  {
+    "path": "auffuellung_blockliste.csv",
+    "size": 807027,
+    "sha256": "fde90fb9ec9285da9a912f48f1e94581868a682e112a9d2ff24f61673840855f"
+  },
+  {
+    "path": "auffuellung_materialien.csv",
+    "size": 166,
+    "sha256": "fb2bb17064ffcbcfbee38f1ce10b9ad49464d7dd09d3619732b762b75a786968"
+  },
+  {
+    "path": "aushub.csv",
+    "size": 88379,
+    "sha256": "4029d4685eadc623a1b926db4b9677cf8de01c96f14905ef5c08ff0416bd5856"
+  },
+  {
+    "path": "aushub_blockliste.csv",
+    "size": 2065827,
+    "sha256": "6e6a52783a28af7113ec00326ddf4f7454b25966c5d100b59d515c56f07fd977"
+  },
+  {
+    "path": "aushub_materialien.csv",
+    "size": 216,
+    "sha256": "db8d61a6c10f8d1d1a5128ff3e5708c0155700558db3e5c71e3f2af974db6bcd"
+  },
+  {
+    "path": "bestandskonflikte.csv",
+    "size": 4329,
+    "sha256": "696ce60e54e4446d1174e56e4fc5af2e60a7366cade8f20d3b365e06f585a6bc"
+  },
+  {
+    "path": "blockliste.csv",
+    "size": 5118933,
+    "sha256": "1b07f403c0d2bd6be10554e1dc872b1d9cec7874d128ed58baa048985be995aa"
+  },
+  {
+    "path": "blueprint.json",
+    "size": 2032517,
+    "sha256": "18f0e4b571fc3e19a089bb22bb79f0d0b6b0071d7c2254d79d8d0b70b6126ab9"
+  },
+  {
+    "path": "check_report.json",
+    "size": 562,
+    "sha256": "a3e3f2eee5b929cfc9627f9ae4ed8e072e84abc24b0f989bf3eac20b2b6b19b5"
+  },
+  {
+    "path": "gelaende_oberflaeche.csv",
+    "size": 968963,
+    "sha256": "0fcf9d4997eb1fd5622fc8d537e8dce833ab6da0386a04250489bd68dae5c2bf"
+  },
+  {
+    "path": "index.html",
+    "size": 2054881,
+    "sha256": "4db21dc219005a728c14b0faa9f6dbd218358f909ee893efd76cc025d7dd0e32"
+  },
+  {
+    "path": "lager_kategorien.csv",
+    "size": 728,
+    "sha256": "638a970a62bf425db3fea48dc967e79a3619ff0f7cfd60e47dd4b430e0192350"
+  },
+  {
+    "path": "lagerbuchten.csv",
+    "size": 3642,
+    "sha256": "109114c4e0cb2480d090076ea0e267645adafec00d9e05042a63d785cad2eb7a"
+  },
+  {
+    "path": "materialbedarf.csv",
+    "size": 2156,
+    "sha256": "5a09911b54ce1328ccd97c9574840c97be8c503a64e311f3fe145379db4ce5e0"
+  },
+  {
+    "path": "materialbedarf_baugruppen.csv",
+    "size": 8621,
+    "sha256": "f6b211a5a0abf61603ccc9509b6ff0bd270b990f5f3a3fb0b5f5b51296e14454"
+  },
+  {
+    "path": "progress.js",
+    "size": 4171,
+    "sha256": "3ad9c3aa55a50b9defd291c48e713db836d4be1324b6ff79148487ee81e3e9a1"
+  },
+  {
+    "path": "pruefprotokoll.json",
+    "size": 1458,
+    "sha256": "86de3b5a172408e2ff7a2971c23e58e2b49f24c9108e0092e6c8bafa9bd32b00"
+  },
+  {
+    "path": "steps.js",
+    "size": 4728,
+    "sha256": "c21adf948e50d1668932587c87f4e4ffd456c62fd0fdeed4ead06c5bcb4eef55"
+  },
+  {
+    "path": "styles.css",
+    "size": 11998,
+    "sha256": "609b82561c074cc49d472f4e937666694a49cdc91509563419ace5a294418081"
+  },
+  {
+    "path": "system.js",
+    "size": 4122,
+    "sha256": "b258aff80ff763f8953d65e693085b8c7b8a1ebfa9709629feb09e6b3ff00b45"
+  },
+  {
+    "path": "terraforming.csv",
+    "size": 330081,
+    "sha256": "44b21a5f34931c0469a12e39335a84a451c0975d5adb956741326cc033b06f19"
+  },
+  {
+    "path": "terrain.js",
+    "size": 4461,
+    "sha256": "31310026ba3d239507cdbd9d1ff1433b7ec4d8258d7a7eade61fe2329aa99e83"
+  },
+  {
+    "path": "tools/export_preview.mjs",
+    "size": 755,
+    "sha256": "d1566e1544f05317f71d521d199790dd6f36b539ccbbd3105efe37aa7893d6f0"
+  },
+  {
+    "path": "tools/model.py",
+    "size": 26599,
+    "sha256": "9466ffc63122c9ed12ccd24fab7d701103fbccd5fdb22ca578186ab784090cb1"
+  },
+  {
+    "path": "tools/region.py",
+    "size": 3819,
+    "sha256": "b6148ac5b3cb8dadc65cde47fa1d09b952afc5ff67e4734942965d96458fd8d5"
+  },
+  {
+    "path": "tools/render_preview.py",
+    "size": 2086,
+    "sha256": "9dd95ca56a54513f36987d468f3ef4a0ec6f7dc8256f43464e99bec6a246eee8"
+  },
+  {
+    "path": "tools/terrain_geometry.js",
+    "size": 1397,
+    "sha256": "424bff86de43f8a1d0336a9d2f8c1c3302fce267bc13bf75bfa6a2434380dce7"
+  },
+  {
+    "path": "tools/test_app.mjs",
+    "size": 14100,
+    "sha256": "f9a3810c0949b24f0b8bf746e9fa122e598599081486a4e121169927a8e7de82"
+  },
+  {
+    "path": "tools/validate.py",
+    "size": 7332,
+    "sha256": "0ca66ccb6031a1ae151e6533a404806971f664aafdd8ce5ef0c553623a4dcfeb"
+  },
+  {
+    "path": "tools/web.py",
+    "size": 16457,
+    "sha256": "57d3002ad7e9b1820e48d0fb3e573e74ed77698be31e2e11381104d065e53e62"
+  },
+  {
+    "path": "vegetation_entfernen.csv",
+    "size": 35499,
+    "sha256": "68b54f07ccf5a2dc64644e0e642cc82304115cfecef169db15b9be36630aec45"
+  },
+  {
+    "path": "villager_staende.csv",
+    "size": 412,
+    "sha256": "ef1262db24ca2fe57606ae36f24ca103d88e8a1c2f56c44d4377ab27fa54d798"
+  }
+]

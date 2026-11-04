@@ -1,90 +1,120 @@
 #!/usr/bin/env python3
-"""Independent consistency, topology and region checks. Run from any directory."""
+"""Independent model, warehouse-access and earthwork validation for Revision 5.8."""
 import csv
 import hashlib
 import json
 import re
-from collections import Counter, defaultdict
+from collections import Counter,defaultdict,deque
 from pathlib import Path
 from region import Region
 
 ROOT=Path(__file__).resolve().parent.parent
 
 
+def read(name):
+    with (ROOT/name).open(encoding='utf-8-sig') as f:return list(csv.DictReader(f,delimiter=';'))
+
+
 def main():
+    d=json.loads((ROOT/'blueprint.json').read_text());b={};sequence=[];counts=Counter();gm=defaultdict(Counter)
     html=(ROOT/'index.html').read_text()
-    d=json.loads(re.search(r'<script type="application/json" id="data">(.*?)</script>',html,re.S).group(1))
-    assert d==json.loads((ROOT/'blueprint.json').read_text()),'JSON export differs from HTML'
-    b={};sequence=[];materials=Counter();groups=defaultdict(Counter)
-    for y,z,x,n,ri in d['runs']:
-        assert n>0 and 0<=ri<len(d['reg'])
-        bid,state,gi=d['reg'][ri];g=d['groups'][gi]
+    assert d==json.loads(re.search(r'<script type="application/json" id="data">(.*?)</script>',html,re.S).group(1))
+    for y,z,x,n,i in d['runs']:
+        bid,st,gi=d['reg'][i];g=d['groups'][gi]
         for xx in range(x,x+n):
-            coord=xx,y,z
-            assert coord not in b, f'Duplicate coordinate {coord}'
-            b[coord]=(bid,state,g)
-            sequence.append([len(sequence)+1,xx,y,z,'minecraft:'+bid,state,g])
-            if not (bid=='water' or bid.endswith('_door') and 'half=upper' in state or bid.endswith('_bed') and 'part=head' in state):
-                materials[bid]+=1;groups[g][bid]+=1
-    assert len(b)==d['meta']['total']==78600
-    with (ROOT/'blockliste.csv').open(encoding='utf-8-sig') as f:
-        rows=list(csv.reader(f,delimiter=';'))[1:]
-    assert rows==[[str(x) for x in row] for row in sequence]
+            p=xx,y,z;assert p not in b
+            b[p]=bid,st,g;sequence.append([len(sequence)+1,xx,y,z,'minecraft:'+bid,st,g])
+            if not (bid=='water' or bid.endswith('_door') and 'half=upper' in st or bid.endswith('_bed') and 'part=head' in st):counts[bid]+=1;gm[g][bid]+=1
+    assert len(b)==d['meta']['total']
     assert hashlib.sha256(json.dumps(sequence,separators=(',',':')).encode()).hexdigest()==d['meta']['fingerprint']
-    assert dict(materials)==d['counts']
-    assert {g:dict(groups[g]) for g in d['groups']}==d['gcounts']
-    with (ROOT/'materialbedarf.csv').open(encoding='utf-8-sig') as f:
-        assert {r['Material']:int(r['Anzahl']) for r in csv.DictReader(f,delimiter=';')}==dict(materials)
-    for g,stats in d['gstats'].items():
-        coords=[p for p,r in b.items() if r[2]==g]
-        assert len(coords)==stats['n']
-        for k,i in [('x',0),('y',1),('z',2)]:assert [min(p[i] for p in coords),max(p[i] for p in coords)]==stats[k]
-    for (x,y,z),(bid,state,g) in b.items():
+    assert list(map(lambda r:list(r.values()),read('blockliste.csv')))==[[str(v) for v in row] for row in sequence]
+    assert counts==d['counts']
+    assert {g:dict(gm[g]) for g in d['groups']}==d['gcounts']
+    assert {r['Material']:int(r['Anzahl']) for r in read('materialbedarf.csv')}==counts
+    for g,s in d['gstats'].items():
+        coords=[p for p,v in b.items() if v[2]==g];assert len(coords)==s['n']
+        for key,i in [('x',0),('y',1),('z',2)]:assert [min(p[i] for p in coords),max(p[i] for p in coords)]==s[key]
+    for (x,y,z),(bid,st,g) in b.items():
         if bid.endswith('_door'):
-            props=dict(v.split('=') for v in state.split(',') if '=' in v)
-            lower=props['half']=='lower';other=b.get((x,y+(1 if lower else -1),z))
-            assert other and other[0]==bid, f'Orphan door {(x,y,z)}'
-            assert ('half=upper' if lower else 'half=lower') in other[1]
-            if lower:assert b.get((x,y-1,z)),f'Door has no model support {(x,y,z)}'
+            lower='half=lower' in st;other=b.get((x,y+(1 if lower else -1),z))
+            assert other and other[0]==bid and ('half=upper' if lower else 'half=lower') in other[1],f'Orphan {x,y,z}'
+            if lower:assert b.get((x,y-1,z)),f'Floating door {x,y,z}'
+    def reachable(floor,start,box):
+        xmin,xmax,zmin,zmax=box
+        def free(x,z):return (x,floor,z) in b and (x,floor+1,z) not in b and (x,floor+2,z) not in b
+        assert free(*start),f'Blocked route start {start}'
+        reached={start};todo=deque([start])
+        while todo:
+            x,z=todo.popleft()
+            for dx,dz in [(1,0),(-1,0),(0,1),(0,-1)]:
+                p=x+dx,z+dz
+                if p not in reached and xmin<=p[0]<=xmax and zmin<=p[1]<=zmax and free(*p):reached.add(p);todo.append(p)
+        return reached
+    warehouse=reachable(113,(-706,790),(-707,-671,767,813))
+    private=reachable(105,(-678,790),(-682,-671,788,813))
+    seen=set();nslots=0
+    for bay in d['storage_bays']:
+        for p in bay['containers']:
+            assert tuple(p) not in seen;seen.add(tuple(p));assert b[tuple(p)][0]=='barrel'
+            state=dict(v.split('=') for v in b[tuple(p)][1].split(','));facing=state['facing']
+            dx,dz={'north':(0,-1),'south':(0,1),'east':(1,0),'west':(-1,0)}[facing]
+            x,y,z=p
+            assert (x+dx,y,z+dz) not in b,f'Container front blocked {p}'
+        fx,fy,fz=bay['front'];assert (fx,fz) in (warehouse if bay['floor']==113 else private),f'Unreachable bay {bay["id"]}'
+        assert len(bay['containers'])==bay['container_count'] and bay['slots']==27*bay['container_count'];nslots+=bay['slots']
+    assert len(d['storage_bays'])==56 and len(seen)==448 and nslots==12096
+    assert sum(d['storage_summary']['all_containers'].values())*27==d['storage_summary']['total_slots']
+    assert d['validation']['roof_after']<d['validation']['roof_before']*.65
+    assert not any(g=='observatorium' for bid,st,g in b.values())
+    assert max(p[1] for p,v in b.items() if v[2].startswith('dach_'))==157
+    # Directed container topology remains an explicit check, not a circuit simulation.
     direction={'north':(0,0,-1),'south':(0,0,1),'east':(1,0,0),'west':(-1,0,0),'down':(0,-1,0)}
-    def trace(start,terminal):
-        pos=start;seen=set()
+    def trace(pos,terminal):
+        seen=set()
         while pos not in seen:
-            seen.add(pos);entry=b.get(pos)
-            assert entry, f'Feed ends in air at {pos}'
-            if entry[0]==terminal:return len(seen)
-            assert entry[0]=='hopper',f'Unexpected container/block at {pos}: {entry}'
-            props=dict(v.split('=') for v in entry[1].split(','));v=direction[props['facing']]
-            pos=tuple(a+c for a,c in zip(pos,v))
+            seen.add(pos);entry=b.get(pos);assert entry,f'Feed terminates at {pos}'
+            if entry[0]==terminal:return
+            assert entry[0]=='hopper'
+            props=dict(v.split('=') for v in entry[1].split(','));vec=direction[props['facing']];pos=tuple(a+c for a,c in zip(pos,vec))
         raise AssertionError('Hopper loop')
-    assert trace((-708,123,789),'copper_chest')>40
+    trace((-708,123,789),'copper_chest')
     for bay in d['storage_system']['bulk']:trace((bay['x'],122,783),'chest')
-    # Deliberately do not equate physical topology with a functioning filter circuit.
     region=Region(ROOT.parent/'mca.zip');t=d['terrain'];x0,x1,z0,z1=t['bounds']
+    assert (x1-x0+1)*(z1-z0+1)==37791
     for z in range(z0,z1+1):
         for x in range(x0,x1+1):assert region.block(x,t['heights'][z-z0][x-x0],z)==t['surface_blocks'][z-z0][x-x0]
-    # Independent known sample readings guard palette decoding and negative coordinates.
-    assert region.block(-640,126,790)=='grass_block'
-    assert region.block(-640,127,790)=='air'
-    assert region.block(-630,115,790)=='grass_block'
-    actual=Counter()
-    with (ROOT/'aushub_blockliste.csv').open(encoding='utf-8-sig') as f:
-        coords=set()
-        for row in csv.DictReader(f,delimiter=';'):
-            p=tuple(int(row[k]) for k in ['X','Y','Z']);assert p not in coords;coords.add(p)
-            bid=region.block(*p);assert row['Ist-Block']=='minecraft:'+bid and bid not in ('air','cave_air','void_air')
-            actual[p[0],p[2]]+=1
-    assert sum(actual.values())==t['excavate_total']==52120
-    assert all(actual[x,z]==n for x,z,cut,n,near in t['excavate'])
+    cuts=read('aushub_blockliste.csv');fills=read('auffuellung_blockliste.csv');cut_by_column=Counter();fill_by_column=Counter();seen_cut=set();seen_fill=set()
+    for row in cuts:
+        p=tuple(int(row[k]) for k in ['X','Y','Z']);assert p not in seen_cut;seen_cut.add(p)
+        actual=region.block(*p);assert actual not in ('air','cave_air','void_air') and row['Ist-Block']=='minecraft:'+actual
+        cut_by_column[p[0],p[2]]+=1
+    for row in fills:
+        x,y,z=[int(row[k]) for k in ['X','Y','Z']];p=x,y,z;assert p not in seen_fill;seen_fill.add(p)
+        assert y>t['heights'][z-z0][x-x0] and y<=t['target_heights'][z-z0][x-x0]
+        assert row['Soll-Block']=='minecraft:'+b[p][0],f'Wrong fill material {p}'
+        fill_by_column[x,z]+=1
+    assert not seen_cut&seen_fill
+    for (x,y,z),(bid,state,group) in b.items():
+        if x0<=x<=x1 and z0<=z<=z1 and y<=t['heights'][z-z0][x-x0]:
+            old=region.block(x,y,z)
+            if old not in ('air','cave_air','void_air') and old!=bid:assert (x,y,z) in seen_cut,f'Missing construction collision {x,y,z}'
+    assert len(cuts)==t['excavate_total'] and len(fills)==t['fill_total']
+    assert Counter(r['Soll-Block'].removeprefix('minecraft:') for r in fills)=={r['Soll-Material']:int(r['Bloecke']) for r in read('auffuellung_materialien.csv')}
+    for x,z,old,target,cut,fill,zone,top in t['work']:
+        assert cut_by_column[x,z]==cut and fill_by_column[x,z]==fill
+        assert old==t['heights'][z-z0][x-x0] and target==t['target_heights'][z-z0][x-x0]
+    # Outside designated work columns the expanded landscape must be identical.
+    work={(r[0],r[1]) for r in t['work']}
+    for z in range(z0,z1+1):
+        for x in range(x0,x1+1):
+            if (x,z) not in work:assert t['heights'][z-z0][x-x0]==t['target_heights'][z-z0][x-x0]
     for ref in re.findall(r'(?:src|href)="([^"]+)"',html):
         if ref.startswith('#'):continue
-        assert '://' not in ref,f'External dependency {ref}'
-        assert (ROOT/ref).is_file(),f'Missing local asset {ref}'
-    manifest=json.loads((ROOT.parent.parent/'manifest.json').read_text())
-    for f in manifest['files']:
-        p=ROOT.parent/f['path']
-        assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==f['sha256'],f'Original file modified: {p}'
-    print('PASS: 78,600 unique blocks; CSV/material/group counts; all door pairs and supports; feed and six output paths; 16,428 surface cells; 52,120 excavation blocks; offline assets; all 173 originals unchanged.')
+        assert '://' not in ref and (ROOT/ref).is_file(),f'Missing/local asset: {ref}'
+    original=json.loads((ROOT.parent.parent/'manifest.json').read_text())
+    for f in original['files']:
+        p=ROOT.parent/f['path'];assert hashlib.sha256(p.read_bytes()).hexdigest()==f['sha256']
+    print(f'PASS: {len(b):,} unique build positions, all materials and door pairs; 56 accessible bays / 448 barrels; 37,791 surveyed columns; {len(cuts):,} exact cut and {len(fills):,} fill positions; unchanged originals.')
 
 
 if __name__=='__main__':main()

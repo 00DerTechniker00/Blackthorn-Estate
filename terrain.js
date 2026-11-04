@@ -1,49 +1,45 @@
-
+/* Original, target and cut/fill maps all use the exact same surveyed grid. */
 (() => {
- 'use strict';
- const doc=document; const D=JSON.parse(doc.getElementById('data').textContent);
- const T=D.terrain, [x0,x1,z0,z1]=T.bounds;
- const c=doc.getElementById('geologyCanvas');const info=doc.getElementById('geologyHover');
- let ready=false,offsetX=0,offsetZ=0,zoom=5;
- const grass=['grass_block'], palette={grass_block:'#659c5c',dirt:'#896a4b',stone:'#8a8b8a',andesite:'#92918b',dripstone_block:'#756d67'};
- const cw=x1-x0+1,ch=z1-z0+1;
- const M=T.surface_blocks,H=T.heights, EX=T.excavate||[];
- const excMap=new Map(EX.map(r=>[r[0]+','+r[1],{cut:r[2],count:r[3],near:r[4]||''}]));
- const voidMap=new Map();for(const [x,z,a,b] of T.cave_spans)if(b>=99){const k=x+','+z;const v=voidMap.get(k)||[];v.push([a,b]);voidMap.set(k,v)}
- let used=doc.createElement('canvas');used.width=cw;used.height=ch;const us=used.getContext('2d');const img=us.createImageData(cw,ch);
- const hcolor=h=>{const t=Math.min(1,Math.max(0,(h-60)/70));return [Math.floor(65+130*t),Math.floor(75+110*t),Math.floor(100-55*t)]};
- function redrawMap(){
-  const mode=doc.getElementById('geologyMode').value;
-  for(let z=0;z<ch;z++)for(let x=0;x<cw;x++){
-   const id=(z*cw+x)*4,name=M[z]?.[x]||'unknown',y=H[z]?.[x]||0,worldX=x+x0,worldZ=z+z0;
-   let rgb;
-   if(mode==='height')rgb=hcolor(y);
-   else if(mode==='caves')rgb=voidMap.has(worldX+','+worldZ)?[216,99,82]:[65,84,69];
-   else if(mode==='plants')rgb=name==='grass_block'?[92,141,82]:[125,112,88];
-   else if(mode==='excavation'){ const ex=excMap.get(worldX+','+worldZ); rgb = ex ? [194,133,67] : [55,69,59]; }
-   else rgb= name==='grass_block'?[93,152,88]:name==='stone'?[142,142,143]:name==='dirt'?[142,103,75]:[119,126,120];
-   img.data.set([...rgb,255],id);
+  'use strict';
+  const $=s=>document.querySelector(s),D=JSON.parse($('#data').textContent),T=D.terrain;
+  const [x0,x1,z0,z1]=T.bounds,w=x1-x0+1,h=z1-z0+1;
+  const canvas=$('#geologyCanvas'),ctx=canvas.getContext('2d'),bitmap=document.createElement('canvas');bitmap.width=w;bitmap.height=h;
+  const imageCtx=bitmap.getContext('2d'),work=new Map(T.work.map(r=>[r[0]+','+r[1],r]));
+  const palette={water:[61,121,170],grass_block:[94,141,82],stone:[128,135,137],dirt:[141,106,74],gravel:[143,138,125],stone_bricks:[151,157,155],iron_block:[206,214,210]};
+  let scale=3,ox=0,oz=0,ready=false,drag=null;
+  function redraw(){
+    const mode=$('#geologyMode').value,image=imageCtx.createImageData(w,h);
+    const min=Math.min(...T.heights.map(r=>Math.min(...r))),max=Math.max(...T.heights.map(r=>Math.max(...r)));
+    for(let z=0;z<h;z++)for(let x=0;x<w;x++){
+      const row=work.get((x+x0)+','+(z+z0)),old=T.heights[z][x],target=T.target_heights[z][x];
+      let color=palette[T.surface_blocks[z][x]]||[112,126,109];
+      if(mode==='target')color=palette[row?row[7]:T.surface_blocks[z][x]]||color;
+      if(mode==='height'){const v=(old-min)/Math.max(1,max-min);color=[65+v*145,82+v*110,135-v*70];}
+      if(mode==='earthworks')color=row?(row[4]&&row[5]?[163,122,181]:row[4]?[225,122,51]:row[5]?[56,175,163]:[176,161,99]):[47,66,53];
+      if(mode==='delta'){const diff=target-old;color=diff>0?[41,Math.min(235,100+diff*8),163]:diff<0?[Math.min(240,115-diff*6),95,49]:[56,72,60];}
+      const i=(z*w+x)*4;image.data[i]=color[0];image.data[i+1]=color[1];image.data[i+2]=color[2];image.data[i+3]=255;
+    }imageCtx.putImageData(image,0,0);draw();
   }
-  us.putImageData(img,0,0);render();
- }
- function fit(){const r=c.getBoundingClientRect();c.width=Math.max(300,Math.floor(r.width*devicePixelRatio));c.height=Math.max(240,Math.floor(r.height*devicePixelRatio));zoom=Math.min((c.width-60)/cw,(c.height-60)/ch);offsetX=(c.width-cw*zoom)/2;offsetZ=(c.height-ch*zoom)/2;render()}
- function render(){if(!ready)return;const ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);ctx.imageSmoothingEnabled=false;ctx.drawImage(used,offsetX,offsetZ,cw*zoom,ch*zoom);
-  const rect=(xa,za,xb,zb,color)=>{ctx.strokeStyle=color;ctx.lineWidth=Math.max(2,devicePixelRatio);ctx.strokeRect(offsetX+(xa-x0)*zoom,offsetZ+(za-z0)*zoom,(xb-xa+1)*zoom,(zb-za+1)*zoom)};
-  rect(-742,747,-637,833,'#e2c695');rect(-646,787,-629,800,'#68c7ed');rect(-746,779,-723,810,'#9facff');
-  if(doc.getElementById('geologyMode').value==='excavation'){ ctx.fillStyle='rgba(194,133,67,.35)'; for(const r of EX){ const xx=offsetX+(r[0]-x0)*zoom, zz=offsetZ+(r[1]-z0)*zoom; ctx.fillRect(xx,zz,zoom,zoom);} }
-  ctx.fillStyle='#f4e8c8';ctx.font=Math.max(11,11*devicePixelRatio)+'px sans-serif';ctx.fillText('Eingang / Plateau →',Math.max(4,offsetX+105*zoom),Math.max(18,offsetZ+16*zoom));ctx.fillText('← Klippe / Pool',Math.max(4,offsetX+5),Math.max(18,offsetZ+32*zoom));
- }
- function hit(evt){const r=c.getBoundingClientRect();let px=(evt.clientX-r.left)/r.width*c.width,pz=(evt.clientY-r.top)/r.height*c.height;const i=Math.floor((px-offsetX)/zoom),j=Math.floor((pz-offsetZ)/zoom);if(i<0||i>=cw||j<0||j>=ch){info.textContent='Außerhalb des vermessenen Bereichs';return}const x=i+x0,z=j+z0,name=M[j][i],y=H[j][i];const v=voidMap.get(x+','+z)||[]; const ex=excMap.get(x+','+z); info.innerHTML=`<b>X=${x}, Z=${z}</b> · Oberster Bodenblock: <b>minecraft:${name}</b> bei <b>Y=${y}</b>. ${ex?`<br><b>Aushub:</b> bis Y=${ex.cut}, ca. ${ex.count} Blöcke in dieser Spalte${ex.near?` · nahe ${ex.near}`:''}.`:''} ${v.length?'<br>Luftspalten: '+v.map(a=>a.join('–')).join(', ')+' (weitere in CSV)':'<br>Keine hohen Luftspalten in der gezeigten Prüfkategorie.'}`;}
- let down=null;doc.getElementById('geologyMode').addEventListener('change', redrawMap);doc.getElementById('geologyReset').onclick=fit;c.addEventListener('pointerdown',e=>{down=[e.clientX,e.clientY,offsetX,offsetZ];c.setPointerCapture(e.pointerId)});
- c.addEventListener('pointermove',e=>{if(down){offsetX=down[2]+(e.clientX-down[0])*c.width/c.clientWidth;offsetZ=down[3]+(e.clientY-down[1])*c.height/c.clientHeight;render()}else hit(e)});
- c.addEventListener('pointerup',()=>{down=null});c.addEventListener('pointercancel',()=>{down=null});
- c.addEventListener('wheel',e=>{e.preventDefault();const next=Math.max(.8,Math.min(20,zoom*(e.deltaY<0?1.13:.88)));const rect=c.getBoundingClientRect(),mx=(e.clientX-rect.left)/rect.width*c.width,my=(e.clientY-rect.top)/rect.height*c.height;const a=(mx-offsetX)/zoom,b=(my-offsetZ)/zoom;zoom=next;offsetX=mx-a*zoom;offsetZ=my-b*zoom;render()},{passive:false});
- doc.getElementById('geologyMode').addEventListener('change',redrawMap);doc.getElementById('geologyReset').addEventListener('click',fit);
- const mc=Object.entries(T.surface_stats).sort((a,b)=>b[1]-a[1]).slice(0,8);
- const pc=Object.entries(T.vegetation_stats).sort((a,b)=>b[1]-a[1]).slice(0,7);
- doc.getElementById('geologyMaterials').innerHTML='<p><b>Bodenmaterialien:</b> '+mc.map(([n,v])=>`<code>${n}</code>: ${v.toLocaleString('de-DE')}`).join(', ')+'</p><p><b>Vegetation oberhalb des Bodens:</b> '+pc.map(([n,v])=>`<code>${n}</code>: ${v.toLocaleString('de-DE')}`).join(', ')+'</p>';
- // Original tabs are powered by existing script; initialize only when visible.
- function onTab(){if(!doc.getElementById('tab-terrain').classList.contains('on'))return;if(!ready){ready=true;fit();redrawMap()}else fit()}
- doc.querySelectorAll('[data-tab="terrain"]').forEach(btn=>btn.addEventListener('click',()=>setTimeout(onTab,0)));
- window.addEventListener('resize',()=>{if(ready&&doc.getElementById('tab-terrain').classList.contains('on'))fit()});
+  function fit(){const rect=canvas.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1);canvas.width=Math.max(300,Math.round(rect.width*dpr));canvas.height=Math.max(280,Math.round(rect.height*dpr));scale=Math.min((canvas.width-60)/w,(canvas.height-60)/h);ox=(canvas.width-w*scale)/2;oz=(canvas.height-h*scale)/2;draw();}
+  function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.imageSmoothingEnabled=false;ctx.drawImage(bitmap,ox,oz,w*scale,h*scale);
+    const rect=(a,b,c,d,color)=>{ctx.strokeStyle=color;ctx.lineWidth=2;ctx.strokeRect(ox+(a-x0)*scale,oz+(b-z0)*scale,(c-a+1)*scale,(d-b+1)*scale);};
+    rect(-725,749,-641,831,'#e8d6ae');rect(-722,766,-670,814,'#c9ba8e');
+    ctx.strokeStyle='#f0d398';ctx.lineWidth=2;ctx.beginPath();T.waypoints.forEach(([x,z],i)=>ctx[i?'lineTo':'moveTo'](ox+(x-x0+.5)*scale,oz+(z-z0+.5)*scale));ctx.stroke();
+    ctx.fillStyle='#e9eadb';ctx.font='13px system-ui';ctx.fillText('Norden ↑ · Westen ← X → Osten · Z nach Süden',12,20);
+  }
+  function coordinates(e){const r=canvas.getBoundingClientRect(),px=(e.clientX-r.left)*canvas.width/r.width,pz=(e.clientY-r.top)*canvas.height/r.height;return {px,pz,x:Math.floor((px-ox)/scale)+x0,z:Math.floor((pz-oz)/scale)+z0};}
+  function hover(e){const {x,z}=coordinates(e);if(x<x0||x>x1||z<z0||z>z1)return;
+    const row=work.get(x+','+z),old=T.heights[z-z0][x-x0],target=T.target_heights[z-z0][x-x0];
+    $('#geologyHover').textContent=`X ${x} / Z ${z} · Ist-Boden Y ${old} (${T.surface_blocks[z-z0][x-x0]}) · Soll-Boden Y ${target}`+
+      (row?` · ${row[6]} · ${row[4]} Blöcke abtragen · ${row[5]} Blöcke auffüllen`:' · Gelände unverändert');
+  }
+  $('#geologyMode').onchange=redraw;$('#geologyReset').onclick=fit;
+  canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);drag=[e.clientX,e.clientY,ox,oz];});
+  canvas.addEventListener('pointermove',e=>{if(drag){ox=drag[2]+(e.clientX-drag[0])*canvas.width/canvas.clientWidth;oz=drag[3]+(e.clientY-drag[1])*canvas.height/canvas.clientHeight;draw();}else hover(e);});
+  canvas.addEventListener('pointerup',e=>{drag=null;hover(e);});canvas.addEventListener('pointercancel',()=>{drag=null;});
+  canvas.addEventListener('wheel',e=>{e.preventDefault();const {px,pz}=coordinates(e),next=Math.min(35,Math.max(.5,scale*(e.deltaY<0?1.12:.89)));const x=(px-ox)/scale,z=(pz-oz)/scale;scale=next;ox=px-x*scale;oz=pz-z*scale;draw();},{passive:false});
+  function visible(){if(!$('#tab-terrain').classList.contains('on'))return;if(!ready){ready=true;fit();redraw();}else fit();}
+  window.addEventListener('bt:tab',visible);
+  window.addEventListener('resize',()=>{if(ready)visible();});
+  if(location.hash==='#terrain')setTimeout(visible,0);
 })();

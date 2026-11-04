@@ -74,14 +74,15 @@ function environment(storage=new Map(),webgl=true){
   const context=vm.createContext(global);
   for(const name of ['progress','app','steps','terrain','system']){
     let source=fs.readFileSync(path.join(root,name+'.js'),'utf8');
-    if(name==='app')source=source.replace(/\}\)\(\);\s*$/,`window.testHooks={renderMat,renderCoord,renderBuild,PHASES,rayBlock,cameraBasis,viewProjection,buildModel,predNow,getGL:()=>GL};})();`);
+    if(name==='app')source=source.replace(/\}\)\(\);\s*$/,`window.testHooks={renderMat,renderCoord,renderBuild,PHASES,rayBlock,cameraBasis,viewProjection,buildModel,buildTerrain,predNow,getGL:()=>GL};})();`);
     vm.runInContext(source,context,{filename:name+'.js'});
   }
   return {context,document,storage,downloads,runTimers(){while(timers.length)timers.shift()();},frame(){frames.shift()?.();},stats:()=>({drawCalls,uploadedFloats})};
 }
 
+async function main(){
 const env=environment(),{context:c,document:doc}=env;
-check(doc.getElementById('st-blocks').textContent==='78.600','Overview initializes');
+check(doc.getElementById('st-blocks').textContent===blueprint.meta.total.toLocaleString('de-DE'),'Overview initializes');
 check(doc.querySelector('.tab.on').attrs.id==='tab-overview','Initial overview selected');
 for(const button of doc.querySelectorAll('#tabs button')){
   button.click();env.runTimers();env.frame();
@@ -89,6 +90,23 @@ for(const button of doc.querySelectorAll('#tabs button')){
 }
 check(env.stats().uploadedFloats>1000000,'Real block and terrain geometry uploaded with finite coordinates');
 check(env.stats().drawCalls>0,'3D render path draws geometry');
+const stateControl=doc.getElementById('terrainState');
+for(const mode of ['original','target','work']){
+  stateControl.value=mode;const oldFloats=env.stats().uploadedFloats;stateControl.dispatchEvent({type:'change'});
+  check(env.stats().uploadedFloats>oldFloats,'Terrain geometry rebuild: '+mode);
+  const geometry=c.testHooks.buildTerrain();
+  const k=((760-blueprint.terrain.bounds[2])*(blueprint.terrain.bounds[1]-blueprint.terrain.bounds[0]+1)+(-720-blueprint.terrain.bounds[0]));
+  // Locate this surveyed top quad by its coordinates, independent of face ordering.
+  let topY=null;for(let i=0;i<geometry.p.length;i+=12){const p=geometry.p.slice(i,i+12);
+    if(p[0]===-720&&p[2]===-760&&p[1]===p[4]&&p[1]===p[7]&&p[1]===p[10]){topY=p[1];break;}}
+  const grid=mode==='original'?blueprint.terrain.heights:blueprint.terrain.target_heights;
+  check(topY===grid[760-blueprint.terrain.bounds[2]][-720-blueprint.terrain.bounds[0]]+1,'Terrain source matches selected state: '+mode);
+}
+for(const mode of ['earthworks','surface','target','height','delta']){
+  const map=doc.getElementById('geologyMode');map.value=mode;map.dispatchEvent({type:'change'});
+  check(true,'Earthwork map mode runs: '+mode);
+}
+check(doc.getElementById('storageZones').querySelectorAll('article').length===56,'All warehouse and private bays appear in storage UI');
 for(const button of doc.querySelectorAll('[data-cam]')){
   button.click();const basis=c.testHooks.cameraBasis(),r=basis.right,u=basis.up,b=basis.back;
   const cross=[r[1]*u[2]-r[2]*u[1],r[2]*u[0]-r[0]*u[2],r[0]*u[1]-r[1]*u[0]];
@@ -141,3 +159,7 @@ check(noGL.document.getElementById('loading').textContent.includes('WebGL'),'No-
 noGL.document.querySelector('#tabs button[data-tab="plan"]').click();
 check(noGL.document.querySelector('.tab.on').attrs.id==='tab-plan','2D remains usable without WebGL');
 console.log(`PASS: ${checks} runtime checks for navigation, geometry, materials, phases, XYZ search, persistence and complete backup. DOM/GL adapters used; no browser/GPU verification.`);
+
+}
+export {environment};
+if(process.argv[1]===fileURLToPath(import.meta.url))await main();

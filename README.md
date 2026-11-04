@@ -1,65 +1,68 @@
-# Blackthorn Estate · Revision 5.7
+# Blackthorn Estate · Revision 5.8
 
-Lokale Weiterentwicklung der Revision 5.6. Die Originaldateien bleiben unverändert.
+`index.html` im Browser öffnen. Der Atlas und alle Vorschauen funktionieren lokal,
+ohne CDN oder Internet. Die 3D-Ansicht setzt WebGL voraus.
 
-## Öffnen
+## Was sich geändert hat
 
-`index.html` im Browser öffnen. Alle Skripte, Daten und Bilder liegen im Ordner;
-es werden keine CDN-Dateien, Konten oder Internetverbindungen benötigt.
-Für die 3D-Ansicht muss WebGL mit 32-Bit-Indexunterstützung verfügbar sein.
-Der Bauatlas benötigt keinen Server und keine Installation.
+- Ruhigeres viktorianisches Herrenhaus: niedrig gestaffelte Dachkörper, keine hohe
+  Observatoriumskuppel, niedrige Erkerhauben, durchlaufende Steingesimse und Portikus.
+- Neue Dachschalen mit Unterdeckung statt massiver Dachfüllungen. Der bestehende
+  Grundriss mit sechs Residenzen und drei Kelleretagen bleibt erhalten.
+- Keller 2: 50 Lagerbuchten mit zusammen 400 Fässern. Keller 3: sechs Privatreserven
+  mit zusammen 48 Fässern. Alle 56 Buchten mit Kategorien und echten Koordinaten.
+- Rund 221 × 171 Blöcke Originalgelände in der Umgebung. In 3D stehen
+  „Originalgelände“, „Geplantes Gelände“ und „Erdarbeiten farbig“ zur Wahl.
+  „Gesamtgelände“ bewegt die Kamera weiter nach außen.
+- Terraforming-Karte mit Ist-/Soll-Höhen, Abtrag, Auffüllung und Vegetationsräumung.
+  Zufahrt über den südöstlichen Plateaustreifen statt über die direkte östliche Hangkante.
 
-## Neu
+## Wo ihr was findet
 
-- Lokaler WebGL-Viewer mit den bestehenden Blockformen, Kameras, Schnittregler,
-  Bauteilfiltern und Blockauswahl. Hover zeigt Nummer, Blockstate und Weltkoordinaten.
-- Unterbrochene Hopperwege zur Kupfertruhe und zu sechs Bulk-Ausgängen ergänzt.
-  Verwaiste Türhälften bereinigt und die Geheimtür auf die Bodenhöhe gesetzt.
-- Materiallisten pro Baugruppe repariert; alle 35 Gruppen im Bauablauf vorhanden.
-  Wasserpositionen sind separat im Modell und werden nicht als Eimerbedarf gezählt.
-- CSV-Export berücksichtigt die gewählte X-, Y- oder Z-Schnittebene und ihren Bauteilfilter.
-- Ein gemeinsames, versioniertes Backup für Baugruppen, Personen, einzelne
-  Blockhäkchen und Lagerbestände. Blockstatus verwendet XYZ statt wechselnder Nummern.
-- 16.428 Bodenpositionen mit `mca.zip/mca/r.-2.1.mca` abgeglichen. Für die
-  übernommenen 2.988 Aushubspalten sind 52.120 vorhandene Blöcke einzeln erfasst.
-- Fehlendes Untergrundbild durch lokal erzeugten SVG-Regionschnitt ersetzt.
-- Alte Licht- und Begehbarkeitswerte nicht mehr als aktuelle Prüfung dargestellt.
+- **Übersicht:** berechnete Modellvorschau, neue Dachform und Kapazität.
+- **3D-Modell:** Gebäude, Schichten, weiter herausgezoomte Landschaft und drei Geländezustände.
+- **Lagerplanung:** alle Lagerkategorien, Koordinaten und Bestandsnotizen.
+- **Sortierkeller & Handel:** Kellerübersicht einschließlich der 50 Regallagerbuchten.
+- **Gelände & Erdarbeiten:** orange = Abtrag, türkis = Auffüllung, violett = beides,
+  ocker = Oberflächenwechsel. Hover zeigt Mengen und Weltkoordinaten.
+- **Bauplan:** vollständiges Backup von Fortschritt und Bestandsnotizen.
 
-## Fortschritt
+## Arbeitslisten
 
-Unter „Bauplan“ ein **vollständiges Backup** herunterladen. „Backup laden“ prüft
-Format und Modellfingerabdruck und ersetzt nach Bestätigung den gesamten lokalen
-Stand. Es gibt keine automatische Zusammenführung und keine Live-Synchronisierung.
-Alte nummernbasierte Fortschrittsdaten werden bewusst nicht automatisch übernommen.
-Der Browser speichert lokal; nach Umbenennen oder Verschieben des Ordners oder bei
-einem anderen Browser kann der Speicher anders zugeordnet sein. Dafür das Backup verwenden.
+`blockliste.csv` und `materialbedarf*.csv` enthalten Haus, Einrichtung und geplante
+Erdauffüllung. `auffuellung_materialien.csv` ist eine Teilmenge davon – nicht nochmals
+zur Gesamtliste addieren. Die Abtragliste enthält vorhandene Blöcke, keine Baumaterialien.
 
-## Dateien
+`terraforming.csv` beschreibt jede Arbeitsspalte, `aushub_blockliste.csv` den Abtrag,
+`auffuellung_blockliste.csv` den Auftrag und `vegetation_entfernen.csv` die separate
+Räumung von Vegetation oberhalb des Bodens. `bestandskonflikte.csv` enthält betroffene
+vorhandene Marker und gebaute Blöcke. Diese vor einer Umsetzung im Spiel prüfen.
 
-- `blockliste.csv`: 78.600 eindeutige Baupositionen.
-- `materialbedarf.csv`, `materialbedarf_baugruppen.csv`: aus dem Modell abgeleitete Itemmengen.
-- `aushub.csv`: Spalten und Mengen vorhandener Blöcke im mitgelieferten Weltstand.
-- `aushub_blockliste.csv`, `aushub_materialien.csv`: vorhandene Einzelblöcke und Materialsumme.
-- `aenderungen_5.6_zu_5.7.csv`: jede geänderte Koordinate mit vorherigem und neuem Zustand.
-- `blueprint.json`: lesbarer Zugang zum vollständigen Datenmodell.
-- `analysebericht.md`, `check_report.json`: Befunde und Prüfgrenzen.
-- `pruefprotokoll.json`: ausgeführte Prüfungen und ausdrücklich offene Sicht-/Ingame-Tests.
+`lagerbuchten.csv` enthält die tatsächlichen Fasspositionen als Buchtenübersicht;
+alle Einzelbehälter stehen zusätzlich in `blueprint.json` und der Blockliste.
 
-## Reproduzieren und prüfen
-
-Benötigt Python 3.10+ und für die JavaScript-Prüfung Node.js 18+.
-Die Skripte benötigen keine zusätzlichen Pakete.
+## Prüfungen
 
 ```sh
-python tools/build_revision.py
+python tools/model.py
+python tools/web.py
 python tools/validate.py
 node tools/test_app.mjs
 ```
 
-Der Generator liest standardmäßig den benachbarten Ordner
-`Blackthorn-Estate-Revision-5.6` und das benachbarte `mca.zip`.
-Die ausgelieferte Website benötigt diese Originaldateien beim Öffnen nicht.
+Die Modell-/Webgeneratoren benötigen Python 3.10+ und die benachbarte Revision 5.7
+sowie `mca.zip`. Beim normalen Öffnen des Bauatlas werden diese Quellen nicht benötigt.
 
-Die Tests ersetzen keine Minecraft-Testwelt. Licht, Begehbarkeit, Redstone-Timing,
-Golemwege und Dachdetails sind noch im Spiel zu prüfen. Der Browser-Sichttest konnte
-in der Codex-Ausführungsumgebung wegen gesperrter Betriebssystem-Sockets nicht laufen.
+Die Vorschauen unter `assets/` stammen aus den tatsächlichen Geometrien des lokalen
+Viewers, die mit einem Software-Renderer gezeichnet wurden. Es sind keine KI-Bilder
+und keine Browser-Screenshots. Zum Neuerzeugen: `node tools/export_preview.mjs`, dann
+`python tools/render_preview.py` (dafür zusätzlich Pillow und NumPy).
+
+Der Browserstart ist in dieser Ausführungsumgebung durch gesperrte Betriebssystem-
+Sockets blockiert. Laufzeit- und Datenprüfungen ersetzen keinen Browser-/Minecraft-Test.
+Licht, Redstone, Kupfergolemwege, Dachanschlüsse und Geländestabilität sind noch im Spiel
+zu prüfen. Die neuen Lagerbuchten werden manuell befüllt; sie sind kein fertig
+verkabeltes automatisches Lagersystem.
+
+Fortschrittsdateien älterer Modelle werden wegen der Änderungen nicht automatisch
+übernommen. Revision 5.7 und alle ursprünglichen Übergabedateien bleiben erhalten.

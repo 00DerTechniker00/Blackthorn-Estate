@@ -1,13 +1,52 @@
 {
-  "revision": "5.7",
-  "date": "2026-11-04",
-  "checks": [
-    {"command": "python tools/validate.py", "result": "passed", "blocks": 78600, "original_files_unchanged": 173, "surface_positions": 16428, "excavation_positions": 52120},
-    {"command": "node tools/test_app.mjs", "result": "passed", "assertions": 126, "environment": "Node VM with DOM, 2D canvas and WebGL API adapters"},
-    {"command": "glslangValidator -S vert /tmp/blackthorn-57.vert", "result": "passed", "source": "vertex shader extracted from tools/viewer.js"},
-    {"command": "glslangValidator -S frag /tmp/blackthorn-57.frag", "result": "passed", "source": "fragment shader extracted from tools/viewer.js"}
-  ],
-  "browser_visual_test": {"result": "blocked", "reason": "Installed Chromium cannot start because operating-system socket operations are prohibited in this execution environment."},
-  "minecraft_in_game_test": {"result": "not_performed"},
-  "current_lighting_and_walkability_simulation": {"result": "not_performed"}
+  "revision": "5.8",
+  "model_fingerprint": "2c8fc67b24006f0024b9dabc129ba88307526819aa6fa7023109f420031cec81",
+  "data_and_access_validation": "passed",
+  "runtime_checks": 151,
+  "runtime_environment": "Node VM with DOM/Canvas/WebGL adapters",
+  "vertex_and_fragment_shader_compilation": "passed",
+  "software_model_previews": "generated and visually inspected",
+  "browser_visual_test": "blocked by operating-system socket restrictions",
+  "minecraft_in_game_test": "not performed",
+  "model": {
+    "version": "5.8",
+    "base": "5.7",
+    "style": "Ruhigeres viktorianisches Herrenhaus",
+    "blocks": 80889,
+    "terrain_columns": 37791,
+    "terrain_bounds": [
+      -805,
+      -585,
+      705,
+      875
+    ],
+    "excavation_blocks": 45645,
+    "fill_blocks": 16727,
+    "vegetation_clear": 743,
+    "existing_structure_conflicts": 105,
+    "roof_before": 31776,
+    "roof_after": 18783,
+    "warehouse_barrels": 400,
+    "private_barrels": 48,
+    "new_storage_slots": 12096,
+    "not_tested_in_game": true,
+    "light_simulation_current": false,
+    "walkability_simulation_current": false
+  },
+  "storage": {
+    "rack_bays": 50,
+    "private_bays": 6,
+    "new_barrels": 448,
+    "new_slots": 12096,
+    "previous_total_slots": 8586,
+    "total_slots": 18684,
+    "net_added_slots": 10098,
+    "all_containers": {
+      "barrel": 594,
+      "chest": 97,
+      "copper_chest": 1
+    },
+    "roof_before": 31776,
+    "roof_after": 18783
+  }
 }
