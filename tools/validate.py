@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent model, warehouse-access and earthwork validation for Revision 5.10."""
+"""Independent model, warehouse-access and earthwork validation for Revision 5.11."""
 import csv
 import hashlib
 import json
@@ -151,13 +151,46 @@ def main():
     for z in range(z0,z1+1):
         for x in range(x0,x1+1):
             if (x,z) not in work:assert t['heights'][z-z0][x-x0]==t['target_heights'][z-z0][x-x0]
+    # Every span and chunk total must describe the exact voxel lists, including underground cuts.
+    for kind,positions in [('cut',seen_cut),('fill',seen_fill)]:
+        expanded=set()
+        for x,z,a,c in t[kind+'_spans']:
+            assert a<=c
+            for y in range(a,c+1):assert (x,y,z) not in expanded;expanded.add((x,y,z))
+        assert expanded==positions
+    assert sum(r[3] for r in t['chunks'])==len(cuts) and sum(r[4] for r in t['chunks'])==len(fills)
+    for x,z,y,zone,top in t['landscape_plan']:
+        assert t['target_heights'][z-z0][x-x0]==y and t['target_surface_blocks'][z-z0][x-x0]==top
+        assert b[x,y,z][0]==top
+    previous=None
+    for x,z,_ in t['garden_path']:
+        y=t['target_heights'][z-z0][x-x0]
+        assert (x,y,z) in b and all((x,yy,z) not in b for yy in (y+1,y+2)),f'Garden route obstructed: {x,y,z}'
+        if previous:
+            px,pz,py=previous;assert max(abs(px-x),abs(pz-z))<=1 and abs(py-y)<=1
+        previous=x,z,y
+    for (x,y,z),(bid,st,g) in b.items():
+        if g=='gartendeko' and (bid in {'allium','oxeye_daisy','cornflower'} or bid.endswith(('_stairs','_slab')) and y in (126,129)):
+            assert (x,y-1,z) in b,f'Unattached garden furnishing {x,y,z}'
+    base_d=json.loads((ROOT.parent/'Blackthorn-Estate-Revision-5.10'/'blueprint.json').read_text());base_b={}
+    for y,z,x,n,i in base_d['runs']:
+        bid,st,gi=base_d['reg'][i]
+        for xx in range(x,x+n):base_b[xx,y,z]=(bid,st,base_d['groups'][gi])
+    for x,z,old,y,cut,fill,zone,top in base_d['terrain']['work']:
+        if zone=='Zufahrt Nordwest':assert t['target_heights'][z-z0][x-x0]==y,f'Original drive height changed {x,z}'
+    for p,r in base_b.items():
+        if r[2] not in {'terraform_auffuellung','terraform_oberflaeche','zufahrt','sockel','weg_sicherung'}:assert b.get(p)==r,f'Architecture or fixtures changed {p}'
+        elif r[2]=='weg_sicherung' and b.get(p)!=r:assert p not in b or b[p][2].startswith('terraform')
+        elif r[2]=='sockel' and b.get(p)!=r:assert p[1]==128 and b[p][0]=='grass_block' and (p[0],129,p[2]) not in base_b
+    for z in range(z0,z1+1):
+        for x in range(-655,x1+1):assert t['target_heights'][z-z0][x-x0]==base_d['terrain']['target_heights'][z-z0][x-x0]
     for ref in re.findall(r'(?:src|href)="([^"]+)"',html):
         if ref.startswith('#'):continue
         assert ref.startswith('https://www.minecraft.net/') or ('://' not in ref and (ROOT/ref).is_file()),f'Missing/local asset: {ref}'
     original=json.loads((ROOT.parent.parent/'manifest.json').read_text())
     for f in original['files']:
         p=ROOT.parent/f['path'];assert hashlib.sha256(p.read_bytes()).hexdigest()==f['sha256']
-    for version in ('5.8','5.9'):
+    for version in ('5.8','5.9','5.10'):
         base=ROOT.parent/f'Blackthorn-Estate-Revision-{version}'
         for f in json.loads((base/f'manifest_{version}.json').read_text()):assert hashlib.sha256((base/f['path']).read_bytes()).hexdigest()==f['sha256']
     print(f'PASS: {len(b):,} unique build positions, all materials and door pairs; 56 accessible bays / 448 barrels; 62,101 surveyed columns; {len(cuts):,} exact cut and {len(fills):,} fill positions; unchanged originals.')

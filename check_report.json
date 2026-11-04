@@ -1,8 +1,8 @@
 {
-  "version": "5.10",
-  "base": "5.9",
+  "version": "5.11",
+  "base": "5.10",
   "style": "Ruhigeres viktorianisches Herrenhaus",
-  "blocks": 101218,
+  "blocks": 132070,
   "terrain_columns": 62101,
   "terrain_bounds": [
     -825,
@@ -10,10 +10,10 @@
     680,
     900
   ],
-  "excavation_blocks": 48996,
-  "fill_blocks": 35018,
-  "vegetation_clear": 1404,
-  "existing_structure_conflicts": 9,
+  "excavation_blocks": 51114,
+  "fill_blocks": 61021,
+  "vegetation_clear": 3097,
+  "existing_structure_conflicts": 165,
   "roof_before": 18783,
   "roof_after": 19155,
   "warehouse_barrels": 400,
@@ -33,5 +33,12 @@
   "target_minecraft": "26.3",
   "lighting_extra_excavation": 1,
   "lighting_attachments_checked": true,
-  "lighting_total": 236
+  "lighting_total": 236,
+  "landscape": {
+    "columns": 7819,
+    "decor_blocks": 292,
+    "eastern_ravine_preserved": true,
+    "soil_skin_layers": 3,
+    "removed_redundant_guard_posts": 54
+  }
 }

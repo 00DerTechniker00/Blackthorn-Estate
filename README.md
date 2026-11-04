@@ -1,36 +1,44 @@
-# Blackthorn Estate · Revision 5.10
+# Blackthorn Estate · Revision 5.11
 
-`index.html` im Browser öffnen. Die Website funktioniert ohne Server und ohne Internet. Revision 5.9 und die Originalwelt wurden nicht verändert.
+`index.html` im Browser öffnen. Die Website funktioniert lokal und offline. Originalwelt und frühere Revisionen bleiben unverändert.
 
-Die fünf Hauptbereiche führen direkt zur jeweiligen Aufgabe:
+## Terraforming ansehen
 
-- **Start:** kurze Übersicht und Einstieg in Haus, Gelände oder Lager.
-- **Bauatlas:** 3D-Modell, Ebenenplan, Baubegleitung, Raumbuch und Leuchtenplan. In 3D lassen sich Etagen direkt auswählen und weitere Filter bei Bedarf aufklappen.
-- **Gelände:** Ist-/Soll-Karte mit Koordinaten und Arbeitsmengen. Messdetails sind einklappbar.
-- **Lager:** durchsuchbare Tabelle der 56 Lagerbuchten sowie eine eigene Technikansicht.
-- **Organisation:** Baufortschritt in aufklappbaren Phasen, Materialbedarf und alle Arbeitsdateien.
+Unter **Gelände** stehen die neuen Werkzeuge zusammen:
 
-Auf schmalen Bildschirmen öffnet „Bereiche“ die Navigation. Der Schalter „Darstellung wechseln“ wählt ein helles oder dunkles Design.
+- **Vorher ↔ Nachher:** Regler verschieben, um Originalwelt und geplante Oberfläche zu vergleichen.
+- **Abtrag & Auffüllung:** Orange bedeutet Abtrag, Türkis Auffüllung, Violett beides in derselben Spalte. Erdarbeiten unterhalb der Oberfläche werden ebenfalls berücksichtigt.
+- **Spalte auswählen:** Karte anklicken oder X/Z eingeben. Rechts stehen Ist-/Sollhöhe, tatsächliche Abtrags-/Auffüllmengen und alle betroffenen Y-Bereiche. Die Auswahl bleibt beim Verschieben erhalten.
+- **Geländeprofil:** West–Ost oder Nord–Süd wählen. Grau zeigt die Originalhöhe, Grün die Planung. Das Profil enthält die Kellerbaugrube; es stellt keine Gebäude oder Höhlen dar.
+- **Gelände ohne Haus in 3D:** Erdoberfläche und farbige Arbeitsbereiche frei ansehen. Im Bauatlas schaltet „Haus & Deko“ das Gebäude wieder hinzu.
+- **Arbeitsabschnitte:** Aufklappbare Chunk-Tabelle mit exakten Mengen und Kartenverknüpfung. Das Vergleichsbild kann separat geöffnet oder ausgedruckt werden.
 
-## Laternen
+## Begrünung und Außenanlagen
 
-236 Leuchten ersetzen die bisherige Verteilung mit 414 Leuchten. Die 211 automatisch ergänzten Boden- und Langkettenleuchten wurden entfernt und durch 33 gezielte Deckenleuchten ergänzt. Geplante Kronleuchter und Terrassenleuchten bleiben erhalten. Keine Aufhängung braucht mehr als zwei Kettenblöcke.
+7.819 Geländespalten wurden gestaltet. Breitere, mit Erde und Gras bedeckte Böschungen vermitteln zwischen Sockel, Vorplatz, Gartenwegen und Landschaft. 148 freiliegende Sockel-Abdeckblöcke außerhalb der Hausfläche wurden durch Gras ersetzt. 54 alte, im neu gestalteten Gelände überflüssige oder überdeckte Mauerpfosten wurden entfernt. Die übrigen Stützen und nötigen Wegeinfassungen bleiben erhalten. Die östliche Schlucht wurde nicht aufgefüllt.
 
-Unter **Bauatlas → Leuchtenplan** kann jede Laterne gesucht und nach Höhe oder Montageart gefiltert werden. „3D“ zeigt Leuchte, Kette und Träger isoliert; „Ganzes Haus“ stellt das Modell wieder her. „Plan“ öffnet ihre Position im Ebenenplan. Metallrahmen, Leuchtkern, Bügel und Anschluss sind separat modelliert. `laternen_pruefung.csv` führt alle tatsächlichen Positionen und Träger auf.
+Der Ankunftsgarten erhält Formschnittinseln, Margeriten und zwei Holzbänke. Ein Kiesweg führt um die Westseite zum Südgarten mit niedrigen Hecken, weißen/lila/blauen Blüten, weiteren Bänken und einem offenen Holzpavillon mit Kupferhaube. Beide Bereiche lassen sich direkt aus der Geländeansicht in 3D öffnen. Sämtliche Dekorationen sind reale Blockpositionen, keine nur gezeichneten Bildzusätze.
 
-Die Befestigungen sind am Blockmodell geprüft. Eine Licht-/Spawn-Simulation und ein Minecraft-/Paper-Test stehen aus.
-
-## Fortschritt übernehmen
-
-Unter **Organisation → Fortschritt** vollständiges Backup exportieren oder importieren. Ein unverändertes 5.9-Backup wird erkannt: unveränderte Blockhäkchen, Zuständigkeiten und Lagerbestände bleiben erhalten; geänderte Leuchtenpositionen und die Fertigmeldung der Baugruppe „Beleuchtung“ bleiben offen. Der alte Browser-Speicher wird nicht überschrieben. Wenn beide lokalen Seiten denselben Browser-Speicher nutzen, wird der Stand auch automatisch übernommen. Andernfalls das Backup importieren.
+Die breiten Böschungen erhöhen die Auffüllmenge gegenüber 5.10 um **26.003 Blöcke**: insgesamt **61.021 Auffüll- und 51.114 Abtragspositionen**. Die zusätzliche Erde ist bewusst für weichere Übergänge eingeplant. Erde/Gras dürfen nicht durch sichtbaren Bruchstein ersetzt werden, wenn die dargestellte Oberfläche erreicht werden soll. Unter bestehenden tragenden Bauteilen bleiben diese Bauteile erhalten.
 
 ## Arbeitsdateien
 
-`blockliste.csv`, `materialbedarf.csv` und `materialbedarf_baugruppen.csv` entsprechen dem aktuellen Modell. `aenderungen_5.9_zu_5.10.csv` enthält 447 geänderte Positionen ausschließlich der Beleuchtung. `terraforming.csv` und die Abtrag-/Auffülllisten enthalten auch den einen zusätzlich auszubauenden Steinblock für eine neue Deckenleuchte. Auffüllblöcke sind bereits Teil der Baumaterialien, nicht nochmals addieren.
+- `terraforming.csv`: jede Arbeitsspalte mit Ist-/Sollhöhe und Mengen.
+- `terraforming_chunks.csv`: Abschnittssummen je Minecraft-Chunk.
+- `aushub_blockliste.csv`, `auffuellung_blockliste.csv`: genaue Einzelpositionen. Austausch von Stein gegen Erde ist als Abtrag und Baublock erfasst; er erscheint nicht als Auffüllung über der ursprünglichen Bodenhöhe.
+- `vegetation_entfernen.csv`, `bestandskonflikte.csv`: Räumung und vorhandene Bauten prüfen.
+- `blockliste.csv`, `materialbedarf.csv`, `materialbedarf_baugruppen.csv`: vollständiges Modell und Material. Auffüllblöcke sind hierin bereits enthalten, nicht nochmals addieren.
+- `aussendekoration.csv`: Außenbereiche mit Koordinaten und Beschreibung.
+- `aenderungen_5.10_zu_5.11.csv`: 41.788 geänderte Positionen gegenüber 5.10.
+- `assets/terraforming_vergleich.png`: aus den tatsächlichen Daten berechneter Geländeplan.
 
-Der Architektur- und Lagerentwurf aus 5.9 bleibt erhalten: Pool im Osten, Eingang im Westen, Zufahrt aus Nordwesten. Die Lagerautomatik ist weiterhin ein unvollständiger Schaltentwurf. Siehe [Technik und Inbetriebnahme](technik_inbetriebnahme.md).
+## Fortschritt und bisherige Funktionen
 
-## Prüfen und reproduzieren
+Die fünf Hauptbereiche, die Lagerübersicht und die Laternen-Detailansicht aus 5.10 bleiben nutzbar. Unter **Organisation → Fortschritt** kann ein vollständiges 5.10-Backup importiert werden. Unveränderte Blockhäkchen, Zuständigkeiten und Bestandsnotizen bleiben erhalten. Geänderte Positionen und betroffene Baugruppen-Fertigmeldungen werden zurückgesetzt. Wenn beide lokalen Seiten denselben Browser-Speicher nutzen, erfolgt die Übernahme automatisch; der alte Stand wird nicht überschrieben. Andernfalls bitte das Backup importieren.
+
+Die Lagerautomatik ist weiterhin ein unvollständiger Schaltentwurf. Offene Schritte stehen in [Technik und Inbetriebnahme](technik_inbetriebnahme.md).
+
+## Reproduzieren und Prüfgrenzen
 
 ```sh
 python tools/build.py
@@ -38,8 +46,11 @@ python tools/validate.py
 node tools/test_app.mjs
 node tools/export_preview.mjs
 python tools/render_preview.py
+python tools/render_terrain.py
 ```
 
-Der Generator benötigt die benachbarte Revision 5.9 und `mca.zip`; die unabhängige Prüfung zusätzlich die bisherigen Originalmanifeste und Revision 5.8. Die Vorschauen benötigen Pillow und NumPy. Zum normalen Öffnen ist davon nichts nötig.
+Der Modellgenerator benötigt Revision 5.10 und die benachbarte `mca.zip`. Der Webgenerator verwendet zusätzlich die bewährten UI-Grundlagen aus 5.9. Die unabhängige Prüfung kontrolliert auch die bisherigen Manifeste und Revision 5.8. Die Bildwerkzeuge benötigen Pillow/NumPy; zum Öffnen der Website sind keine Zusatzprogramme nötig.
 
-295 Laufzeitprüfungen verwenden DOM-/WebGL-Adapter. GLSL-Shader, HTML-Struktur, Modellmengen, Listen, Türen, Lagerzugänge und Befestigungen wurden zusätzlich geprüft. Ein echter Browser-/GPU-Sichttest ist hier wegen gesperrter Betriebssystem-Sockets nicht möglich. Die Bilder unter `assets/` sind aus der tatsächlichen Viewer-Geometrie berechnete Modellvorschauen.
+Die Modellprüfung gleicht Einzelpositionen mit den Originalregionen ab. 316 Laufzeitprüfungen verwenden DOM-/Canvas-/WebGL-Adapter, einschließlich Spaltenauswahl, Vergleichsregler, Profil, Chunk-Filter und 3D-Sichtbarkeit. HTML, CSS-Klammern, JavaScript-Syntax und beide GLSL-Shader wurden zusätzlich geprüft.
+
+Ein echter Browser-/GPU-Sichttest ist wegen gesperrter Betriebssystem-Sockets nicht möglich. Die Vorschauen sind aus der tatsächlichen Viewer-Geometrie berechnete Software-Renderings. Ingame-Test, Licht-/Spawn-Simulation und eine vollständige Spieler- oder Redstone-Simulation stehen aus. Ausgeführte Prüfungen stehen in `pruefprotokoll.json`.

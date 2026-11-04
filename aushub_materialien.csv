@@ -1,9 +1,10 @@
 ﻿Ist-Material;Bloecke
-stone;34044
-dirt;10124
-grass_block;3174
+stone;34081
+dirt;10126
+grass_block;5097
 gravel;855
 coal_ore;439
+iron_block;164
 iron_ore;139
 andesite;59
 allium;41
@@ -11,5 +12,5 @@ water;32
 wildflowers;30
 short_grass;30
 emerald_ore;17
-iron_block;9
 copper_ore;3
+beacon;1

@@ -11,7 +11,7 @@ for(const layer of Object.values(layers))for(const [key,B] of Object.entries(lay
 }
 const terrain=hooks.buildTerrain();
 for(let i=0;i<terrain.p.length;i+=12)faces.push([terrain.p.slice(i,i+12),terrain.c.slice(i,i+3),1]);
-fs.writeFileSync('/tmp/blackthorn-510-geometry.json',JSON.stringify(faces));
+fs.writeFileSync('/tmp/blackthorn-511-geometry.json',JSON.stringify(faces));
 console.log('Geometry exported:',faces.length,'quads');
 
 for(const [name,fixture] of [
@@ -24,5 +24,5 @@ for(const [name,fixture] of [
     if(key==='caps')continue;
     for(let i=0;i<B.p.length;i+=12)detail.push([B.p.slice(i,i+12),B.c.slice(i,i+3),key==='glass'?.48:1]);
   }
-  fs.writeFileSync(`/tmp/blackthorn-510-${name}.json`,JSON.stringify({faces:detail,fixture}));
+  fs.writeFileSync(`/tmp/blackthorn-511-${name}.json`,JSON.stringify({faces:detail,fixture}));
 }

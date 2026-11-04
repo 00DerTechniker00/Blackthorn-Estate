@@ -1,70 +1,93 @@
 {
-  "revision": "5.10",
-  "base_revision": "5.9",
-  "checked_at": "2026-11-04T20:20:20.859120+00:00",
+  "revision": "5.11",
+  "base_revision": "5.10",
+  "checked_at": "2026-11-04T20:54:50.371213+00:00",
   "status": "PASS für die aufgeführten Prüfungen",
   "runtime": {
     "command": "node tools/test_app.mjs",
-    "checks_passed": 295,
+    "checks_passed": 316,
     "environment": "DOM/Canvas/WebGL adapters; no real browser or GPU",
     "coverage": [
-      "navigation and hash routes",
-      "mobile menu state",
-      "lantern list filters and isolated 3D detail",
-      "model geometry and camera math",
-      "material totals and exports",
-      "block progress and phase state",
-      "backup validation and import",
-      "5.9 migration preserves unchanged progress and original storage",
-      "warehouse notes and quantities"
+      "navigation and mobile menu",
+      "material and block geometry",
+      "progress and backup migration from 5.10",
+      "persistent terrain-column selection and coordinate form",
+      "before/after slider and matching legend",
+      "west/east and north/south profile",
+      "chunk table and filters",
+      "actual 3D building visibility",
+      "garden focus actions",
+      "lantern detail view",
+      "warehouse notes and counts"
     ]
   },
   "model": {
     "command": "python tools/validate.py",
     "passed": true,
-    "unique_positions": 101218,
-    "fingerprint": "865ce72a2ee6586b1745bdd33ac41f0451dde764cdfc586f3748317eddf7ce8b",
+    "unique_positions": 132070,
+    "fingerprint": "012838e103c719792021a719345c6f6e4e229802a30748c3d1c6a4aa565a9f0e",
+    "landscape_columns": 7819,
+    "decoration_blocks": 292,
+    "exact_cut_positions": 51114,
+    "exact_fill_positions": 61021,
+    "exact_spans_and_chunk_totals": true,
+    "new_path_has_two_blocks_headroom": true,
+    "new_path_max_height_step": 1,
+    "garden_furnishings_supported": true,
+    "original_drive_heights_preserved": true,
+    "eastern_terrain_unchanged": true,
+    "architecture_storage_and_lanterns_preserved_except_documented_caps_and_guards": true,
     "lanterns": 236,
-    "max_chain_blocks": 2,
-    "all_lantern_attachments_checked": true,
     "accessible_bays": 56,
     "rack_private_barrels": 448,
     "terrain_columns": 62101,
-    "exact_cut_positions": 48996,
-    "exact_fill_positions": 35018,
-    "pool_route_and_stairs_clear": true,
-    "all_model_lists_and_embedded_data_match": true,
-    "originals_and_revisions_5_8_5_9_unchanged": true
+    "original_files_and_revisions_5_8_5_9_5_10_unchanged": true
   },
   "interface": {
     "html_parser": "lxml; no error/fatal messages",
-    "unique_ids": 122,
+    "unique_ids": 138,
     "primary_areas": 5,
     "views": 12,
-    "html_containers_balanced": true,
+    "containers_balanced": true,
     "css_delimiters_balanced": true,
-    "all_javascript_syntax_valid": true,
-    "glslangValidator": "both actual app shaders pass"
+    "all_js_syntax_valid": true,
+    "both_glsl_shaders_pass": true,
+    "final_map_label_contrast_adjustment": "initialization and selection checked with runtime adapter after full test suite"
   },
   "previews": {
-    "source": "actual app quads exported by tools/export_preview.mjs",
+    "geometry_export": "395056 actual app quads",
     "renderer": "Pillow/NumPy software painter",
-    "inspected_lantern_detail_images": true,
+    "inspected_model_details": [
+      "arrival court before and after softening",
+      "south garden and pavilion",
+      "overall landscape"
+    ],
+    "terrain_comparison": "actual surveyed and target grids, materials and earthwork counts",
     "browser_screenshots": false
+  },
+  "changes": {
+    "columns": 7819,
+    "decor_blocks": 292,
+    "eastern_ravine_preserved": true,
+    "soil_skin_layers": 3,
+    "removed_redundant_guard_posts": 54,
+    "changed_positions": 41788,
+    "changed_groups": [
+      "gartendeko",
+      "sockel",
+      "terraform_auffuellung",
+      "terraform_oberflaeche",
+      "weg_sicherung",
+      "zufahrt"
+    ],
+    "additional_fill_over_5_10": 26003
   },
   "limits": {
     "browser_gpu_verified": false,
-    "reason": "OS sockets blocked by sandbox; browser cannot start",
+    "reason": "OS socket creation blocked; browser cannot start",
     "minecraft_paper_in_game_verified": false,
     "light_spawn_simulation": false,
-    "whole_build_walkability_simulation": false,
+    "full_player_path_simulation": false,
     "storage_automation_complete": false
-  },
-  "changes": {
-    "group": "beleuchtung",
-    "changed_positions": 447,
-    "removed_auto_lanterns": 211,
-    "new_pendants": 33,
-    "additional_cut_positions": 1
   }
 }

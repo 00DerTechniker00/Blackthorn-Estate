@@ -9,7 +9,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT=Path(__file__).resolve().parent.parent
-faces=json.loads(Path('/tmp/blackthorn-510-geometry.json').read_text())
+faces=json.loads(Path('/tmp/blackthorn-511-geometry.json').read_text())
 points=np.array([f[0] for f in faces]).reshape(-1,4,3)
 colors=np.clip(np.array([f[1] for f in faces])*255,0,255).astype('uint8')
 alpha=np.array([round(f[2]*255) for f in faces])
@@ -36,7 +36,7 @@ def render(name,theta,phi,distance,target,width=1600,height=1000):
         draw.polygon(poly,fill=(*color,a))
     draw.rectangle((0,height-48,width,height),fill=(16,29,23,235))
     font=ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf',18)
-    draw.text((22,height-34),'BLACKTHORN ESTATE  ·  REVISION 5.10  ·  BERECHNETE MODELLVORSCHAU',font=font,fill=(232,228,211,255))
+    draw.text((22,height-34),'BLACKTHORN ESTATE  ·  REVISION 5.11  ·  BERECHNETE MODELLVORSCHAU',font=font,fill=(232,228,211,255))
     img.save(ROOT/'assets'/name)
     print('Rendered',name)
 
@@ -45,9 +45,12 @@ render('anwesen_ost.png',.42,1.02,175,[-681,137,-790])
 render('anwesen_west.png',math.pi-.42,1.02,173,[-700,135,-790])
 render('gelaende_gesamt.png',.68,.75,310,[-695,110,-790])
 
+render('ankunftsgarten.png',3.0,1.0,88,[-739,130,-790])
+render('garten_sued.png',-1.8,.95,75,[-691,126,-848])
+
 # Mount details use exactly the same isolated app geometry as the interactive view.
 for variant,label in [('pendant','Deckenleuchte mit zwei Kettenblöcken'),('standing','Sockel-/Möbelleuchte')]:
-    detail=json.loads(Path('/tmp/blackthorn-510-'+variant+'.json').read_text())
+    detail=json.loads(Path('/tmp/blackthorn-511-'+variant+'.json').read_text())
     fixture=detail['fixture'];faces=detail['faces']
     points=np.array([f[0] for f in faces]).reshape(-1,4,3)
     colors=np.clip(np.array([f[1] for f in faces])*255,0,255).astype('uint8')

@@ -20,7 +20,7 @@ for (let i = 0; i < N; i++) grid[gidx(X[i], Y[i], Z[i])] = i + 1;
 const at = (x, y, z) => (x < GX0 || y < GY0 || z < GZ0 || x >= GX0 + NX || y >= GY0 + NY || z >= GZ0 + NZ) ? -1 : grid[gidx(x, y, z)] - 1;
 
 /* ---------- Namen & Farben ---------- */
-const BASE_DE = {iron_chain:'Eisenkette',shulker_box:'Shulkerkiste',waxed_copper_chest:'Gewachste Kupfertruhe',
+const BASE_DE = {grass_block:'Grasblock',dirt:'Erde',gravel:'Kies',oak_leaves:'Eichenlaub',allium:'Sternlauch',oxeye_daisy:'Margerite',cornflower:'Kornblume',iron_chain:'Eisenkette',shulker_box:'Shulkerkiste',waxed_copper_chest:'Gewachste Kupfertruhe',
   stone_bricks: 'Steinziegel', cracked_stone_bricks: 'Rissige Steinziegel', mossy_stone_bricks: 'Bemooste Steinziegel',
   deepslate_bricks: 'Tiefenschieferziegel', cracked_deepslate_bricks: 'Rissige Tiefenschieferziegel',
   deepslate_tiles: 'Tiefenschieferfliesen', polished_deepslate: 'Polierter Tiefenschiefer',
@@ -44,7 +44,7 @@ function deName(id) {
   if (m) { const b = BASE_DE[m[1]] || BASE_DE[m[1] + 's'] || m[1].replace(/_/g, ' '); const suf = { stairs: 'Treppe', slab: 'Stufe', wall: 'Mauer', door: 'Tür' }[m[2]]; return `${b}-${suf}`; }
   return id.replace(/_/g, ' ');
 }
-const COLORS = {polished_diorite:'#d1d0c9',waxed_oxidized_cut_copper_slab:'#579989',waxed_copper_chest:'#bd7953',shulker_box:'#8d6aa1',dispenser:'#777e7b',dropper:'#777e7b',piston:'#9b8a69',redstone_block:'#af302a',redstone_wall_torch:'#bc4e2d',iron_chain:'#3a3c42',bricks:'#986c60',polished_diorite:'#d4d5ce',waxed_oxidized_cut_copper_slab:'#5d9d88',waxed_copper_chest:'#bf7950',shulker_box:'#9567a4',piston:'#8d826c',dispenser:'#777e7c',dropper:'#777e7c',redstone_block:'#a82822',redstone_wall_torch:'#bb4c2c',
+const COLORS = {grass_block:'#689450',dirt:'#92704e',gravel:'#b3a78c',oak_leaves:'#456b36',glowstone:'#e3ba6b',allium:'#b08ac8',oxeye_daisy:'#eee8cc',cornflower:'#5a86cf',polished_diorite:'#d1d0c9',waxed_oxidized_cut_copper_slab:'#579989',waxed_copper_chest:'#bd7953',shulker_box:'#8d6aa1',dispenser:'#777e7b',dropper:'#777e7b',piston:'#9b8a69',redstone_block:'#af302a',redstone_wall_torch:'#bc4e2d',iron_chain:'#3a3c42',bricks:'#986c60',polished_diorite:'#d4d5ce',waxed_oxidized_cut_copper_slab:'#5d9d88',waxed_copper_chest:'#bf7950',shulker_box:'#9567a4',piston:'#8d826c',dispenser:'#777e7c',dropper:'#777e7c',redstone_block:'#a82822',redstone_wall_torch:'#bb4c2c',
   stone_bricks: '#8d8d8a', cracked_stone_bricks: '#82827f', mossy_stone_bricks: '#77876a', deepslate_bricks: '#4b4b52',
   cracked_deepslate_bricks: '#45454c', deepslate_tiles: '#3e3e45', polished_deepslate: '#5a5a62', spruce_planks: '#7d5e36',
   dark_oak_planks: '#4a331e', bookshelf: '#8b6a3a', glass: '#cfeaf5', glass_pane: '#bfe3f2', iron_bars: '#8e9298',
@@ -72,7 +72,7 @@ const CUSTOM = {
   grindstone: [[2, 0, 4, 14, 12, 12]], stonecutter: [[0, 0, 0, 16, 9, 16]], chest: [[1, 0, 1, 15, 14, 15]],
   composter: [[0, 0, 0, 16, 14, 16]]
 };
-function kindOf(id) {
+function kindOf(id) {if(['allium','oxeye_daisy','cornflower'].includes(id))return 'flower';
   if (id === 'water') return 'water'; if (id === 'glass') return 'glass';
   if (id.endsWith('_stairs')) return 'stairs'; if (id.endsWith('_slab')) return 'slab'; if (id.endsWith('_door')) return 'door';
   if (id === 'glass_pane' || id === 'iron_bars') return 'pane'; if (id.endsWith('_fence')) return 'fence';
@@ -106,6 +106,7 @@ const PHASES = [
   { id: 'p7', name: '7 · Terrasse & Pool', text: 'Außenanlagen mit Panorama nach Osten; niedrige Erkerhauben sind Teil des Daches.', groups: ['terrasse', 'pool', 'observatorium'] },
   { id: 'p8', name: '8 · Zusatzbeleuchtung', text: 'Gezielte Deckenleuchten mit kurzen Ketten. Bestehende Kronleuchter und Sockelleuchten bleiben erhalten; Lichtwirkung im Spiel prüfen.', groups: ['beleuchtung'] }
 ];
+GROUP_DE.gartendeko='Garten & Außendekoration';PHASES.push({id:'p9',name:'9 · Garten & Außendekoration',text:'Begrünte Böschungen zuerst; danach Hecken, Blütenbeete, Bänke und Gartenpavillon.',groups:['gartendeko']});
 const gname = g => GROUP_DE[g] || g;
 
 /* ---------- Räume ---------- */
@@ -188,7 +189,8 @@ function buildModel(pred) {
     const r = REG[R[i]], x = X[i], y = Y[i], z = Z[i];
     const L = get(y), nz = .93 + .09 * hash3(x, y, z), col = r.rgb;
     const k = r.kind;
-    if(k==='lantern'){for(const part of lanternParts(r))addBox(L.main,x,y,z,part.box,part.color,1,null);
+    if(k==='flower'){addBox(L.main,x,y,z,[7,0,7,9,9,9],[.25,.45,.16],1,null);addBox(L.main,x,y,z,[4,8,4,12,11,12],col,1,null);
+    } else if(k==='lantern'){for(const part of lanternParts(r))addBox(L.main,x,y,z,part.box,part.color,1,null);
     } else if (k === 'cube') {
       const nb = {}; for (const d of ['up', 'down', 'north', 'south', 'east', 'west']) {
         const dv = d === 'up' ? [0, 1, 0] : d === 'down' ? [0, -1, 0] : DIRV[d];
@@ -236,7 +238,7 @@ function shapeBoxes(r, x, y, z, vis) {
   if(r.kind==='lantern')return lanternParts(r).map(p=>p.box);
       if(r.id==='hopper'){const spout={down:[6,0,6,10,6,10],north:[6,4,0,10,8,6],south:[6,4,10,10,8,16],east:[10,4,6,16,8,10],west:[0,4,6,6,8,10]}[r.p.facing||'down'];return [[0,10,0,16,16,16],[4,5,4,12,10,12],spout];}
   const k = r.kind, p = r.p;
-  switch (k) {
+  switch (k) {case 'flower': return [[7,0,7,9,9,9],[4,8,4,12,11,12]];
     case 'slab': return p.type === 'top' ? [[0, 8, 0, 16, 16, 16]] : p.type === 'double' ? [[0, 0, 0, 16, 16, 16]] : [[0, 0, 0, 16, 8, 16]];
     case 'stairs': {
       const f = p.facing || 'east', top = p.half === 'top';
@@ -273,22 +275,26 @@ function shapeBoxes(r, x, y, z, vis) {
 
 /* Terrain */
 /* Full surveyed surroundings; the view mode changes only the earth surface. */
+/* Target surfaces share their actual materials with the construction lists. */
 function buildTerrain() {
   const T=D.terrain,[x0,x1,z0,z1]=T.bounds,mode=S3.terrainMode||'target';
-  const H=mode==='original'?T.heights:T.target_heights;
-  const work=new Map(T.work.map(r=>[r[0]+','+r[1],r]));
+  const H=mode==='original'?T.heights:T.target_heights,work=new Map(T.work.map(r=>[r[0]+','+r[1],r]));
   const B=mkB(),bottom=Math.min(...T.heights.map(row=>Math.min(...row)))-8;
   const height=(x,z)=>(x<x0||x>x1||z<z0||z>z1)?bottom:H[z-z0][x-x0]+1;
-  const rgb={water:[.24,.47,.66],grass_block:[.35,.52,.29],dirt:[.48,.36,.24],stone:[.49,.51,.52],stone_bricks:[.53,.55,.55],gravel:[.56,.54,.49],iron_block:[.75,.78,.77]};
+  const rgb={water:[.24,.47,.66],grass_block:[.39,.56,.31],dirt:[.52,.39,.25],stone:[.49,.51,.52],stone_bricks:[.53,.55,.55],gravel:[.67,.62,.51],iron_block:[.75,.78,.77],dark_oak_planks:[.32,.23,.14]};
   for(let z=z0;z<=z1;z++)for(let x=x0;x<=x1;x++){
     const h=height(x,z),r=work.get(x+','+z),variation=.95+.1*hash3(x,7,z);
-    let top=(rgb[mode==='original'?T.surface_blocks[z-z0][x-x0]:r?r[7]:T.surface_blocks[z-z0][x-x0]]||[.46,.49,.43]).map(v=>v*variation);
-    if(mode==='work'&&r){top=r[4]&&r[5]?[.64,.48,.71]:r[4]?[.88,.47,.20]:r[5]?[.22,.68,.64]:[.69,.63,.39];}
+    const mat=mode==='original'?T.surface_blocks[z-z0][x-x0]:T.target_surface_blocks[z-z0][x-x0];
+    let top=(rgb[mat]||[.46,.49,.43]).map(v=>v*variation);
+    if(mode==='work'&&r)top=r[4]&&r[5]?[.65,.48,.73]:r[4]?[.90,.51,.23]:r[5]?[.21,.67,.64]:[.73,.68,.41];
     addFace(B,'up',[x,0,z,x+1,h,z+1],top,1);
-    for(const direction of ['north','south','east','west']){
-      const v=DIRV[direction],neighbour=height(x+v[0],z+v[2]);
-      if(neighbour<h){const side=mode==='work'&&r?top:mode!=='original'&&r&&r[6]==='Hausunterbau'?[.34,.36,.39]:[.43*variation,.40*variation,.34*variation];
-        addFace(B,direction,[x,neighbour,z,x+1,h,z+1],side,1);}
+    for(const dir of ['north','south','east','west']){
+      const v=DIRV[dir],neighbour=height(x+v[0],z+v[2]);
+      if(neighbour<h){
+        const side=mode==='work'&&r?top:[.45*variation,.35*variation,.24*variation];
+        addFace(B,dir,[x,neighbour,z,x+1,h,z+1],side,1);
+        if(mat==='grass_block'&&mode!=='work')addFace(B,dir,[x,Math.max(neighbour,h-.18),z,x+1,h,z+1],top,.9);
+      }
     }
   }
   return B;
@@ -379,7 +385,7 @@ function resize3d() {
   cv.width=Math.max(1,Math.round(st.clientWidth*ratio)); cv.height=Math.max(1,Math.round(st.clientHeight*ratio));
   GL.gl.viewport(0,0,cv.width,cv.height); GL.dirty=true;
 }
-function predNow() { return i=>(!S3.isolate||S3.isolate.has(i))&&!S3.hidden.has(REG[R[i]].gi) && !['terraform_auffuellung','terraform_oberflaeche','zufahrt'].includes(REG[R[i]].g); }
+function predNow() { return i=>!S3.terrainOnly&&(!S3.isolate||S3.isolate.has(i))&&!S3.hidden.has(REG[R[i]].gi) && !['terraform_auffuellung','terraform_oberflaeche','zufahrt'].includes(REG[R[i]].g); }
 function rebuild() {
   const gl=GL.gl;
   for(const layer of Object.values(GL.meshes)) for(const mesh of Object.values(layer)) if(mesh) mesh.buffers.forEach(b=>gl.deleteBuffer(b));
@@ -484,13 +490,13 @@ $('#single').onchange = e => { S3.single = e.target.checked; if (GL) applyCut();
 $('#terrainChk').onchange = e => { S3.terrain = e.target.checked; if (GL) applyCut(); };
 $$('[data-cam]').forEach(b => b.onclick = () => { ensureGL(); if (GL && GL.meshes) { if(S3.isolate)window.__leaveFixture();preset(b.dataset.cam); } });
 $$('[data-floor]').forEach(b => b.onclick = () => { $('#cut').value = b.dataset.floor; $('#cut').oninput({ target: $('#cut') }); });
-window.__openRoom = (idx) => {
+window.__openRoom = (idx) => {S3.terrainOnly=false;$('#houseChk').checked=true;
   const r = D.rooms[idx]; showTab('3d');
   const wait = () => { if (!GL) return; if (!GL.terrain) return setTimeout(wait, 80); S3.hidden.clear(); D.groups.forEach((g, i) => { if (g !== r.group) S3.hidden.add(i); });
     $$('#groupList input').forEach(c => c.checked = !S3.hidden.has(+c.dataset.gi)); rebuild(); focusBox((r.x[0] + r.x[1]) / 2, (r.y[0] + r.y[1]) / 2, (r.z[0] + r.z[1]) / 2, Math.max(r.x[1] - r.x[0], r.z[1] - r.z[0], 20)); };
   wait();
 };
-window.__openGroup = (g) => {
+window.__openGroup = (g) => {S3.terrainOnly=false;$('#houseChk').checked=true;
   showTab('3d');
   const wait = () => { if (!GL) return; if (!GL.terrain) return setTimeout(wait, 80); S3.hidden.clear(); D.groups.forEach((gg, i) => { if (gg !== g) S3.hidden.add(i); });
     $$('#groupList input').forEach(c => c.checked = !S3.hidden.has(+c.dataset.gi)); rebuild(); const s = D.gstats[g]; focusBox((s.x[0] + s.x[1]) / 2, (s.y[0] + s.y[1]) / 2, (s.z[0] + s.z[1]) / 2, Math.max(s.x[1] - s.x[0], s.z[1] - s.z[0], 20)); };
@@ -526,7 +532,7 @@ function planCenter(x, z) {
 function shapeRects(r, mode) {
   const p = r.p, k = r.kind, sec = mode !== 'y';
   const F = [[0, 0, 1, 1]];
-  switch (k) {
+  switch (k) {case 'flower': return [[7,0,7,9,9,9],[4,8,4,12,11,12]];
     case 'stairs': {
       if (!sec) return F;
       const f = p.facing, top = p.half === 'top', along = mode === 'z' ? ['east', 'west'] : ['south', 'north'];
@@ -750,10 +756,10 @@ window.__focusBlock=(x,y,z)=>{const j=at(x,y,z);if(j<0)return false;showTab('3d'
         applyCut();focusBox(x,y+.5,z,8);GL.hl.position.set(x+.5,y+.5,-z-.5);GL.hl.visible=true;const q=describe(j);
         $('#selInfo').innerHTML=`<div class="selhead"><b>${q.title}</b></div><code>${q.id}</code><p><b>#${j+1}</b> · ${q.pos}</p><small>${REG[R[j]].props}</small>`;GL.dirty=true;};
       if(GL.terrain)ready();else setTimeout(ready,100);return true;};
-    window.__resetScene=()=>{if(!GL)return;S3.isolate=null;$('#detailBanner').hidden=true;S3.hidden.clear();$$('#groupList input').forEach(c=>c.checked=true);S3.ymax=BB[3];S3.single=false;S3.terrain=true;
+    window.__resetScene=()=>{if(!GL)return;S3.terrainOnly=false;$('#houseChk').checked=true;S3.isolate=null;$('#detailBanner').hidden=true;S3.hidden.clear();$$('#groupList input').forEach(c=>c.checked=true);S3.ymax=BB[3];S3.single=false;S3.terrain=true;
       $('#cut').value=BB[3];$('#single').checked=false;$('#terrainChk').checked=true;GL.hl.visible=false;rebuild();preset('iso');};
     window.__leaveFixture=()=>{if(!GL||!S3.isolate)return;S3.isolate=null;$('#detailBanner').hidden=true;S3.terrain=true;$('#terrainChk').checked=true;GL.hl.visible=false;rebuild();};
-    window.__focusFixture=f=>{const j=at(f.x,f.y,f.z);if(j<0)return false;showTab('3d');if(!GL)return false;
+    window.__focusFixture=f=>{S3.terrainOnly=false;$('#houseChk').checked=true;const j=at(f.x,f.y,f.z);if(j<0)return false;showTab('3d');if(!GL)return false;
       const ready=()=>{if(!GL||!GL.terrain)return;S3.hidden.clear();S3.isolate=new Set([j]);
         const a=f.anchor;for(let yy=Math.min(f.y,a[1]);yy<=Math.max(f.y,a[1]);yy++){const k=at(f.x,yy,f.z);if(k>=0)S3.isolate.add(k);}
         if(!f.hanging){for(let yy=a[1]-1;yy>=Math.max(BB[2],a[1]-2);yy--){const k=at(f.x,yy,f.z);if(k>=0)S3.isolate.add(k);}}
@@ -762,4 +768,11 @@ window.__focusBlock=(x,y,z)=>{const j=at(x,y,z);if(j<0)return false;showTab('3d'
         GL.hl.position.set(f.x+.5,f.y+.5,-f.z-.5);GL.hl.visible=true;$('#detailBanner').hidden=false;
         $('#selInfo').innerHTML=`<b>${f.id} · ${f.hanging?'Hängend':'Stehend'}</b><p>X ${f.x} / Y ${f.y} / Z ${f.z}</p><small>${f.chain} Kettenblöcke<br>Träger: ${f.anchor_block}<br>X ${a[0]} / Y ${a[1]} / Z ${a[2]}</small>`;GL.dirty=true;};
       if(GL.terrain)ready();else setTimeout(ready,100);return true;};
+$('#houseChk').onchange=e=>{S3.terrainOnly=!e.target.checked;S3.isolate=null;$('#detailBanner').hidden=true;if(GL)rebuild();};
+    window.__openTerrain=(mode='work',x=-695,z=790,only=true)=>{showTab('3d');if(!GL)return;
+      const ready=()=>{if(!GL.terrain)return;window.__resetScene();S3.terrainOnly=only;$('#houseChk').checked=!only;
+        S3.terrain=true;$('#terrainChk').checked=true;$('#terrainState').value=mode;$('#terrainState').dispatchEvent(new Event('change'));
+        rebuild();const [x0,x1,z0,z1]=D.terrain.bounds;x=Math.max(x0,Math.min(x1,x));z=Math.max(z0,Math.min(z1,z));
+        const y=D.terrain.target_heights[z-z0][x-x0]+1;focusBox(x,y,z,only?(mode==='work'?95:30):24);GL.hl.position.set(x+.5,y+.5,-z-.5);GL.hl.visible=mode!=='work';GL.cam.ph=.8;GL.dirty=true;};
+      if(GL.terrain)ready();else setTimeout(ready,100);};
 })();

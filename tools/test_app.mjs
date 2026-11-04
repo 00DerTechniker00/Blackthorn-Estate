@@ -141,6 +141,34 @@ for(const mode of ['earthworks','surface','target','height','delta']){
   const map=doc.getElementById('geologyMode');map.value=mode;map.dispatchEvent({type:'change'});
   check(true,'Earthwork map mode runs: '+mode);
 }
+// Exercise real earthwork selection, comparison, profile and model visibility.
+const earth=c.__earth,terrainData=blueprint.terrain;
+check(earth.choose(-690,843),'Garden coordinate can be selected');
+check(doc.getElementById('earthZone').textContent==='Gartenweg','Column inspector identifies the actual planned zone');
+check(doc.getElementById('earthColumn').innerHTML.includes('Y 125'),'Column inspector shows actual target elevation');
+check(doc.getElementById('earthProfile').innerHTML.includes('<polyline'),'Selected profile contains actual elevation polylines');
+const beforeAxis=doc.getElementById('earthProfile').innerHTML;doc.getElementById('earthAxis').value='z';doc.getElementById('earthAxis').dispatchEvent({type:'change'});
+check(doc.getElementById('earthProfile').innerHTML!==beforeAxis,'Profile switches between west/east and north/south');
+check(!earth.choose(-900,843)&&earth.selection().x===-690,'Out-of-range coordinates cannot change the selection');
+doc.getElementById('earthX').value='-745';doc.getElementById('earthZ').value='790';doc.getElementById('earthCoords').dispatchEvent({type:'submit',preventDefault(){}});
+check(earth.selection().x===-745&&earth.selection().z===790,'Coordinate form updates the selected column');
+doc.getElementById('geologyMode').value='compare';doc.getElementById('geologyMode').dispatchEvent({type:'change'});
+check(!doc.getElementById('compareControl').hidden,'Comparison mode exposes the split slider');
+for(const value of ['0','50','100']){doc.getElementById('earthCompare').value=value;doc.getElementById('earthCompare').dispatchEvent({type:'input'});check(true,'Comparison slider redraws at '+value);}
+doc.getElementById('geologyMode').value='earthworks';doc.getElementById('geologyMode').dispatchEvent({type:'change'});
+check(doc.getElementById('compareControl').hidden&&!doc.getElementById('earthLegend').hidden,'Earthwork mode shows the matching legend');
+check(doc.getElementById('earthChunks').querySelectorAll('tr').length===terrainData.chunks.length,'All working chunks appear');
+doc.getElementById('earthChunkFilter').value='cut';doc.getElementById('earthChunkFilter').dispatchEvent({type:'change'});
+check(doc.getElementById('earthChunks').querySelectorAll('tr').length===terrainData.chunks.filter(r=>r[3]>0).length,'Working chunks filter by real excavation totals');
+doc.getElementById('earthChunks').querySelector('[data-chunk-x]').click();check(Number.isInteger(earth.selection().x),'Chunk selection chooses a real integer world column');
+doc.getElementById('earth3d').click();env.runTimers();env.frame();
+check(doc.querySelector('.tab.on').id==='tab-3d'&&!doc.getElementById('houseChk').checked,'Earthwork action opens 3D without the building');
+check(Object.keys(c.testHooks.getGL().meshes).length===0,'Terrain-only mode actually removes building geometry');
+doc.getElementById('houseChk').checked=true;doc.getElementById('houseChk').dispatchEvent({type:'change'});
+check(Object.keys(c.testHooks.getGL().meshes).length>10,'Building visibility switch restores model geometry');
+doc.querySelector('[data-outdoor="1"]').click();env.runTimers();
+check(doc.getElementById('houseChk').checked&&doc.getElementById('terrainState').value==='target','Garden action opens the actual decorated model');
+doc.getElementById('resetScene').click();
 check(doc.getElementById('storageZones').querySelectorAll('tr').length===56,'All warehouse and private bays appear in storage UI');
 for(const amount of [0,1,1727,1728,1729,3456,5000,1000000])for(const empty of [0,1,27,81,100]){
   const r=c.Logistics.bulk(amount,empty);
@@ -199,14 +227,14 @@ await doc.getElementById('impProg').onchange({target:{files:[{size:1000,text:asy
 check(Object.keys(c.BT.state.blocks).length===0&&c.BT.state.people[who.dataset.who]==='Piet','Import replaces whole snapshot');
 check(doc.getElementById('stepRows').querySelectorAll('input').every(x=>!x.checked),'Import updates layer UI');
 const restored=environment(env.storage);check(restored.context.BT.state.people[who.dataset.who]==='Piet','Reload restores saved state');
-const legacyState={format:'blackthorn-progress',schema:1,revision:'5.9',blueprint:blueprint.progress_compat.fingerprint,state:{groups:{beleuchtung:true,res1:true},people:{res1:'Piet'},blocks:{'-672,124,791':true},inventory:{R01:'12 Stacks'}}};
+const legacyState={format:'blackthorn-progress',schema:1,revision:'5.10',blueprint:blueprint.progress_compat.fingerprint,state:{groups:{[blueprint.progress_compat.changed_groups.find(g=>g!=='gartendeko')]:true,res1:true},people:{res1:'Piet'},blocks:{'-672,124,791':true},inventory:{R01:'12 Stacks'}}};
 const changedKey=blueprint.progress_compat.changed_positions[0];legacyState.state.blocks[changedKey]=true;
 const migrated=c.BT.validate(legacyState);
-check(migrated.blocks['-672,124,791']===true&&!migrated.blocks[changedKey],'5.9 migration keeps only unchanged checked positions');
-check(migrated.groups.res1===true&&!migrated.groups.beleuchtung&&migrated.inventory.R01==='12 Stacks','5.9 migration retains unrelated work and inventory notes');
-const legacyStore=new Map([['blackthorn:5.9:progress',JSON.stringify(legacyState)]]),automatic=environment(legacyStore);
-check(automatic.context.BT.state.people.res1==='Piet'&&legacyStore.has('blackthorn:5.10:progress'),'Existing local 5.9 data is copied into new version');
-check(JSON.parse(legacyStore.get('blackthorn:5.9:progress')).state.groups.beleuchtung===true,'Migration never overwrites the original 5.9 snapshot');
+check(migrated.blocks['-672,124,791']===true&&!migrated.blocks[changedKey],'5.10 migration keeps only unchanged checked positions');
+check(migrated.groups.res1===true&&!migrated.groups[blueprint.progress_compat.changed_groups.find(g=>g!=='gartendeko')]&&migrated.inventory.R01==='12 Stacks','5.10 migration retains unrelated work and inventory notes');
+const legacyStore=new Map([['blackthorn:5.10:progress',JSON.stringify(legacyState)]]),automatic=environment(legacyStore);
+check(automatic.context.BT.state.people.res1==='Piet'&&legacyStore.has('blackthorn:5.11:progress'),'Existing local 5.10 data is copied into new version');
+check(JSON.parse(legacyStore.get('blackthorn:5.10:progress')).state.groups[blueprint.progress_compat.changed_groups.find(g=>g!=='gartendeko')]===true,'Migration never overwrites the original 5.10 snapshot');
 const noGL=environment(new Map(),false);noGL.document.querySelector('[data-tab="3d"]').click();
 check(noGL.document.getElementById('loading').textContent.includes('WebGL'),'No-WebGL fallback is visible');
 noGL.document.querySelector('[data-tab="plan"]').click();
