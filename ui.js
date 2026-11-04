@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],D=JSON.parse($('#data').textContent),safe=BT.escape;
-  const routes={overview:['start','Start'], '3d':['atlas','Bauatlas'],plan:['atlas','Ebenenplan'],steps:['atlas','Baubegleitung'],rooms:['atlas','Raumbuch'],lighting:['atlas','Leuchtenplan'],terrain:['terrain','Gelände & Erdarbeiten'],storage:['storage','Lagerbestände'],system:['storage','Sortierung & Technik'],build:['organize','Baufortschritt'],material:['organize','Materialbedarf'],downloads:['organize','Dateien & Berichte']};
+  const routes={overview:['start','Start'], '3d':['atlas','Bauatlas'],plan:['atlas','Ebenenplan'],steps:['atlas','Baubegleitung'],rooms:['atlas','Raumbuch'],viewer:['atlas','Minecraft-Texturen'],lighting:['atlas','Leuchtenplan'],terrain:['terrain','Gelände & Erdarbeiten'],storage:['storage','Lagerbestände'],system:['storage','Sortierung & Technik'],build:['organize','Baufortschritt'],material:['organize','Materialbedarf'],downloads:['organize','Dateien & Berichte']};
   const groupNames={start:'ÜBERSICHT',atlas:'BAUATLAS',terrain:'GELÄNDE',storage:'LAGER',organize:'ORGANISATION'};
   let menuOpen=false;
   function menu(open,focus=false){menuOpen=open;document.documentElement.classList.toggle('nav-open',open);$('#navScrim').hidden=!open;$('#menuButton').setAttribute('aria-expanded',String(open));$('#sidebar').inert=matchMedia('(max-width:760px)').matches&&!open;if(open)$('#tabs button').focus?.({preventScroll:true});if(!open&&focus)$('#menuButton').focus?.();}

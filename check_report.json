@@ -1,6 +1,6 @@
 {
-  "version": "5.11",
-  "base": "5.10",
+  "version": "5.12",
+  "base": "5.11",
   "style": "Ruhigeres viktorianisches Herrenhaus",
   "blocks": 132070,
   "terrain_columns": 62101,

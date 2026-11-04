@@ -1,0 +1,316 @@
+{
+  "revision": "5.12",
+  "basis": "5.11",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3136,
+      "sha256": "4d18e8255c7b2ecfee84f2bfa03952457bca851dd239bc46dcc4783eb1033c32"
+    },
+    {
+      "path": "aenderungen_5.10_zu_5.11.csv",
+      "bytes": 2272092,
+      "sha256": "89aae5b76a533507413a71d77fc486dc31239acb53dec9e2a628bc1d5b3b8d0d"
+    },
+    {
+      "path": "aenderungen_5.11_zu_5.12.csv",
+      "bytes": 72,
+      "sha256": "b502f2d50dd831020bd05f6f4a1a8c240020a980f6769092321071f2e1f0cd15"
+    },
+    {
+      "path": "analysebericht.md",
+      "bytes": 2196,
+      "sha256": "f1c05e12ea64d19d23b711a08f6eb7ef53420bdda9d8bed5cad8eb58e0244d8b"
+    },
+    {
+      "path": "app.js",
+      "bytes": 62453,
+      "sha256": "5294b7a41d20d8972bf5205c11978e5c0dc09d318fe436ae66ef3b173e62b871"
+    },
+    {
+      "path": "assets/ankunftsgarten.png",
+      "bytes": 338580,
+      "sha256": "3e2d92d135851dad3fd5e8e20d1b28552bd47ffc2874973c2ab4d5addb1b44b2"
+    },
+    {
+      "path": "assets/anwesen_ost.png",
+      "bytes": 547919,
+      "sha256": "d977be267d39bbe1684f34e156d4937be4e1c072e571928d7a7394af1dc4db26"
+    },
+    {
+      "path": "assets/anwesen_west.png",
+      "bytes": 469458,
+      "sha256": "d2738bc0a3c97211a4336b2dc38f1f17ea397aefd2c5e5384eaca2ca7bdabb9b"
+    },
+    {
+      "path": "assets/garten_sued.png",
+      "bytes": 299194,
+      "sha256": "94b0de469ff59b9fb7f907a8a7b66f7fb9544fc39eb85581c11196a1803fb493"
+    },
+    {
+      "path": "assets/gelaende_gesamt.png",
+      "bytes": 727608,
+      "sha256": "ec12362b3a23ee4138834ab3d5dabb01b62ce28e7c257b2800e28b746142aa5c"
+    },
+    {
+      "path": "assets/laterne_pendant.png",
+      "bytes": 11640,
+      "sha256": "1bdc33c7abe1bcc44ba9768a72c5ec9c7a9103bd436a5d915677e55886b00d20"
+    },
+    {
+      "path": "assets/laterne_standing.png",
+      "bytes": 12413,
+      "sha256": "d24b3f332135201b92aa5bdb03ba3018cbf5e6cacab49d779e1a61e317410926"
+    },
+    {
+      "path": "assets/terraforming_vergleich.png",
+      "bytes": 86095,
+      "sha256": "9dc72789abbfb14a9233d1f52ac16e46f69ee5058b315bcfa4add39cc8dcadff"
+    },
+    {
+      "path": "auffuellung_blockliste.csv",
+      "bytes": 2989581,
+      "sha256": "27047457a8cf97923dfab6c9faf2f6812a3687f38a0fffd748e5839e9bf679c8"
+    },
+    {
+      "path": "auffuellung_materialien.csv",
+      "bytes": 217,
+      "sha256": "94d48dab9ab02b2733bbb1a384d7a94bd3695102b36d64cca88ff3abf56cf40c"
+    },
+    {
+      "path": "aushub.csv",
+      "bytes": 179304,
+      "sha256": "d4f087da0782a9a96f9a45e0fb651635348b240212490c65c96aa792c2107c37"
+    },
+    {
+      "path": "aushub_blockliste.csv",
+      "bytes": 2345043,
+      "sha256": "134f5d4e3c2447e066a2361b0b1c25a4e65ef362568e7b485b38ad819498b919"
+    },
+    {
+      "path": "aushub_materialien.csv",
+      "bytes": 230,
+      "sha256": "be8d013cf8dd5c5e8c32b82f87dea9b6a1e1074715c8f78cfb0dc68c46c53dd0"
+    },
+    {
+      "path": "aussendekoration.csv",
+      "bytes": 274,
+      "sha256": "452ff66b4a52d97220fb971f0ee304ca36e61eaf2349c721eb83e04c6ebfeebb"
+    },
+    {
+      "path": "bestandskonflikte.csv",
+      "bytes": 9036,
+      "sha256": "c858c1ef8dcf48a1c27386ef8511902d41ea4aada3d412e9df175ae8733ec788"
+    },
+    {
+      "path": "blackthorn_estate_5.12.nbt",
+      "bytes": 390016,
+      "sha256": "d8a8b80e0a3c9373ca496b2324a81c7acc0557161cbcfa45eb7914a10015967a"
+    },
+    {
+      "path": "blockliste.csv",
+      "bytes": 8224263,
+      "sha256": "2851e3ff251fafcc1dd6366d2bbf5a16b4cfe4d8e70f1db1c231f3ec2d78cb70"
+    },
+    {
+      "path": "blueprint.json",
+      "bytes": 4866063,
+      "sha256": "d1f45146bf09236255d43b3e684f1e5a9b5946d477074aee062ac2539c406433"
+    },
+    {
+      "path": "check_report.json",
+      "bytes": 1164,
+      "sha256": "896c65316b24f548d42cba49355978daea1d50e5f4a19edcf69f7a1e36024962"
+    },
+    {
+      "path": "gelaende_oberflaeche.csv",
+      "bytes": 1571112,
+      "sha256": "bd080592e8d28d632666ea58edde8c42696913f09e11580cd23d6bf6060b13c4"
+    },
+    {
+      "path": "index.html",
+      "bytes": 5421163,
+      "sha256": "2e7e11231465ff6056ab5e84807475f42c5acf8840420ac6e03a87a36785e06b"
+    },
+    {
+      "path": "lager_kategorien.csv",
+      "bytes": 728,
+      "sha256": "638a970a62bf425db3fea48dc967e79a3619ff0f7cfd60e47dd4b430e0192350"
+    },
+    {
+      "path": "lagerbuchten.csv",
+      "bytes": 3642,
+      "sha256": "fefaa0f40065cb4d18a0a879fb9c2f62596993955e09e353be81c6ffba7f107c"
+    },
+    {
+      "path": "laternen_pruefung.csv",
+      "bytes": 25319,
+      "sha256": "adf5d13092e6449d269a19883655132e7510d45785176ecdb6dd4180a6aaae7f"
+    },
+    {
+      "path": "logistics.js",
+      "bytes": 1464,
+      "sha256": "d4b9b323a0c418605f57a17d26717c8879bd4999a14e124ca496a3453e13d0c0"
+    },
+    {
+      "path": "materialbedarf.csv",
+      "bytes": 2609,
+      "sha256": "9fd64e48c8b5d122b38c5ce96046a572ac0cb558cd6a6f67463f02f79dbbf4d5"
+    },
+    {
+      "path": "materialbedarf_baugruppen.csv",
+      "bytes": 9291,
+      "sha256": "975b239d94b3dc654c8cc9a75621f722891564fde5edbb0a3a9a63a8260b38a8"
+    },
+    {
+      "path": "minecraft_viewer.js",
+      "bytes": 2352,
+      "sha256": "5a10598a28a1ffc2958fd5661df6282e0d33f8c9ef5f9f3c4c6f11f70181fc2e"
+    },
+    {
+      "path": "progress.js",
+      "bytes": 5199,
+      "sha256": "5eefe88a0312bec8786b7720c3315d075693c34226e60956d53e5b8bdc2b7ba7"
+    },
+    {
+      "path": "pruefprotokoll.json",
+      "bytes": 548,
+      "sha256": "c7991e32c0aebdd1999b916fea8b7c0442c325f88df654dbf91b1a6b07bdb55f"
+    },
+    {
+      "path": "steps.js",
+      "bytes": 4825,
+      "sha256": "eabbd6a671173e77d0edc56ca6dbf9883e9b41b718ec9c09d0ebc9616a9e9fc9"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 29966,
+      "sha256": "9744659db228ed48e4ac526a807ae533a1beb5eb9629cacc5a256aee28628db3"
+    },
+    {
+      "path": "system.js",
+      "bytes": 3745,
+      "sha256": "6ecbf295c23117e6f3bd23fafb29325968259d7bd5860e8dd5d23b1dbdf35766"
+    },
+    {
+      "path": "technik_inbetriebnahme.md",
+      "bytes": 7315,
+      "sha256": "2404a03b936ba6650770cd852fadbbf2d31466ba09848870fe22c2d28db3b22f"
+    },
+    {
+      "path": "technik_inventare.csv",
+      "bytes": 8550,
+      "sha256": "4b91eaf401e279662b8e7f89c6a43a491f6a6740624382602acfde943f047ab0"
+    },
+    {
+      "path": "technik_module.csv",
+      "bytes": 3808,
+      "sha256": "f203e0ee05f29642b7d9c4f08b3c39e71a786672237906806c1c05d6dde06534"
+    },
+    {
+      "path": "terraforming.csv",
+      "bytes": 732963,
+      "sha256": "a530ea72c1bae92b75bb52f9a8b78baadbdd7e67a533d392820775e1d93eafb8"
+    },
+    {
+      "path": "terraforming_chunks.csv",
+      "bytes": 1494,
+      "sha256": "ee057e5c6f6d4b51cd991bdafbab02d3f77fa0679dba3fee40df4575016bc963"
+    },
+    {
+      "path": "terrain.js",
+      "bytes": 10450,
+      "sha256": "127601dead6653d6c89f02b7bb3f59bbde68d0f0430ea12683aabdd18a0345c9"
+    },
+    {
+      "path": "tools/build.py",
+      "bytes": 1428,
+      "sha256": "a8d15789784c0ad63827308ebffe6ae2d805f94ea06343c4aba9cd505d8a6f85"
+    },
+    {
+      "path": "tools/export_preview.mjs",
+      "bytes": 1458,
+      "sha256": "ce69b26d3eca8a48d2321f763aabe355d16fa6539909c7b7bf160f35f04339c6"
+    },
+    {
+      "path": "tools/landscape.py",
+      "bytes": 10903,
+      "sha256": "f9fa6646613fe6ef48ca11614a11cc008d61a9d73774402eb1d2e0a5db98614e"
+    },
+    {
+      "path": "tools/lantern_geometry.js",
+      "bytes": 793,
+      "sha256": "dfba96ca78ca9be96a1b3be2632c7c9c5ae95abef1c22cf664b8942d318c4fae"
+    },
+    {
+      "path": "tools/lighting.py",
+      "bytes": 5662,
+      "sha256": "98e32b7ec0108663b37a8cb53673467f26e7268869c2adf3b7b87dce53e980ba"
+    },
+    {
+      "path": "tools/region.py",
+      "bytes": 3819,
+      "sha256": "b6148ac5b3cb8dadc65cde47fa1d09b952afc5ff67e4734942965d96458fd8d5"
+    },
+    {
+      "path": "tools/render_preview.py",
+      "bytes": 2887,
+      "sha256": "4d0b1905dbebc88d19fecdd08afc1e7d92c6d64266d82b2071256887ef115985"
+    },
+    {
+      "path": "tools/render_terrain.py",
+      "bytes": 3280,
+      "sha256": "e222126ea82e399713dcfadfb4903ef7a21c2232fe0641a29f3fb464e100791d"
+    },
+    {
+      "path": "tools/structure_export.py",
+      "bytes": 2358,
+      "sha256": "f712b980383bbb2d6a7c5cea947f49dab969be3602b90dd70226f68395fff0e5"
+    },
+    {
+      "path": "tools/terrain_section.html",
+      "bytes": 4929,
+      "sha256": "4fafa0c5a05b5d75acb96b897bce05fdb73e22946140b4b603280830038163a3"
+    },
+    {
+      "path": "tools/terrain_viewer.js",
+      "bytes": 1486,
+      "sha256": "e537ff52c35e151e6aa247a97aa0ff1007a3754ea76eb4bb6f214653a35ee1ce"
+    },
+    {
+      "path": "tools/test_app.mjs",
+      "bytes": 23328,
+      "sha256": "c9fd49e451e7cd455c4ca17f93d90d1ffe637fa51f5741f93e2c8860d331810f"
+    },
+    {
+      "path": "tools/validate.py",
+      "bytes": 12376,
+      "sha256": "ccc5e04c7678568dd46998643fa50eb35af45f7f3241d60b6b4195dbbd42b208"
+    },
+    {
+      "path": "tools/viewer_section.html",
+      "bytes": 1983,
+      "sha256": "56011370b5365a44522892ca7845ab87cb63abc27837c5bbf4119993d1d81747"
+    },
+    {
+      "path": "tools/web.py",
+      "bytes": 27914,
+      "sha256": "0f52915c902a03485f1c366fb8afd0a2319371d6c8f39e53b0ef04a148a2a94f"
+    },
+    {
+      "path": "ui.js",
+      "bytes": 6019,
+      "sha256": "f3257dfbfc825c5bcf41df0d78568ef88290d7e89c4fe5c9ceb805941053bee5"
+    },
+    {
+      "path": "vegetation_entfernen.csv",
+      "bytes": 160404,
+      "sha256": "ff3693b2c51a36811ca77a3cb35097ae8d657d4366c2b36a0a3db1248ae029d0"
+    },
+    {
+      "path": "villager_staende.csv",
+      "bytes": 412,
+      "sha256": "ef1262db24ca2fe57606ae36f24ca103d88e8a1c2f56c44d4377ab27fa54d798"
+    }
+  ]
+}

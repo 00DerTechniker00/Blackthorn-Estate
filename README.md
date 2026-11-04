@@ -1,56 +1,35 @@
-# Blackthorn Estate · Revision 5.11
+# Blackthorn Estate · Revision 5.12
 
-`index.html` im Browser öffnen. Die Website funktioniert lokal und offline. Originalwelt und frühere Revisionen bleiben unverändert.
+`index.html` im Browser öffnen. Haus, Gelände, Lager und Baupläne bleiben lokal nutzbar.
 
-## Terraforming ansehen
+## Minecraft-Ansicht mit Originaltexturen
 
-Unter **Gelände** stehen die neuen Werkzeuge zusammen:
+Unter **Bauatlas → Minecraft-Texturen** kannst du das Anwesen mit dem externen [Structure Viewer](https://structure-viewer.ewanhowell.com/) ansehen. Er lädt die Java-26.3-Blockmodelle und Texturen und unterstützt Orbit- und Rundgangansichten.
 
-- **Vorher ↔ Nachher:** Regler verschieben, um Originalwelt und geplante Oberfläche zu vergleichen.
-- **Abtrag & Auffüllung:** Orange bedeutet Abtrag, Türkis Auffüllung, Violett beides in derselben Spalte. Erdarbeiten unterhalb der Oberfläche werden ebenfalls berücksichtigt.
-- **Spalte auswählen:** Karte anklicken oder X/Z eingeben. Rechts stehen Ist-/Sollhöhe, tatsächliche Abtrags-/Auffüllmengen und alle betroffenen Y-Bereiche. Die Auswahl bleibt beim Verschieben erhalten.
-- **Geländeprofil:** West–Ost oder Nord–Süd wählen. Grau zeigt die Originalhöhe, Grün die Planung. Das Profil enthält die Kellerbaugrube; es stellt keine Gebäude oder Höhlen dar.
-- **Gelände ohne Haus in 3D:** Erdoberfläche und farbige Arbeitsbereiche frei ansehen. Im Bauatlas schaltet „Haus & Deko“ das Gebäude wieder hinzu.
-- **Arbeitsabschnitte:** Aufklappbare Chunk-Tabelle mit exakten Mengen und Kartenverknüpfung. Das Vergleichsbild kann separat geöffnet oder ausgedruckt werden.
+Die Website lädt die Ansicht erst nach deinem Klick. Dabei werden die 132.070 Blockpositionen an den externen Viewer übergeben; die Spielgrafiken lädt er aus dem Internet. Seine Statusmeldung erscheint direkt über der Ansicht. Bei einer Netzwerkstörung kannst du `blackthorn_estate_5.12.nbt` herunterladen und auf der Viewer-Website öffnen. Die übrigen Ansichten des Bauatlas funktionieren weiter offline.
 
-## Begrünung und Außenanlagen
+Die NBT-Datei enthält alle Blocktypen und Blockstates im selben Aufbau wie das Bauplanmodell. Ihr Ursprung ist X −791 / Y 105 / Z 703. Inventarinhalte sind nicht in den Baupositionen gespeichert und deshalb auch nicht in der 3D-Datei enthalten; nutze dafür die Lager- und Techniklisten. Die Gesamtstruktur ist für die Ansicht gedacht und überschreitet die Größe eines einzelnen Ingame-Strukturblocks.
 
-7.819 Geländespalten wurden gestaltet. Breitere, mit Erde und Gras bedeckte Böschungen vermitteln zwischen Sockel, Vorplatz, Gartenwegen und Landschaft. 148 freiliegende Sockel-Abdeckblöcke außerhalb der Hausfläche wurden durch Gras ersetzt. 54 alte, im neu gestalteten Gelände überflüssige oder überdeckte Mauerpfosten wurden entfernt. Die übrigen Stützen und nötigen Wegeinfassungen bleiben erhalten. Die östliche Schlucht wurde nicht aufgefüllt.
+## Gelände, Garten und Bauplanung
 
-Der Ankunftsgarten erhält Formschnittinseln, Margeriten und zwei Holzbänke. Ein Kiesweg führt um die Westseite zum Südgarten mit niedrigen Hecken, weißen/lila/blauen Blüten, weiteren Bänken und einem offenen Holzpavillon mit Kupferhaube. Beide Bereiche lassen sich direkt aus der Geländeansicht in 3D öffnen. Sämtliche Dekorationen sind reale Blockpositionen, keine nur gezeichneten Bildzusätze.
+Unter **Gelände** gibt es den Vorher-nachher-Vergleich, ausgewählte Arbeitsspalten mit Höhenprofil, Chunk-Abschnitte und ein druckbares Vergleichsbild. Die weichen, begrünten Böschungen, Kieswege, Formschnittinseln, Blumenbeete, Bänke und der Gartenpavillon gehören zum unveränderten Modell aus 5.11. Alle Terraforming- und Materiallisten enthalten dieselben Mengen wie in Revision 5.11.
 
-Die breiten Böschungen erhöhen die Auffüllmenge gegenüber 5.10 um **26.003 Blöcke**: insgesamt **61.021 Auffüll- und 51.114 Abtragspositionen**. Die zusätzliche Erde ist bewusst für weichere Übergänge eingeplant. Erde/Gras dürfen nicht durch sichtbaren Bruchstein ersetzt werden, wenn die dargestellte Oberfläche erreicht werden soll. Unter bestehenden tragenden Bauteilen bleiben diese Bauteile erhalten.
+Unter **Lager** stehen die 56 Lagerbuchten. Im Bauatlas gibt es Ebenenplan, Blocklisten, Räume und Leuchtenplan. Unter **Organisation** lassen sich Fortschritt, Material und Dateien verwalten.
 
-## Arbeitsdateien
+## Fortschritt aus 5.11
 
-- `terraforming.csv`: jede Arbeitsspalte mit Ist-/Sollhöhe und Mengen.
-- `terraforming_chunks.csv`: Abschnittssummen je Minecraft-Chunk.
-- `aushub_blockliste.csv`, `auffuellung_blockliste.csv`: genaue Einzelpositionen. Austausch von Stein gegen Erde ist als Abtrag und Baublock erfasst; er erscheint nicht als Auffüllung über der ursprünglichen Bodenhöhe.
-- `vegetation_entfernen.csv`, `bestandskonflikte.csv`: Räumung und vorhandene Bauten prüfen.
-- `blockliste.csv`, `materialbedarf.csv`, `materialbedarf_baugruppen.csv`: vollständiges Modell und Material. Auffüllblöcke sind hierin bereits enthalten, nicht nochmals addieren.
-- `aussendekoration.csv`: Außenbereiche mit Koordinaten und Beschreibung.
-- `aenderungen_5.10_zu_5.11.csv`: 41.788 geänderte Positionen gegenüber 5.10.
-- `assets/terraforming_vergleich.png`: aus den tatsächlichen Daten berechneter Geländeplan.
-
-## Fortschritt und bisherige Funktionen
-
-Die fünf Hauptbereiche, die Lagerübersicht und die Laternen-Detailansicht aus 5.10 bleiben nutzbar. Unter **Organisation → Fortschritt** kann ein vollständiges 5.10-Backup importiert werden. Unveränderte Blockhäkchen, Zuständigkeiten und Bestandsnotizen bleiben erhalten. Geänderte Positionen und betroffene Baugruppen-Fertigmeldungen werden zurückgesetzt. Wenn beide lokalen Seiten denselben Browser-Speicher nutzen, erfolgt die Übernahme automatisch; der alte Stand wird nicht überschrieben. Andernfalls bitte das Backup importieren.
+Unter **Organisation → Fortschritt** kann ein vollständiges 5.11-Backup importiert werden. Da das Blockmodell unverändert ist, bleiben alle Häkchen, Zuständigkeiten und Bestandsnotizen erhalten. Der bisherige lokale Stand wird nicht überschrieben. Wenn beide Seiten denselben Browser-Speicher nutzen, wird der Stand automatisch übernommen; andernfalls importiere das Backup.
 
 Die Lagerautomatik ist weiterhin ein unvollständiger Schaltentwurf. Offene Schritte stehen in [Technik und Inbetriebnahme](technik_inbetriebnahme.md).
 
-## Reproduzieren und Prüfgrenzen
+## Arbeitsdateien
+
+`blackthorn_estate_5.12.nbt` enthält 132.070 Baupositionen in Minecraft-Strukturform. `aenderungen_5.11_zu_5.12.csv` enthält nur die Kopfzeile, da keine Baupositionen geändert wurden. Blockliste, Material- und Geländedateien bleiben gegenüber 5.11 identisch. `manifest_5.12.json` führt Prüfsummen aller ausgelieferten Dateien.
+
+## Reproduzieren
 
 ```sh
 python tools/build.py
-python tools/validate.py
-node tools/test_app.mjs
-node tools/export_preview.mjs
-python tools/render_preview.py
-python tools/render_terrain.py
 ```
 
-Der Modellgenerator benötigt Revision 5.10 und die benachbarte `mca.zip`. Der Webgenerator verwendet zusätzlich die bewährten UI-Grundlagen aus 5.9. Die unabhängige Prüfung kontrolliert auch die bisherigen Manifeste und Revision 5.8. Die Bildwerkzeuge benötigen Pillow/NumPy; zum Öffnen der Website sind keine Zusatzprogramme nötig.
-
-Die Modellprüfung gleicht Einzelpositionen mit den Originalregionen ab. 316 Laufzeitprüfungen verwenden DOM-/Canvas-/WebGL-Adapter, einschließlich Spaltenauswahl, Vergleichsregler, Profil, Chunk-Filter und 3D-Sichtbarkeit. HTML, CSS-Klammern, JavaScript-Syntax und beide GLSL-Shader wurden zusätzlich geprüft.
-
-Ein echter Browser-/GPU-Sichttest ist wegen gesperrter Betriebssystem-Sockets nicht möglich. Die Vorschauen sind aus der tatsächlichen Viewer-Geometrie berechnete Software-Renderings. Ingame-Test, Licht-/Spawn-Simulation und eine vollständige Spieler- oder Redstone-Simulation stehen aus. Ausgeführte Prüfungen stehen in `pruefprotokoll.json`.
+Der Exportgenerator benötigt die benachbarte Revision 5.11. Der Viewer selbst benötigt eine Internetverbindung. Da der Browser in der Arbeitsumgebung nicht gestartet werden konnte, ist der externe Embed-Aufruf hier nicht visuell bestätigt; ein direkter Download steht als Ausweichweg bereit.
