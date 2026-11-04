@@ -1,56 +1,105 @@
-# Analyse der Minecraft-Region r.-2.1.mca
+# Prüfung und Änderungen · Revision 5.7
 
-**Untersucht:** 16,428 Säulen, X -765…-618 und Z 735…845.
+## Ausgangspunkt und Architektur
 
-## Oberfläche
+Basis ist die unveränderte Revision 5.6. Hauptgrundriss, Ausrichtung, sechs
+Residenzen, drei Keller, Pool und Dachkontur bleiben Grundlage. Die neue Version
+hat 78.600 eindeutige Positionen, gegenüber 78.586 in der Basis.
 
-| Block | Säulen |
-|---|---:|
-| `grass_block` | 15,859 |
-| `stone` | 315 |
-| `dirt` | 136 |
-| `iron_block` | 80 |
-| `dripstone_block` | 13 |
-| `gravel` | 10 |
-| `sand` | 4 |
-| `iron_ore` | 4 |
-| `beacon` | 1 |
-| `wall_torch` | 1 |
-| `spruce_planks` | 1 |
-| `pointed_dripstone` | 1 |
+Die bestehende Darstellung von Treppen, Türen, Stufen, Fenstern und Einrichtung
+wurde übernommen. Ein lokaler WebGL-Renderer übernimmt Kameras und Geometrie,
+sodass die Website keine externe Three.js-Datei mehr nachladen muss.
+Transparenz wird näherungsweise nach Schichten gezeichnet; komplexe überlagerte
+Glasflächen können Darstellungsartefakte zeigen. Blockauswahl verwendet wie vorher
+Voxelzellen, keine exakten Kollisionsformen der Teilblöcke.
 
-## Pflanzen oberhalb des Bodens
+## Reparierte Modellfehler
 
-| Block | Positionen |
-|---|---:|
-| `short_grass` | 1,185 |
-| `allium` | 787 |
-| `wildflowers` | 676 |
-| `tall_grass` | 246 |
-| `oak_leaves` | 212 |
-| `leaf_litter` | 97 |
-| `torch` | 91 |
-| `birch_leaves` | 52 |
-| `oak_log` | 24 |
-| `birch_log` | 7 |
+- Die beiden fehlenden Förderhopper bei X=-675/Y=123/Z=795 und 796 ergänzt.
+- Pro Bulkfilter die fehlenden Hopper bei Y=122/Z=781 und 780 ergänzt. Die
+  Ausgabestrecke erreicht damit die vorhandene Truhe bei Z=779.
+- Die verwaiste obere Türhälfte bei X=-689/Y=123/Z=787 entfernt und die Tür
+  vollständig bei Z=788 auf dem vorhandenen Boden rekonstruiert. Die Redstoneleitung
+  bei Z=787 bleibt erhalten.
+- Die alte einzelne Türhälfte vor dem Geheimzugang bei X=-689/Y=106/Z=793 entfernt.
+  Die Geheimtür bei Z=794 auf Y=106/107 abgesenkt, sodass sie auf dem Boden Y=105 steht.
 
-## Untersuchungsbereiche
+Jede Änderung steht in `aenderungen_5.6_zu_5.7.csv`. Die Topologieprüfung folgt
+den Hopperrichtungen vom Einwurf zur Kupfertruhe und von sechs Filterausgängen
+bis zur Zieltruhe. **Das belegt den räumlichen Förderweg, keine funktionierende
+Redstone-Filterlogik.** Signalstärken, Haltesignale, Kapazität, Inventare und
+Golem-Sortierung müssen weiterhin im Spiel entwickelt und getestet werden.
 
-| Bereich | Säulen | Gelände-Y | Säulen mit Luftspalten (−64…125) |
-|---|---:|---|---:|
-| Eingang und Vorplatz | 252 | 101…126 | 238 |
-| Gesamter Bauplatz | 9,222 | 107…131 | 5,280 |
-| Kellergrundriss | 2,597 | 111…126 | 1,538 |
-| Klippenbereich | 820 | 113…118 | 710 |
+## Gelände und Aushub
 
-**Wichtig:** Die Luftspalten sind nicht automatisch miteinander verbunden oder vollständig vom Außenraum getrennt. Sie zeigen die Stellen, an denen Höhlen, Überhänge oder Hangeinschnitte vor Ort genauer zu prüfen sind.
+Die Palette und Blockzustandsdaten der Originalregion `r.-2.1.mca` wurden direkt
+aus `mca.zip` gelesen. Der Leser unterstützt die im Snapshot tatsächlich
+vorkommenden Paletteneinträge als Strings sowie als NBT-Compounds und die gepackten
+Blockindices. Fehlende Chunks und Sektionen führen zu Fehlern statt zu angenommener Luft.
 
-## Eingang und Vorplatz
+Alle 16.428 gespeicherten Bodenpositionen entsprechen dem jeweiligen Block in der
+Originalregion. Das bestätigt das Material auf der gespeicherten Höhe; es ist keine
+neue automatische Klassifizierung aller Pflanzen, Baumkronen und Oberflächen.
 
-Das Tor liegt bei X=-646, Z=789–790, mit geplantem Boden Y=129. Der gemessene natürliche Boden bei X=-640/Z=790 ist Grasblock Y=126; bei X=-630/Z=790 liegt die Oberfläche bereits auf Y=115. Hingegen ist der Boden bei X=-630/Z=796 noch auf Y=126. Daher führt die geplante neue Zuwegung erst etwas südlich und anschließend nach Osten. Stützblöcke schließen den Höhenunterschied am Vorplatz.
+Die 2.988 Aushubspalten der Revision 5.6 wurden übernommen. Zwischen ihrer jeweiligen
+Unterkante und der gespeicherten Bodenhöhe liegen **52.120 Nicht-Luft-Blöcke**.
+`aushub_blockliste.csv` führt jeden davon auf; vorhandene Höhlenluft wird abgezogen.
+Die alte Revision enthielt widersprüchliche Mengen: 50.931 in der Geländeansicht
+und 43.676 im historischen Prüfbericht. Beide werden durch die einheitliche neue
+Zählung ersetzt. Die neue Zahl kann trotz Abzug von Luft größer sein, weil die alte
+Schätzung keine konsistente Zählung der vorhandenen Spalten war.
 
-## Geänderte Blockpositionen
+Prüfgrenzen: Die Baugrubenform selbst wurde nicht neu unabhängig abgeleitet. Es wird
+auch kein minimaler Block-für-Block-Umbauplan berechnet: Blöcke an späteren Baupositionen
+werden beim Freiräumen mitgezählt, selbst wenn sie eventuell weiterverwendet werden
+könnten. Pflanzen oberhalb der gespeicherten Bodenhöhe sind ausgeschlossen. Die
+Gelände-3D-Ansicht ist weiterhin eine vereinfachte Oberfläche, keine vollständige
+Höhlengeometrie. Das neue SVG zeigt echte Blöcke im Schnitt Z=790, Y=65…132.
 
-Original 53,526; neu 54,150; hinzugefügt 624; ersetzt 0; entfernt 0.
+## Dach und Survival-Aufwand
 
-Der alte Licht- und Begehbarkeitsbericht ist nicht erneut vollständig simuliert worden und darf nicht als aktuell validiert gelten.
+Das Dach wurde nicht automatisch ausgehöhlt. 13.717 Dachziegelpositionen sind an
+allen sechs Seiten von weiteren Dachziegeln umgeben. Das ist ein konkreter Hinweis
+auf Einsparpotenzial, keine pauschal sichere Löschliste. Eine Dachüberarbeitung
+muss Innenraum, Anschlüsse, Auflager und Beleuchtung gemeinsam behandeln; sonst
+entstehen neue dunkle Hohlräume. Die Dachmaterialmenge bleibt in 5.7 deshalb ehrlich
+in den aus dem Modell erzeugten Listen enthalten.
+
+Wasser bleibt mit seinen Positionen in der Blockliste und im 3D-Modell. Material-
+Itemmengen enthalten keine Wasserpositionen als vermeintlich benötigte Wassereimer.
+Türen und Betten zählen je einmal; Schilder werden mit Stackgröße 16 verpackt.
+
+## Oberfläche und Datenpflege
+
+`gcounts` war in 5.6 eine reine Blockzahl je Baugruppe, während die Materialansicht
+dort ein Material-Dictionary erwartete. Jetzt wird es aus den tatsächlichen
+Positionen als Materialmenge je Gruppe erzeugt. Alle 35 Baugruppen erscheinen in
+den Bauphasen; zuvor fehlten neu hinzugefügte Logistikbereiche und Hangstützen.
+Die Koordinatensuche vergleicht X, Y und Z in der angegebenen Reihenfolge.
+Der Ebenenexport verwendet tatsächlich die gewählte Schnittrichtung und Position;
+zuvor wurde bei X-/Z-Schnitten stattdessen die Y-Ebene 130 exportiert.
+
+Fortschritt wird in einem eigenen Speicherbereich abgelegt. Ein Backup enthält
+Baugruppen, Zuständigkeiten, Koordinaten-Häkchen und die drei aktuellen Lagerzonen.
+Das Importformat prüft Typen, bekannte Koordinaten und Modellfingerabdruck vor
+Änderungen. Der Import ersetzt einen vollständigen Stand; die UI sagt dies vor der
+Bestätigung ausdrücklich. Ältere nummernbasierte Daten werden nicht vermischt.
+
+## Prüfung und offene Grenzen
+
+`tools/validate.py` kontrolliert eindeutige Koordinaten, komprimierte Daten gegen
+CSV, Material- und Gruppensummen, Türhälften samt Auflager, gerichtete Förderwege,
+Geländepositionen, Einzel-Aushubdaten, lokale Ressourcen und die Unverändertheit
+aller 173 Originaldateien anhand des Übergabemanifests.
+
+`tools/test_app.mjs` führt die wirklichen Anwendungsskripte mit einem kleinen
+DOM-/Canvas-Testadapter aus. Es prüft Navigation, Materialfilter, alle Bauphasen,
+Blockstatus, Speicherung, Backup-Validierung, X/Y/Z-CSV-Schnitte, Kamerabasis,
+Projektionsmatrizen, Blockauswahl und den Geometrieaufbau. 126 Prüfungen erfolgreich. Dieser Test
+ist kein Browser und kein GPU-Sichttest. Der installierte Chromium konnte hier
+wegen gesperrter Betriebssystem-Sockets nicht gestartet werden.
+Beide WebGL-Shader wurden zusätzlich mit `glslangValidator` erfolgreich übersetzt.
+
+Die historischen Licht-/Begehbarkeitswerte bleiben nur als alte Modelldaten erhalten,
+werden aber nicht mehr als aktuelle Zusicherung angezeigt. Eine Minecraft-Testwelt
+und ein Sichttest im normalen Browser bleiben erforderlich.

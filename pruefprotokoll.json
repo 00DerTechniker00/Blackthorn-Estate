@@ -1,0 +1,13 @@
+{
+  "revision": "5.7",
+  "date": "2026-11-04",
+  "checks": [
+    {"command": "python tools/validate.py", "result": "passed", "blocks": 78600, "original_files_unchanged": 173, "surface_positions": 16428, "excavation_positions": 52120},
+    {"command": "node tools/test_app.mjs", "result": "passed", "assertions": 126, "environment": "Node VM with DOM, 2D canvas and WebGL API adapters"},
+    {"command": "glslangValidator -S vert /tmp/blackthorn-57.vert", "result": "passed", "source": "vertex shader extracted from tools/viewer.js"},
+    {"command": "glslangValidator -S frag /tmp/blackthorn-57.frag", "result": "passed", "source": "fragment shader extracted from tools/viewer.js"}
+  ],
+  "browser_visual_test": {"result": "blocked", "reason": "Installed Chromium cannot start because operating-system socket operations are prohibited in this execution environment."},
+  "minecraft_in_game_test": {"result": "not_performed"},
+  "current_lighting_and_walkability_simulation": {"result": "not_performed"}
+}
