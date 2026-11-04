@@ -1,0 +1,158 @@
+[
+  {
+    "filename": "Blackthorn-Estate-Architektur-Explorer-v5.zip",
+    "bytes": 422267,
+    "sha256": "a07caecad9e536ea393213fc2ae675e0d677cbc184a5259af15cbb99240d6b50",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Architektur-Explorer-v5"
+  },
+  {
+    "filename": "Blackthorn-Estate-Architektur-Explorer-v6.zip",
+    "bytes": 423286,
+    "sha256": "f239d4f41b7c3800f1cb6d9b80fb017e92ce3e236a61c39b097b2a0bd2b87361",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Architektur-Explorer-v6"
+  },
+  {
+    "filename": "Blackthorn-Estate-Bauatlas-v7.zip",
+    "bytes": 1121619,
+    "sha256": "a506edd8cec6970a1bb2dc896b64274c3c3b3cbc8d9921dc208b8eec74c5d87a",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Bauatlas-v7"
+  },
+  {
+    "filename": "Blackthorn-Estate-Bauatlas-v8.zip",
+    "bytes": 1303372,
+    "sha256": "edc31d1ef5f4d8ecd768f1ff9a1a9568c4a4f3ef8d82bee7ab483c0de8e3b979",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Bauatlas-v8"
+  },
+  {
+    "filename": "Blackthorn-Estate-Bauatlas-v9.1-Offline-Fix.zip",
+    "bytes": 1659785,
+    "sha256": "8dc9a189e73205f1a4ea76d32e81a231a6007811fb11ef40b9d9a1204450d32b",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Bauatlas-v9.1-Offline-Fix"
+  },
+  {
+    "filename": "Blackthorn-Estate-Bauatlas-v9.zip",
+    "bytes": 1307088,
+    "sha256": "da30dbb806043a135b74721466071fc4a3627759b42c349e832488a4a2deaeca",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Bauatlas-v9"
+  },
+  {
+    "filename": "Blackthorn-Estate-Blueprint.zip",
+    "bytes": 5727834,
+    "sha256": "bab138bdd23562f766a2450349090fc981ff3680ac5c077dd7aa309ad2a218ae",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Blueprint"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.1.zip",
+    "bytes": 141742,
+    "sha256": "75c41ce19f2f72c233228efa0fc65d5c286a9b08c9bb061951c3e1acfaba8349",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.1"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.10.zip",
+    "bytes": 3038891,
+    "sha256": "6b861fad95cd44cbd8cf936d97755c399531c6bd50d4b42a3573d131ffe5d389",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.10"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.11.zip",
+    "bytes": 4868537,
+    "sha256": "8d5e4299dd3062a4b08f5122befa48edf3a32b6910b7ac4e284815b96a02139b",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.11"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.12.zip",
+    "bytes": 5075773,
+    "sha256": "d0efa68032d6c057984ea85732ed55b00fdef1c80079c862965bb81d79a5beaf",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.12"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.2.1-Korrigiert.zip",
+    "bytes": 315033,
+    "sha256": "a7c76efbcf715980abebddcb06fda9c7fe7d4181c31c9da1d2ef59d779a5e040",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.2.1-Korrigiert"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.2.zip",
+    "bytes": 300033,
+    "sha256": "c1858e733d326367049d5edbcf0fb1f666eda2d92a7f48667ea944c34ff02bc2",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.2"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.3-Gelaende.zip",
+    "bytes": 467036,
+    "sha256": "a9d26e8a19fbec9806839125ea7c121fe28a54774197d2dee55c1e7fcab02837",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.3-Gelaende"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.4.zip",
+    "bytes": 476413,
+    "sha256": "048f620ab3884578a4081d31b97fb0311e840cc1cb9979b58db9fe5ee79b7fb3",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.4"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.5.zip",
+    "bytes": 496926,
+    "sha256": "698916d072532d758a5e5087ea872c44b581aa4b0662831012e97bfc7d013587",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.5"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.6.zip",
+    "bytes": 666452,
+    "sha256": "21fbf54a4cafe34b59db8416ab4493bc24d915a8a32e3a572b9ee913c90e02b5",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.6"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.7.zip",
+    "bytes": 954040,
+    "sha256": "55529fe877a340d7a91141eccbe794d048940c7cb8ea414f8433d25a7d1e2a93",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.7"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.8.zip",
+    "bytes": 2643139,
+    "sha256": "a8857ae2a7182a5ed0e58aee4a63b7b20e2ae3aa201f39498689f7c2e55e4ad8",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.8"
+  },
+  {
+    "filename": "Blackthorn-Estate-Revision-5.9.zip",
+    "bytes": 3407484,
+    "sha256": "01fc554db609d72f25288bde0dbd8f042790064f7dbcbf8d64b1102d1acd166f",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Revision-5.9"
+  },
+  {
+    "filename": "Blackthorn-Estate-Voxel-Blueprint-v3.zip",
+    "bytes": 560608,
+    "sha256": "bd26485917b1912e02032d77486efa09db071203b0cdb0c74af5e0b7ae206464",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Voxel-Blueprint-v3"
+  },
+  {
+    "filename": "Blackthorn-Estate-Voxel-Blueprint-v4.zip",
+    "bytes": 379491,
+    "sha256": "93038ae836e40a0cf491b6796833022e77c68c0c3375b2b6afffa0129dbad977",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-Voxel-Blueprint-v4"
+  },
+  {
+    "filename": "Blackthorn-Estate-v2.zip",
+    "bytes": 79071,
+    "sha256": "0e706ea0acdb2e7aa4123da8eb063451ddae1c09c2b4de722406d8c5448074b9",
+    "extracted_to": "archive/imported-zip-contents/Blackthorn-Estate-v2"
+  },
+  {
+    "filename": "Blockplan-Minecraft-Herrenhaus.zip",
+    "bytes": 5730053,
+    "sha256": "83f96696f0d5737fead206394f749eee2b8ff850c451c50e809ec95a7d795f7e",
+    "extracted_to": "archive/imported-zip-contents/Blockplan-Minecraft-Herrenhaus"
+  },
+  {
+    "filename": "mca.zip",
+    "bytes": 81260141,
+    "sha256": "fc7a912ada55dff2bc568e4e5180dde2489687bed9d8ac4e724c9107f5ad64e7",
+    "extracted_to": "archive/imported-zip-contents/mca"
+  },
+  {
+    "filename": "minecraft haus.zip",
+    "bytes": 22616957,
+    "sha256": "e6b600586d3c87528c9fb768cf37222d19d8ba5c23217aaec7f28b78f37e4b7e",
+    "extracted_to": "archive/imported-zip-contents/minecraft haus"
+  }
+]

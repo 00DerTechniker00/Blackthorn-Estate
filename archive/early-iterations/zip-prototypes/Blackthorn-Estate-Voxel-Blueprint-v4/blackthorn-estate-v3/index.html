@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blackthorn Estate · Voxel Blueprint</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header><div class="brand"><span class="crest">B</span><div><b>BLACKTHORN ESTATE</b><small>BLOCKGENAUER BAUPLAN · REVISION 04</small></div></div><div class="header-right"><span class="status">● LOKALES PROJEKT</span><button id="exportProgress">Fortschritt exportieren</button></div></header>
+<aside class="sidebar">
+ <div class="side-title">PROJEKT</div><button class="nav active" data-view="overview">◈ Übersicht</button><button class="nav" data-view="viewer">▦ 3D-Viewer & Layer</button><button class="nav" data-view="plan">⌗ 2D-Grundriss</button><button class="nav" data-view="materials">▤ Blockliste & Material</button><button class="nav" data-view="build">☷ Baufortschritt</button>
+ <div class="anchor"><small>WELTANKER</small><b>-662 · 126 · 790</b><small>Hauptgeschoss: Y=129</small><small>Westen = Klippe · Osten = Eingang</small></div>
+ <div class="side-note">MATERIALPLAN · STACKS & SHULKER<br>Multiplayer später</div>
+</aside>
+<main>
+<section class="view active" id="overview">
+ <div class="hero"><div><label>PRIVATE PAPER-WELT · ESTATE 001</label><h1>Blackthorn <i>Estate</i></h1><p>Eine große viktorianisch-gotische Residenz für sechs Bewohner – als echte Voxel-Konstruktion mit absoluten Minecraft-Koordinaten.</p></div><div class="hero-mark"><b>BE</b><small>CLIFFSIDE MANOR</small></div></div>
+ <div class="stats"><article><small>GEPLANTE BLÖCKE</small><b id="statBlocks">—</b><span>konkrete Blockpositionen</span></article><article><small>MATERIALTYPEN</small><b id="statMaterials">—</b><span>Survival-freundliche Palette</span></article><article><small>HÖHENLAYER</small><b id="statLayers">—</b><span>Y=93 bis Y=185</span></article><article><small>WOHNBEREICHE</small><b>06</b><span>sechs eigene Residenzen</span></article></div>
+ <div class="section-head"><div><label>MASTERPLAN</label><h2>Ein blockgenauer Bauplan mit Materiallogistik</h2></div><span class="tag">ABSOLUTE WELTKOORDINATEN</span></div>
+ <div class="overview-grid"><div class="card"><h3>Voxel-Modell</h3><canvas id="mini3d" width="900" height="480"></canvas><p class="muted">Voxel-Vorschau mit kantenbündigen Blockflächen. Im 3D-Viewer kannst du drehen, zoomen und Baugruppen isolieren.</p></div><div class="card facts"><h3>Baudaten</h3><div><small>GRUNDSTÜCK</small><b>X -742 bis -638 · Z 746 bis 834</b></div><div><small>HAUPTFUSSBODEN</small><b>Y=129 · Gelände bleibt abgestuft</b></div><div><small>CLIFFSIDE</small><b>Westen (−X)</b></div><div><small>HAUPTEINGANG</small><b>Osten (+X)</b></div><div><small>BAUWEISE</small><b>6 private Flügel + Zentralbau</b></div></div></div>
+ <div class="notice"><b>Wichtiger Genauigkeitshinweis</b><span>Die Blockliste enthält konkrete, eindeutige Blockpositionen. Der Lagerbereich wurde um Regale, Fässer, Kisten und Werkbank-/Sortierflächen ergänzt. Die Website zeigt benachbarte Voxel ohne künstliche Zwischenräume. Die Terrain-Höhen stammen aus den gelieferten Region-Dateien; vor dem Aushub bitte im Spiel mit F3 kontrollieren. Versionsangabe aus level.dat: 26.3; Zielversion laut Wunsch: 26.2.</span></div>
+</section>
+<section class="view" id="viewer">
+ <div class="section-head"><div><label>VOXEL WORKSHOP</label><h2>3D-Viewer & Layer-Tool</h2><p>Mit gedrückter Maustaste drehen, mit dem Mausrad zoomen. Der Layer-Regler zeigt den Bau bis zur gewählten Höhe.</p></div><span class="tag" id="visibleCount">—</span></div>
+ <div class="toolbar"><label>Ansicht <select id="renderMode"><option value="solid">3D · Isometrisch</option><option value="top">2D · Draufsicht</option></select></label><label>Gruppe <select id="groupFilter"><option value="all">Alle Baugruppen</option></select></label><label>Darstellung <select id="displayMode"><option value="upto">Bis Layerhöhe</option><option value="single">Nur ausgewählter Layer</option></select></label><button id="resetView">Ansicht zurücksetzen</button></div>
+ <div class="viewer-card"><canvas id="viewerCanvas" width="1400" height="820"></canvas><div class="viewer-help">Ziehen = drehen / verschieben · Mausrad = Zoom · Klick auf Block = Koordinate und Material</div></div>
+ <div class="layer-control card"><div class="layer-title"><div><label>BAU-LAYER</label><b id="layerLabel">Y = 129</b></div><div class="layer-buttons"><button id="layerDown">−</button><button id="layerUp">+</button></div></div><input type="range" id="layerRange" min="93" max="185" value="129"><div class="range-labels"><span>Y=93 · Keller 3</span><span>Y=129 · Erdgeschoss</span><span>Y=185 · Dach</span></div><div class="selected-block" id="selectedBlock">Wähle einen Block im Modell, um seine Daten zu sehen.</div></div>
+</section>
+<section class="view" id="plan">
+ <div class="section-head"><div><label>FLOORPLAN</label><h2>2D-Grundriss nach Y-Layer</h2><p>Die Draufsicht zeigt die tatsächlich belegten Blockpositionen des ausgewählten Layers.</p></div><div class="plan-tools"><label>Etage <select id="planY"></select></label><label>Gruppe <select id="planGroup"><option value="all">Alle Baugruppen</option></select></label></div></div>
+ <div class="card"><canvas id="planCanvas" width="1200" height="850"></canvas><div class="muted">Norden oben · X nach rechts · Z nach unten. Koordinaten werden in der Statuszeile angezeigt.</div></div>
+ <div class="card coordinate" id="planInfo">Klicke auf eine Zelle, um die Weltkoordinate zu ermitteln.</div>
+</section>
+<section class="view" id="materials">
+ <div class="section-head"><div><label>EXACT BLOCK SCHEDULE</label><h2>Blockliste & Materialbedarf</h2><p>Jede Zeile entspricht einer konkreten Blockposition. Mengen werden zusätzlich in 64er-Stacks und 27-Stack-Shulkern dargestellt.</p></div><div class="download-actions"><button id="downloadCsv">Blockliste.csv</button><button id="downloadMaterials">Materialbedarf.csv</button><button id="downloadGroupMaterials">Material je Baugruppe.csv</button></div></div>
+ <div class="stats compact"><article><small>BLOCKPOSITIONEN</small><b id="matTotal">—</b></article><article><small>MATERIALTYPEN</small><b id="matTypes">—</b></article><article><small>BAUGRUPPEN</small><b id="matGroups">—</b></article></div>
+ <div class="toolbar"><input id="blockSearch" placeholder="Material oder Baugruppe suchen …"><select id="materialSort"><option value="count">Menge absteigend</option><option value="name">Name A–Z</option></select></div>
+ <div class="card table-wrap"><table><thead><tr><th>Material</th><th>Minecraft-ID</th><th>Menge</th><th>Survival-Packmaß</th><th>Anteil</th></tr></thead><tbody id="materialRows"></tbody></table></div>
+ <div class="section-head"><div><label>BLOCK-REGISTER</label><h2>Koordinatenliste</h2><p>Suche nach Gruppe, Block-ID oder Koordinate.</p></div></div>
+ <div class="toolbar"><input id="coordSearch" placeholder="z. B. -662, 129, 790 oder grand_hall"><span id="coordResult" class="muted"></span></div>
+ <div class="card table-wrap"><table><thead><tr><th>X</th><th>Y</th><th>Z</th><th>Block</th><th>Baugruppe</th></tr></thead><tbody id="coordRows"></tbody></table></div>
+</section>
+<section class="view" id="build">
+ <div class="section-head"><div><label>CONSTRUCTION TRACKER</label><h2>Baufortschritt</h2><p>Hake erledigte Baugruppen ab. Dein Fortschritt bleibt lokal im Browser gespeichert.</p></div><span class="tag" id="progressLabel">0 %</span></div>
+ <div class="progress"><div id="progressBar"></div></div><div id="buildGroups" class="build-groups"></div>
+</section>
+<footer>BLACKTHORN ESTATE · VOXEL BLUEPRINT 04 · KOORDINATEN SIND ABSOLUTE WELTKOORDINATEN</footer>
+</main><script src="app.js"></script></body></html>

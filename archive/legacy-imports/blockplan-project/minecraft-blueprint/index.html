@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101713">
+  <title>Blockplan — Herrenhaus Blueprint</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Blockplan Startseite">
+        <span class="brand-mark">B<span>▦</span></span>
+        <span><strong>BLOCKPLAN</strong><small>SERVER BUILD STUDIO</small></span>
+      </a>
+      <div class="project-meta">
+        <span class="live-dot"></span><span>PROJEKT</span><strong>BERGKAMM-HERRENHAUS</strong>
+        <span class="meta-sep"></span><span>MINECRAFT 26.2</span>
+      </div>
+      <div class="top-actions">
+        <button class="btn btn-quiet" id="importBtn">Importieren</button>
+        <button class="btn btn-primary" id="exportBtn">Fortschritt teilen <span>↗</span></button>
+        <input type="file" id="importFile" accept="application/json" hidden>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active" data-tab="blueprint"><span class="nav-icon">▦</span> Bauplan <kbd>01</kbd></button>
+      <button class="nav-item" data-tab="materials"><span class="nav-icon">▤</span> Materialien <kbd>02</kbd></button>
+      <button class="nav-item" data-tab="rooms"><span class="nav-icon">⌂</span> Räume & Bereiche <kbd>03</kbd></button>
+      <button class="nav-item" data-tab="phases"><span class="nav-icon">☷</span> Bauphasen <kbd>04</kbd></button>
+      <button class="nav-item" data-tab="team"><span class="nav-icon">♧</span> Team & Fortschritt <kbd>05</kbd></button>
+      <div class="side-project">
+        <div class="side-label">BAUPROJEKT</div>
+        <div class="project-card">
+          <div class="project-thumb">⌂</div>
+          <strong>Bergkamm-Anwesen</strong>
+          <span>Viktorianisches Herrenhaus</span>
+          <div class="mini-progress"><i id="sideProgress"></i></div>
+          <small id="sideProgressText">0 % abgeschlossen</small>
+        </div>
+      </div>
+      <div class="sidebar-footer"><span class="status-pip"></span> Lokal gespeichert <small>Änderungen bleiben auf diesem Gerät</small></div>
+    </aside>
+
+    <main class="main">
+      <section class="page-heading">
+        <div><div class="eyebrow">SERVERPROJEKT / BAUPLANUNG</div><h1 id="pageTitle">Bauplan-Workbench</h1><p id="pageSubtitle">Jeder Block an seinem Platz. Plant, baut und verfolgt euren Fortschritt gemeinsam.</p></div>
+        <div class="heading-coords"><span>BAUANKER</span><strong>X -662 <i>·</i> Y 126 <i>·</i> Z 790</strong><button id="copyTp">/tp @p -662 126 790 <span>⧉</span></button></div>
+      </section>
+
+      <section class="overview-strip">
+        <div><span>WELT-SEED</span><strong>-4815224116428668341</strong></div>
+        <div><span>BAUFLÄCHE</span><strong>70 × 50 <small>Blöcke</small></strong></div>
+        <div><span>BAU-EBENEN</span><strong>37 <small>Layer</small></strong></div>
+        <div><span>HÖHENBEREICH</span><strong>Y 105–145</strong></div>
+        <div class="overview-progress"><span>GESAMTFORTSCHRITT</span><strong id="overallPercent">0%</strong><div class="progress-track"><i id="overallBar"></i></div></div>
+      </section>
+
+      <section class="tab-panel active" id="panel-blueprint">
+        <div class="workbench">
+          <div class="viewer-column">
+            <div class="panel-head">
+              <div><div class="eyebrow">LAYER EXPLORER</div><h2>Grundriss-Viewer</h2></div>
+              <div class="view-switch"><button class="view-btn active" data-view="2d">2D PLAN</button><button class="view-btn" data-view="3d">3D ISOMETRISCH</button></div>
+            </div>
+            <div class="canvas-toolbar">
+              <div class="toolbar-group"><span class="toolbar-caption">EBENE</span><button id="prevLayer" class="square-btn">−</button><strong id="layerNumber">Y 126</strong><button id="nextLayer" class="square-btn">+</button></div>
+              <div class="toolbar-group"><button id="gridToggle" class="tool-toggle active">▦ Raster</button><button id="coordToggle" class="tool-toggle active">⌖ Koordinaten</button><button id="allLayersToggle" class="tool-toggle">Alle Layer</button></div>
+              <div class="toolbar-group"><button id="zoomOut" class="square-btn">−</button><button id="zoomReset" class="square-btn">100%</button><button id="zoomIn" class="square-btn">+</button></div>
+            </div>
+            <div class="canvas-stage" id="canvasStage">
+              <canvas id="blueprintCanvas" aria-label="Interaktiver Minecraft Bauplan"></canvas>
+              <div class="canvas-legend"><span><i class="legend-dot"></i> Gebauter Block</span><span>Scrollen = Zoom · Ziehen = Verschieben</span></div>
+              <div class="canvas-empty" id="canvasEmpty" hidden>Diese Ebene ist leer.</div>
+            </div>
+            <div class="layer-strip">
+              <div><span class="eyebrow">AKTUELLE EBENE</span><strong id="layerTitle">Erdgeschoss</strong><small id="layerDescription">Layer-Beschreibung</small></div>
+              <div class="layer-controls"><button id="prevLayerBottom" class="btn btn-outline">← Zurück</button><input id="layerSlider" type="range" min="0" max="36" value="17"><button id="nextLayerBottom" class="btn btn-outline">Weiter →</button></div>
+            </div>
+          </div>
+          <aside class="inspector">
+            <div class="panel-head"><div><div class="eyebrow">INSPEKTOR</div><h2>Baudetails</h2></div><span class="tiny-status">LIVE</span></div>
+            <div class="layer-card"><div class="layer-card-top"><span id="layerCategory">ERDGESCHOSS</span><span id="layerRel">±0</span></div><h3 id="layerName">Erdgeschoss</h3><p id="layerDesc">Wähle einen Layer, um die Bauanleitung zu sehen.</p><button id="completeLayer" class="btn btn-primary full">✓ Ebene als fertig markieren</button></div>
+            <div class="inspector-section"><div class="section-title">BAUSCHRITTE <span id="featureCount">0</span></div><ul id="featureList" class="feature-list"></ul></div>
+            <div class="inspector-section"><div class="section-title">BLOCK-LEGENDE <span id="blockCount">0</span></div><div id="layerBlocks" class="block-list"></div></div>
+            <div class="inspector-note"><span>⌖</span><div><strong>Koordinaten-Hinweis</strong><p>Rasterursprung: X -697 / Z 765. Ein Feld entspricht einem Minecraft-Block.</p></div></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-materials">
+        <div class="section-heading"><div><div class="eyebrow">RESSOURCENPLANUNG</div><h2>Materialübersicht</h2><p>Gesamtbedarf für alle 37 Bau-Ebenen. Markiert Materialien, die ihr bereits gesammelt habt.</p></div><button class="btn btn-outline" id="resetMaterials">Auswahl zurücksetzen</button></div>
+        <div class="material-summary" id="materialSummary"></div>
+        <div class="filter-row"><input id="materialSearch" type="search" placeholder="Material suchen …"><select id="materialCategory"><option value="all">Alle Kategorien</option></select></div>
+        <div id="materialsGrid" class="materials-grid"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-rooms">
+        <div class="section-heading"><div><div class="eyebrow">RAUMATLAS</div><h2>Das Herrenhaus</h2><p>Alle Bereiche, Ebenen und geplanten Funktionen auf einen Blick.</p></div></div>
+        <div id="roomsGrid" class="rooms-grid"></div>
+        <div class="section-heading subheading"><div><div class="eyebrow">TECHNIK & REDSTONE</div><h2>Spezialanlagen</h2></div></div>
+        <div id="redstoneGrid" class="rooms-grid"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-phases">
+        <div class="section-heading"><div><div class="eyebrow">BAUABLAUF</div><h2>In Bauphasen aufteilen</h2><p>Teilt die Arbeit in überschaubare Etappen auf und hakt erledigte Aufgaben ab.</p></div></div>
+        <div id="phasesList" class="phases-list"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-team">
+        <div class="section-heading"><div><div class="eyebrow">MULTIPLAYER ORGANISATION</div><h2>Team & Fortschritt</h2><p>Koordiniert eure Aufgaben und tauscht den gemeinsamen Fortschritt als Projektdatei aus.</p></div></div>
+        <div class="team-grid">
+          <div class="team-card"><span class="eyebrow">GEBÄUDESTATUS</span><div class="big-number" id="teamPercent">0%</div><div class="progress-track"><i id="teamBar"></i></div><p id="teamStatus">Noch keine Ebene abgeschlossen.</p></div>
+          <div class="team-card"><span class="eyebrow">ABGESCHLOSSENE EBENEN</span><div class="big-number"><span id="doneLayers">0</span><small> / 37</small></div><p>Jede Ebene kann nach dem Bauen abgehakt werden.</p></div>
+          <div class="team-card"><span class="eyebrow">MATERIALIEN GESAMMELT</span><div class="big-number" id="doneMaterials">0<small> / 27</small></div><p>Markiert eure bereits bereitgelegten Ressourcen.</p></div>
+        </div>
+        <div class="share-card"><div><div class="eyebrow">PROJEKTSTATUS TEILEN</div><h3>Ein gemeinsamer Baufortschritt</h3><p>Exportiert die Projektdatei und schickt sie euren Freunden. Sie können sie importieren, weiter abhaken und erneut teilen.</p><small>Hinweis: Das ist dateibasiertes Teilen, keine automatische Live-Synchronisierung. Für gleichzeitige Zusammenarbeit braucht ihr später einen kleinen Server oder eine Datenbank.</small></div><button class="btn btn-primary" id="teamExport">Projektdatei exportieren ↗</button></div>
+      </section>
+
+      <footer class="footer"><span>BLOCKPLAN <b>·</b> SERVER BUILD STUDIO</span><span>Blueprint-Daten lokal im Browser · Seed und Koordinaten sind Projektangaben</span></footer>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

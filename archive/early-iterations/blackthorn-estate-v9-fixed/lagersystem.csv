@@ -1,0 +1,29 @@
+﻿Zone-ID;Bezeichnung;Ebene Y;X min;X max;Z min;Z max;Kategorie;Bauhinweise
+b3_stone;Stein, Tiefenschiefer & Erde;93;-719;-696;767;781;Baumaterial;"Stein, Naturstein, Ziegel, Sand, Erde; Fassreihen mit freiem Mittelgang"
+b3_wood;Holz, Blätter & Pflanzen;93;-685;-660;767;781;Baumaterial;Sortierte Holzsorten, Stämme und Blätter, vertikale Fasswände
+b3_redstone;Redstone & Technik;93;-719;-696;784;797;Technik;"Bauteile, Redstone, Trichter, Schienen; abschließbarer Materialbereich"
+b3_mob;Mobdrops & Kampfloot;93;-685;-660;784;797;Beute;"Loot, Knochen, Pulver, Federn; separate Kisten und Schnellzugang"
+b3_blocks;Nether, End & seltene Blöcke;93;-719;-696;800;813;Sonderlager;Nether-/End-Blöcke, seltene Materialien, Endertruhen
+b3_tools;Gemeinschaftsvorräte;93;-685;-660;800;813;Grundversorgung;"Nahrung, Fackeln, Werkzeuge, Baukästen; Schnellzugriff"
+b2_furnaces;Schmelzerei & Brennstoff;105;-719;-696;767;781;Produktion;Blasthochöfen, Schmelzofen-Reihe, Brennstofflager
+b2_workshop;Handwerk & Reparatur;105;-685;-660;767;781;Produktion;Werkbänke, Steinmetz, Ambosse und Schmiedetische
+b2_potions;Brauküche & Alchemie;105;-719;-696;784;797;Spezialraum;Braustände, Kessel und Zutatenregale
+b2_enchant;Verzauberung & Bücher;105;-685;-660;784;797;Spezialraum;Zaubertisch, Bücherregale, Anvils, Leseecke
+b2_maps;Kartografie & Archiv;105;-719;-696;800;813;Spezialraum;Kartentische, Kartenschränke und Entdeckungsexpeditionen
+b2_farms;Farmannahme & Verteiler;105;-685;-660;800;813;Produktion;Manuelle Farm-Output-Annahme, Sortierfässer, Müllkontrolle
+b1_daily;Alltagslager & Ausgang;117;-719;-696;767;781;Grundversorgung;Schnellzugriff auf Essen, Fackeln, Baumaterial
+b1_players;Sechs private Schließfächer;117;-685;-660;767;781;Privat;Je Bewohner eigener markierter Lagerplatz, sicherer Gemeinschaftszugang
+b1_kitchen;Speisekammer & Vorräte;117;-719;-696;784;797;Grundversorgung;"Küche und Esszimmer versorgen; Fässer und Räucherofen"
+b1_tools;Ausrüstung, Waffen & Rüstungen;117;-685;-660;784;797;Privat;Gemeinsame Rüstungskammer mit Werkbänken und Reparatur
+b1_buildkits;Baukisten & Projektlogistik;117;-719;-696;800;813;Baumaterial;Vorsortierte Kisten für laufende Bauabschnitte
+b1_sort;Abgabe & manueller Sortiertresen;117;-685;-660;800;813;Grundversorgung;Eingang für unsortierten Loot, Verteilung in Lageretagen
+foyer;Eingangshalle & Rezeption;129;-658;-640;779;801;Haupthaus;Sitzbänke, Versorgungstresen und Zugang zur Haupthalle
+grand_hall;Zentrale Halle;129;-705;-660;779;802;Haupthaus;Kronleuchter, Empfang und Hauptverkehrswege
+gallery;Obere Galerie;143;-704;-659;779;802;Haupthaus;Lesenischen und Treppenanschluss
+kitchen;Küche & Versorgung;129;-660;-640;776;806;Haupthaus;Smoker, Werkbänke, Vorratsfässer
+residence_1;Privatbereich 1;129;-718;-705;774;787;Privat;Schlaf- und Arbeitsbereich der jeweiligen Person
+residence_2;Privatbereich 2;129;-701;-688;752;765;Privat;Schlaf- und Arbeitsbereich der jeweiligen Person
+residence_3;Privatbereich 3;129;-682;-669;752;765;Privat;Schlaf- und Arbeitsbereich der jeweiligen Person
+residence_4;Privatbereich 4;129;-718;-705;812;825;Privat;Schlaf- und Arbeitsbereich der jeweiligen Person
+residence_5;Privatbereich 5;129;-701;-688;812;825;Privat;Schlaf- und Arbeitsbereich der jeweiligen Person
+residence_6;Privatbereich 6;129;-682;-669;812;825;Privat;Schlaf- und Arbeitsbereich der jeweiligen Person

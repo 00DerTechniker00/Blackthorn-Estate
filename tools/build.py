@@ -6,11 +6,11 @@ from pathlib import Path
 from structure_export import export as export_structure
 
 ROOT=Path(__file__).resolve().parent.parent
-BASE=ROOT.parent/'Blackthorn-Estate-Revision-5.11'
+BASE=ROOT
 
 
 def main():
-    d=json.loads((BASE/'blueprint.json').read_text())
+    d=json.loads((ROOT/'blueprint.json').read_text())
     old=d['meta']['fingerprint']
     d['meta']['version']='5.12'
     d['progress_compat']={'revision':'5.11','fingerprint':old,'changed_positions':[],'changed_groups':[]}

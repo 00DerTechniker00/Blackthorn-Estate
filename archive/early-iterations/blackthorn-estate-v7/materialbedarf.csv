@@ -1,0 +1,51 @@
+﻿Inventar-ID;Blockpositionen;Benötigte Items;Stackgröße;Volle Shulkerboxen (27 Stacks);Stacks nach Shulkern;Einzelitems;Hinweis
+minecraft:deepslate_bricks;16263;16263;64;9;11;7;
+minecraft:spruce_planks;10571;10571;64;6;3;11;
+minecraft:stone_bricks;9610;9610;64;5;15;10;
+minecraft:dark_oak_stairs;3041;3041;64;1;20;33;
+minecraft:deepslate_tile_stairs;2985;2985;64;1;19;41;
+minecraft:polished_deepslate;2661;2661;64;1;14;37;
+minecraft:calcite;2075;2075;64;1;5;27;
+minecraft:lantern;461;461;64;0;7;13;
+minecraft:barrel;453;453;64;0;7;5;
+minecraft:chain;288;288;64;0;4;32;
+minecraft:red_carpet;237;237;64;0;3;45;
+minecraft:spruce_fence;228;228;64;0;3;36;
+minecraft:stone_brick_stairs;192;192;64;0;3;0;
+minecraft:white_stained_glass_pane;189;189;64;0;2;61;
+minecraft:glass_pane;168;168;64;0;2;40;
+minecraft:water_bucket;144;–;1;–;–;–;"Fließ-/Quellwasser: wiederverwendbare Eimer statt 144 Items; 2 Eimer zum Füllen empfohlen"
+minecraft:dark_oak_door;140;70;64;0;1;6;1 Tür belegt zwei Blockpositionen
+minecraft:chest;124;124;64;0;1;60;
+minecraft:dark_oak_planks;114;114;64;0;1;50;
+minecraft:spruce_stairs;100;100;64;0;1;36;
+minecraft:bookshelf;92;92;64;0;1;28;
+minecraft:iron_bars;84;84;64;0;1;20;
+minecraft:stone_brick_wall;78;78;64;0;1;14;
+minecraft:spruce_sign;47;47;16;0;2;15;"Schild als Item; 16 Stück/Stack"
+minecraft:stone_brick_slab;37;37;64;0;0;37;
+minecraft:crafting_table;31;31;64;0;0;31;
+minecraft:red_bed;22;11;1;0;11;0;"Nicht stapelbar; 1 Bett belegt zwei Blockpositionen"
+minecraft:stripped_spruce_log;18;18;64;0;0;18;
+minecraft:chiseled_bookshelf;16;16;64;0;0;16;
+minecraft:furnace;13;13;64;0;0;13;
+minecraft:smoker;9;9;64;0;0;9;
+minecraft:flower_pot;9;9;64;0;0;9;
+minecraft:cartography_table;8;8;64;0;0;8;
+minecraft:copper_block;6;6;64;0;0;6;
+minecraft:anvil;6;6;64;0;0;6;
+minecraft:blast_furnace;6;6;64;0;0;6;
+minecraft:lectern;6;6;64;0;0;6;
+minecraft:brewing_stand;5;5;64;0;0;5;
+minecraft:soul_lantern;3;3;64;0;0;3;
+minecraft:cauldron;3;3;64;0;0;3;
+minecraft:smithing_table;3;3;64;0;0;3;
+minecraft:blue_carpet;2;2;64;0;0;2;
+minecraft:green_carpet;2;2;64;0;0;2;
+minecraft:purple_carpet;2;2;64;0;0;2;
+minecraft:orange_carpet;2;2;64;0;0;2;
+minecraft:yellow_carpet;2;2;64;0;0;2;
+minecraft:enchanting_table;1;1;64;0;0;1;
+minecraft:stonecutter;1;1;64;0;0;1;
+minecraft:grindstone;1;1;64;0;0;1;
+minecraft:loom;1;1;64;0;0;1;

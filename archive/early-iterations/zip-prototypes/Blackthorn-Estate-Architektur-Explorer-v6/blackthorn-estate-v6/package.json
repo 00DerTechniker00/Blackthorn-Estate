@@ -1,0 +1,8 @@
+{
+  "name": "blackthorn-estate-architecture-explorer",
+  "version": "6.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zero-dependency local Minecraft architectural viewer",
+  "scripts": {"test":"node tests/validate.mjs"}
+}

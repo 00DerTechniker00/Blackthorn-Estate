@@ -1,0 +1,175 @@
+﻿Baugruppe;Material;Minecraft-ID;Anzahl;Shulker (voll);Stacks (Rest);Einzelstücke
+ballroom;Calcite;minecraft:calcite;8;0;0;8
+ballroom;Spruce Planks;minecraft:spruce_planks;383;0;5;63
+ballroom;Stone Bricks;minecraft:stone_bricks;428;0;6;44
+ballroom_furnishing;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;6;0;0;6
+ballroom_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;336;0;5;16
+ballroom_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;285;0;4;29
+basement_1;Deepslate Bricks;minecraft:deepslate_bricks;4043;2;9;11
+basement_1;Polished Deepslate;minecraft:polished_deepslate;409;0;6;25
+basement_1;Stone Bricks;minecraft:stone_bricks;86;0;1;22
+basement_2;Deepslate Bricks;minecraft:deepslate_bricks;4043;2;9;11
+basement_2;Polished Deepslate;minecraft:polished_deepslate;407;0;6;23
+basement_2;Stone Bricks;minecraft:stone_bricks;84;0;1;20
+basement_3;Deepslate Bricks;minecraft:deepslate_bricks;4064;2;9;32
+basement_3;Polished Deepslate;minecraft:polished_deepslate;413;0;6;29
+basement_3;Stone Bricks;minecraft:stone_bricks;86;0;1;22
+buttresses;Calcite;minecraft:calcite;64;0;1;0
+buttresses;Stone Bricks;minecraft:stone_bricks;96;0;1;32
+chandeliers;Chain;minecraft:chain;9;0;0;9
+chandeliers;Lantern;minecraft:lantern;14;0;0;14
+cliff_foundations;Deepslate Bricks;minecraft:deepslate_bricks;3923;2;7;19
+cliff_retaining;Polished Deepslate;minecraft:polished_deepslate;1010;0;15;50
+cornices;Steinziegelstufe;minecraft:stone_brick_slab;37;0;0;37
+dining_hall;Stone Bricks;minecraft:stone_bricks;164;0;2;36
+dining_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;336;0;5;16
+dining_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;285;0;4;29
+enchanting;Bookshelf;minecraft:bookshelf;5;0;0;5
+entrance_doors;Dark Oak Door;minecraft:dark_oak_door;8;0;0;8
+entrance_portico;Calcite;minecraft:calcite;16;0;0;16
+entrance_portico;Stone Bricks;minecraft:stone_bricks;189;0;2;61
+entrance_portico;Stripped Spruce Log;minecraft:stripped_spruce_log;18;0;0;18
+facade_windows;Weiße Glasscheibe;minecraft:white_stained_glass_pane;189;0;2;61
+gallery;Spruce Planks;minecraft:spruce_planks;370;0;5;50
+gallery;Stone Bricks;minecraft:stone_bricks;456;0;7;8
+grand_hall;Bookshelf;minecraft:bookshelf;6;0;0;6
+grand_hall;Calcite;minecraft:calcite;164;0;2;36
+grand_hall;Polished Deepslate;minecraft:polished_deepslate;1356;0;21;12
+grand_hall;Stone Bricks;minecraft:stone_bricks;444;0;6;60
+grand_library;Calcite;minecraft:calcite;132;0;2;4
+grand_library;Spruce Planks;minecraft:spruce_planks;657;0;10;17
+grand_library;Stone Bricks;minecraft:stone_bricks;605;0;9;29
+infinity_pool;Water;minecraft:water;144;0;2;16
+kitchen;Barrel;minecraft:barrel;4;0;0;4
+kitchen;Calcite;minecraft:calcite;65;0;1;1
+kitchen;Spruce Planks;minecraft:spruce_planks;253;0;3;61
+kitchen;Stone Bricks;minecraft:stone_bricks;273;0;4;17
+kitchen_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;171;0;2;43
+kitchen_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;152;0;2;24
+leisure_hall;Calcite;minecraft:calcite;164;0;2;36
+leisure_hall;Spruce Planks;minecraft:spruce_planks;1194;0;18;42
+leisure_hall;Stone Bricks;minecraft:stone_bricks;852;0;13;20
+library_furnishing;Bookshelf;minecraft:bookshelf;24;0;0;24
+library_furnishing;Lesepult;minecraft:lectern;6;0;0;6
+library_ground;Calcite;minecraft:calcite;95;0;1;31
+library_ground;Spruce Planks;minecraft:spruce_planks;265;0;4;9
+library_ground;Stone Bricks;minecraft:stone_bricks;379;0;5;59
+library_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;190;0;2;62
+library_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;152;0;2;24
+lighting;Lantern;minecraft:lantern;7;0;0;7
+lighting_plan;Chain;minecraft:chain;272;0;4;16
+lighting_plan;Lantern;minecraft:lantern;271;0;4;15
+main_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;864;0;13;32
+main_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;781;0;12;13
+observatory;Deepslate Bricks;minecraft:deepslate_bricks;62;0;0;62
+observatory;Stone Bricks;minecraft:stone_bricks;48;0;0;48
+passage_doors;Dark Oak Door;minecraft:dark_oak_door;28;0;0;28
+residence_1;Calcite;minecraft:calcite;77;0;1;13
+residence_1;Crafting Table;minecraft:crafting_table;1;0;0;1
+residence_1;Dark Oak Planks;minecraft:dark_oak_planks;16;0;0;16
+residence_1;Spruce Planks;minecraft:spruce_planks;361;0;5;41
+residence_1;Stone Brick Wall;minecraft:stone_brick_wall;13;0;0;13
+residence_1;Stone Bricks;minecraft:stone_bricks;481;0;7;33
+residence_1_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;161;0;2;33
+residence_1_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;199;0;3;7
+residence_1_turret;Calcite;minecraft:calcite;32;0;0;32
+residence_1_turret;Lantern;minecraft:lantern;4;0;0;4
+residence_1_upper;Calcite;minecraft:calcite;17;0;0;17
+residence_1_upper;Stone Bricks;minecraft:stone_bricks;111;0;1;47
+residence_2;Calcite;minecraft:calcite;55;0;0;55
+residence_2;Crafting Table;minecraft:crafting_table;1;0;0;1
+residence_2;Dark Oak Planks;minecraft:dark_oak_planks;19;0;0;19
+residence_2;Spruce Planks;minecraft:spruce_planks;373;0;5;53
+residence_2;Stone Brick Wall;minecraft:stone_brick_wall;13;0;0;13
+residence_2;Stone Bricks;minecraft:stone_bricks;366;0;5;46
+residence_2_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;194;0;3;2
+residence_2_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;217;0;3;25
+residence_2_turret;Calcite;minecraft:calcite;32;0;0;32
+residence_2_turret;Lantern;minecraft:lantern;4;0;0;4
+residence_2_upper;Calcite;minecraft:calcite;63;0;0;63
+residence_2_upper;Spruce Planks;minecraft:spruce_planks;394;0;6;10
+residence_2_upper;Stone Bricks;minecraft:stone_bricks;316;0;4;60
+residence_3;Calcite;minecraft:calcite;109;0;1;45
+residence_3;Crafting Table;minecraft:crafting_table;1;0;0;1
+residence_3;Dark Oak Planks;minecraft:dark_oak_planks;19;0;0;19
+residence_3;Spruce Planks;minecraft:spruce_planks;393;0;6;9
+residence_3;Stone Brick Wall;minecraft:stone_brick_wall;13;0;0;13
+residence_3;Stone Bricks;minecraft:stone_bricks;507;0;7;59
+residence_3_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;194;0;3;2
+residence_3_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;240;0;3;48
+residence_3_turret;Calcite;minecraft:calcite;32;0;0;32
+residence_3_turret;Lantern;minecraft:lantern;4;0;0;4
+residence_3_upper;Calcite;minecraft:calcite;105;0;1;41
+residence_3_upper;Spruce Planks;minecraft:spruce_planks;437;0;6;53
+residence_3_upper;Stone Bricks;minecraft:stone_bricks;442;0;6;58
+residence_4;Calcite;minecraft:calcite;16;0;0;16
+residence_4;Crafting Table;minecraft:crafting_table;1;0;0;1
+residence_4;Dark Oak Planks;minecraft:dark_oak_planks;20;0;0;20
+residence_4;Spruce Planks;minecraft:spruce_planks;427;0;6;43
+residence_4;Stone Brick Wall;minecraft:stone_brick_wall;13;0;0;13
+residence_4;Stone Bricks;minecraft:stone_bricks;398;0;6;14
+residence_4_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;194;0;3;2
+residence_4_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;217;0;3;25
+residence_4_turret;Calcite;minecraft:calcite;32;0;0;32
+residence_4_turret;Lantern;minecraft:lantern;4;0;0;4
+residence_4_upper;Calcite;minecraft:calcite;46;0;0;46
+residence_4_upper;Spruce Planks;minecraft:spruce_planks;359;0;5;39
+residence_4_upper;Stone Bricks;minecraft:stone_bricks;232;0;3;40
+residence_5;Calcite;minecraft:calcite;55;0;0;55
+residence_5;Crafting Table;minecraft:crafting_table;1;0;0;1
+residence_5;Dark Oak Planks;minecraft:dark_oak_planks;20;0;0;20
+residence_5;Spruce Planks;minecraft:spruce_planks;373;0;5;53
+residence_5;Stone Brick Wall;minecraft:stone_brick_wall;13;0;0;13
+residence_5;Stone Bricks;minecraft:stone_bricks;368;0;5;48
+residence_5_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;194;0;3;2
+residence_5_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;217;0;3;25
+residence_5_turret;Calcite;minecraft:calcite;32;0;0;32
+residence_5_turret;Lantern;minecraft:lantern;4;0;0;4
+residence_5_upper;Calcite;minecraft:calcite;63;0;0;63
+residence_5_upper;Spruce Planks;minecraft:spruce_planks;394;0;6;10
+residence_5_upper;Stone Bricks;minecraft:stone_bricks;316;0;4;60
+residence_6;Calcite;minecraft:calcite;109;0;1;45
+residence_6;Crafting Table;minecraft:crafting_table;1;0;0;1
+residence_6;Dark Oak Planks;minecraft:dark_oak_planks;20;0;0;20
+residence_6;Spruce Planks;minecraft:spruce_planks;393;0;6;9
+residence_6;Stone Brick Wall;minecraft:stone_brick_wall;13;0;0;13
+residence_6;Stone Bricks;minecraft:stone_bricks;526;0;8;14
+residence_6_roof;Dunkeleichenholztreppe;minecraft:dark_oak_stairs;194;0;3;2
+residence_6_roof;Deepslate Tile Stairs;minecraft:deepslate_tile_stairs;240;0;3;48
+residence_6_turret;Calcite;minecraft:calcite;32;0;0;32
+residence_6_turret;Lantern;minecraft:lantern;4;0;0;4
+residence_6_upper;Calcite;minecraft:calcite;105;0;1;41
+residence_6_upper;Spruce Planks;minecraft:spruce_planks;437;0;6;53
+residence_6_upper;Stone Bricks;minecraft:stone_bricks;456;0;7;8
+residence_doors;Dark Oak Door;minecraft:dark_oak_door;16;0;0;16
+residence_furnishing;Barrel;minecraft:barrel;11;0;0;11
+residence_furnishing;Bookshelf;minecraft:bookshelf;22;0;0;22
+residence_furnishing;Chest;minecraft:chest;11;0;0;11
+residence_furnishing;Rotes Bett;minecraft:red_bed;22;0;0;22
+residence_furnishing;Roter Teppich;minecraft:red_carpet;230;0;3;38
+secret_lounge;Soul Lantern;minecraft:soul_lantern;3;0;0;3
+service_stairs;Spruce Stairs;minecraft:spruce_stairs;100;0;1;36
+service_stairs_rail;Fichtenzaun;minecraft:spruce_fence;100;0;1;36
+staircase_core;Steinziegeltreppe;minecraft:stone_brick_stairs;192;0;3;0
+staircase_rail;Fichtenzaun;minecraft:spruce_fence;128;0;2;0
+storage;Chest;minecraft:chest;8;0;0;8
+storage_fittings;Barrel;minecraft:barrel;46;0;0;46
+storage_fittings;Chest;minecraft:chest;12;0;0;12
+terrace_railings;Iron Bars;minecraft:iron_bars;66;0;1;2
+terrace_supports;Deepslate Bricks;minecraft:deepslate_bricks;128;0;2;0
+trading_hall;Barrel;minecraft:barrel;18;0;0;18
+trading_hall;Iron Bars;minecraft:iron_bars;18;0;0;18
+upper_doors;Dark Oak Door;minecraft:dark_oak_door;28;0;0;28
+upper_gallery;Spruce Planks;minecraft:spruce_planks;1522;0;23;50
+upper_gallery;Stone Bricks;minecraft:stone_bricks;401;0;6;17
+upper_leisure;Spruce Planks;minecraft:spruce_planks;401;0;6;17
+vault;Copper Block;minecraft:copper_block;7;0;0;7
+west_terrace;Spruce Planks;minecraft:spruce_planks;560;0;8;48
+window_framing;Calcite;minecraft:calcite;247;0;3;55
+winter_garden;Calcite;minecraft:calcite;108;0;1;44
+winter_garden;Glass Pane;minecraft:glass_pane;168;0;2;40
+winter_garden;Spruce Planks;minecraft:spruce_planks;625;0;9;49
+winter_garden;Stone Bricks;minecraft:stone_bricks;512;0;8;0
+workshop;Crafting Table;minecraft:crafting_table;7;0;0;7
+workshop_fittings;Crafting Table;minecraft:crafting_table;4;0;0;4
+workshop_fittings;Furnace;minecraft:furnace;4;0;0;4

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft Bergkamm-Herrenhaus & Kellergewölbe • Offizieller Bauplan & Server-Guide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Global Header -->
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">🏰</div>
+        <div>
+          <div class="brand-title">Bergkamm-Herrenhaus & Kellergewölbe</div>
+          <div class="brand-subtitle">Offizieller Minecraft Server-Bauplan • 70 × 50 Blöcke • 3 Untergeschosse • Seed: -4815224116428668341</div>
+        </div>
+      </div>
+
+      <nav class="nav-tabs">
+        <button class="nav-btn active" data-tab="layers">
+          <span>🏗️</span> Builder-Workstation
+        </button>
+        <button class="nav-btn" data-tab="materials">
+          <span>📦</span> Material- & Shulker-Plan
+        </button>
+        <button class="nav-btn" data-tab="rooms">
+          <span>🗺️</span> Raum-Atlas & Gewölbe
+        </button>
+        <button class="nav-btn" data-tab="redstone">
+          <span>⚡</span> Redstone & Teleporter
+        </button>
+        <button class="nav-btn" data-tab="phases">
+          <span>📋</span> Server-Bauphasen
+        </button>
+        <button class="nav-btn" data-tab="world">
+          <span>🌍</span> In der Welt & Vorlage
+        </button>
+        <button class="nav-btn" data-tab="photos">
+          <span>📷</span> Foto-Referenzen
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <div class="progress-badge-wrapper" title="Dein gespeicherter Baufortschritt">
+          <span>Fortschritt:</span>
+          <div class="progress-bar-bg">
+            <div id="headerProgressFill" class="progress-bar-fill"></div>
+          </div>
+          <strong id="headerProgressText" class="text-emerald-400">0%</strong>
+        </div>
+
+        <button id="soundToggleBtn" class="action-btn active" title="Soundeffekte umschalten">
+          🔊 Sound: An
+        </button>
+        <button onclick="window.print()" class="action-btn" title="Drucken oder als PDF speichern">
+          🖨️ Drucken / PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+
+    <!-- Server Coordinates Quick Banner -->
+    <div class="bg-gray-900/90 border-b border-gray-800 text-xs px-6 py-2.5 flex flex-wrap items-center justify-between text-gray-300 gap-4">
+      <div class="flex items-center gap-6">
+        <span>📍 <strong>Zentrum / Anker:</strong> <code class="bg-gray-800 text-amber-300 px-2 py-0.5 rounded font-mono">X: -662 | Y: 126 | Z: 790</code></span>
+        <span>🌱 <strong>Seed:</strong> <code class="bg-gray-800 text-sky-300 px-2 py-0.5 rounded font-mono">-4815224116428668341</code></span>
+        <span>📐 <strong>Grundfläche:</strong> <code class="bg-gray-800 text-emerald-300 px-2 py-0.5 rounded">70 × 50 Blöcke (Höhe: 46 Blöcke)</code></span>
+        <span>☀️ <strong>Ausrichtung:</strong> <code class="bg-gray-800 text-orange-300 px-2 py-0.5 rounded">Süd-Westen (Blick in Sonnenuntergang)</code></span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-gray-400">Schnell-Befehl:</span>
+        <button id="copyCenterTpBtn" class="px-2.5 py-1 bg-gray-800 hover:bg-gray-700 text-gray-200 rounded text-xs border border-gray-700 transition flex items-center gap-1.5 cursor-pointer">
+          📋 <code>/tp @s -662 127 790</code>
+        </button>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         TAB 1: BUILDER WORKSTATION (2D / 3D / SPLIT COCKPIT)
+         ========================================================================= -->
+    <section id="tab_layers" class="tab-content active">
+      <div class="viewer-container">
+
+        <!-- Left / Center: Interactive Blueprint Workstation -->
+        <div class="canvas-panel">
+
+          <!-- View Mode & Tool Controls -->
+          <div class="canvas-header">
+            <div class="mode-toggle">
+              <button id="mode2dBtn" class="mode-btn active" title="Reine 2D-Schichten-Blaupause">2D Bauplan</button>
+              <button id="mode3dBtn" class="mode-btn" title="3D-Isometrie Orbit-Modell">3D Orbit-Modell</button>
+              <button id="modeSplitBtn" class="mode-btn text-amber-400 font-bold" title="Split-Cockpit: 2D & 3D synchron nebeneinander!">⚡ Split-Cockpit</button>
+            </div>
+
+            <div class="canvas-controls">
+              <!-- 2D Controls -->
+              <button id="toggleGhostBtn" class="ctrl-btn active" title="Vorherige Schicht als Geist/Schatten anzeigen">👻 Schatten</button>
+              <button id="toggleGridBtn" class="ctrl-btn active" title="Gitterraster ein-/ausblenden">▦ Raster</button>
+              <button id="toggleCoordsBtn" class="ctrl-btn active" title="In-Game Koordinatenlineale anzeigen">🧭 Koordinaten</button>
+              <button id="toggleGlyphsBtn" class="ctrl-btn active" title="Textur-Symbole in Blöcken anzeigen">🔤 Symbole</button>
+
+              <!-- 3D Controls -->
+              <button id="toggleWorld3dBtn" class="ctrl-btn active" style="display:none;" title="Bergmassiv & Klippe ein-/ausblenden">🏔️ Bergwelt</button>
+              <button id="timeOfDay3dBtn" class="ctrl-btn" style="display:none;" title="Tageszeit (Sonnenuntergang / Tag / Nacht)">🌅 Sonnenuntergang</button>
+              <button id="rotate3dBtn" class="ctrl-btn" style="display:none;" title="Kamera um 45 Grad drehen">↺ 45° Drehen</button>
+
+              <!-- Zoom / Reset -->
+              <button id="zoomInBtn" class="ctrl-btn" title="Vergrößern (Mausrad auf)">🔍 +</button>
+              <button id="zoomOutBtn" class="ctrl-btn" title="Verkleinern (Mausrad ab)">🔍 −</button>
+              <button id="zoomResetBtn" class="ctrl-btn" title="Ansicht zentrieren">⛶ Reset</button>
+            </div>
+          </div>
+
+          <!-- Split-Cockpit Wrapper Container -->
+          <div id="splitCockpitContainer" class="canvas-wrapper-container">
+            <!-- 2D Canvas -->
+            <div id="canvas2dWrapper" class="canvas-wrapper">
+              <canvas id="canvas2d"></canvas>
+              <div id="viewerTooltip" class="viewer-tooltip"></div>
+            </div>
+
+            <!-- 3D Canvas -->
+            <div id="canvas3dWrapper" class="canvas-wrapper" style="display:none;">
+              <canvas id="canvas3d"></canvas>
+            </div>
+          </div>
+
+          <!-- Quick Jump Timeline Pills -->
+          <div class="quick-jump-container" id="quickJumpContainer">
+            <span class="text-xs text-gray-400 font-bold mr-1">Ebene:</span>
+            <button class="quick-jump-chip" data-layer-idx="0">K3: Klippen-Lounge (Y=105)</button>
+            <button class="quick-jump-chip" data-layer-idx="6">K2: Villager-Dungeon (Y=114)</button>
+            <button class="quick-jump-chip" data-layer-idx="12">K1: Kupfer-Lager & Stasis (Y=121)</button>
+            <button class="quick-jump-chip" data-layer-idx="16">Fundament & Pool-Stützen (Y=125)</button>
+            <button class="quick-jump-chip active" data-layer-idx="17">EG: Große Halle & Pool (Y=126)</button>
+            <button class="quick-jump-chip" data-layer-idx="24">1. OG: Master-Suite & Balkon (Y=133)</button>
+            <button class="quick-jump-chip" data-layer-idx="30">Dach: Gauben & Schrägen (Y=139)</button>
+            <button class="quick-jump-chip" data-layer-idx="36">Dachfirst: Zinnen & Kamine (Y=145)</button>
+          </div>
+
+          <!-- Layer Slider & Step Control Bar -->
+          <div class="layer-slider-bar">
+            <button id="layerPrevBtn" class="step-btn" title="Eine Schicht tiefer (Pfeiltaste links oder A)">◀ Unten</button>
+
+            <div class="slider-group">
+              <input type="range" id="layerSlider" min="0" max="36" value="17">
+              <span id="layerNameDisplay" class="font-bold text-amber-300 text-sm whitespace-nowrap">Schicht 18 von 37: EG 0: Prunkboden (Y = 126)</span>
+            </div>
+
+            <button id="layerNextBtn" class="step-btn" title="Eine Schicht höher (Pfeiltaste rechts oder D)">Oben ▶</button>
+
+            <button id="layerCompleteBtn" class="step-btn text-emerald-400 hover:text-emerald-300 border-emerald-500/40" title="Als fertiggestellt markieren">
+              <span id="layerCompleteIcon">⬜</span> Erledigt
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Panel: Layer Inspector, Instructions & Blocks -->
+        <div class="layer-details-panel">
+
+          <!-- Card 1: Layer Instructions & Milestones -->
+          <div class="card">
+            <div class="flex items-center justify-between mb-2">
+              <span id="layerCatBadge" class="layer-badge-cat">Erdgeschoss (EG)</span>
+              <div class="flex gap-2">
+                <span id="layerRelYBadge" class="tag bg-gray-800 text-amber-300 font-mono">EG</span>
+                <span id="layerYBadge" class="tag bg-gray-800 text-emerald-300 font-mono">Y = 126</span>
+              </div>
+            </div>
+
+            <h3 class="card-title text-base">Schritt-für-Schritt Bauanleitung</h3>
+            <p id="layerDesc" class="text-xs text-gray-300 leading-relaxed mb-3">...</p>
+
+            <h4 class="text-[11px] uppercase font-bold text-gray-400 tracking-wider mb-1.5">Meilensteine dieser Schicht:</h4>
+            <ul id="layerMilestones" class="layer-milestones text-xs"></ul>
+          </div>
+
+          <!-- Spotlight Banner (Hidden by default) -->
+          <div id="spotlightBanner" class="spotlight-banner" style="display:none;">
+            <span>🔍 <strong>Filter aktiv:</strong> <span id="spotlightBlockName">Quarz</span></span>
+            <button id="resetSpotlightBtn" class="spotlight-reset-btn">Zurücksetzen ✕</button>
+          </div>
+
+          <!-- Card 2: Blocks Required on Active Layer -->
+          <div class="card">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="card-title text-sm">Blöcke auf dieser Schicht</h3>
+              <span class="text-[11px] text-gray-400">Klick = Im Bauplan hervorheben</span>
+            </div>
+            <div id="blockLegendList" class="block-legend-list"></div>
+          </div>
+
+          <!-- Card 3: Live Selected Block Inspector -->
+          <div id="activeBlockCard" class="active-inspector-card">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span id="inspBlockIcon" class="text-lg">🧱</span>
+                <div>
+                  <div id="inspBlockName" class="font-bold text-emerald-300 text-sm">Ziegelstein (Brick)</div>
+                  <div id="inspBlockCoords" class="text-xs text-gray-300 font-mono">X: -662 | Y: 126 | Z: 790</div>
+                </div>
+              </div>
+              <span id="inspRelOffset" class="text-[11px] text-gray-400 font-mono">dx: 0, dz: 0</span>
+            </div>
+
+            <div class="coord-action-group">
+              <button id="copyTpCmdBtn" class="copy-coord-btn" title="Kopiert /tp Befehl in die Zwischenablage">
+                📋 Kopiere /tp
+              </button>
+              <button id="copySetblockCmdBtn" class="copy-coord-btn" title="Kopiert /setblock Befehl in die Zwischenablage">
+                📋 Kopiere /setblock
+              </button>
+            </div>
+          </div>
+
+          <!-- Keyboard Shortcuts Tip -->
+          <div class="text-xs text-gray-400 bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+            💡 <strong>Tastatur-Kürzel:</strong> Pfeiltasten <code>←</code> / <code>→</code> (oder <code>A</code> / <code>D</code>) wechseln Schichten. 
+            Mausrad zoomt. Im 3D-Modus dreht <code>R</code> die Kamera. Klick auf einen Block kopiert Koordinaten.
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         TAB 2: MATERIAL CALCULATOR & SHULKER BOX PACKING GUIDE
+         ========================================================================= -->
+    <section id="tab_materials" class="tab-content">
+      <div class="max-w-7xl mx-auto p-6">
+
+        <div class="card mb-6">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-black text-amber-300">Gesamt-Materialbedarf & Shulkerkisten-Packplan</h2>
+              <p class="text-sm text-gray-400 mt-1">Exakt kalkuliert für das 70 × 50 Bergkamm-Herrenhaus inklusive aller 3 Kellergewölbe und des Infinity-Pools.</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <button id="resetMaterialChecksBtn" class="action-btn text-xs">
+                🔄 Checkliste zurücksetzen
+              </button>
+            </div>
+          </div>
+
+          <!-- Filter Toolbar -->
+          <div class="materials-toolbar mt-4">
+            <div class="material-filters" id="matCategoryFilters">
+              <button class="filter-pill active" data-cat="ALL">Alle Blöcke</button>
+              <button class="filter-pill" data-cat="Baublöcke">Baublöcke</button>
+              <button class="filter-pill" data-cat="Prunk & Quarz-Fassade">Prunk & Quarz</button>
+              <button class="filter-pill" data-cat="Holz & Ausbau">Holz & Ausbau</button>
+              <button class="filter-pill" data-cat="Glas & Fenster">Glas & Fenster</button>
+              <button class="filter-pill" data-cat="Redstone, Technik & Keller">Redstone & Technik</button>
+              <button class="filter-pill" data-cat="Dekoration & Beleuchtung">Dekoration</button>
+            </div>
+
+            <div class="relative">
+              <input type="text" id="matSearchInput" placeholder="Material suchen (z.B. Quarz, Ziegel, Glas)..." class="bg-gray-800/80 border border-gray-700 text-gray-200 text-xs rounded-lg px-3 py-1.5 w-64 focus:outline-none focus:border-amber-400">
+            </div>
+          </div>
+        </div>
+
+        <!-- Shulker Box Packing Guide Card -->
+        <div class="card mb-6 border-amber-500/30 bg-gradient-to-r from-gray-900 via-gray-900/90 to-amber-950/20">
+          <h3 class="card-title text-amber-300 flex items-center gap-2">
+            <span>🎒</span> Empfohlene Shulkerkisten-Zusammenstellung für den Berg
+          </h3>
+          <p class="text-xs text-gray-300 mb-4">Packe diese Kisten in deiner Hauptbasis und transportiere sie auf den Bergkamm (Seed: -4815224116428668341, X: -662 Y: 126 Z: 790):</p>
+          
+          <div class="shulker-pack-grid" id="shulkerPackGrid">
+            <!-- Populated via app.js -->
+          </div>
+        </div>
+
+        <!-- Material Table Cards Grid -->
+        <div class="materials-grid" id="materialsGrid">
+          <!-- Populated via app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         TAB 3: ROOM ATLAS & UNDERGROUND VAULTS
+         ========================================================================= -->
+    <section id="tab_rooms" class="tab-content">
+      <div class="max-w-7xl mx-auto p-6">
+        <div class="mb-6">
+          <h2 class="text-2xl font-black text-amber-300">Raum-Atlas & Etagenpläne</h2>
+          <p class="text-sm text-gray-400 mt-1">Detaillierter Rundgang durch alle 9 Hauptbereiche des Anwesens – von der 60m-Klippen-Lounge bis zum Dachfirst.</p>
+        </div>
+
+        <div class="rooms-grid" id="roomsGrid">
+          <!-- Populated via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         TAB 4: REDSTONE & TELEPORTER
+         ========================================================================= -->
+    <section id="tab_redstone" class="tab-content">
+      <div class="max-w-7xl mx-auto p-6">
+        <div class="mb-6">
+          <h2 class="text-2xl font-black text-amber-300">Redstone-Automationen & Teleporter-Blaupausen</h2>
+          <p class="text-sm text-gray-400 mt-1">Erprobte, 100% zuverlässige Schaltungen für den Survival-Server-Einsatz in Minecraft 1.20 / 1.21+.</p>
+        </div>
+
+        <div class="redstone-grid" id="redstoneGrid">
+          <!-- Populated via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         TAB 5: SERVER PHASES CHECKLIST
+         ========================================================================= -->
+    <section id="tab_phases" class="tab-content">
+      <div class="max-w-7xl mx-auto p-6">
+        <div class="mb-6">
+          <h2 class="text-2xl font-black text-amber-300">Server-Bauphasen & Fortschritts-Checkliste</h2>
+          <p class="text-sm text-gray-400 mt-1">Strukturierter 7-Stufen-Bauablauf. Markiere erledigte Arbeitsschritte – Fortschritt wird lokal gespeichert.</p>
+        </div>
+
+        <div class="phases-timeline" id="phasesTimeline">
+          <!-- Populated via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         TAB 6: WORLD & SEED DOSSIER (BEFORE / AFTER COMPARISON)
+         ========================================================================= -->
+    <section id="tab_world" class="tab-content">
+      <div class="max-w-7xl mx-auto p-6">
+
+        <div class="card mb-6">
+          <h2 class="text-2xl font-black text-amber-300 mb-2">Welt- & Bauplatz-Dossier (Seed: -4815224116428668341)</h2>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            Interaktiver Vergleich zwischen dem unbebauten Bergplateau mit dem ausgehobenen Aushubgraben und dem fertig gerenderten 70-Block Mega-Herrenhaus bei Sonnenuntergang.
+          </p>
+
+          <!-- Interactive Before / After Split Slider -->
+          <div class="compare-container mt-4" id="compareContainer">
+            <img src="Fotos/image.png" alt="Unbebautes Bergplateau mit Aushubgraben" class="compare-img compare-img-before">
+            <img src="mansion_in_world_render.png" alt="Fertiges Bergkamm-Herrenhaus mit Kaminrauch und Infinity-Pool" class="compare-img compare-img-after" id="compareAfterImg">
+
+            <div class="compare-badge compare-badge-before">📸 Vorher: Bergplateau & Aushubgraben</div>
+            <div class="compare-badge compare-badge-after">🏰 Nachher: 70-Block Herrenhaus im Sonnenuntergang</div>
+
+            <div class="compare-slider-line" id="compareSliderLine">
+              <div class="compare-handle">↔</div>
+            </div>
+          </div>
+          <div class="text-xs text-gray-400 text-center mt-2">💡 Ziehe den Schieberegler nach links und rechts, um das Bauwerk auf dem Plateau einzublenden.</div>
+        </div>
+
+        <!-- Site & Coordinate Details Grid -->
+        <div class="world-dossier-grid">
+          <div class="card">
+            <h3 class="card-title text-emerald-400">🏔️ Geografische Eckdaten</h3>
+            <ul class="text-xs text-gray-300 space-y-2 mt-3">
+              <li><strong>Minecraft Version:</strong> 26.2 (kompatibel mit 1.20+ / 1.21+)</li>
+              <li><strong>Seed:</strong> <code>-4815224116428668341</code></li>
+              <li><strong>Plateau-Mittelpunkt:</strong> <code>X: -662 | Y: 126 | Z: 790</code></li>
+              <li><strong>Biom:</strong> Stony Peaks / Jagged Peaks (Gipfel & Felswände)</li>
+              <li><strong>Pinkes Leuchtfeuer (Beacon):</strong> <code>X: -657 | Y: 126 | Z: 780</code></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title text-amber-400">☀️ Himmelsrichtungen & Licht</h3>
+            <ul class="text-xs text-gray-300 space-y-2 mt-3">
+              <li><strong>Vorderseite (Portikus):</strong> Süd-Westen (schaut direkt in die Abendsonne)</li>
+              <li><strong>Rückseite (Infinity-Pool):</strong> Nord-Osten (60-Block Klippenabfall zum Tal)</li>
+              <li><strong>Westflügel (Salon & Bibliothek):</strong> Nord-Westen (Berggrat)</li>
+              <li><strong>Ostflügel (Speisesaal & Küche):</strong> Süd-Osten (Alpines Plateau)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title text-sky-400">🏗️ Gelände-Integration</h3>
+            <ul class="text-xs text-gray-300 space-y-2 mt-3">
+              <li><strong>Aushubgraben:</strong> Stimmt exakt mit den 70 × 50 Blöcken des Bauplans überein</li>
+              <li><strong>Keller 3 Klippenbalkon:</strong> Hängt frei auf Y=106 über der Schlucht</li>
+              <li><strong>Wasserabwurf-Schacht:</strong> Notausgang aus Keller 3 direkt in den Bergsee im Tal</li>
+              <li><strong>Vorplatz:</strong> Ausreichend Raum für Kutschen-Kreisverkehr und Hecken</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         TAB 7: PHOTO REFERENCES & ARCHITECTURAL ANALYSIS
+         ========================================================================= -->
+    <section id="tab_photos" class="tab-content">
+      <div class="max-w-7xl mx-auto p-6">
+        <div class="mb-6">
+          <h2 class="text-2xl font-black text-amber-300">Foto-Referenzen & Architektur-Vorlage</h2>
+          <p class="text-sm text-gray-400 mt-1">Vergleich zwischen der Viktorianischen Ziegel-Villa Vorlage (images.png) und den Server-Geländefotos.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card">
+            <h3 class="card-title text-amber-300">🏛️ Viktorianische Architektur-Vorlage (images.png)</h3>
+            <img src="Fotos/images.png" alt="Viktorianische Vorlage" class="w-full h-80 object-contain rounded-lg bg-black/40 border border-gray-700 mt-3">
+            <div class="text-xs text-gray-300 mt-3 space-y-1.5">
+              <div><strong>Fassadenmerkmale:</strong> Rote Ziegelsteine, weiße Quarz-Eckquader (Quoins), 2-stöckiger Säulenportikus mit Rundbogen.</div>
+              <div><strong>Erkertürme:</strong> Symmetrische Achteck-Erker mit 3 hohen Sprossenfenstern pro Stockwerk.</div>
+              <div><strong>Dachlandschaft:</strong> Steiles dunkles Walmdach aus Tiefenschiefer mit 4 Ziergauben, weißem Zinnenkamm und zwei Kaminen.</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title text-sky-300">⛰️ Server-Baufeld & Aushub (image3.png)</h3>
+            <img src="Fotos/image3.png" alt="Server Aushubgraben" class="w-full h-80 object-contain rounded-lg bg-black/40 border border-gray-700 mt-3">
+            <div class="text-xs text-gray-300 mt-3 space-y-1.5">
+              <div><strong>Baufeld-Größe:</strong> Der ausgehobene Erdgraben auf dem Plateau erstreckt sich über ca. 70 Blöcke in der Breite.</div>
+              <div><strong>Koordinaten:</strong> X: -662, Y: 126, Z: 790 auf Seed -4815224116428668341.</div>
+              <div><strong>Gelände:</strong> Vorne ebenes Plateau, hinten senkrechter 60-Block-Absturz ins Flusstal.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Load Data and Application Scripts -->
+  <script src="data.js"></script>
+  <script src="viewer2d.js"></script>
+  <script src="viewer3d.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

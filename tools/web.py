@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent.parent
-BASE=ROOT.parent/'Blackthorn-Estate-Revision-5.9'
+BASE=ROOT/'tools'/'seeds'/'revision-5.9'
 
 
 def patch(s,old,new):

@@ -1,0 +1,52 @@
+﻿Block;Blockpositionen;Item;Benötigte Items;Shulkerboxen;Restliche Stacks;Einzelstücke;Hinweis
+deepslate_bricks;16263;deepslate_bricks;16263;9;11;7;
+spruce_planks;10571;spruce_planks;10571;6;3;11;
+stone_bricks;9819;stone_bricks;9819;5;18;27;
+dark_oak_stairs;3041;dark_oak_stairs;3041;1;20;33;
+deepslate_tile_stairs;2985;deepslate_tile_stairs;2985;1;19;41;
+polished_deepslate;2697;polished_deepslate;2697;1;15;9;
+calcite;2075;calcite;2075;1;5;27;
+lantern;461;lantern;461;0;7;13;
+barrel;453;barrel;453;0;7;5;
+chain;288;chain;288;0;4;32;
+red_carpet;237;red_carpet;237;0;3;45;
+spruce_fence;228;spruce_fence;228;0;3;36;
+stone_brick_stairs;192;stone_brick_stairs;192;0;3;0;
+white_stained_glass_pane;189;white_stained_glass_pane;189;0;2;61;
+glass_pane;168;glass_pane;168;0;2;40;
+water;144;water_bucket;;;;;Wasser separat: wiederverwendbare Eimer
+dark_oak_door;140;dark_oak_door;70;0;1;6;Türhälften als ein Item
+chest;124;chest;124;0;1;60;
+dark_oak_planks;114;dark_oak_planks;114;0;1;50;
+spruce_stairs;100;spruce_stairs;100;0;1;36;
+stone_brick_wall;98;stone_brick_wall;98;0;1;34;
+bookshelf;92;bookshelf;92;0;1;28;
+iron_bars;84;iron_bars;84;0;1;20;
+moss_block;50;moss_block;50;0;0;50;
+spruce_wall_sign;47;spruce_sign;47;0;2;15;
+stone_brick_slab;37;stone_brick_slab;37;0;0;37;
+crafting_table;31;crafting_table;31;0;0;31;
+red_bed;22;red_bed;11;0;11;0;Bett aus zwei Positionen
+stripped_spruce_log;18;stripped_spruce_log;18;0;0;18;
+chiseled_bookshelf;16;chiseled_bookshelf;16;0;0;16;
+furnace;13;furnace;13;0;0;13;
+smoker;9;smoker;9;0;0;9;
+flower_pot;9;flower_pot;9;0;0;9;
+cartography_table;8;cartography_table;8;0;0;8;
+copper_block;6;copper_block;6;0;0;6;
+anvil;6;anvil;6;0;0;6;
+blast_furnace;6;blast_furnace;6;0;0;6;
+lectern;6;lectern;6;0;0;6;
+brewing_stand;5;brewing_stand;5;0;0;5;
+soul_lantern;3;soul_lantern;3;0;0;3;
+cauldron;3;cauldron;3;0;0;3;
+smithing_table;3;smithing_table;3;0;0;3;
+blue_carpet;2;blue_carpet;2;0;0;2;
+green_carpet;2;green_carpet;2;0;0;2;
+purple_carpet;2;purple_carpet;2;0;0;2;
+orange_carpet;2;orange_carpet;2;0;0;2;
+yellow_carpet;2;yellow_carpet;2;0;0;2;
+enchanting_table;1;enchanting_table;1;0;0;1;
+stonecutter;1;stonecutter;1;0;0;1;
+grindstone;1;grindstone;1;0;0;1;
+loom;1;loom;1;0;0;1;
