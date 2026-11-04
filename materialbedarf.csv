@@ -17,14 +17,14 @@ barrel;570;64;8;58;0;570
 gravel;472;64;7;24;0;472
 deepslate_tile_slab;452;64;7;4;0;452
 cracked_deepslate_bricks;430;64;6;46;0;430
-lantern;413;64;6;29;0;413
 red_carpet;333;64;5;13;0;333
-iron_chain;303;64;4;47;0;303
 gray_carpet;252;64;3;60;0;252
+lantern;235;64;3;43;0;235
 glass;230;64;3;38;0;230
 hopper;216;64;3;24;0;216
 polished_diorite_slab;212;64;3;20;0;212
 spruce_stairs;198;64;3;6;0;198
+iron_chain;188;64;2;60;0;188
 stone_brick_wall;168;64;2;40;0;168
 polished_andesite;160;64;2;32;0;160
 stone_brick_slab;160;64;2;32;0;160

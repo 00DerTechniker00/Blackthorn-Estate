@@ -1,53 +1,17 @@
-# Revision 5.9 · Ausrichtung, Zugang, Laternen und Lager
+# Revision 5.10 · Übersichtlicher Bauatlas und überarbeitete Leuchten
 
-Die Architektur aus 5.8 wurde um X=-690/Z=790 um 180° gedreht. Blockrichtungen,
-Türhälften, Filterausgänge, Raumbereiche und Inventarpositionen werden zusammen
-transformiert. Das ursprüngliche Gelände bleibt unverändert orientiert; die
-neuen Arbeitsmengen werden aus den Originalblöcken erneut berechnet.
+Die Navigation bündelt die bisherigen zwölf gleichrangigen Ansichten in fünf Hauptbereiche. Nur die Unteransichten des aktuellen Bereichs sind sichtbar. Der Start zeigt drei konkrete Einstiege statt sämtlicher Projektinformationen. Ausführliche Daten bleiben in aufklappbaren Abschnitten erreichbar. Lagerbuchten stehen in einer durchsuchbaren Tabelle, Bauphasen sind einzeln aufklappbar. Mobil wird die Seitenleiste zum schließbaren Menü. Aktive Ansichten, Tastaturfokus und lokale Speicherung sind sichtbar gekennzeichnet.
 
-Der Pool liegt damit im Osten und schaut über den tiefen Geländeeinschnitt. Die
-Zufahrt kommt von Nordwesten. Die Wegmittellinie liegt nach der verwendeten Messung
-mindestens 15 Blöcke von einer natürlichen Bodensäule entfernt, die mehr als acht
-Blöcke tiefer liegt. Gesucht wurde innerhalb von 22 Blöcken Radius. Das ist eine
-nachvollziehbare Geländeprüfung, keine vollständige Absturz-/Spielersicherheitssimulation.
-Der fünf Blöcke breite Weg erhält zusätzliche Schultern und Böschungsübergänge.
-An stärker angehobenen Rampenteilen ergänzt eine steinerne Wegeinfassung den
-Abstand zur natürlichen Hangkante; sie wird als echtes Bauteil mitgezählt.
+Der Leuchtenplan bietet Suche, Höhen- und Montagefilter und für jede Laterne zwei Aktionen: isoliertes 3D-Detail oder Position im Ebenenplan. In der Detailansicht sind Leuchte, Kette und tatsächlicher Anker enthalten. Die Gesamtansicht lässt sich mit einem Klick wiederherstellen.
 
-Der Pooldurchgang war sowohl außen durch Treppen-/Dekorblöcke als auch innen durch
-Bibliotheksmöbel eingeengt. Ein vier Blöcke breiter Bereich wird freigeräumt; der
-zweiflügelige Türdurchgang bleibt auf der Geschosshöhe begehbar. Die Mezzanin-Treppe
-der Bibliothek wird vollständig seitlich versetzt und mit Unterbau sowie Geländer
-neu gebaut. Die eigentliche Kellertreppe bleibt erhalten.
+Die Überprüfung der alten automatischen Verteilung ergab 195 stehende und 16 hängende Zusatzleuchten. Viele standen auf begehbaren Bodenebenen; andere hatten Ketten mit bis zu elf Blöcken. Alle 211 automatischen Zusatzleuchten und ihre ungenutzten Aufhängungen wurden entfernt. 33 gezielte Deckenleuchten ergänzen Kellerdurchgänge, Golemhalle, Bulk-Wartung und Wohnräume. Bestehende Kronleuchter und Terrassenleuchten bleiben erhalten. Insgesamt enthält das Modell 236 Laternen, mit höchstens zwei Kettenblöcken pro Aufhängung. Jeder Träger und jede durchgehende Kette wird gegen die tatsächlichen Blockpositionen geprüft; ungeeignete Stufenflächen werden abgewiesen.
 
-Aufhängungen der Laternen wurden überprüft und mit Deckenketten ergänzt. Bodenleuchten
-in den zentralen Durchgängen werden höher gehängt oder entfernt. Wo kein geeigneter
-Halt gefunden wird, bleibt keine schwebende Leuchte stehen. Im Viewer wurde zusätzlich
-das fehlende obere Verbindungsstück der Hängelaterne ergänzt. Eine Licht-/Spawnprüfung
-ist damit ausdrücklich noch nicht erfolgt.
+Die Darstellung trennt dunklen Metallrahmen, warmen bzw. blauen Leuchtkern, Bügel und Anschlussstück. Der Rahmen ist geometrisch verbunden; stehende Laternen sitzen ohne sichtbare Lücke auf ihrem Träger. Im Seitenplan wurden die Symbole entsprechend korrigiert. Die Detailbilder verwenden dieselbe Geometrie wie der Viewer.
 
-Die sechs Gauben, Gesimse, hellen Ecksteine und Kupferakzente ergänzen die vorhandene
-Dachhülle. Die dichten Dachfüllungen früherer Revisionen werden nicht wiederhergestellt.
-Die Vorschauen unter `assets/` verwenden die tatsächlichen Geometrien des Viewers.
+Das neue Modell umfasst 101.218 eindeutige Blockpositionen. Die Differenzliste enthält 447 Positionen, ausschließlich der Baugruppe Beleuchtung. Architektur, Ausrichtung, Wege und Lagertechnik bleiben erhalten. Eine neue Deckenleuchte ersetzt einen natürlichen Steinblock; deshalb wurde die genaue Abtragsliste um eine Position auf 48.996 ergänzt. Auffüllung und Geländeoberflächen bleiben unverändert. Modell, Materiallisten, Leuchtenliste und eingebettete Website-Daten werden gemeinsam erzeugt.
 
-Im Keller sind sechs Bulk-Scheiben neu angeordnet. Ihre Filter, Vorratsfässer,
-Überlaufleitungen, Box-Positionen, Dispenser und Kolben stehen im Modell. Unter
-jedem Loader führt eine senkrechte Strecke in drei Fässer für volle Shulker.
-Fünf Regallagerbuchten werden dafür an andere freie Positionen derselben Etage
-versetzt; alle 400 Regalfässer und 48 Privatfässer bleiben erhalten.
+Fortschritt aus exakt dieser Revision 5.9 wird anhand ihres Modell-Fingerprints erkannt. Die Übernahme behält nur unveränderte Blockhäkchen und setzt betroffene Baugruppen-Fertigmeldungen zurück. Zuständigkeiten und Bestandsnotizen bleiben erhalten. Der bisherige Browser-Speicher wird nicht überschrieben; manuelle Backups können ebenfalls importiert werden. 5.8 und abweichende Baupläne werden abgewiesen.
 
-Der Golemraum hat neun vorbestückte Zieltruhen. Die Listen enthalten konkrete
-Itemtypen; Kategorien werden nicht als magische Filter behandelt. Unbekannte oder
-nicht mehr unterzubringende Typen müssen am Eingang geklärt werden. Die Grundregeln
-folgen den [offiziellen Minecraft-Angaben](https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-9).
+Die unabhängige Modellprüfung kontrolliert Blocklisten, Materialmengen, Hashes, Türhälften, 56 erreichbare Lagerbuchten mit 448 Fässern, Pooldurchgang, Treppe, Hopper-Zielketten und sämtliche Gelände-Einzelpositionen gegen die Originalregionen. 295 Laufzeitprüfungen decken Navigation, Filter, Detailansicht, Geometrie, Baufortschritt, Backup und die 5.9-Übernahme mit DOM-/WebGL-Adaptern ab. HTML-Struktur, CSS-Klammern und GLSL-Shader wurden separat geprüft. Die Originaldateien und Revisionen 5.8/5.9 werden anhand ihrer Manifeste auf Unverändertheit kontrolliert.
 
-Die Automatik ist **noch kein fertiger Funktionsnachweis**. Besonders die Shulker-
-Sequenzsteuerung, das Abwurf-Pickup und der Droppertakt sind zu vervollständigen.
-Feste Jumper sperren vorerst die Pickup-Hopper unter den Bulk-Boxen, damit sie
-ihren Inhalt nicht beim Beladen wieder absaugen. Die nötigen Schaltphasen und die
-Abnahmefolge stehen in `technik_inbetriebnahme.md`. Der Browserrechner prüft nur
-Mengen, Priorität und Rückstau, keine echten Redstone-Ticks oder Golem-KI.
-
-`check_report.json` nennt die aktuellen Modellmengen; `pruefprotokoll.json` hält
-die tatsächlichen Prüfungen und offenen Grenzen fest. Ein Ingame-Test wurde nicht
-durchgeführt. Die Website ist weiterhin lokal und ohne CDN nutzbar.
+Ein Browser-/GPU-Sichttest ist in dieser Umgebung wegen gesperrter Betriebssystem-Sockets blockiert. Die Modellbilder sind Software-Renderings, keine Browser-Screenshots. Es gab weder eine Licht-/Spawn-Simulation noch einen Ingame-Test. Die Lagerautomatik ist unverändert noch nicht vollständig verdrahtet; der Mengenrechner ersetzt keine Redstone-Ticks oder Golem-KI. Die offenen Schritte stehen in `technik_inbetriebnahme.md`. Aktuelle Prüfergebnisse stehen in `pruefprotokoll.json`.

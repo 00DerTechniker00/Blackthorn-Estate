@@ -1,55 +1,45 @@
-# Blackthorn Estate · Revision 5.9
+# Blackthorn Estate · Revision 5.10
 
-`index.html` im Browser öffnen. Vorherige Versionen und Originalwelt bleiben unverändert.
+`index.html` im Browser öffnen. Die Website funktioniert ohne Server und ohne Internet. Revision 5.9 und die Originalwelt wurden nicht verändert.
 
-- **180° gedreht:** Pool und Panorama nach Osten, Eingang nach Westen. Die Welt
-  selbst wurde nicht gedreht; Erdarbeiten sind gegen dieselben Originalregionen neu berechnet.
-- **Zufahrt Nordwest:** breiterer Unterbau, Wegschultern und Abstand zum natürlichen
-  Geländeeinschnitt. Die Messdefinition steht in `blueprint.json` unter `route_safety`.
-- **Poolzugang:** Treppe, Möbel und Leuchten aus dem Türdurchgang entfernt. Ebenes
-  Podest innen und außen; Türhälften und Richtungen mitgedreht.
-- **Mehr Details:** sechs verglaste Gauben, helle Ecksteine und Gesimse, Kupferfirst
-  und Erkerfinials. Die ruhige Hauptform bleibt erhalten.
-- **Laternen:** Aufhängungen korrigiert, Ketten ergänzt, ungeeignete Leuchten entfernt.
-  Auch der sichtbare Anschluss von Laternenbügel zu Kette ist im Renderer ergänzt.
-- **Lagerentwurf:** sechs Bulk-Filter mit losem Vorrat und tiefer liegenden
-  Shulker-Speichern, neun Golem-Zieltruhen, Loader/Unloader neben dem Einwurf.
-  Die 400 Regallager- und 48 Privatfässer bleiben als manuelle Reserve erhalten.
+Die fünf Hauptbereiche führen direkt zur jeweiligen Aufgabe:
 
-**Wichtig zur Automatik:** Die Shulker-Sequenzsteuerung, die vertikale Dropper-
-Taktung und die Box-Aufnahme sind noch nicht fertig verdrahtet bzw. im Spiel
-bestätigt. Der Atlas kennzeichnet sie als Schaltentwurf, nicht als betriebsfertige
-Automatik. Siehe [Technik und Inbetriebnahme](technik_inbetriebnahme.md).
-Der Browser-Mengenrechner ersetzt keine Redstone-/Paper-Simulation.
+- **Start:** kurze Übersicht und Einstieg in Haus, Gelände oder Lager.
+- **Bauatlas:** 3D-Modell, Ebenenplan, Baubegleitung, Raumbuch und Leuchtenplan. In 3D lassen sich Etagen direkt auswählen und weitere Filter bei Bedarf aufklappen.
+- **Gelände:** Ist-/Soll-Karte mit Koordinaten und Arbeitsmengen. Messdetails sind einklappbar.
+- **Lager:** durchsuchbare Tabelle der 56 Lagerbuchten sowie eine eigene Technikansicht.
+- **Organisation:** Baufortschritt in aufklappbaren Phasen, Materialbedarf und alle Arbeitsdateien.
 
-## Listen
+Auf schmalen Bildschirmen öffnet „Bereiche“ die Navigation. Der Schalter „Darstellung wechseln“ wählt ein helles oder dunkles Design.
 
-`blockliste.csv`, `materialbedarf.csv`, `materialbedarf_baugruppen.csv` enthalten
-die tatsächlichen Baupositionen. `terraforming.csv` zeigt Ist-/Soll-Boden und
-Arbeitsmengen; Abtrag und Auffüllung sind zusätzlich als Einzelblocklisten vorhanden.
-Die Auffülllisten sind eine Teilmenge der Baumaterialien, nicht nochmals addieren.
+## Laternen
 
-`technik_module.csv` und `technik_inventare.csv` dokumentieren die technischen
-Positionen sowie manuell einzurichtende Inventare. `lagerbuchten.csv` enthält die
-erhaltenen Regallager-/Privatbuchten mit ihren neuen Weltkoordinaten.
+236 Leuchten ersetzen die bisherige Verteilung mit 414 Leuchten. Die 211 automatisch ergänzten Boden- und Langkettenleuchten wurden entfernt und durch 33 gezielte Deckenleuchten ergänzt. Geplante Kronleuchter und Terrassenleuchten bleiben erhalten. Keine Aufhängung braucht mehr als zwei Kettenblöcke.
 
-Alle Blockstates, Raumbereiche, Inventarpositionen und Ziele wurden um 180° um
-X=-690/Z=790 gedreht. Fortschritt früherer Versionen wird nicht automatisch übernommen.
+Unter **Bauatlas → Leuchtenplan** kann jede Laterne gesucht und nach Höhe oder Montageart gefiltert werden. „3D“ zeigt Leuchte, Kette und Träger isoliert; „Ganzes Haus“ stellt das Modell wieder her. „Plan“ öffnet ihre Position im Ebenenplan. Metallrahmen, Leuchtkern, Bügel und Anschluss sind separat modelliert. `laternen_pruefung.csv` führt alle tatsächlichen Positionen und Träger auf.
 
-## Prüfen / reproduzieren
+Die Befestigungen sind am Blockmodell geprüft. Eine Licht-/Spawn-Simulation und ein Minecraft-/Paper-Test stehen aus.
+
+## Fortschritt übernehmen
+
+Unter **Organisation → Fortschritt** vollständiges Backup exportieren oder importieren. Ein unverändertes 5.9-Backup wird erkannt: unveränderte Blockhäkchen, Zuständigkeiten und Lagerbestände bleiben erhalten; geänderte Leuchtenpositionen und die Fertigmeldung der Baugruppe „Beleuchtung“ bleiben offen. Der alte Browser-Speicher wird nicht überschrieben. Wenn beide lokalen Seiten denselben Browser-Speicher nutzen, wird der Stand auch automatisch übernommen. Andernfalls das Backup importieren.
+
+## Arbeitsdateien
+
+`blockliste.csv`, `materialbedarf.csv` und `materialbedarf_baugruppen.csv` entsprechen dem aktuellen Modell. `aenderungen_5.9_zu_5.10.csv` enthält 447 geänderte Positionen ausschließlich der Beleuchtung. `terraforming.csv` und die Abtrag-/Auffülllisten enthalten auch den einen zusätzlich auszubauenden Steinblock für eine neue Deckenleuchte. Auffüllblöcke sind bereits Teil der Baumaterialien, nicht nochmals addieren.
+
+Der Architektur- und Lagerentwurf aus 5.9 bleibt erhalten: Pool im Osten, Eingang im Westen, Zufahrt aus Nordwesten. Die Lagerautomatik ist weiterhin ein unvollständiger Schaltentwurf. Siehe [Technik und Inbetriebnahme](technik_inbetriebnahme.md).
+
+## Prüfen und reproduzieren
 
 ```sh
-python tools/model.py
-python tools/web.py
+python tools/build.py
 python tools/validate.py
 node tools/test_app.mjs
+node tools/export_preview.mjs
+python tools/render_preview.py
 ```
 
-Generatoren brauchen die benachbarte Revision 5.8 und `mca.zip`. Zum normalen
-Öffnen reicht der ausgelieferte Ordner, ohne Internet. Vorschauen werden aus der
-tatsächlichen Viewer-Geometrie berechnet: `node tools/export_preview.mjs`, danach
-`python tools/render_preview.py` (Pillow/NumPy erforderlich).
+Der Generator benötigt die benachbarte Revision 5.9 und `mca.zip`; die unabhängige Prüfung zusätzlich die bisherigen Originalmanifeste und Revision 5.8. Die Vorschauen benötigen Pillow und NumPy. Zum normalen Öffnen ist davon nichts nötig.
 
-Ein Browser-/GPU-Sichttest ist in dieser Ausführungsumgebung wegen gesperrter
-Betriebssystem-Sockets blockiert. Die Modellvorschauen sind Software-Renderings.
-Minecraft-/Paper-Tests sowie eine aktuelle Lichtsimulation stehen aus.
+295 Laufzeitprüfungen verwenden DOM-/WebGL-Adapter. GLSL-Shader, HTML-Struktur, Modellmengen, Listen, Türen, Lagerzugänge und Befestigungen wurden zusätzlich geprüft. Ein echter Browser-/GPU-Sichttest ist hier wegen gesperrter Betriebssystem-Sockets nicht möglich. Die Bilder unter `assets/` sind aus der tatsächlichen Viewer-Geometrie berechnete Modellvorschauen.

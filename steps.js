@@ -14,7 +14,10 @@ const fmt=v=>Number(v).toLocaleString('de-DE');
 const safe=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function csv(name,rows){const txt='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\r\n');const blob=new Blob([txt],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),800)}
 function jumpToRoom(zone){window.__focusPlan(zone.x[0],zone.y[0],zone.z[0]);}
-function renderStorage(){const q=$('#storageQuery').value.toLowerCase();$('#storageZones').innerHTML=zones.filter(z=>(z.name+' '+z.room+' '+z.contents).toLowerCase().includes(q)).map(z=>`<article class="room"><header><h3>${safe(z.id)} · ${safe(z.name)}</h3><span class="tag">${safe(z.group)}</span></header><p class="muted">${safe(z.contents)}</p><small>Bereich: ${safe(z.room)}<br>Koordinaten X ${z.x.join(' bis ')}, Y ${z.y.join(' bis ')}, Z ${z.z.join(' bis ')}</small><div class="row"><label>Notiz / tatsächlicher Bestand <input type="text" data-stock="${z.id}" value="${safe(inv[z.id]||'')}" placeholder="z. B. 6 Shulker Stein"></label></div><button class="mini" data-jump="${z.id}">Im Grundriss öffnen</button></article>`).join('');}
+function renderStorage(){const q=$('#storageQuery').value.toLowerCase();const rows=zones.filter(z=>(z.id+' '+z.name+' '+z.room+' '+z.contents).toLowerCase().includes(q));
+      $('#storageSummary').textContent=rows.length+' von '+zones.length+' Lagerbuchten';
+      $('#storageZones').innerHTML=rows.map(z=>`<tr><td><b>${safe(z.id)}</b></td><td><b>${safe(z.name)}</b><small class="cell-note">${safe(z.room)}</small></td><td><small>${safe(z.contents)}</small></td><td><input class="stock-note" type="text" maxlength="2000" aria-label="Bestandsnotiz ${safe(z.id)}" data-stock="${z.id}" value="${safe(inv[z.id]||'')}" placeholder="Bestand oder Notiz …"></td><td><button class="mini" data-jump="${z.id}">Im Plan</button></td></tr>`).join('')||'<tr><td colspan="5" class="empty-state">Keine passende Bucht. Suchbegriff ändern.</td></tr>';}
+
 $('#storageQuery').addEventListener('input',renderStorage);
 $('#storageZones').addEventListener('input',e=>{if(e.target.dataset.stock){inv[e.target.dataset.stock]=e.target.value;BT.save()}});
 $('#storageZones').addEventListener('click',e=>{const id=e.target.dataset.jump;if(id){const z=zones.find(x=>x.id===id);if(z)jumpToRoom(z)}});
@@ -24,7 +27,7 @@ renderStorage();
 let shown=250;
 const currentHeight=()=>+$('#stepHeight').value;
 function renderStep(){const y=currentHeight(),list=byY.get(y)||[],q=$('#stepSearch').value.trim().toLowerCase();const filtered=q?list.filter(b=>(`${b.x} ${b.y} ${b.z} ${reg[b.ri][0]} ${d.groups[reg[b.ri][2]]}`).toLowerCase().includes(q)):list;
-$('#stepLabel').textContent='Y = '+y;$('#stepSummary').textContent=fmt(filtered.length)+' Blockpositionen auf dieser Höhe'+(q?' (gefiltert)':'')+' · '+fmt(filtered.filter(b=>done[b.key]).length)+' abgehakt · Status wird nach XYZ gespeichert, Nummern gelten für Revision 5.9';
+$('#stepLabel').textContent='Y = '+y;$('#stepSummary').textContent=fmt(filtered.length)+' Blockpositionen auf dieser Höhe'+(q?' (gefiltert)':'')+' · '+fmt(filtered.filter(b=>done[b.key]).length)+' abgehakt · Status wird nach XYZ gespeichert, Nummern gelten für Revision 5.10';
 $('#stepRows').innerHTML=filtered.slice(0,shown).map(b=>`<tr title="Block #${b.n} bei X=${b.x}, Y=${b.y}, Z=${b.z}"><td>#${b.n}</td><td>${b.x}</td><td>${b.y}</td><td>${b.z}</td><td>minecraft:${safe(reg[b.ri][0])}${reg[b.ri][1]?' ['+safe(reg[b.ri][1])+']':''}</td><td>${safe(d.groups[reg[b.ri][2]])}</td><td><input type="checkbox" data-done="${b.key}" ${done[b.key]?'checked':''}></td></tr>`).join('');$('#stepMore').hidden=filtered.length<=shown;}
 $('#stepHeight').oninput=()=>{shown=250;renderStep()};$('#stepSearch').oninput=()=>{shown=250;renderStep()};
 $('#stepPrev').onclick=()=>{$('#stepHeight').value=Math.max(105,currentHeight()-1);shown=250;renderStep()};$('#stepNext').onclick=()=>{$('#stepHeight').value=Math.min(157,currentHeight()+1);shown=250;renderStep()};

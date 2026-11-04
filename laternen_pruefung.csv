@@ -1,415 +1,237 @@
-﻿X;Y;Z;Zustand;Anker-X;Anker-Y;Anker-Z;Ankerblock
--666;106;767;hanging=false;-666;105;767;deepslate_tiles
--659;106;773;hanging=false;-659;105;773;polished_deepslate
--672;106;777;hanging=false;-672;105;777;deepslate_tiles
--659;106;783;hanging=false;-659;105;783;polished_deepslate
--667;106;786;hanging=false;-667;105;786;deepslate_tiles
--708;108;767;hanging=false;-708;107;767;barrel
--699;108;767;hanging=false;-699;107;767;barrel
--695;108;767;hanging=false;-695;107;767;barrel
--687;108;767;hanging=false;-687;107;767;barrel
--708;108;813;hanging=false;-708;107;813;barrel
--699;108;813;hanging=false;-699;107;813;barrel
--666;110;776;hanging=true;-666;113;776;polished_deepslate
--691;110;777;hanging=true;-691;113;777;deepslate_tiles
--679;110;777;hanging=true;-679;113;777;deepslate_tiles
--666;110;781;hanging=true;-666;113;781;deepslate_tiles
--692;110;797;hanging=true;-692;112;797;stone_bricks
--688;110;797;hanging=true;-688;112;797;stone_bricks
--684;110;797;hanging=true;-684;112;797;stone_bricks
--680;110;797;hanging=true;-680;112;797;stone_bricks
--676;110;797;hanging=true;-676;112;797;stone_bricks
--665;110;804;hanging=true;-665;113;804;deepslate_tiles
--692;110;809;hanging=true;-692;112;809;stone_bricks
--688;110;809;hanging=true;-688;112;809;stone_bricks
--684;110;809;hanging=true;-684;112;809;stone_bricks
--680;110;809;hanging=true;-680;112;809;stone_bricks
--676;110;809;hanging=true;-676;112;809;stone_bricks
--705;111;770;hanging=true;-705;113;770;deepslate_tiles
--701;111;770;hanging=true;-701;113;770;deepslate_tiles
--705;111;781;hanging=true;-705;113;781;deepslate_tiles
--701;111;781;hanging=true;-701;113;781;deepslate_tiles
--704;111;790;hanging=true;-704;113;790;polished_deepslate
--698;111;790;hanging=true;-698;113;790;polished_deepslate
--692;111;790;hanging=true;-692;113;790;polished_deepslate
--686;111;790;hanging=true;-686;113;790;polished_deepslate
--680;111;790;hanging=true;-680;113;790;polished_deepslate
--674;111;790;hanging=true;-674;113;790;polished_deepslate
--668;111;790;hanging=true;-668;113;790;polished_deepslate
--662;111;790;hanging=true;-662;113;790;polished_deepslate
--666;114;767;hanging=false;-666;113;767;deepslate_tiles
--659;114;773;hanging=false;-659;113;773;polished_deepslate
--668;114;776;hanging=false;-668;113;776;polished_deepslate
--659;114;783;hanging=false;-659;113;783;polished_deepslate
--667;114;786;hanging=false;-667;113;786;deepslate_tiles
--666;118;776;hanging=true;-666;121;776;polished_deepslate
--666;118;781;hanging=true;-666;121;781;deepslate_tiles
--665;118;804;hanging=true;-665;121;804;deepslate_tiles
--703;119;770;hanging=true;-703;120;770;stone_bricks
--696;119;770;hanging=true;-696;120;770;stone_bricks
--689;119;770;hanging=true;-689;120;770;stone_bricks
--682;119;770;hanging=true;-682;120;770;stone_bricks
--675;119;770;hanging=true;-675;120;770;stone_bricks
--703;119;774;hanging=true;-703;120;774;stone_bricks
--696;119;774;hanging=true;-696;120;774;stone_bricks
--689;119;774;hanging=true;-689;120;774;stone_bricks
--682;119;774;hanging=true;-682;120;774;stone_bricks
--675;119;774;hanging=true;-675;120;774;stone_bricks
--703;119;778;hanging=true;-703;120;778;stone_bricks
--696;119;778;hanging=true;-696;120;778;stone_bricks
--689;119;778;hanging=true;-689;120;778;stone_bricks
--682;119;778;hanging=true;-682;120;778;stone_bricks
--675;119;778;hanging=true;-675;120;778;stone_bricks
--703;119;782;hanging=true;-703;120;782;stone_bricks
--696;119;782;hanging=true;-696;120;782;stone_bricks
--689;119;782;hanging=true;-689;120;782;stone_bricks
--682;119;782;hanging=true;-682;120;782;stone_bricks
--675;119;782;hanging=true;-675;120;782;stone_bricks
--703;119;786;hanging=true;-703;120;786;stone_bricks
--696;119;786;hanging=true;-696;120;786;stone_bricks
--689;119;786;hanging=true;-689;120;786;stone_bricks
--682;119;786;hanging=true;-682;120;786;stone_bricks
--675;119;786;hanging=true;-675;120;786;stone_bricks
--668;119;790;hanging=true;-668;121;790;polished_deepslate
--662;119;790;hanging=true;-662;121;790;polished_deepslate
--703;119;794;hanging=true;-703;120;794;stone_bricks
--696;119;794;hanging=true;-696;120;794;stone_bricks
--689;119;794;hanging=true;-689;120;794;stone_bricks
--682;119;794;hanging=true;-682;120;794;stone_bricks
--675;119;794;hanging=true;-675;120;794;stone_bricks
--703;119;798;hanging=true;-703;120;798;stone_bricks
--696;119;798;hanging=true;-696;120;798;stone_bricks
--689;119;798;hanging=true;-689;120;798;stone_bricks
--682;119;798;hanging=true;-682;120;798;stone_bricks
--675;119;798;hanging=true;-675;120;798;stone_bricks
--703;119;802;hanging=true;-703;120;802;stone_bricks
--696;119;802;hanging=true;-696;120;802;stone_bricks
--689;119;802;hanging=true;-689;120;802;stone_bricks
--682;119;802;hanging=true;-682;120;802;stone_bricks
--675;119;802;hanging=true;-675;120;802;stone_bricks
--703;119;810;hanging=true;-703;120;810;stone_bricks
--696;119;810;hanging=true;-696;120;810;stone_bricks
--689;119;810;hanging=true;-689;120;810;stone_bricks
--682;119;810;hanging=true;-682;120;810;stone_bricks
--675;119;810;hanging=true;-675;120;810;stone_bricks
--666;122;767;hanging=false;-666;121;767;deepslate_tiles
--659;122;773;hanging=false;-659;121;773;polished_deepslate
--672;122;777;hanging=false;-672;121;777;deepslate_tiles
--659;122;783;hanging=false;-659;121;783;polished_deepslate
--667;122;786;hanging=false;-667;121;786;deepslate_tiles
--666;126;776;hanging=true;-666;129;776;spruce_planks
--666;126;781;hanging=true;-666;129;781;dark_oak_planks
--665;126;804;hanging=true;-665;129;804;dark_oak_planks
--668;127;790;hanging=true;-668;129;790;spruce_planks
--662;127;790;hanging=true;-662;129;790;polished_deepslate
--648;130;773;hanging=false;-648;129;773;stone_bricks
--672;130;774;hanging=false;-672;129;774;dark_oak_planks
--662;130;774;hanging=false;-662;129;774;dark_oak_planks
--707;130;777;hanging=false;-707;129;777;polished_deepslate
--703;130;777;hanging=false;-703;129;777;polished_deepslate
--691;130;777;hanging=false;-691;129;777;polished_deepslate
--696;130;778;hanging=false;-696;129;778;polished_deepslate
--684;130;778;hanging=false;-684;129;778;polished_deepslate
--677;130;779;hanging=false;-677;129;779;polished_deepslate
--646;130;779;hanging=false;-646;129;779;stone_bricks
--641;130;779;hanging=false;-641;129;779;deepslate_tiles
--677;130;780;hanging=false;-677;129;780;deepslate_tiles
--662;130;780;hanging=false;-662;129;780;dark_oak_planks
--657;130;780;hanging=false;-657;129;780;stone_bricks
--674;130;781;hanging=false;-674;129;781;spruce_planks
--711;130;783;hanging=false;-711;129;783;polished_deepslate
--697;130;786;hanging=false;-697;129;786;deepslate_tiles
--692;130;786;hanging=false;-692;129;786;polished_deepslate
--691;130;786;hanging=false;-691;129;786;deepslate_tiles
--685;130;786;hanging=false;-685;129;786;deepslate_tiles
--677;130;786;hanging=false;-677;129;786;deepslate_tiles
--702;130;787;hanging=false;-702;129;787;deepslate_tiles
--697;130;787;hanging=false;-697;129;787;polished_deepslate
--696;130;787;hanging=false;-696;129;787;deepslate_tiles
--692;130;787;hanging=false;-692;129;787;deepslate_tiles
--691;130;787;hanging=false;-691;129;787;polished_deepslate
--690;130;787;hanging=false;-690;129;787;deepslate_tiles
--685;130;787;hanging=false;-685;129;787;polished_deepslate
--684;130;787;hanging=false;-684;129;787;deepslate_tiles
--662;130;787;hanging=false;-662;129;787;spruce_planks
--681;130;793;hanging=false;-681;129;793;polished_deepslate
--680;130;793;hanging=false;-680;129;793;deepslate_tiles
--665;130;793;hanging=false;-665;129;793;spruce_planks
--711;130;794;hanging=false;-711;129;794;deepslate_tiles
--680;130;794;hanging=false;-680;129;794;polished_deepslate
--677;130;794;hanging=false;-677;129;794;deepslate_tiles
--665;130;794;hanging=false;-665;129;794;dark_oak_planks
--664;130;794;hanging=false;-664;129;794;dark_oak_planks
--665;130;795;hanging=false;-665;129;795;dark_oak_planks
--664;130;795;hanging=false;-664;129;795;spruce_planks
--652;130;795;hanging=false;-652;129;795;stone_bricks
--702;130;796;hanging=false;-702;129;796;polished_deepslate
--701;130;796;hanging=false;-701;129;796;deepslate_tiles
--700;130;796;hanging=false;-700;129;796;polished_deepslate
--699;130;796;hanging=false;-699;129;796;deepslate_tiles
--698;130;796;hanging=false;-698;129;796;polished_deepslate
--697;130;796;hanging=false;-697;129;796;deepslate_tiles
--696;130;796;hanging=false;-696;129;796;polished_deepslate
--695;130;796;hanging=false;-695;129;796;deepslate_tiles
--694;130;796;hanging=false;-694;129;796;polished_deepslate
--693;130;796;hanging=false;-693;129;796;deepslate_tiles
--692;130;796;hanging=false;-692;129;796;polished_deepslate
--691;130;796;hanging=false;-691;129;796;deepslate_tiles
--690;130;796;hanging=false;-690;129;796;polished_deepslate
--689;130;796;hanging=false;-689;129;796;deepslate_tiles
--688;130;796;hanging=false;-688;129;796;polished_deepslate
--687;130;796;hanging=false;-687;129;796;deepslate_tiles
--686;130;796;hanging=false;-686;129;796;polished_deepslate
--664;130;796;hanging=false;-664;129;796;dark_oak_planks
--702;130;797;hanging=false;-702;129;797;deepslate_tiles
--701;130;797;hanging=false;-701;129;797;polished_deepslate
--700;130;797;hanging=false;-700;129;797;deepslate_tiles
--699;130;797;hanging=false;-699;129;797;polished_deepslate
--698;130;797;hanging=false;-698;129;797;deepslate_tiles
--697;130;797;hanging=false;-697;129;797;polished_deepslate
--696;130;797;hanging=false;-696;129;797;deepslate_tiles
--695;130;797;hanging=false;-695;129;797;polished_deepslate
--694;130;797;hanging=false;-694;129;797;deepslate_tiles
--693;130;797;hanging=false;-693;129;797;polished_deepslate
--692;130;797;hanging=false;-692;129;797;deepslate_tiles
--691;130;797;hanging=false;-691;129;797;polished_deepslate
--690;130;797;hanging=false;-690;129;797;deepslate_tiles
--689;130;797;hanging=false;-689;129;797;polished_deepslate
--688;130;797;hanging=false;-688;129;797;deepslate_tiles
--687;130;797;hanging=false;-687;129;797;polished_deepslate
--686;130;797;hanging=false;-686;129;797;deepslate_tiles
--686;130;798;hanging=false;-686;129;798;polished_deepslate
--685;130;798;hanging=false;-685;129;798;deepslate_tiles
--685;130;799;hanging=false;-685;129;799;polished_deepslate
--684;130;799;hanging=false;-684;129;799;deepslate_tiles
--684;130;800;hanging=false;-684;129;800;polished_deepslate
--683;130;800;hanging=false;-683;129;800;deepslate_tiles
--681;130;800;hanging=false;-681;129;800;deepslate_tiles
--652;130;800;hanging=false;-652;129;800;deepslate_tiles
--683;130;801;hanging=false;-683;129;801;polished_deepslate
--664;130;801;hanging=false;-664;129;801;spruce_planks
--648;130;801;hanging=false;-648;129;801;stone_bricks
--647;130;801;hanging=false;-647;129;801;deepslate_tiles
--664;130;802;hanging=false;-664;129;802;dark_oak_planks
--663;130;802;hanging=false;-663;129;802;dark_oak_planks
--647;130;802;hanging=false;-647;129;802;stone_bricks
--707;130;803;hanging=false;-707;129;803;polished_deepslate
--701;130;803;hanging=false;-701;129;803;polished_deepslate
--691;130;803;hanging=false;-691;129;803;polished_deepslate
--663;130;803;hanging=false;-663;129;803;spruce_planks
--647;130;803;hanging=false;-647;129;803;deepslate_tiles
--680;130;804;hanging=false;-680;129;804;polished_deepslate
--647;130;804;hanging=false;-647;129;804;stone_bricks
--671;130;805;hanging=false;-671;129;805;spruce_planks
--647;130;805;hanging=false;-647;129;805;deepslate_tiles
--646;130;805;hanging=false;-646;129;805;stone_bricks
--645;130;805;hanging=false;-645;129;805;deepslate_tiles
--644;130;805;hanging=false;-644;129;805;stone_bricks
--643;130;805;hanging=false;-643;129;805;deepslate_tiles
--642;130;805;hanging=false;-642;129;805;stone_bricks
--641;130;805;hanging=false;-641;129;805;deepslate_tiles
--647;130;806;hanging=false;-647;129;806;stone_bricks
--646;130;806;hanging=false;-646;129;806;deepslate_tiles
--645;130;806;hanging=false;-645;129;806;stone_bricks
--644;130;806;hanging=false;-644;129;806;deepslate_tiles
--643;130;806;hanging=false;-643;129;806;stone_bricks
--642;130;806;hanging=false;-642;129;806;deepslate_tiles
--641;130;806;hanging=false;-641;129;806;stone_bricks
--648;130;807;hanging=false;-648;129;807;stone_bricks
--641;130;807;hanging=false;-641;129;807;deepslate_tiles
--655;131;770;hanging=false;-655;130;770;stone_brick_wall
--650;131;770;hanging=false;-650;130;770;stone_brick_wall
--645;131;770;hanging=false;-645;130;770;stone_brick_wall
--640;131;770;hanging=false;-640;130;770;stone_brick_wall
--638;131;770;hanging=false;-638;130;770;stone_brick_wall
--638;131;775;hanging=false;-638;130;775;stone_brick_wall
--638;131;780;hanging=false;-638;130;780;stone_brick_wall
--638;131;785;hanging=false;-638;130;785;stone_brick_wall
--631;131;787;hanging=false;-631;130;787;dark_oak_fence
--638;131;790;hanging=false;-638;130;790;stone_brick_wall
--631;131;794;hanging=false;-631;130;794;dark_oak_fence
--638;131;795;hanging=false;-638;130;795;stone_brick_wall
--638;131;800;hanging=false;-638;130;800;stone_brick_wall
--638;131;805;hanging=false;-638;130;805;stone_brick_wall
--655;131;810;hanging=false;-655;130;810;stone_brick_wall
--650;131;810;hanging=false;-650;130;810;stone_brick_wall
--645;131;810;hanging=false;-645;130;810;stone_brick_wall
--640;131;810;hanging=false;-640;130;810;stone_brick_wall
--638;131;810;hanging=false;-638;130;810;stone_brick_wall
--702;133;788;hanging=true;-702;145;788;spruce_slab
--701;133;788;hanging=true;-701;145;788;spruce_slab
--697;133;788;hanging=true;-697;145;788;spruce_slab
--696;133;788;hanging=true;-696;145;788;spruce_slab
--695;133;788;hanging=true;-695;145;788;spruce_slab
--691;133;788;hanging=true;-691;145;788;spruce_slab
--690;133;788;hanging=true;-690;145;788;spruce_slab
--689;133;788;hanging=true;-689;145;788;spruce_slab
--685;133;788;hanging=true;-685;145;788;spruce_slab
--684;133;788;hanging=true;-684;145;788;spruce_slab
--683;133;788;hanging=true;-683;144;788;dark_oak_planks
--681;133;788;hanging=true;-681;145;788;spruce_slab
--681;133;792;hanging=true;-681;145;792;spruce_slab
--680;133;792;hanging=true;-680;145;792;spruce_slab
--674;133;792;hanging=true;-674;137;792;dark_oak_planks
--660;133;792;hanging=true;-660;137;792;dark_oak_planks
--705;134;762;hanging=true;-705;137;762;spruce_planks
--687;134;762;hanging=true;-687;137;762;spruce_planks
--669;134;762;hanging=true;-669;137;762;spruce_planks
--724;134;776;hanging=true;-724;137;776;spruce_planks
--730;134;783;hanging=true;-730;137;783;spruce_planks
--718;134;783;hanging=true;-718;137;783;spruce_planks
--721;134;797;hanging=true;-721;137;797;spruce_planks
--726;134;803;hanging=true;-726;137;803;spruce_planks
--716;134;803;hanging=true;-716;137;803;spruce_planks
--705;134;818;hanging=true;-705;137;818;spruce_planks
--687;134;818;hanging=true;-687;137;818;spruce_planks
--669;134;818;hanging=true;-669;137;818;spruce_planks
--698;135;762;hanging=true;-698;137;762;spruce_planks
--680;135;762;hanging=true;-680;137;762;spruce_planks
--662;135;762;hanging=true;-662;137;762;spruce_planks
--728;135;787;hanging=true;-728;137;787;dark_oak_planks
--724;135;787;hanging=true;-724;137;787;dark_oak_planks
--720;135;787;hanging=true;-720;137;787;dark_oak_planks
--716;135;787;hanging=true;-716;137;787;dark_oak_planks
--728;135;793;hanging=true;-728;137;793;dark_oak_planks
--724;135;793;hanging=true;-724;137;793;dark_oak_planks
--720;135;793;hanging=true;-720;137;793;dark_oak_planks
--716;135;793;hanging=true;-716;137;793;dark_oak_planks
--667;135;794;hanging=true;-667;137;794;dark_oak_planks
--667;135;802;hanging=true;-667;137;802;dark_oak_planks
--698;135;822;hanging=true;-698;137;822;spruce_planks
--680;135;822;hanging=true;-680;137;822;spruce_planks
--662;135;822;hanging=true;-662;137;822;spruce_planks
--675;137;780;hanging=false;-675;136;780;bookshelf
--731;138;774;hanging=false;-731;137;774;spruce_planks
--727;138;774;hanging=false;-727;137;774;spruce_planks
--717;138;774;hanging=false;-717;137;774;spruce_planks
--711;138;774;hanging=false;-711;137;774;dark_oak_planks
--710;138;774;hanging=false;-710;137;774;dark_oak_planks
--709;138;774;hanging=false;-709;137;774;dark_oak_planks
--701;138;774;hanging=false;-701;137;774;dark_oak_planks
--691;138;774;hanging=false;-691;137;774;dark_oak_planks
--680;138;774;hanging=false;-680;137;774;dark_oak_planks
--711;138;775;hanging=false;-711;137;775;dark_oak_planks
--710;138;775;hanging=false;-710;137;775;dark_oak_planks
--709;138;775;hanging=false;-709;137;775;dark_oak_planks
--711;138;776;hanging=false;-711;137;776;dark_oak_planks
--710;138;776;hanging=false;-710;137;776;dark_oak_planks
--709;138;776;hanging=false;-709;137;776;dark_oak_planks
--719;138;782;hanging=false;-719;137;782;spruce_planks
--718;138;782;hanging=false;-718;137;782;spruce_planks
--719;138;783;hanging=false;-719;137;783;spruce_planks
--718;138;783;hanging=false;-718;137;783;spruce_planks
--717;138;783;hanging=false;-717;137;783;spruce_planks
--716;138;783;hanging=false;-716;137;783;spruce_planks
--718;138;784;hanging=false;-718;137;784;spruce_planks
--717;138;784;hanging=false;-717;137;784;spruce_planks
--716;138;786;hanging=false;-716;137;786;stone_bricks
--716;138;789;hanging=false;-716;137;789;dark_oak_planks
--721;138;790;hanging=false;-721;137;790;dark_oak_planks
--721;138;791;hanging=false;-721;137;791;dark_oak_planks
--720;138;791;hanging=false;-720;137;791;dark_oak_planks
--674;138;791;hanging=false;-674;137;791;dark_oak_planks
--721;138;792;hanging=false;-721;137;792;dark_oak_planks
--720;138;792;hanging=false;-720;137;792;dark_oak_planks
--716;138;792;hanging=false;-716;137;792;dark_oak_planks
--720;138;793;hanging=false;-720;137;793;dark_oak_planks
--720;138;794;hanging=false;-720;137;794;stone_bricks
--720;138;795;hanging=false;-720;137;795;spruce_planks
--716;138;795;hanging=false;-716;137;795;spruce_planks
--659;138;795;hanging=false;-659;137;795;dark_oak_planks
--720;138;796;hanging=false;-720;137;796;spruce_planks
--720;138;797;hanging=false;-720;137;797;spruce_planks
--720;138;798;hanging=false;-720;137;798;spruce_planks
--716;138;798;hanging=false;-716;137;798;spruce_planks
--720;138;799;hanging=false;-720;137;799;spruce_planks
--720;138;800;hanging=false;-720;137;800;spruce_planks
--720;138;801;hanging=false;-720;137;801;spruce_planks
--716;138;801;hanging=false;-716;137;801;spruce_planks
--720;138;802;hanging=false;-720;137;802;spruce_planks
--720;138;803;hanging=false;-720;137;803;spruce_planks
--720;138;804;hanging=false;-720;137;804;spruce_planks
--716;138;804;hanging=false;-716;137;804;spruce_planks
--711;138;804;hanging=false;-711;137;804;dark_oak_planks
--710;138;804;hanging=false;-710;137;804;dark_oak_planks
--709;138;804;hanging=false;-709;137;804;dark_oak_planks
--671;138;805;hanging=false;-671;137;805;dark_oak_planks
--730;138;806;hanging=false;-730;137;806;spruce_planks
--728;138;806;hanging=false;-728;137;806;spruce_planks
--717;138;806;hanging=false;-717;137;806;spruce_planks
--710;138;806;hanging=false;-710;137;806;dark_oak_planks
--697;138;806;hanging=false;-697;137;806;dark_oak_planks
--687;138;806;hanging=false;-687;137;806;dark_oak_planks
--677;138;806;hanging=false;-677;137;806;dark_oak_planks
--675;138;806;hanging=false;-675;137;806;dark_oak_planks
--711;139;764;hanging=false;-711;138;764;barrel
--693;139;764;hanging=false;-693;138;764;barrel
--675;139;764;hanging=false;-675;138;764;barrel
--670;139;780;hanging=true;-670;140;780;iron_bars
--664;139;780;hanging=true;-664;140;780;iron_bars
--705;139;781;hanging=true;-705;140;781;iron_bars
--694;139;781;hanging=true;-694;140;781;iron_bars
--683;139;781;hanging=true;-683;140;781;iron_bars
--671;139;781;hanging=true;-671;140;781;iron_bars
--669;139;781;hanging=true;-669;140;781;iron_bars
--665;139;781;hanging=true;-665;140;781;iron_bars
--663;139;781;hanging=true;-663;140;781;iron_bars
--706;139;782;hanging=true;-706;140;782;iron_bars
--704;139;782;hanging=true;-704;140;782;iron_bars
--695;139;782;hanging=true;-695;140;782;iron_bars
--693;139;782;hanging=true;-693;140;782;iron_bars
--684;139;782;hanging=true;-684;140;782;iron_bars
--682;139;782;hanging=true;-682;140;782;iron_bars
--670;139;782;hanging=true;-670;140;782;iron_bars
--664;139;782;hanging=true;-664;140;782;iron_bars
--705;139;783;hanging=true;-705;140;783;iron_bars
--694;139;783;hanging=true;-694;140;783;iron_bars
--683;139;783;hanging=true;-683;140;783;iron_bars
--705;139;789;hanging=true;-705;140;789;iron_bars
--694;139;789;hanging=true;-694;140;789;iron_bars
--683;139;789;hanging=true;-683;140;789;iron_bars
--706;139;790;hanging=true;-706;140;790;iron_bars
--704;139;790;hanging=true;-704;140;790;iron_bars
--695;139;790;hanging=true;-695;140;790;iron_bars
--693;139;790;hanging=true;-693;140;790;iron_bars
--684;139;790;hanging=true;-684;140;790;iron_bars
--682;139;790;hanging=true;-682;140;790;iron_bars
--705;139;791;hanging=true;-705;140;791;iron_bars
--694;139;791;hanging=true;-694;140;791;iron_bars
--683;139;791;hanging=true;-683;140;791;iron_bars
--670;139;796;hanging=true;-670;140;796;iron_bars
--664;139;796;hanging=true;-664;140;796;iron_bars
--705;139;797;hanging=true;-705;140;797;iron_bars
--694;139;797;hanging=true;-694;140;797;iron_bars
--683;139;797;hanging=true;-683;140;797;iron_bars
--671;139;797;hanging=true;-671;140;797;iron_bars
--669;139;797;hanging=true;-669;140;797;iron_bars
--665;139;797;hanging=true;-665;140;797;iron_bars
--663;139;797;hanging=true;-663;140;797;iron_bars
--706;139;798;hanging=true;-706;140;798;iron_bars
--704;139;798;hanging=true;-704;140;798;iron_bars
--695;139;798;hanging=true;-695;140;798;iron_bars
--693;139;798;hanging=true;-693;140;798;iron_bars
--684;139;798;hanging=true;-684;140;798;iron_bars
--682;139;798;hanging=true;-682;140;798;iron_bars
--670;139;798;hanging=true;-670;140;798;iron_bars
--664;139;798;hanging=true;-664;140;798;iron_bars
--705;139;799;hanging=true;-705;140;799;iron_bars
--694;139;799;hanging=true;-694;140;799;iron_bars
--683;139;799;hanging=true;-683;140;799;iron_bars
--711;139;820;hanging=false;-711;138;820;barrel
--693;139;820;hanging=false;-693;138;820;barrel
--675;139;820;hanging=false;-675;138;820;barrel
--669;141;806;hanging=false;-669;140;806;bookshelf
--703;142;762;hanging=true;-703;144;762;dark_oak_planks
--685;142;762;hanging=true;-685;144;762;dark_oak_planks
--667;142;762;hanging=true;-667;144;762;dark_oak_planks
--706;142;765;hanging=true;-706;144;765;dark_oak_planks
--688;142;765;hanging=true;-688;144;765;dark_oak_planks
--670;142;765;hanging=true;-670;144;765;dark_oak_planks
--706;142;815;hanging=true;-706;144;815;dark_oak_planks
--688;142;815;hanging=true;-688;144;815;dark_oak_planks
--670;142;815;hanging=true;-670;144;815;dark_oak_planks
--703;142;818;hanging=true;-703;144;818;dark_oak_planks
--685;142;818;hanging=true;-685;144;818;dark_oak_planks
--667;142;818;hanging=true;-667;144;818;dark_oak_planks
+﻿ID;X;Y;Z;Block;Montage;Kettenbloecke;Anker-X;Anker-Y;Anker-Z;Ankerblock;Bereich;Planung
+L001;-708;108;767;lantern;Sockel-/Möbelleuchte;0;-708;107;767;barrel;keller_3;Bestehende geplante Leuchte
+L002;-699;108;767;lantern;Sockel-/Möbelleuchte;0;-699;107;767;barrel;keller_3;Bestehende geplante Leuchte
+L003;-695;108;767;lantern;Sockel-/Möbelleuchte;0;-695;107;767;barrel;keller_3;Bestehende geplante Leuchte
+L004;-687;108;767;lantern;Sockel-/Möbelleuchte;0;-687;107;767;barrel;keller_3;Bestehende geplante Leuchte
+L005;-708;108;813;lantern;Sockel-/Möbelleuchte;0;-708;107;813;barrel;keller_3;Bestehende geplante Leuchte
+L006;-699;108;813;lantern;Sockel-/Möbelleuchte;0;-699;107;813;barrel;keller_3;Bestehende geplante Leuchte
+L007;-666;110;776;lantern;Deckenleuchte;2;-666;113;776;polished_deepslate;keller_treppe;Bestehende geplante Leuchte
+L008;-691;110;777;soul_lantern;Deckenleuchte;2;-691;113;777;deepslate_tiles;geheimraum;Bestehende geplante Leuchte
+L009;-679;110;777;lantern;Deckenleuchte;2;-679;113;777;deepslate_tiles;keller_3;Bestehende geplante Leuchte
+L010;-666;110;781;lantern;Deckenleuchte;2;-666;113;781;deepslate_tiles;keller_treppe;Bestehende geplante Leuchte
+L011;-692;110;797;lantern;Deckenleuchte;1;-692;112;797;stone_bricks;trading_hall;Bestehende geplante Leuchte
+L012;-688;110;797;lantern;Deckenleuchte;1;-688;112;797;stone_bricks;trading_hall;Bestehende geplante Leuchte
+L013;-684;110;797;lantern;Deckenleuchte;1;-684;112;797;stone_bricks;trading_hall;Bestehende geplante Leuchte
+L014;-680;110;797;lantern;Deckenleuchte;1;-680;112;797;stone_bricks;trading_hall;Bestehende geplante Leuchte
+L015;-676;110;797;lantern;Deckenleuchte;1;-676;112;797;stone_bricks;trading_hall;Bestehende geplante Leuchte
+L016;-665;110;804;lantern;Deckenleuchte;2;-665;113;804;deepslate_tiles;keller_3;Bestehende geplante Leuchte
+L017;-692;110;809;lantern;Deckenleuchte;1;-692;112;809;stone_bricks;trading_hall;Bestehende geplante Leuchte
+L018;-688;110;809;lantern;Deckenleuchte;1;-688;112;809;stone_bricks;trading_hall;Bestehende geplante Leuchte
+L019;-684;110;809;lantern;Deckenleuchte;1;-684;112;809;stone_bricks;trading_hall;Bestehende geplante Leuchte
+L020;-680;110;809;lantern;Deckenleuchte;1;-680;112;809;stone_bricks;trading_hall;Bestehende geplante Leuchte
+L021;-676;110;809;lantern;Deckenleuchte;1;-676;112;809;stone_bricks;trading_hall;Bestehende geplante Leuchte
+L022;-705;111;770;lantern;Deckenleuchte;1;-705;113;770;deepslate_tiles;privatlager;Bestehende geplante Leuchte
+L023;-701;111;770;lantern;Deckenleuchte;1;-701;113;770;deepslate_tiles;privatlager;Bestehende geplante Leuchte
+L024;-705;111;781;lantern;Deckenleuchte;1;-705;113;781;deepslate_tiles;privatlager;Bestehende geplante Leuchte
+L025;-701;111;781;lantern;Deckenleuchte;1;-701;113;781;deepslate_tiles;privatlager;Bestehende geplante Leuchte
+L026;-704;111;790;lantern;Deckenleuchte;1;-704;113;790;polished_deepslate;keller_3;Bestehende geplante Leuchte
+L027;-698;111;790;lantern;Deckenleuchte;1;-698;113;790;polished_deepslate;keller_3;Bestehende geplante Leuchte
+L028;-692;111;790;lantern;Deckenleuchte;1;-692;113;790;polished_deepslate;keller_3;Bestehende geplante Leuchte
+L029;-686;111;790;lantern;Deckenleuchte;1;-686;113;790;polished_deepslate;keller_3;Bestehende geplante Leuchte
+L030;-680;111;790;lantern;Deckenleuchte;1;-680;113;790;polished_deepslate;keller_3;Bestehende geplante Leuchte
+L031;-674;111;790;lantern;Deckenleuchte;1;-674;113;790;polished_deepslate;keller_3;Bestehende geplante Leuchte
+L032;-668;111;790;lantern;Deckenleuchte;1;-668;113;790;polished_deepslate;keller_3;Bestehende geplante Leuchte
+L033;-662;111;790;lantern;Deckenleuchte;1;-662;113;790;polished_deepslate;keller_3;Bestehende geplante Leuchte
+L034;-666;118;776;lantern;Deckenleuchte;2;-666;121;776;polished_deepslate;keller_treppe;Bestehende geplante Leuchte
+L035;-666;118;781;lantern;Deckenleuchte;2;-666;121;781;deepslate_tiles;keller_treppe;Bestehende geplante Leuchte
+L036;-704;118;790;lantern;Deckenleuchte;1;-704;120;790;stone_bricks;beleuchtung;Kellergang · Boden Y=113
+L037;-695;118;790;lantern;Deckenleuchte;1;-695;120;790;stone_bricks;beleuchtung;Kellergang · Boden Y=113
+L038;-686;118;790;lantern;Deckenleuchte;1;-686;120;790;stone_bricks;beleuchtung;Kellergang · Boden Y=113
+L039;-677;118;790;lantern;Deckenleuchte;1;-677;120;790;stone_bricks;beleuchtung;Kellergang · Boden Y=113
+L040;-665;118;804;lantern;Deckenleuchte;2;-665;121;804;deepslate_tiles;keller_2;Bestehende geplante Leuchte
+L041;-703;119;770;lantern;Deckenleuchte;0;-703;120;770;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L042;-696;119;770;lantern;Deckenleuchte;0;-696;120;770;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L043;-689;119;770;lantern;Deckenleuchte;0;-689;120;770;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L044;-682;119;770;lantern;Deckenleuchte;0;-682;120;770;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L045;-675;119;770;lantern;Deckenleuchte;0;-675;120;770;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L046;-703;119;774;lantern;Deckenleuchte;0;-703;120;774;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L047;-696;119;774;lantern;Deckenleuchte;0;-696;120;774;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L048;-689;119;774;lantern;Deckenleuchte;0;-689;120;774;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L049;-682;119;774;lantern;Deckenleuchte;0;-682;120;774;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L050;-675;119;774;lantern;Deckenleuchte;0;-675;120;774;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L051;-703;119;778;lantern;Deckenleuchte;0;-703;120;778;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L052;-696;119;778;lantern;Deckenleuchte;0;-696;120;778;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L053;-689;119;778;lantern;Deckenleuchte;0;-689;120;778;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L054;-682;119;778;lantern;Deckenleuchte;0;-682;120;778;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L055;-675;119;778;lantern;Deckenleuchte;0;-675;120;778;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L056;-703;119;782;lantern;Deckenleuchte;0;-703;120;782;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L057;-696;119;782;lantern;Deckenleuchte;0;-696;120;782;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L058;-689;119;782;lantern;Deckenleuchte;0;-689;120;782;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L059;-682;119;782;lantern;Deckenleuchte;0;-682;120;782;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L060;-675;119;782;lantern;Deckenleuchte;0;-675;120;782;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L061;-703;119;786;lantern;Deckenleuchte;0;-703;120;786;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L062;-696;119;786;lantern;Deckenleuchte;0;-696;120;786;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L063;-689;119;786;lantern;Deckenleuchte;0;-689;120;786;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L064;-682;119;786;lantern;Deckenleuchte;0;-682;120;786;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L065;-675;119;786;lantern;Deckenleuchte;0;-675;120;786;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L066;-668;119;790;lantern;Deckenleuchte;1;-668;121;790;polished_deepslate;keller_2;Bestehende geplante Leuchte
+L067;-662;119;790;lantern;Deckenleuchte;1;-662;121;790;polished_deepslate;keller_2;Bestehende geplante Leuchte
+L068;-703;119;794;lantern;Deckenleuchte;0;-703;120;794;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L069;-696;119;794;lantern;Deckenleuchte;0;-696;120;794;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L070;-689;119;794;lantern;Deckenleuchte;0;-689;120;794;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L071;-682;119;794;lantern;Deckenleuchte;0;-682;120;794;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L072;-675;119;794;lantern;Deckenleuchte;0;-675;120;794;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L073;-703;119;798;lantern;Deckenleuchte;0;-703;120;798;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L074;-696;119;798;lantern;Deckenleuchte;0;-696;120;798;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L075;-689;119;798;lantern;Deckenleuchte;0;-689;120;798;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L076;-682;119;798;lantern;Deckenleuchte;0;-682;120;798;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L077;-675;119;798;lantern;Deckenleuchte;0;-675;120;798;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L078;-703;119;802;lantern;Deckenleuchte;0;-703;120;802;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L079;-696;119;802;lantern;Deckenleuchte;0;-696;120;802;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L080;-689;119;802;lantern;Deckenleuchte;0;-689;120;802;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L081;-682;119;802;lantern;Deckenleuchte;0;-682;120;802;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L082;-675;119;802;lantern;Deckenleuchte;0;-675;120;802;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L083;-703;119;810;lantern;Deckenleuchte;0;-703;120;810;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L084;-696;119;810;lantern;Deckenleuchte;0;-696;120;810;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L085;-689;119;810;lantern;Deckenleuchte;0;-689;120;810;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L086;-682;119;810;lantern;Deckenleuchte;0;-682;120;810;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L087;-675;119;810;lantern;Deckenleuchte;0;-675;120;810;stone_bricks;lager_regale;Bestehende geplante Leuchte
+L088;-702;126;773;lantern;Deckenleuchte;2;-702;129;773;stone_bricks;beleuchtung;Kupfergolem-Halle
+L089;-690;126;773;lantern;Deckenleuchte;2;-690;129;773;stone_bricks;beleuchtung;Kupfergolem-Halle
+L090;-678;126;773;lantern;Deckenleuchte;2;-678;129;773;stone_bricks;beleuchtung;Kupfergolem-Halle
+L091;-666;126;776;lantern;Deckenleuchte;2;-666;129;776;spruce_planks;keller_treppe;Bestehende geplante Leuchte
+L092;-702;126;781;lantern;Deckenleuchte;2;-702;129;781;deepslate_tiles;beleuchtung;Kupfergolem-Halle
+L093;-690;126;781;lantern;Deckenleuchte;2;-690;129;781;deepslate_tiles;beleuchtung;Kupfergolem-Halle
+L094;-678;126;781;lantern;Deckenleuchte;2;-678;129;781;deepslate_tiles;beleuchtung;Kupfergolem-Halle
+L095;-666;126;781;lantern;Deckenleuchte;2;-666;129;781;dark_oak_planks;keller_treppe;Bestehende geplante Leuchte
+L096;-702;126;790;lantern;Deckenleuchte;1;-702;128;790;stone_bricks;beleuchtung;Kellergang · Boden Y=121
+L097;-695;126;790;lantern;Deckenleuchte;1;-695;128;790;stone_bricks;beleuchtung;Kellergang · Boden Y=121
+L098;-686;126;790;lantern;Deckenleuchte;1;-686;128;790;stone_bricks;beleuchtung;Kellergang · Boden Y=121
+L099;-678;126;790;lantern;Deckenleuchte;1;-678;128;790;stone_bricks;beleuchtung;Kellergang · Boden Y=121
+L100;-657;126;790;lantern;Deckenleuchte;0;-657;127;790;deepslate_bricks;beleuchtung;Kellergang · Boden Y=121
+L101;-665;126;804;lantern;Deckenleuchte;2;-665;129;804;dark_oak_planks;keller_1;Bestehende geplante Leuchte
+L102;-668;127;790;lantern;Deckenleuchte;1;-668;129;790;spruce_planks;keller_1;Bestehende geplante Leuchte
+L103;-662;127;790;lantern;Deckenleuchte;1;-662;129;790;polished_deepslate;keller_1;Bestehende geplante Leuchte
+L104;-710;127;802;lantern;Deckenleuchte;0;-710;128;802;stone_bricks;beleuchtung;Bulk-Wartungsgang
+L105;-703;127;802;lantern;Deckenleuchte;0;-703;128;802;stone_bricks;beleuchtung;Bulk-Wartungsgang
+L106;-696;127;802;lantern;Deckenleuchte;0;-696;128;802;stone_bricks;beleuchtung;Bulk-Wartungsgang
+L107;-689;127;802;lantern;Deckenleuchte;0;-689;128;802;stone_bricks;beleuchtung;Bulk-Wartungsgang
+L108;-682;127;802;lantern;Deckenleuchte;0;-682;128;802;stone_bricks;beleuchtung;Bulk-Wartungsgang
+L109;-675;127;802;lantern;Deckenleuchte;0;-675;128;802;stone_bricks;beleuchtung;Bulk-Wartungsgang
+L110;-655;131;770;lantern;Sockel-/Möbelleuchte;0;-655;130;770;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L111;-650;131;770;lantern;Sockel-/Möbelleuchte;0;-650;130;770;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L112;-645;131;770;lantern;Sockel-/Möbelleuchte;0;-645;130;770;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L113;-640;131;770;lantern;Sockel-/Möbelleuchte;0;-640;130;770;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L114;-638;131;770;lantern;Sockel-/Möbelleuchte;0;-638;130;770;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L115;-638;131;775;lantern;Sockel-/Möbelleuchte;0;-638;130;775;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L116;-638;131;780;lantern;Sockel-/Möbelleuchte;0;-638;130;780;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L117;-638;131;785;lantern;Sockel-/Möbelleuchte;0;-638;130;785;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L118;-638;131;790;lantern;Sockel-/Möbelleuchte;0;-638;130;790;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L119;-638;131;795;lantern;Sockel-/Möbelleuchte;0;-638;130;795;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L120;-638;131;800;lantern;Sockel-/Möbelleuchte;0;-638;130;800;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L121;-638;131;805;lantern;Sockel-/Möbelleuchte;0;-638;130;805;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L122;-655;131;810;lantern;Sockel-/Möbelleuchte;0;-655;130;810;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L123;-650;131;810;lantern;Sockel-/Möbelleuchte;0;-650;130;810;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L124;-645;131;810;lantern;Sockel-/Möbelleuchte;0;-645;130;810;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L125;-640;131;810;lantern;Sockel-/Möbelleuchte;0;-640;130;810;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L126;-638;131;810;lantern;Sockel-/Möbelleuchte;0;-638;130;810;stone_brick_wall;terrasse;Bestehende geplante Leuchte
+L127;-698;134;758;lantern;Deckenleuchte;2;-698;137;758;spruce_planks;beleuchtung;Residenz 6 · EG
+L128;-680;134;758;lantern;Deckenleuchte;2;-680;137;758;spruce_planks;beleuchtung;Residenz 5 · EG
+L129;-662;134;758;lantern;Deckenleuchte;2;-662;137;758;spruce_planks;beleuchtung;Residenz 4 · EG
+L130;-709;134;762;lantern;Deckenleuchte;2;-709;137;762;spruce_planks;beleuchtung;Residenz 6 · EG
+L131;-705;134;762;lantern;Deckenleuchte;2;-705;137;762;spruce_planks;res6;Bestehende geplante Leuchte
+L132;-691;134;762;lantern;Deckenleuchte;2;-691;137;762;spruce_planks;beleuchtung;Residenz 5 · EG
+L133;-687;134;762;lantern;Deckenleuchte;2;-687;137;762;spruce_planks;res5;Bestehende geplante Leuchte
+L134;-673;134;762;lantern;Deckenleuchte;2;-673;137;762;spruce_planks;beleuchtung;Residenz 4 · EG
+L135;-669;134;762;lantern;Deckenleuchte;2;-669;137;762;spruce_planks;res4;Bestehende geplante Leuchte
+L136;-724;134;776;lantern;Deckenleuchte;2;-724;137;776;spruce_planks;speisesaal;Bestehende geplante Leuchte
+L137;-730;134;783;lantern;Deckenleuchte;2;-730;137;783;spruce_planks;speisesaal;Bestehende geplante Leuchte
+L138;-718;134;783;lantern;Deckenleuchte;2;-718;137;783;spruce_planks;speisesaal;Bestehende geplante Leuchte
+L139;-721;134;797;lantern;Deckenleuchte;2;-721;137;797;spruce_planks;kueche;Bestehende geplante Leuchte
+L140;-726;134;803;lantern;Deckenleuchte;2;-726;137;803;spruce_planks;kueche;Bestehende geplante Leuchte
+L141;-716;134;803;lantern;Deckenleuchte;2;-716;137;803;spruce_planks;kueche;Bestehende geplante Leuchte
+L142;-698;134;814;lantern;Deckenleuchte;2;-698;137;814;spruce_planks;beleuchtung;Residenz 3 · EG
+L143;-680;134;814;lantern;Deckenleuchte;2;-680;137;814;spruce_planks;beleuchtung;Residenz 2 · EG
+L144;-662;134;814;lantern;Deckenleuchte;2;-662;137;814;spruce_planks;beleuchtung;Residenz 1 · EG
+L145;-709;134;818;lantern;Deckenleuchte;2;-709;137;818;spruce_planks;beleuchtung;Residenz 3 · EG
+L146;-705;134;818;lantern;Deckenleuchte;2;-705;137;818;spruce_planks;res3;Bestehende geplante Leuchte
+L147;-691;134;818;lantern;Deckenleuchte;2;-691;137;818;spruce_planks;beleuchtung;Residenz 2 · EG
+L148;-687;134;818;lantern;Deckenleuchte;2;-687;137;818;spruce_planks;res2;Bestehende geplante Leuchte
+L149;-673;134;818;lantern;Deckenleuchte;2;-673;137;818;spruce_planks;beleuchtung;Residenz 1 · EG
+L150;-669;134;818;lantern;Deckenleuchte;2;-669;137;818;spruce_planks;res1;Bestehende geplante Leuchte
+L151;-698;135;762;lantern;Deckenleuchte;1;-698;137;762;spruce_planks;res6;Bestehende geplante Leuchte
+L152;-680;135;762;lantern;Deckenleuchte;1;-680;137;762;spruce_planks;res5;Bestehende geplante Leuchte
+L153;-662;135;762;lantern;Deckenleuchte;1;-662;137;762;spruce_planks;res4;Bestehende geplante Leuchte
+L154;-728;135;787;lantern;Deckenleuchte;1;-728;137;787;dark_oak_planks;vestibuel;Bestehende geplante Leuchte
+L155;-724;135;787;lantern;Deckenleuchte;1;-724;137;787;dark_oak_planks;vestibuel;Bestehende geplante Leuchte
+L156;-720;135;787;lantern;Deckenleuchte;1;-720;137;787;dark_oak_planks;vestibuel;Bestehende geplante Leuchte
+L157;-716;135;787;lantern;Deckenleuchte;1;-716;137;787;dark_oak_planks;vestibuel;Bestehende geplante Leuchte
+L158;-728;135;793;lantern;Deckenleuchte;1;-728;137;793;dark_oak_planks;vestibuel;Bestehende geplante Leuchte
+L159;-724;135;793;lantern;Deckenleuchte;1;-724;137;793;dark_oak_planks;vestibuel;Bestehende geplante Leuchte
+L160;-720;135;793;lantern;Deckenleuchte;1;-720;137;793;dark_oak_planks;vestibuel;Bestehende geplante Leuchte
+L161;-716;135;793;lantern;Deckenleuchte;1;-716;137;793;dark_oak_planks;vestibuel;Bestehende geplante Leuchte
+L162;-667;135;794;lantern;Deckenleuchte;1;-667;137;794;dark_oak_planks;bibliothek;Bestehende geplante Leuchte
+L163;-667;135;802;lantern;Deckenleuchte;1;-667;137;802;dark_oak_planks;bibliothek;Bestehende geplante Leuchte
+L164;-698;135;822;lantern;Deckenleuchte;1;-698;137;822;spruce_planks;res3;Bestehende geplante Leuchte
+L165;-680;135;822;lantern;Deckenleuchte;1;-680;137;822;spruce_planks;res2;Bestehende geplante Leuchte
+L166;-662;135;822;lantern;Deckenleuchte;1;-662;137;822;spruce_planks;res1;Bestehende geplante Leuchte
+L167;-711;139;764;lantern;Sockel-/Möbelleuchte;0;-711;138;764;barrel;res6;Bestehende geplante Leuchte
+L168;-693;139;764;lantern;Sockel-/Möbelleuchte;0;-693;138;764;barrel;res5;Bestehende geplante Leuchte
+L169;-675;139;764;lantern;Sockel-/Möbelleuchte;0;-675;138;764;barrel;res4;Bestehende geplante Leuchte
+L170;-670;139;780;lantern;Deckenleuchte;0;-670;140;780;iron_bars;bibliothek;Bestehende geplante Leuchte
+L171;-664;139;780;lantern;Deckenleuchte;0;-664;140;780;iron_bars;bibliothek;Bestehende geplante Leuchte
+L172;-705;139;781;lantern;Deckenleuchte;0;-705;140;781;iron_bars;halle;Bestehende geplante Leuchte
+L173;-694;139;781;lantern;Deckenleuchte;0;-694;140;781;iron_bars;halle;Bestehende geplante Leuchte
+L174;-683;139;781;lantern;Deckenleuchte;0;-683;140;781;iron_bars;halle;Bestehende geplante Leuchte
+L175;-671;139;781;lantern;Deckenleuchte;0;-671;140;781;iron_bars;bibliothek;Bestehende geplante Leuchte
+L176;-669;139;781;lantern;Deckenleuchte;0;-669;140;781;iron_bars;bibliothek;Bestehende geplante Leuchte
+L177;-665;139;781;lantern;Deckenleuchte;0;-665;140;781;iron_bars;bibliothek;Bestehende geplante Leuchte
+L178;-663;139;781;lantern;Deckenleuchte;0;-663;140;781;iron_bars;bibliothek;Bestehende geplante Leuchte
+L179;-706;139;782;lantern;Deckenleuchte;0;-706;140;782;iron_bars;halle;Bestehende geplante Leuchte
+L180;-704;139;782;lantern;Deckenleuchte;0;-704;140;782;iron_bars;halle;Bestehende geplante Leuchte
+L181;-695;139;782;lantern;Deckenleuchte;0;-695;140;782;iron_bars;halle;Bestehende geplante Leuchte
+L182;-693;139;782;lantern;Deckenleuchte;0;-693;140;782;iron_bars;halle;Bestehende geplante Leuchte
+L183;-684;139;782;lantern;Deckenleuchte;0;-684;140;782;iron_bars;halle;Bestehende geplante Leuchte
+L184;-682;139;782;lantern;Deckenleuchte;0;-682;140;782;iron_bars;halle;Bestehende geplante Leuchte
+L185;-670;139;782;lantern;Deckenleuchte;0;-670;140;782;iron_bars;bibliothek;Bestehende geplante Leuchte
+L186;-664;139;782;lantern;Deckenleuchte;0;-664;140;782;iron_bars;bibliothek;Bestehende geplante Leuchte
+L187;-705;139;783;lantern;Deckenleuchte;0;-705;140;783;iron_bars;halle;Bestehende geplante Leuchte
+L188;-694;139;783;lantern;Deckenleuchte;0;-694;140;783;iron_bars;halle;Bestehende geplante Leuchte
+L189;-683;139;783;lantern;Deckenleuchte;0;-683;140;783;iron_bars;halle;Bestehende geplante Leuchte
+L190;-705;139;789;lantern;Deckenleuchte;0;-705;140;789;iron_bars;halle;Bestehende geplante Leuchte
+L191;-694;139;789;lantern;Deckenleuchte;0;-694;140;789;iron_bars;halle;Bestehende geplante Leuchte
+L192;-683;139;789;lantern;Deckenleuchte;0;-683;140;789;iron_bars;halle;Bestehende geplante Leuchte
+L193;-706;139;790;lantern;Deckenleuchte;0;-706;140;790;iron_bars;halle;Bestehende geplante Leuchte
+L194;-704;139;790;lantern;Deckenleuchte;0;-704;140;790;iron_bars;halle;Bestehende geplante Leuchte
+L195;-695;139;790;lantern;Deckenleuchte;0;-695;140;790;iron_bars;halle;Bestehende geplante Leuchte
+L196;-693;139;790;lantern;Deckenleuchte;0;-693;140;790;iron_bars;halle;Bestehende geplante Leuchte
+L197;-684;139;790;lantern;Deckenleuchte;0;-684;140;790;iron_bars;halle;Bestehende geplante Leuchte
+L198;-682;139;790;lantern;Deckenleuchte;0;-682;140;790;iron_bars;halle;Bestehende geplante Leuchte
+L199;-705;139;791;lantern;Deckenleuchte;0;-705;140;791;iron_bars;halle;Bestehende geplante Leuchte
+L200;-694;139;791;lantern;Deckenleuchte;0;-694;140;791;iron_bars;halle;Bestehende geplante Leuchte
+L201;-683;139;791;lantern;Deckenleuchte;0;-683;140;791;iron_bars;halle;Bestehende geplante Leuchte
+L202;-670;139;796;lantern;Deckenleuchte;0;-670;140;796;iron_bars;bibliothek;Bestehende geplante Leuchte
+L203;-664;139;796;lantern;Deckenleuchte;0;-664;140;796;iron_bars;bibliothek;Bestehende geplante Leuchte
+L204;-705;139;797;lantern;Deckenleuchte;0;-705;140;797;iron_bars;halle;Bestehende geplante Leuchte
+L205;-694;139;797;lantern;Deckenleuchte;0;-694;140;797;iron_bars;halle;Bestehende geplante Leuchte
+L206;-683;139;797;lantern;Deckenleuchte;0;-683;140;797;iron_bars;halle;Bestehende geplante Leuchte
+L207;-671;139;797;lantern;Deckenleuchte;0;-671;140;797;iron_bars;bibliothek;Bestehende geplante Leuchte
+L208;-669;139;797;lantern;Deckenleuchte;0;-669;140;797;iron_bars;bibliothek;Bestehende geplante Leuchte
+L209;-665;139;797;lantern;Deckenleuchte;0;-665;140;797;iron_bars;bibliothek;Bestehende geplante Leuchte
+L210;-663;139;797;lantern;Deckenleuchte;0;-663;140;797;iron_bars;bibliothek;Bestehende geplante Leuchte
+L211;-706;139;798;lantern;Deckenleuchte;0;-706;140;798;iron_bars;halle;Bestehende geplante Leuchte
+L212;-704;139;798;lantern;Deckenleuchte;0;-704;140;798;iron_bars;halle;Bestehende geplante Leuchte
+L213;-695;139;798;lantern;Deckenleuchte;0;-695;140;798;iron_bars;halle;Bestehende geplante Leuchte
+L214;-693;139;798;lantern;Deckenleuchte;0;-693;140;798;iron_bars;halle;Bestehende geplante Leuchte
+L215;-684;139;798;lantern;Deckenleuchte;0;-684;140;798;iron_bars;halle;Bestehende geplante Leuchte
+L216;-682;139;798;lantern;Deckenleuchte;0;-682;140;798;iron_bars;halle;Bestehende geplante Leuchte
+L217;-670;139;798;lantern;Deckenleuchte;0;-670;140;798;iron_bars;bibliothek;Bestehende geplante Leuchte
+L218;-664;139;798;lantern;Deckenleuchte;0;-664;140;798;iron_bars;bibliothek;Bestehende geplante Leuchte
+L219;-705;139;799;lantern;Deckenleuchte;0;-705;140;799;iron_bars;halle;Bestehende geplante Leuchte
+L220;-694;139;799;lantern;Deckenleuchte;0;-694;140;799;iron_bars;halle;Bestehende geplante Leuchte
+L221;-683;139;799;lantern;Deckenleuchte;0;-683;140;799;iron_bars;halle;Bestehende geplante Leuchte
+L222;-711;139;820;lantern;Sockel-/Möbelleuchte;0;-711;138;820;barrel;res3;Bestehende geplante Leuchte
+L223;-693;139;820;lantern;Sockel-/Möbelleuchte;0;-693;138;820;barrel;res2;Bestehende geplante Leuchte
+L224;-675;139;820;lantern;Sockel-/Möbelleuchte;0;-675;138;820;barrel;res1;Bestehende geplante Leuchte
+L225;-703;142;762;lantern;Deckenleuchte;1;-703;144;762;dark_oak_planks;res6;Bestehende geplante Leuchte
+L226;-685;142;762;lantern;Deckenleuchte;1;-685;144;762;dark_oak_planks;res5;Bestehende geplante Leuchte
+L227;-667;142;762;lantern;Deckenleuchte;1;-667;144;762;dark_oak_planks;res4;Bestehende geplante Leuchte
+L228;-706;142;765;lantern;Deckenleuchte;1;-706;144;765;dark_oak_planks;res6;Bestehende geplante Leuchte
+L229;-688;142;765;lantern;Deckenleuchte;1;-688;144;765;dark_oak_planks;res5;Bestehende geplante Leuchte
+L230;-670;142;765;lantern;Deckenleuchte;1;-670;144;765;dark_oak_planks;res4;Bestehende geplante Leuchte
+L231;-706;142;815;lantern;Deckenleuchte;1;-706;144;815;dark_oak_planks;res3;Bestehende geplante Leuchte
+L232;-688;142;815;lantern;Deckenleuchte;1;-688;144;815;dark_oak_planks;res2;Bestehende geplante Leuchte
+L233;-670;142;815;lantern;Deckenleuchte;1;-670;144;815;dark_oak_planks;res1;Bestehende geplante Leuchte
+L234;-703;142;818;lantern;Deckenleuchte;1;-703;144;818;dark_oak_planks;res3;Bestehende geplante Leuchte
+L235;-685;142;818;lantern;Deckenleuchte;1;-685;144;818;dark_oak_planks;res2;Bestehende geplante Leuchte
+L236;-667;142;818;lantern;Deckenleuchte;1;-667;144;818;dark_oak_planks;res1;Bestehende geplante Leuchte

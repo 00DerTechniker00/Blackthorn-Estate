@@ -104,7 +104,7 @@ const PHASES = [
   { id: 'p5', name: '5 · Westlicher Eingangsflügel', text: 'Küche, Speisesaal, Vestibül, Portikus mit Treppenstufen.', groups: ['kueche', 'vestibuel', 'speisesaal', 'portikus'] },
   { id: 'p6', name: '6 · Dächer', text: 'Satteldächer aus Treppen/Stufen, Kegeldächer der Türme.', groups: ['dach_halle', 'dach_res', 'dach_bibliothek', 'dach_ostfluegel','dach_schmuck'] },
   { id: 'p7', name: '7 · Terrasse & Pool', text: 'Außenanlagen mit Panorama nach Osten; niedrige Erkerhauben sind Teil des Daches.', groups: ['terrasse', 'pool', 'observatorium'] },
-  { id: 'p8', name: '8 · Zusatzbeleuchtung', text: 'Laternen am Boden entlang der Wände – Lichtwirkung im aktuellen Modell noch im Spiel prüfen.', groups: ['beleuchtung'] }
+  { id: 'p8', name: '8 · Zusatzbeleuchtung', text: 'Gezielte Deckenleuchten mit kurzen Ketten. Bestehende Kronleuchter und Sockelleuchten bleiben erhalten; Lichtwirkung im Spiel prüfen.', groups: ['beleuchtung'] }
 ];
 const gname = g => GROUP_DE[g] || g;
 
@@ -146,7 +146,9 @@ function showTab(id) {
   window.dispatchEvent(new Event('bt:tab'));
   window.scrollTo(0, 0);
 }
-$$('#tabs button').forEach(b => b.onclick = () => showTab(b.dataset.tab));
+$$('[data-tab]').forEach(b => b.onclick = () => showTab(b.dataset.tab));
+window.addEventListener('hashchange',()=>{const id=location.hash.replace(/^#/, '');if($('#tab-'+id)&&!$('#tab-'+id).classList.contains('on'))showTab(id);});
+window.__groupName=gname;
 window.__showTab = showTab;
 window.__focusPlan=(x,y,z)=>{planSetMode('y');PL.val=y;$('#planRange').value=y;showTab('plan');planCenter(x,z);};
 
@@ -186,7 +188,8 @@ function buildModel(pred) {
     const r = REG[R[i]], x = X[i], y = Y[i], z = Z[i];
     const L = get(y), nz = .93 + .09 * hash3(x, y, z), col = r.rgb;
     const k = r.kind;
-    if (k === 'cube') {
+    if(k==='lantern'){for(const part of lanternParts(r))addBox(L.main,x,y,z,part.box,part.color,1,null);
+    } else if (k === 'cube') {
       const nb = {}; for (const d of ['up', 'down', 'north', 'south', 'east', 'west']) {
         const dv = d === 'up' ? [0, 1, 0] : d === 'down' ? [0, -1, 0] : DIRV[d];
         const n = vis(x + dv[0], y + dv[1], z + dv[2]); nb[d] = n && n.kind === 'cube';
@@ -212,7 +215,25 @@ function buildModel(pred) {
 }
 function hash3(x, y, z) { let h = (x * 73856093) ^ (y * 19349663) ^ (z * 83492791); h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h >>> 0) & 0xffff) / 65535; }
 function connects(r, n, dir) { return n && (n.kind === 'cube' || n.id === r.id || (r.kind === 'pane' && (n.kind === 'pane' || n.kind === 'glass'))); }
+/* Small metal frame and a separate luminous core. Coordinates are sixteenths. */
+function lanternParts(r) {
+  const hanging=r.p.hanging==='true',offset=hanging?2:0;
+  const frame=[.24,.26,.25],light=r.id==='soul_lantern'?[.27,.83,.9]:[1,.72,.27];
+  const pieces=[
+    {box:[5,offset,5,11,offset+1,11],color:frame},
+    {box:[5.7,offset+1,5.7,10.3,offset+7,10.3],color:light},
+    {box:[5,offset+7,5,11,offset+8,11],color:frame},
+    ...[[5,5],[10.25,5],[5,10.25],[10.25,10.25]].map(([x,z])=>({box:[x,offset+1,z,x+.75,offset+7,z+.75],color:frame})),
+    {box:[6,offset+8,7,7,offset+11,9],color:frame},
+    {box:[9,offset+8,7,10,offset+11,9],color:frame},
+    {box:[6,offset+10,7,10,offset+11,9],color:frame}
+  ];
+  if(hanging)pieces.push({box:[7,13,7,9,16,9],color:frame});
+  return pieces;
+}
+
 function shapeBoxes(r, x, y, z, vis) {
+  if(r.kind==='lantern')return lanternParts(r).map(p=>p.box);
       if(r.id==='hopper'){const spout={down:[6,0,6,10,6,10],north:[6,4,0,10,8,6],south:[6,4,10,10,8,16],east:[10,4,6,16,8,10],west:[0,4,6,6,8,10]}[r.p.facing||'down'];return [[0,10,0,16,16,16],[4,5,4,12,10,12],spout];}
   const k = r.kind, p = r.p;
   switch (k) {
@@ -358,7 +379,7 @@ function resize3d() {
   cv.width=Math.max(1,Math.round(st.clientWidth*ratio)); cv.height=Math.max(1,Math.round(st.clientHeight*ratio));
   GL.gl.viewport(0,0,cv.width,cv.height); GL.dirty=true;
 }
-function predNow() { return i=>!S3.hidden.has(REG[R[i]].gi) && !['terraform_auffuellung','terraform_oberflaeche','zufahrt'].includes(REG[R[i]].g); }
+function predNow() { return i=>(!S3.isolate||S3.isolate.has(i))&&!S3.hidden.has(REG[R[i]].gi) && !['terraform_auffuellung','terraform_oberflaeche','zufahrt'].includes(REG[R[i]].g); }
 function rebuild() {
   const gl=GL.gl;
   for(const layer of Object.values(GL.meshes)) for(const mesh of Object.values(layer)) if(mesh) mesh.buffers.forEach(b=>gl.deleteBuffer(b));
@@ -461,7 +482,7 @@ $('#cutDown').onclick = () => { $('#cut').value = Math.max(BB[2], +$('#cut').val
 $('#cutUp').onclick = () => { $('#cut').value = Math.min(BB[3], +$('#cut').value + 1); $('#cut').oninput({ target: $('#cut') }); };
 $('#single').onchange = e => { S3.single = e.target.checked; if (GL) applyCut(); };
 $('#terrainChk').onchange = e => { S3.terrain = e.target.checked; if (GL) applyCut(); };
-$$('[data-cam]').forEach(b => b.onclick = () => { ensureGL(); if (GL && GL.meshes) preset(b.dataset.cam); });
+$$('[data-cam]').forEach(b => b.onclick = () => { ensureGL(); if (GL && GL.meshes) { if(S3.isolate)window.__leaveFixture();preset(b.dataset.cam); } });
 $$('[data-floor]').forEach(b => b.onclick = () => { $('#cut').value = b.dataset.floor; $('#cut').oninput({ target: $('#cut') }); });
 window.__openRoom = (idx) => {
   const r = D.rooms[idx]; showTab('3d');
@@ -526,7 +547,7 @@ function shapeRects(r, mode) {
     case 'fence': case 'wall': case 'chain': case 'rod': return sec ? [[.38, 0, .62, 1]] : [[.36, .36, .64, .64]];
     case 'carpet': return sec ? [[0, .94, 1, 1]] : F;
     case 'bed': return sec ? [[0, .44, 1, 1]] : F;
-    case 'lantern': return [[.3, .25, .7, .75]];
+    case 'lantern': return !sec?[[5/16,5/16,11/16,11/16]]:p.hanging==='true'?[[5/16,6/16,11/16,14/16],[7/16,0,9/16,6/16]]:[[5/16,8/16,11/16,1],[6/16,5/16,10/16,8/16]];
     case 'water': return sec ? [[0, .1, 1, 1]] : F;
     case 'custom': return sec ? [[0, .25, 1, 1]] : F;
   }
@@ -686,14 +707,16 @@ $('#coordQ').oninput = renderCoord; renderCoord();
    ===================================================================== */
 const PROG = BT.state.groups, WHO = BT.state.people;
 function renderBuild() {
+  const opened=new Set($$('#phases details[open]').map(e=>e.dataset.phase));
+  const initial=!renderBuild.initialized;renderBuild.initialized=true;
   let done = 0, total = 0, blocksDone = 0;
   $('#phases').innerHTML = PHASES.map(ph => {
     const gs = ph.groups.filter(g => D.gstats[g]);
     const n = gs.reduce((a, g) => a + D.gstats[g].n, 0), d = gs.filter(g => PROG[g]).length;
-    return `<article class="phase"><header><h3>${ph.name}</h3><span class="tag">${fmt(n)} Blöcke · ${d}/${gs.length}</span></header><p class="muted">${ph.text}</p>
+    return `<details class="phase" data-phase="${ph.id}" ${opened.has(ph.id)||(initial&&ph.id==='p1')?'open':''}><summary><h3>${ph.name}</h3><span class="tag">${fmt(n)} Blöcke · ${d}/${gs.length}</span></summary><p class="muted">${ph.text}</p>
     <div class="groups">${gs.map(g => { const s = D.gstats[g], top = Object.entries(D.gcounts[g] || {}).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([k, c]) => `${deName(k)} ${fmt(c)}`).join(' · ');
       return `<div class="grp ${PROG[g] ? 'done' : ''}"><label class="chk big"><input type="checkbox" data-done="${g}" ${PROG[g] ? 'checked' : ''}><span><b>${gname(g)}</b><small>${fmt(s.n)} Blöcke · X ${s.x[0]}…${s.x[1]} · Y ${s.y[0]}…${s.y[1]} · Z ${s.z[0]}…${s.z[1]}</small><small class="muted">${top}</small></span></label>
-      <div class="row"><input class="who" data-who="${g}" placeholder="Wer baut das?" value="${BT.escape(WHO[g] || '')}"><button class="mini" onclick="__openGroup('${g}')">3D</button></div></div>`; }).join('')}</div></article>`;
+      <div class="row"><input class="who" data-who="${g}" placeholder="Wer baut das?" value="${BT.escape(WHO[g] || '')}"><button class="mini" onclick="__openGroup('${g}')">3D</button></div></div>`; }).join('')}</div></details>`;
   }).join('');
   for (const g of Object.keys(D.gstats)) { total += D.gstats[g].n; if (PROG[g]) { done++; blocksDone += D.gstats[g].n; } }
   const pct = Math.round(100 * blocksDone / total); $('#progBar').style.width = pct + '%'; $('#progTxt').textContent = `${pct} % der Blöcke · ${done}/${Object.keys(D.gstats).length} Bauteile fertig`;
@@ -721,4 +744,22 @@ renderBuild();
 $$('[data-go]').forEach(b => b.onclick = () => showTab(b.dataset.go));
 if (location.hash && $('#tab-' + location.hash.slice(1))) showTab(location.hash.slice(1)); else showTab('overview');
 $('#terrainState').onchange=e=>{S3.terrainMode=e.target.value;if(GL&&GL.terrain){GL.terrain.buffers.forEach(b=>GL.gl.deleteBuffer(b));GL.terrain=uploadGeometry(buildTerrain());GL.dirty=true;}};
+window.__focusBlock=(x,y,z)=>{const j=at(x,y,z);if(j<0)return false;showTab('3d');if(!GL)return false;
+      const ready=()=>{if(!GL||!GL.terrain)return;S3.hidden.clear();$$('#groupList input').forEach(c=>c.checked=true);rebuild();
+        S3.ymax=Math.min(BB[3],y+1);S3.single=false;S3.terrain=false;$('#cut').value=S3.ymax;$('#single').checked=false;$('#terrainChk').checked=false;
+        applyCut();focusBox(x,y+.5,z,8);GL.hl.position.set(x+.5,y+.5,-z-.5);GL.hl.visible=true;const q=describe(j);
+        $('#selInfo').innerHTML=`<div class="selhead"><b>${q.title}</b></div><code>${q.id}</code><p><b>#${j+1}</b> · ${q.pos}</p><small>${REG[R[j]].props}</small>`;GL.dirty=true;};
+      if(GL.terrain)ready();else setTimeout(ready,100);return true;};
+    window.__resetScene=()=>{if(!GL)return;S3.isolate=null;$('#detailBanner').hidden=true;S3.hidden.clear();$$('#groupList input').forEach(c=>c.checked=true);S3.ymax=BB[3];S3.single=false;S3.terrain=true;
+      $('#cut').value=BB[3];$('#single').checked=false;$('#terrainChk').checked=true;GL.hl.visible=false;rebuild();preset('iso');};
+    window.__leaveFixture=()=>{if(!GL||!S3.isolate)return;S3.isolate=null;$('#detailBanner').hidden=true;S3.terrain=true;$('#terrainChk').checked=true;GL.hl.visible=false;rebuild();};
+    window.__focusFixture=f=>{const j=at(f.x,f.y,f.z);if(j<0)return false;showTab('3d');if(!GL)return false;
+      const ready=()=>{if(!GL||!GL.terrain)return;S3.hidden.clear();S3.isolate=new Set([j]);
+        const a=f.anchor;for(let yy=Math.min(f.y,a[1]);yy<=Math.max(f.y,a[1]);yy++){const k=at(f.x,yy,f.z);if(k>=0)S3.isolate.add(k);}
+        if(!f.hanging){for(let yy=a[1]-1;yy>=Math.max(BB[2],a[1]-2);yy--){const k=at(f.x,yy,f.z);if(k>=0)S3.isolate.add(k);}}
+        S3.ymax=BB[3];S3.single=false;S3.terrain=false;$('#cut').value=BB[3];$('#single').checked=false;$('#terrainChk').checked=false;
+        rebuild();focusBox(f.x+.5,(f.y+a[1]+1)/2,f.z+.5,4);GL.cam.d=6+f.chain;GL.cam.ph=1.12;GL.cam.th=.75;
+        GL.hl.position.set(f.x+.5,f.y+.5,-f.z-.5);GL.hl.visible=true;$('#detailBanner').hidden=false;
+        $('#selInfo').innerHTML=`<b>${f.id} · ${f.hanging?'Hängend':'Stehend'}</b><p>X ${f.x} / Y ${f.y} / Z ${f.z}</p><small>${f.chain} Kettenblöcke<br>Träger: ${f.anchor_block}<br>X ${a[0]} / Y ${a[1]} / Z ${a[2]}</small>`;GL.dirty=true;};
+      if(GL.terrain)ready();else setTimeout(ready,100);return true;};
 })();

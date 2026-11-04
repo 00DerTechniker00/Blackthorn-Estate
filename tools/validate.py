@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent model, warehouse-access and earthwork validation for Revision 5.9."""
+"""Independent model, warehouse-access and earthwork validation for Revision 5.10."""
 import csv
 import hashlib
 import json
@@ -67,19 +67,33 @@ def main():
     assert d['validation']['rotation_degrees']==180
     assert not any(g=='observatorium' for bid,st,g in b.values())
     assert max(p[1] for p,v in b.items() if v[2].startswith('dach_'))==157
-    # All remaining lanterns have an immediate support or a continuous ceiling chain.
+    # Check fixtures independently against the model and exported attachment report.
     lamp_rows=[]
     for (x,y,z),(bid,state,g) in b.items():
         if bid not in ('lantern','soul_lantern'):continue
         if 'hanging=true' in state:
             yy=y+1
             while b.get((x,yy,z),('','',''))[0] in ('chain','iron_chain'):yy+=1
+            assert yy-y-1<=2,f'Long chain {x,y,z}'
             assert (x,yy,z) in b,f'Unattached lamp {x,y,z}'
         else:
             yy=y-1;assert (x,yy,z) in b,f'Floating floor lamp {x,y,z}'
-        lamp_rows.append([x,y,z,state,x,yy,z,b[x,yy,z][0]])
-    with (ROOT/'laternen_pruefung.csv').open('w',encoding='utf-8-sig',newline='') as f:
-        w=csv.writer(f,delimiter=';');w.writerow(['X','Y','Z','Zustand','Anker-X','Anker-Y','Anker-Z','Ankerblock']);w.writerows(lamp_rows)
+        lamp_rows.append(((x,y,z),(x,yy,z),bid,state,g))
+    fixtures=d['lighting']['fixtures'];export=read('laternen_pruefung.csv')
+    assert len(lamp_rows)==len(fixtures)==len(export)==236
+    indexed={(f['x'],f['y'],f['z']):f for f in fixtures}
+    assert len(indexed)==len(lamp_rows)
+    for p,anchor,bid,state,g in lamp_rows:
+        f=indexed[p];assert f['anchor']==list(anchor) and f['anchor_block']==b[anchor][0]
+        assert f['hanging']==('hanging=true' in state) and f['block']==bid and f['group']==g
+        assert f['chain']==(anchor[1]-p[1]-1 if f['hanging'] else 0)
+        assert g!='beleuchtung' or f['hanging']
+        aid,ast,_=b[anchor]
+        if aid.endswith('_slab'):assert 'type=double' in ast or ('type=bottom' if f['hanging'] else 'type=top') in ast
+    for f,row in zip(fixtures,export):
+        assert row['ID']==f['id'] and [int(row[k]) for k in ('X','Y','Z')]==[f['x'],f['y'],f['z']]
+        assert [int(row[k]) for k in ('Anker-X','Anker-Y','Anker-Z')]==f['anchor']
+        assert int(row['Kettenbloecke'])==f['chain'] and row['Ankerblock']==f['anchor_block']
     for x in range(-662,-652):
         for z in (789,790):
             assert (x,129,z) in b
@@ -143,8 +157,9 @@ def main():
     original=json.loads((ROOT.parent.parent/'manifest.json').read_text())
     for f in original['files']:
         p=ROOT.parent/f['path'];assert hashlib.sha256(p.read_bytes()).hexdigest()==f['sha256']
-    base=ROOT.parent/'Blackthorn-Estate-Revision-5.8'
-    for f in json.loads((base/'manifest_5.8.json').read_text()):assert hashlib.sha256((base/f['path']).read_bytes()).hexdigest()==f['sha256']
+    for version in ('5.8','5.9'):
+        base=ROOT.parent/f'Blackthorn-Estate-Revision-{version}'
+        for f in json.loads((base/f'manifest_{version}.json').read_text()):assert hashlib.sha256((base/f['path']).read_bytes()).hexdigest()==f['sha256']
     print(f'PASS: {len(b):,} unique build positions, all materials and door pairs; 56 accessible bays / 448 barrels; 62,101 surveyed columns; {len(cuts):,} exact cut and {len(fills):,} fill positions; unchanged originals.')
 
 

@@ -72,9 +72,9 @@ function environment(storage=new Map(),webgl=true){
     addEventListener:(k,fn)=>(listeners[k]??=[]).push(fn),dispatchEvent:e=>{for(const fn of listeners[e.type]||[])fn(e);}};
   global.window=global;
   const context=vm.createContext(global);
-  for(const name of ['progress','logistics','app','steps','terrain','system']){
+  for(const name of ['progress','logistics','app','steps','terrain','system','ui']){
     let source=fs.readFileSync(path.join(root,name+'.js'),'utf8');
-    if(name==='app')source=source.replace(/\}\)\(\);\s*$/,`window.testHooks={renderMat,renderCoord,renderBuild,PHASES,rayBlock,cameraBasis,viewProjection,buildModel,buildTerrain,predNow,getGL:()=>GL};})();`);
+    if(name==='app')source=source.replace(/\}\)\(\);\s*$/,`window.testHooks={renderMat,renderCoord,renderBuild,PHASES,rayBlock,cameraBasis,viewProjection,buildModel,buildTerrain,predNow,lanternParts,shapeRects,getGL:()=>GL};})();`);
     vm.runInContext(source,context,{filename:name+'.js'});
   }
   return {context,document,storage,downloads,runTimers(){while(timers.length)timers.shift()();},frame(){frames.shift()?.();},stats:()=>({drawCalls,uploadedFloats})};
@@ -84,12 +84,47 @@ async function main(){
 const env=environment(),{context:c,document:doc}=env;
 check(doc.getElementById('st-blocks').textContent===blueprint.meta.total.toLocaleString('de-DE'),'Overview initializes');
 check(doc.querySelector('.tab.on').attrs.id==='tab-overview','Initial overview selected');
-for(const button of doc.querySelectorAll('#tabs button')){
+for(const button of doc.querySelectorAll('[data-tab]')){
   button.click();env.runTimers();env.frame();
   check(doc.querySelector('.tab.on').attrs.id==='tab-'+button.dataset.tab,'Navigation '+button.dataset.tab);
 }
 check(env.stats().uploadedFloats>1000000,'Real block and terrain geometry uploaded with finite coordinates');
 check(env.stats().drawCalls>0,'3D render path draws geometry');
+check(doc.querySelectorAll('#tabs button').length===5,'Five primary work areas');
+c.__showTab('plan');check(doc.querySelector('#tabs button.on').dataset.group==='atlas','Secondary views keep the primary area active');
+check(doc.getElementById('viewTitle').textContent==='Ebenenplan','Current view has a clear heading');
+check(doc.querySelector('#subtabs [data-subgroup="atlas"]').hidden===false,'Only relevant subnavigation is visible');
+c.location.hash='#lighting';c.dispatchEvent(new c.Event('hashchange'));
+check(doc.querySelector('.tab.on').id==='tab-lighting','Browser history/deep links update the view');
+check(doc.getElementById('lightRows').querySelectorAll('[data-light-plan]').length===blueprint.lighting.total,'All actual fixtures appear in the inspector');
+doc.getElementById('lightLevel').value='Keller 1';doc.getElementById('lightLevel').dispatchEvent({type:'change'});
+check(doc.getElementById('lightRows').querySelectorAll('[data-light-plan]').length===blueprint.lighting.fixtures.filter(f=>f.level==='Keller 1').length,'Light level filter matches model');
+doc.getElementById('lightLevel').value='all';doc.getElementById('lightLevel').dispatchEvent({type:'change'});
+doc.getElementById('lightQuery').value='no_matching_fixture';doc.getElementById('lightQuery').dispatchEvent({type:'input'});
+check(doc.getElementById('lightRows').querySelectorAll('[data-light-plan]').length===0,'Empty light search has no stale actions');
+doc.getElementById('lightQuery').value='';doc.getElementById('lightQuery').dispatchEvent({type:'input'});
+doc.querySelector('[data-light3d]').click();env.runTimers();env.frame();
+check(doc.querySelector('.tab.on').id==='tab-3d'&&!doc.getElementById('detailBanner').hidden,'Light detail opens the actual 3D geometry');
+check(Object.keys(c.testHooks.getGL().meshes).length<=6,'Fixture inspection isolates lamp, chain and support');
+doc.getElementById('leaveDetail').click();env.frame();
+check(doc.getElementById('detailBanner').hidden&&doc.getElementById('terrainChk').checked,'Returning from a fixture restores house and terrain');
+doc.getElementById('sceneFloor').value='119';doc.getElementById('sceneFloor').dispatchEvent({type:'change'});
+check(doc.getElementById('cut').value==='119','Floor shortcut reveals cellar interior below ceiling');
+doc.getElementById('resetScene').click();env.frame();
+doc.getElementById('menuButton').click();
+check(doc.documentElement.classList.contains('nav-open')&&doc.getElementById('menuButton').getAttribute('aria-expanded')==='true','Drawer exposes its expanded state');
+c.dispatchEvent(new c.Event('keydown',{key:'Escape'}));
+check(!doc.documentElement.classList.contains('nav-open')&&doc.getElementById('navScrim').hidden,'Escape closes drawer');
+doc.getElementById('menuButton').click();c.__showTab('material');
+check(!doc.documentElement.classList.contains('nav-open'),'Navigation closes mobile drawer');
+for(const hanging of [true,false]){
+  const r={kind:'lantern',id:'lantern',p:{hanging:String(hanging)}},parts=c.testHooks.lanternParts(r);
+  check(new Set(parts.map(p=>p.color.join(','))).size===2,'Metal frame and light have separate colors');
+  check(hanging?Math.max(...parts.map(p=>p.box[4]))===16:Math.min(...parts.map(p=>p.box[1]))===0,'Lantern meets ceiling or base correctly');
+  const joined=new Set([0]);let changed=true;while(changed){changed=false;for(let i=0;i<parts.length;i++)if(!joined.has(i))for(const j of joined){const a=parts[i].box,b=parts[j].box;if([0,1,2].every(k=>a[k]<=b[k+3]&&b[k]<=a[k+3])){joined.add(i);changed=true;break;}}}
+  check(joined.size===parts.length,'All lantern components form one connected model');
+  if(!hanging)check(c.testHooks.shapeRects(r,'z').some(b=>b[3]===1),'Standing lantern touches baseline in a section');
+}
 const stateControl=doc.getElementById('terrainState');
 for(const mode of ['original','target','work']){
   stateControl.value=mode;const oldFloats=env.stats().uploadedFloats;stateControl.dispatchEvent({type:'change'});
@@ -106,7 +141,7 @@ for(const mode of ['earthworks','surface','target','height','delta']){
   const map=doc.getElementById('geologyMode');map.value=mode;map.dispatchEvent({type:'change'});
   check(true,'Earthwork map mode runs: '+mode);
 }
-check(doc.getElementById('storageZones').querySelectorAll('article').length===56,'All warehouse and private bays appear in storage UI');
+check(doc.getElementById('storageZones').querySelectorAll('tr').length===56,'All warehouse and private bays appear in storage UI');
 for(const amount of [0,1,1727,1728,1729,3456,5000,1000000])for(const empty of [0,1,27,81,100]){
   const r=c.Logistics.bulk(amount,empty);
   check(r.ready+r.full_boxes*1728+r.active_items+r.unaccepted===amount,'Bulk mass conservation');
@@ -164,9 +199,17 @@ await doc.getElementById('impProg').onchange({target:{files:[{size:1000,text:asy
 check(Object.keys(c.BT.state.blocks).length===0&&c.BT.state.people[who.dataset.who]==='Piet','Import replaces whole snapshot');
 check(doc.getElementById('stepRows').querySelectorAll('input').every(x=>!x.checked),'Import updates layer UI');
 const restored=environment(env.storage);check(restored.context.BT.state.people[who.dataset.who]==='Piet','Reload restores saved state');
-const noGL=environment(new Map(),false);noGL.document.querySelector('#tabs button[data-tab="3d"]').click();
+const legacyState={format:'blackthorn-progress',schema:1,revision:'5.9',blueprint:blueprint.progress_compat.fingerprint,state:{groups:{beleuchtung:true,res1:true},people:{res1:'Piet'},blocks:{'-672,124,791':true},inventory:{R01:'12 Stacks'}}};
+const changedKey=blueprint.progress_compat.changed_positions[0];legacyState.state.blocks[changedKey]=true;
+const migrated=c.BT.validate(legacyState);
+check(migrated.blocks['-672,124,791']===true&&!migrated.blocks[changedKey],'5.9 migration keeps only unchanged checked positions');
+check(migrated.groups.res1===true&&!migrated.groups.beleuchtung&&migrated.inventory.R01==='12 Stacks','5.9 migration retains unrelated work and inventory notes');
+const legacyStore=new Map([['blackthorn:5.9:progress',JSON.stringify(legacyState)]]),automatic=environment(legacyStore);
+check(automatic.context.BT.state.people.res1==='Piet'&&legacyStore.has('blackthorn:5.10:progress'),'Existing local 5.9 data is copied into new version');
+check(JSON.parse(legacyStore.get('blackthorn:5.9:progress')).state.groups.beleuchtung===true,'Migration never overwrites the original 5.9 snapshot');
+const noGL=environment(new Map(),false);noGL.document.querySelector('[data-tab="3d"]').click();
 check(noGL.document.getElementById('loading').textContent.includes('WebGL'),'No-WebGL fallback is visible');
-noGL.document.querySelector('#tabs button[data-tab="plan"]').click();
+noGL.document.querySelector('[data-tab="plan"]').click();
 check(noGL.document.querySelector('.tab.on').attrs.id==='tab-plan','2D remains usable without WebGL');
 console.log(`PASS: ${checks} runtime checks for navigation, geometry, materials, phases, XYZ search, persistence and complete backup. DOM/GL adapters used; no browser/GPU verification.`);
 

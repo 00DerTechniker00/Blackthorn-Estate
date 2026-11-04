@@ -1,57 +1,70 @@
 {
-  "revision": "5.9",
-  "model_fingerprint": "7b2667ccfbfdf6d76f8e4e0be31527e106ee4d8c93e9f405abc6ba96e45e3a14",
-  "data_geometry_and_access": "passed",
-  "runtime_checks": 261,
-  "runtime_environment": "Node VM with DOM/Canvas/WebGL adapters",
-  "model_previews": "software-rendered from actual app geometry",
-  "browser_visual_test": "blocked: operating-system sockets unavailable",
-  "minecraft_paper_test": "not performed",
-  "automation_complete": false,
-  "automation_pending": [
-    "Shulker sequence controller wiring and collection validation",
-    "vertical dropper clock implementation",
-    "26.3 filter/golem/pickup/overflow commissioning"
-  ],
-  "route_safety": {
-    "min_center_distance_to_natural_drop_9": 15.0,
-    "definition": "Nearest surveyed column more than 8 blocks below the natural route-center ground; radius 22 blocks.",
-    "road_halfwidth": 2.4,
-    "flat_shoulder_radius": 4,
-    "raised_ramp_guard_posts": 80
+  "revision": "5.10",
+  "base_revision": "5.9",
+  "checked_at": "2026-11-04T20:20:20.859120+00:00",
+  "status": "PASS für die aufgeführten Prüfungen",
+  "runtime": {
+    "command": "node tools/test_app.mjs",
+    "checks_passed": 295,
+    "environment": "DOM/Canvas/WebGL adapters; no real browser or GPU",
+    "coverage": [
+      "navigation and hash routes",
+      "mobile menu state",
+      "lantern list filters and isolated 3D detail",
+      "model geometry and camera math",
+      "material totals and exports",
+      "block progress and phase state",
+      "backup validation and import",
+      "5.9 migration preserves unchanged progress and original storage",
+      "warehouse notes and quantities"
+    ]
   },
   "model": {
-    "version": "5.9",
-    "base": "5.8",
-    "style": "Ruhigeres viktorianisches Herrenhaus",
-    "blocks": 101511,
+    "command": "python tools/validate.py",
+    "passed": true,
+    "unique_positions": 101218,
+    "fingerprint": "865ce72a2ee6586b1745bdd33ac41f0451dde764cdfc586f3748317eddf7ce8b",
+    "lanterns": 236,
+    "max_chain_blocks": 2,
+    "all_lantern_attachments_checked": true,
+    "accessible_bays": 56,
+    "rack_private_barrels": 448,
     "terrain_columns": 62101,
-    "terrain_bounds": [
-      -825,
-      -545,
-      680,
-      900
-    ],
-    "excavation_blocks": 48995,
-    "fill_blocks": 35018,
-    "vegetation_clear": 1404,
-    "existing_structure_conflicts": 9,
-    "roof_before": 18783,
-    "roof_after": 19155,
-    "warehouse_barrels": 400,
-    "private_barrels": 48,
-    "new_storage_slots": 12096,
-    "not_tested_in_game": true,
-    "light_simulation_current": false,
-    "walkability_simulation_current": false,
-    "rotation_degrees": 180,
-    "lantern_repairs": 110,
-    "lanterns_removed": 9,
-    "bulk_modules": 6,
-    "bulk_box_slots": 486,
-    "bulk_ready_slots": 162,
-    "technical_in_game_verified": false,
-    "pool_access_clear": true,
-    "target_minecraft": "26.3"
+    "exact_cut_positions": 48996,
+    "exact_fill_positions": 35018,
+    "pool_route_and_stairs_clear": true,
+    "all_model_lists_and_embedded_data_match": true,
+    "originals_and_revisions_5_8_5_9_unchanged": true
+  },
+  "interface": {
+    "html_parser": "lxml; no error/fatal messages",
+    "unique_ids": 122,
+    "primary_areas": 5,
+    "views": 12,
+    "html_containers_balanced": true,
+    "css_delimiters_balanced": true,
+    "all_javascript_syntax_valid": true,
+    "glslangValidator": "both actual app shaders pass"
+  },
+  "previews": {
+    "source": "actual app quads exported by tools/export_preview.mjs",
+    "renderer": "Pillow/NumPy software painter",
+    "inspected_lantern_detail_images": true,
+    "browser_screenshots": false
+  },
+  "limits": {
+    "browser_gpu_verified": false,
+    "reason": "OS sockets blocked by sandbox; browser cannot start",
+    "minecraft_paper_in_game_verified": false,
+    "light_spawn_simulation": false,
+    "whole_build_walkability_simulation": false,
+    "storage_automation_complete": false
+  },
+  "changes": {
+    "group": "beleuchtung",
+    "changed_positions": 447,
+    "removed_auto_lanterns": 211,
+    "new_pendants": 33,
+    "additional_cut_positions": 1
   }
 }
