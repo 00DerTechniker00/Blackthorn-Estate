@@ -1,0 +1,11 @@
+﻿Stand;Beruf;Arbeitsblock;X;Y;Z
+T01;librarian;lectern;-704;106;771
+T06;armorer;blast_furnace;-704;106;783
+T02;librarian;lectern;-700;106;771
+T07;toolsmith;smithing_table;-700;106;783
+T03;librarian;lectern;-696;106;771
+T08;weaponsmith;grindstone;-696;106;783
+T04;farmer;composter;-692;106;771
+T09;cleric;brewing_stand;-692;106;783
+T05;farmer;composter;-688;106;771
+T10;mason;stonecutter;-688;106;783

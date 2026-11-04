@@ -1,0 +1,16 @@
+{
+  "version": "5.6",
+  "blocks": 78586,
+  "unique": 78586,
+  "bulk_filters": 6,
+  "golem_categories": 9,
+  "trading_stalls": 10,
+  "input": {
+    "x": -708,
+    "y": 124,
+    "z": 789,
+    "block": "chest",
+    "name": "Einzige Einwurfstelle"
+  },
+  "not_tested_in_game": true
+}
