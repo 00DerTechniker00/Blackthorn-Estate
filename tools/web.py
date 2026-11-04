@@ -18,30 +18,30 @@ def build():
     fmt=lambda n:f'{n:,}'.replace(',','.')
     html=(BASE/'index.html').read_text()
     html=re.sub(r'<script type="application/json" id="data">.*?</script>','__DATA__',html,flags=re.S)
-    html=html.replace('5.7','5.8').replace('Gelände &amp; Höhlen','Gelände &amp; Erdarbeiten')
+    html=html.replace('5.7','5.9').replace('Gelände &amp; Höhlen','Gelände &amp; Erdarbeiten')
     overview=f'''<section class="tab" id="tab-overview">
-      <div class="hero"><div class="card lead"><small class="eyebrow">REVISION 5.8 · VIKTORIANISCHES KLIPPENANWESEN</small>
-      <h1>Ein ruhigeres Haus.<br>Mehr Platz für euren Alltag.</h1>
-      <p class="muted">Sechs Residenzen unter klar gestaffelten Dächern, eine helle Steinfassade und ein neu organisierter Lagerkeller. Die hohe Kuppel entfällt; die Erker bleiben als zurückhaltende Akzente.</p>
+      <div class="hero"><div class="card lead"><small class="eyebrow">REVISION 5.9 · VIKTORIANISCHES KLIPPENANWESEN</small>
+      <h1>Das Panorama am Pool.<br>Neue Details. Neue Logistik.</h1>
+      <p class="muted">Um 180° gedreht: Pool und Aussicht liegen jetzt im Osten, Eingang und Zufahrt im Westen. Gauben, Kupferakzente und steinerne Gesimse ergänzen den Entwurf. Die Logistik bekommt Bulk-Puffer, Shulker-Stationen und einen eigenen Golemraum.</p>
       <div class="cta"><button class="btn primary" data-go="3d">Anwesen in 3D</button><button class="btn" data-go="storage">Lager ansehen</button><button class="btn" data-go="terrain">Erdarbeiten planen</button></div></div>
-      <a class="preview card" href="assets/anwesen_ost.png"><img src="assets/anwesen_ost.png" alt="Aus dem tatsächlichen Blockmodell berechnete Ostansicht des neuen Hauses"><span>Modellvorschau · Eingang von Osten</span></a></div>
+      <a class="preview card" href="assets/anwesen_ost.png"><img src="assets/anwesen_ost.png" alt="Aus dem tatsächlichen Blockmodell berechnete Ostansicht des neuen Hauses"><span>Modellvorschau · Poolansicht von Osten</span></a></div>
       <div class="stats overview-stats"><div class="stat"><b id="st-blocks">–</b><span>Baupositionen inkl. Erdauftrag</span></div><div class="stat"><b id="st-items">–</b><span>Material-Items</span></div><div class="stat"><b>{summary['new_barrels']}</b><span>Fässer in neuen Lagerbuchten</span></div><div class="stat"><b>{fmt(summary['total_slots'])}</b><span>Inventarplätze insgesamt</span></div><div class="stat"><b id="st-rooms">–</b><span>Räume / Bereiche</span></div><div class="stat"><b id="st-doors">–</b><span>Türen</span></div><div class="stat"><b id="st-stairs">–</b><span>Treppenblöcke</span></div><div class="stat"><b id="st-panes">–</b><span>Glasscheiben</span></div></div>
       <div class="facts" id="facts"></div>
-      <div class="grid2"><div class="card"><h2>Weniger Unruhe, klarere Baukörper</h2><p>Ein Hauptdach über der Halle, zwei niedrigere Wohnflügel und ein nochmals niedrigerer Ostflügel. Die Dachflächen sind als Schalen statt als massive Füllkörper gebaut. Der Dachumfang sinkt von {fmt(v['roof_before'])} auf {fmt(v['roof_after'])} Positionen.</p><p>Durchlaufende Gesimse, ruhige Steinflächen und ein flacher Portikus verbinden die Gebäudeteile. Die vier Eckerker erhalten niedrige Hauben statt hoher Turmgeschosse.</p><a href="assets/anwesen_west.png">Westansicht mit Pool öffnen</a></div>
-      <div class="card"><h2>Lager mit wirklicher Kapazität</h2><p>50 Lagerbuchten mit je acht Fässern im zweiten Keller: 400 Fässer und 10.800 Plätze. Dazu kommen sechs Privatreserven mit je acht Fässern im dritten Keller. Das bestehende Sortierlager bleibt separat.</p><p>Die neuen Buchten sind manuelle Lagerplätze. Wege und Behälterpositionen sind im Modell enthalten; ein automatischer Anschluss wird nicht vorausgesetzt.</p><button class="btn" data-go="storage">Kategorien &amp; Koordinaten</button></div></div>
+      <div class="grid2"><div class="card"><h2>Mehr viktorianische Details</h2><p>Sechs verglaste Gauben, profilierte Gesimse, helle Ecksteine und grün patinierte Kupferakzente. Die vorhandenen Dachschalen bleiben erhalten; die hohen Turmgeschosse kehren nicht zurück.</p><p>Der Weg durch die Bibliothek zum Pool ist freigeräumt. Die hohe Treppe und die Möblierung aus dem Türbereich sind entfernt, der Vorplatz ist eben. Laternen wurden auf Halt und Kettenanschlüsse geprüft.</p><a href="assets/anwesen_west.png">Westansicht mit Eingang öffnen</a></div>
+      <div class="card"><h2>Automatik als konkreter Bauentwurf</h2><p>50 Lagerbuchten mit je acht Fässern im zweiten Keller: 400 Fässer und 10.800 Plätze. Dazu kommen sechs Privatreserven mit je acht Fässern im dritten Keller. Das bestehende Sortierlager bleibt separat.</p><p>Zusätzlich: sechs Bulk-Module mit losem Vorrat und Shulker-Reserven, neun vorbestückte Golem-Zieltruhen und zwei Shulker-Stationen neben dem Einwurf. Controller und Pickup müssen noch in einer 26.3-Testwelt abgenommen werden.</p><button class="btn" data-go="storage">Kategorien &amp; Koordinaten</button></div></div>
       <div class="card" style="margin-top:18px"><h2>Prüfstand dieser Revision</h2><div id="checks"></div><a href="analysebericht.md">Änderungen und Prüfgrenzen lesen</a></div>
       <div class="notice" style="margin-top:18px">3D: ziehen = drehen · Shift/Rechtsklick = verschieben · Mausrad = zoomen. Unter <b>Gelände</b> zwischen Original, Zielzustand und Erdarbeiten wechseln. Einzelblöcke nach Höhe bauen; vollständige Fortschritts-Backups unter <b>Bauplan</b>.</div>
     </section>'''
     html=re.sub(r'<section class="tab" id="tab-overview">.*?</section>',lambda _:overview,html,flags=re.S)
     terrain=f'''<section class="tab" id="tab-terrain">
-      <div class="card"><small class="eyebrow">ORIGINALREGION · 221 × 171 BLÖCKE</small><h1>Die Landschaft um das Anwesen</h1>
-      <p class="muted">X −805…−585 · Z 705…875. Die umliegenden Hangkanten sind Teil der Ansicht. Ist- und Soll-Boden werden pro Spalte gegenübergestellt; weiter draußen bleibt die Landschaft unverändert.</p>
+      <div class="card"><small class="eyebrow">ORIGINALREGION · 281 × 221 BLÖCKE</small><h1>Die Landschaft um das Anwesen</h1>
+      <p class="muted">X −825…−545 · Z 680…900. Die umliegenden Hangkanten sind Teil der Ansicht. Ist- und Soll-Boden werden pro Spalte gegenübergestellt; weiter draußen bleibt die Landschaft unverändert.</p>
       <div class="toolbar"><label>Karte <select id="geologyMode"><option value="earthworks">Abtrag &amp; Auffüllung</option><option value="surface">Originaloberfläche</option><option value="target">Geplante Oberfläche</option><option value="height">Natürliche Bodenhöhe</option><option value="delta">Höhenänderung</option></select></label><button class="mini" id="geologyReset">Karte einpassen</button><button class="mini" data-go="3d">In 3D ansehen</button></div>
       <p class="earth-legend"><span class="cut-key">Orange: Abtrag</span><span class="fill-key">Türkis: Auffüllung</span><span>Violett: beides in einer Spalte</span><span>Ocker: Oberflächenwechsel</span></p>
       <div class="stage" style="height:min(72vh,760px)"><canvas id="geologyCanvas"></canvas><div class="hint">Ziehen / zoomen · Hover zeigt Ist-Y, Soll-Y und Blockmengen</div></div>
       <div id="geologyHover" class="notice" style="margin-top:12px" role="status">Mit der Maus über eine Spalte fahren.</div></div>
       <div class="stats" style="margin:18px 0"><div class="stat"><b>{fmt(v['excavation_blocks'])}</b><span>vorhandene Blöcke entfernen</span></div><div class="stat"><b>{fmt(v['fill_blocks'])}</b><span>Blöcke oberhalb des bisherigen Bodens auffüllen</span></div><div class="stat"><b>{fmt(v['vegetation_clear'])}</b><span>Vegetations-/Aufbauten-Blöcke separat räumen</span></div></div>
-      <div class="grid2"><div class="card"><h2>So wird das Grundstück angepasst</h2><p><b>Keller:</b> Baugrube bis unter die Bodenplatte Y=105. <b>Haus:</b> Unterbau bis Y=128 unter dem bewohnten Hauptkörper. <b>Garten:</b> schmale Böschungsübergänge an Nord und Süd. Die westliche Klippe unter Pool und Terrasse bleibt erhalten.</p><p><b>Zufahrt:</b> fünf Blöcke breiter Weg über den südöstlichen Plateaustreifen bis X≈−607 / Z≈850. Der direkte Weg nach Osten über die steile Hangkante entfällt. Höhensprünge sind als begehbare Stufen im Zielgelände modelliert.</p></div>
+      <div class="grid2"><div class="card"><h2>So wird das Grundstück angepasst</h2><p><b>Keller:</b> Baugrube bis unter die Bodenplatte Y=105. <b>Haus:</b> Unterbau bis Y=128 unter dem bewohnten Hauptkörper. <b>Garten:</b> schmale Böschungsübergänge an Nord und Süd. Pool und Terrasse schauen jetzt nach Osten über den Geländeeinschnitt. Die darunter liegende Landschaft wird nicht pauschal aufgefüllt.</p><p><b>Zufahrt:</b> fünf Blöcke breiter Weg nach Nordwesten bis X≈−783 / Z≈711, mit breiten Schultern statt einer Führung direkt an der Hangkante. Höhensprünge sind als begehbare Stufen im Zielgelände modelliert.</p></div>
       <div class="card"><h2>Vorhandene Welt respektieren</h2><p>Die Mengen stammen aus dem mitgelieferten Welt-Snapshot. Vorhandene identische Baumaterialien werden nicht als Abtrag gezählt. Auffüllungen sind im Bauplan enthalten; ihre Materiallisten sind eine Teilmenge der Gesamtmaterialien.</p><p><b>{v['existing_structure_conflicts']} vorhandene Bau-/Markerblöcke</b> liegen im Arbeitsbereich. Diese vor dem Bauen prüfen: <a href="bestandskonflikte.csv" download>Bestandskonflikte als CSV</a>. Licht, Standsicherheit und Weganschlüsse müssen im Spiel kontrolliert werden.</p></div></div>
       <div class="card" style="margin-top:18px"><h2>Arbeitslisten für eure Gruppe</h2><div class="row"><a class="btn" href="terraforming.csv" download>Ist-/Soll-Spalten</a><a class="btn" href="aushub_blockliste.csv" download>Abtrag: Einzelblöcke</a><a class="btn" href="auffuellung_blockliste.csv" download>Auffüllung: Einzelblöcke</a><a class="btn" href="vegetation_entfernen.csv" download>Vegetation räumen</a></div><div class="row"><a class="btn" href="aushub_materialien.csv" download>Abtrag nach Material</a><a class="btn" href="auffuellung_materialien.csv" download>Auffüllung nach Material</a></div><p class="muted">Die 3D-Geländeoberfläche ist eine Höhenfläche. Sie zeigt die großen Formen und Erdarbeiten, aber keine vollständigen unterirdischen Höhlen. Die Einzelblocklisten wurden aus den tatsächlichen Regionsblöcken abgeleitet.</p></div>
     </section>'''
@@ -69,16 +69,16 @@ def build():
     app=patch(app,'east:{th:.25,ph:1.12,d:135','east:{th:.25,ph:1.12,d:175')
     app=patch(app,'west:{th:Math.PI-.3,ph:1.15,d:140','west:{th:Math.PI-.3,ph:1.15,d:180')
     app=patch(app,'iso:{th:.75,ph:.95,d:165','iso:{th:.75,ph:.95,d:195')
-    app=patch(app,"lager_technik:'Lagertechnik'", "lager_technik:'Lagertechnik',fassade:'Fassade & Gesimse',sockel:'Tragender Sockel',lager_regale:'Regallager · 400 Fässer',privatlager:'Private Lagerreserven',terraform_auffuellung:'Erdauftrag & Unterbau',terraform_oberflaeche:'Gartenoberflächen',zufahrt:'Vorplatz & Zufahrt'")
+    app=patch(app,"lager_technik:'Lagertechnik'", "lager_technik:'Lagertechnik',fassade:'Fassade & Gesimse',sockel:'Tragender Sockel',lager_regale:'Regallager · 400 Fässer',privatlager:'Private Lagerreserven',terraform_auffuellung:'Erdauftrag & Unterbau',terraform_oberflaeche:'Gartenoberflächen',zufahrt:'Vorplatz & Zufahrt',dach_schmuck:'Gauben & Kupferdetails',shulker_technik:'Shulker-Stationen'")
     app=patch(app,"groups: ['fundament','hang_stuetzen','eingang_vorplatz']", "groups: ['fundament','hang_stuetzen','eingang_vorplatz','sockel','terraform_auffuellung','terraform_oberflaeche','zufahrt']")
-    app=patch(app,"'geheimgang','lager_technik']", "'geheimgang','lager_technik','lager_regale','privatlager']")
+    app=patch(app,"'geheimgang','lager_technik']", "'geheimgang','lager_technik','lager_regale','privatlager','shulker_technik']")
     app=patch(app,"groups: ['halle', 'galerie', 'bibliothek']","groups: ['halle', 'galerie', 'bibliothek','fassade']")
     app=app.replace('Terrasse, Pool, Observatorium','Terrasse & Pool').replace('Außenanlagen und Zierturm auf dem Hallenfirst.','Außenanlagen zur westlichen Klippe; niedrige Erkerhauben sind Teil des Daches.')
     app=app.replace("'lager_technik'].includes(g)","'lager_technik','lager_regale','privatlager'].includes(g)")
     app=app.replace("${fmt(D.validation.surface_columns_checked)} Bodensäulen mit der Minecraft-Region abgeglichen; ${fmt(D.validation.surface_mismatches.length)} Abweichungen.","${fmt(D.validation.terrain_columns)} Bodensäulen aus der Originalregion eingelesen. Ist-/Soll-Höhen und Erdarbeiten sind im erweiterten Geländeplan verfügbar.")
     app=app.replace('Die übernommenen Aushubgrenzen sind noch keine vollständig geprüfte Baugrube.','Baugrube und Auffüllung wurden für den neuen Grundriss berechnet. Auffüllung: ${fmt(D.terrain.fill_total)} Blöcke; diese sind in den Baumaterialien enthalten.')
-    app=app.replace('(Kuppel)','(First)').replace('Dachgruppen: Halle bis Y 155 · Residenzen bis Y 155 · Ostflügel bis Y 141','Halle Y 157 · Wohnflügel Y 153 · niedriger Ostflügel')
-    app=patch(app,"const COLORS = {","const COLORS = {bricks:'#986c60',")
+    app=app.replace('(Kuppel)','(First)').replace('Dachgruppen: Halle bis Y 155 · Residenzen bis Y 155 · Ostflügel bis Y 141','Halle Y 157 · Gauben Y 154 · Kupferdetails')
+    app=patch(app,"const COLORS = {","const COLORS = {bricks:'#986c60',polished_diorite:'#d4d5ce',waxed_oxidized_cut_copper_slab:'#5d9d88',waxed_copper_chest:'#bf7950',shulker_box:'#9567a4',piston:'#8d826c',dispenser:'#777e7c',dropper:'#777e7c',redstone_block:'#a82822',redstone_wall_torch:'#bb4c2c',")
     # Public view controls reuse exactly the geometry read by the 2D work map.
     app=patch(app,"window.__showTab = showTab;", "window.__showTab = showTab;\nwindow.__focusPlan=(x,y,z)=>{planSetMode('y');PL.val=y;$('#planRange').value=y;showTab('plan');planCenter(x,z);};")
     app=patch(app,'  location.hash = id;','  location.hash = id;\n  window.dispatchEvent(new Event(\'bt:tab\'));')
@@ -87,7 +87,7 @@ def build():
 ''' + app[end:]
     (ROOT/'app.js').write_text(app)
     for name in ['progress.js','steps.js','system.js','styles.css']:
-        s=(BASE/name).read_text().replace('5.7','5.8')
+        s=(BASE/name).read_text().replace('5.7','5.9')
         if name=='steps.js':
             start=s.index('function jumpToRoom(');end=s.index('\nfunction renderStorage',start)
             s=s[:start]+"function jumpToRoom(zone){window.__focusPlan(zone.x[0],zone.y[0],zone.z[0]);}"+s[end:]
@@ -105,7 +105,9 @@ def build():
 ''')
     for name in ['villager_staende.csv','lager_kategorien.csv']:
         shutil.copyfile(BASE/name,ROOT/name)
-    print('Weboberfläche 5.8 erzeugt.')
+    from web_extra import finalize
+    finalize(ROOT,d)
+    print('Weboberfläche 5.9 erzeugt.')
 
 
 if __name__=='__main__':build()

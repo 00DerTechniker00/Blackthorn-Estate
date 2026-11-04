@@ -20,7 +20,7 @@ for (let i = 0; i < N; i++) grid[gidx(X[i], Y[i], Z[i])] = i + 1;
 const at = (x, y, z) => (x < GX0 || y < GY0 || z < GZ0 || x >= GX0 + NX || y >= GY0 + NY || z >= GZ0 + NZ) ? -1 : grid[gidx(x, y, z)] - 1;
 
 /* ---------- Namen & Farben ---------- */
-const BASE_DE = {
+const BASE_DE = {iron_chain:'Eisenkette',shulker_box:'Shulkerkiste',waxed_copper_chest:'Gewachste Kupfertruhe',
   stone_bricks: 'Steinziegel', cracked_stone_bricks: 'Rissige Steinziegel', mossy_stone_bricks: 'Bemooste Steinziegel',
   deepslate_bricks: 'Tiefenschieferziegel', cracked_deepslate_bricks: 'Rissige Tiefenschieferziegel',
   deepslate_tiles: 'Tiefenschieferfliesen', polished_deepslate: 'Polierter Tiefenschiefer',
@@ -44,7 +44,7 @@ function deName(id) {
   if (m) { const b = BASE_DE[m[1]] || BASE_DE[m[1] + 's'] || m[1].replace(/_/g, ' '); const suf = { stairs: 'Treppe', slab: 'Stufe', wall: 'Mauer', door: 'Tür' }[m[2]]; return `${b}-${suf}`; }
   return id.replace(/_/g, ' ');
 }
-const COLORS = {bricks:'#986c60',
+const COLORS = {polished_diorite:'#d1d0c9',waxed_oxidized_cut_copper_slab:'#579989',waxed_copper_chest:'#bd7953',shulker_box:'#8d6aa1',dispenser:'#777e7b',dropper:'#777e7b',piston:'#9b8a69',redstone_block:'#af302a',redstone_wall_torch:'#bc4e2d',iron_chain:'#3a3c42',bricks:'#986c60',polished_diorite:'#d4d5ce',waxed_oxidized_cut_copper_slab:'#5d9d88',waxed_copper_chest:'#bf7950',shulker_box:'#9567a4',piston:'#8d826c',dispenser:'#777e7c',dropper:'#777e7c',redstone_block:'#a82822',redstone_wall_torch:'#bb4c2c',
   stone_bricks: '#8d8d8a', cracked_stone_bricks: '#82827f', mossy_stone_bricks: '#77876a', deepslate_bricks: '#4b4b52',
   cracked_deepslate_bricks: '#45454c', deepslate_tiles: '#3e3e45', polished_deepslate: '#5a5a62', spruce_planks: '#7d5e36',
   dark_oak_planks: '#4a331e', bookshelf: '#8b6a3a', glass: '#cfeaf5', glass_pane: '#bfe3f2', iron_bars: '#8e9298',
@@ -64,6 +64,8 @@ function colorOf(id) {
   return '#ff00ff';
 }
 const CUSTOM = {
+      hopper:[],waxed_copper_chest:[[1,0,1,15,14,15]],redstone_wire:[[0,0,0,16,1,16]],
+      repeater:[[0,0,0,16,2,16]],comparator:[[0,0,0,16,2,16]],redstone_wall_torch:[[6,3,6,10,14,10]],
   enchanting_table: [[0, 0, 0, 16, 12, 16]], lectern: [[0, 0, 0, 16, 2, 16], [4, 2, 4, 12, 14, 12], [0, 12, 0, 16, 16, 16]],
   brewing_stand: [[7, 0, 7, 9, 14, 9], [1, 0, 1, 5, 2, 5], [11, 0, 1, 15, 2, 5], [6, 0, 11, 10, 2, 15]],
   cauldron: [[0, 0, 0, 16, 14, 16]], anvil: [[2, 0, 2, 14, 4, 14], [4, 4, 4, 12, 10, 12], [0, 10, 3, 16, 16, 13]],
@@ -75,7 +77,7 @@ function kindOf(id) {
   if (id.endsWith('_stairs')) return 'stairs'; if (id.endsWith('_slab')) return 'slab'; if (id.endsWith('_door')) return 'door';
   if (id === 'glass_pane' || id === 'iron_bars') return 'pane'; if (id.endsWith('_fence')) return 'fence';
   if (id.endsWith('_wall')) return 'wall'; if (id.endsWith('_carpet')) return 'carpet'; if (id.endsWith('_bed')) return 'bed';
-  if (id === 'lantern' || id === 'soul_lantern') return 'lantern'; if (id === 'chain') return 'chain';
+  if (id === 'lantern' || id === 'soul_lantern') return 'lantern'; if ((id === 'chain' || id === 'iron_chain')) return 'chain';
   if (id === 'lightning_rod') return 'rod'; if (CUSTOM[id]) return 'custom';
   return 'cube';
 }
@@ -86,22 +88,22 @@ const REG = D.reg.map(([id, props, g]) => {
 function hexRgb(h) { const n = parseInt(h.slice(1), 16); return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255]; }
 
 /* ---------- Gruppen / Phasen ---------- */
-const GROUP_DE = {
+const GROUP_DE = {dach_schmuck:'Gauben & Kupferdetails',shulker_technik:'Shulker-Stationen',weg_sicherung:'Wegeinfassung & Absturzschutz',
   fundament: 'Fundament & Sockel', terrasse: 'Westterrasse', pool: 'Panorama-Pool', keller_1: 'Keller 1', keller_2: 'Keller 2',
   keller_3: 'Keller 3', keller_treppe: 'Kellertreppenhaus', res1: 'Residenz 1', res2: 'Residenz 2', res3: 'Residenz 3',
   res4: 'Residenz 4', res5: 'Residenz 5', res6: 'Residenz 6', halle: 'Große Halle', galerie: 'Galerie', bibliothek: 'Bibliothek',
   kueche: 'Küche', speisesaal: 'Speisesaal', vestibuel: 'Vestibül', portikus: 'Portikus (Eingang)', dach_res: 'Dächer Residenzen',
-  dach_halle: 'Dach Große Halle', dach_bibliothek: 'Dach Bibliothek', dach_ostfluegel: 'Dach Ostflügel',
-  observatorium: 'Observatorium', beleuchtung: 'Zusatzbeleuchtung', hang_stuetzen:'Hangstützen', eingang_vorplatz:'Eingang & Vorplatz', sortierung:'Einwurfstation', bulk_lager:'Bulk-Lager', golem_lager:'Kupfergolem-Lager', trading_hall:'Trading Hall', geheimraum:'Geheimräume', geheimgang:'Geheimgänge', lager_technik:'Lagertechnik',fassade:'Fassade & Gesimse',sockel:'Tragender Sockel',lager_regale:'Regallager · 400 Fässer',privatlager:'Private Lagerreserven',terraform_auffuellung:'Erdauftrag & Unterbau',terraform_oberflaeche:'Gartenoberflächen',zufahrt:'Vorplatz & Zufahrt'
+  dach_halle: 'Dach Große Halle', dach_bibliothek: 'Dach Bibliothek', dach_ostfluegel: 'Dach Eingangsflügel',
+  observatorium: 'Observatorium', beleuchtung: 'Zusatzbeleuchtung', hang_stuetzen:'Hangstützen', eingang_vorplatz:'Eingang & Vorplatz', sortierung:'Einwurfstation', bulk_lager:'Bulk-Lager', golem_lager:'Kupfergolem-Lager', trading_hall:'Trading Hall', geheimraum:'Geheimräume', geheimgang:'Geheimgänge', lager_technik:'Lagertechnik',fassade:'Fassade & Gesimse',sockel:'Tragender Sockel',lager_regale:'Regallager · 400 Fässer',privatlager:'Private Lagerreserven',terraform_auffuellung:'Erdauftrag & Unterbau',terraform_oberflaeche:'Gartenoberflächen',zufahrt:'Vorplatz & Zufahrt',dach_schmuck:'Gauben & Kupferdetails',shulker_technik:'Shulker-Stationen'
 };
 const PHASES = [
-  { id: 'p1', name: '1 · Gelände & Fundament', text: 'Sockelmauern bis Y=128, Bodenplatte Y=129. Zuerst Aushub für die Keller (siehe Prüfbericht).', groups: ['fundament','hang_stuetzen','eingang_vorplatz','sockel','terraform_auffuellung','terraform_oberflaeche','zufahrt'] },
-  { id: 'p2', name: '2 · Keller (3 Ebenen)', text: 'Drei Kellergeschosse (Y=105/113/121) plus Wendeltreppenhaus. Von unten nach oben bauen.', groups: ['keller_3', 'keller_2', 'keller_1', 'keller_treppe','sortierung','bulk_lager','golem_lager','trading_hall','geheimraum','geheimgang','lager_technik','lager_regale','privatlager'] },
+  { id: 'p1', name: '1 · Gelände & Fundament', text: 'Sockelmauern bis Y=128, Bodenplatte Y=129. Zuerst Aushub für die Keller (siehe Prüfbericht).', groups: ['fundament','hang_stuetzen','eingang_vorplatz','sockel','terraform_auffuellung','terraform_oberflaeche','zufahrt','weg_sicherung'] },
+  { id: 'p2', name: '2 · Keller (3 Ebenen)', text: 'Drei Kellergeschosse (Y=105/113/121) plus Wendeltreppenhaus. Von unten nach oben bauen.', groups: ['keller_3', 'keller_2', 'keller_1', 'keller_treppe','sortierung','bulk_lager','golem_lager','trading_hall','geheimraum','geheimgang','lager_technik','lager_regale','privatlager','shulker_technik'] },
   { id: 'p3', name: '3 · Haupthaus', text: 'Große Halle mit Galerie und Bibliothek – das Zentrum, an dem alle Residenzen hängen.', groups: ['halle', 'galerie', 'bibliothek','fassade'] },
   { id: 'p4', name: '4 · Residenzen & Türme', text: 'Sechs Wohnflügel mit je zwei Etagen und Eckturm. Jede Residenz kann von einer eigenen Person gebaut werden.', groups: ['res1', 'res2', 'res3', 'res4', 'res5', 'res6'] },
-  { id: 'p5', name: '5 · Ostflügel & Eingang', text: 'Küche, Speisesaal, Vestibül, Portikus mit Treppenstufen.', groups: ['kueche', 'vestibuel', 'speisesaal', 'portikus'] },
-  { id: 'p6', name: '6 · Dächer', text: 'Satteldächer aus Treppen/Stufen, Kegeldächer der Türme.', groups: ['dach_halle', 'dach_res', 'dach_bibliothek', 'dach_ostfluegel'] },
-  { id: 'p7', name: '7 · Terrasse & Pool', text: 'Außenanlagen zur westlichen Klippe; niedrige Erkerhauben sind Teil des Daches.', groups: ['terrasse', 'pool', 'observatorium'] },
+  { id: 'p5', name: '5 · Westlicher Eingangsflügel', text: 'Küche, Speisesaal, Vestibül, Portikus mit Treppenstufen.', groups: ['kueche', 'vestibuel', 'speisesaal', 'portikus'] },
+  { id: 'p6', name: '6 · Dächer', text: 'Satteldächer aus Treppen/Stufen, Kegeldächer der Türme.', groups: ['dach_halle', 'dach_res', 'dach_bibliothek', 'dach_ostfluegel','dach_schmuck'] },
+  { id: 'p7', name: '7 · Terrasse & Pool', text: 'Außenanlagen mit Panorama nach Osten; niedrige Erkerhauben sind Teil des Daches.', groups: ['terrasse', 'pool', 'observatorium'] },
   { id: 'p8', name: '8 · Zusatzbeleuchtung', text: 'Laternen am Boden entlang der Wände – Lichtwirkung im aktuellen Modell noch im Spiel prüfen.', groups: ['beleuchtung'] }
 ];
 const gname = g => GROUP_DE[g] || g;
@@ -211,6 +213,7 @@ function buildModel(pred) {
 function hash3(x, y, z) { let h = (x * 73856093) ^ (y * 19349663) ^ (z * 83492791); h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h >>> 0) & 0xffff) / 65535; }
 function connects(r, n, dir) { return n && (n.kind === 'cube' || n.id === r.id || (r.kind === 'pane' && (n.kind === 'pane' || n.kind === 'glass'))); }
 function shapeBoxes(r, x, y, z, vis) {
+      if(r.id==='hopper'){const spout={down:[6,0,6,10,6,10],north:[6,4,0,10,8,6],south:[6,4,10,10,8,16],east:[10,4,6,16,8,10],west:[0,4,6,6,8,10]}[r.p.facing||'down'];return [[0,10,0,16,16,16],[4,5,4,12,10,12],spout];}
   const k = r.kind, p = r.p;
   switch (k) {
     case 'slab': return p.type === 'top' ? [[0, 8, 0, 16, 16, 16]] : p.type === 'double' ? [[0, 0, 0, 16, 16, 16]] : [[0, 0, 0, 16, 8, 16]];
@@ -227,7 +230,7 @@ function shapeBoxes(r, x, y, z, vis) {
     }
     case 'carpet': return [[0, 0, 0, 16, 1, 16]];
     case 'bed': return [[0, 0, 0, 16, 9, 16]];
-    case 'lantern': return p.hanging === 'true' ? [[5, 1, 5, 11, 8, 11], [6, 8, 6, 10, 10, 10]] : [[5, 0, 5, 11, 7, 11], [6, 7, 6, 10, 9, 10]];
+    case 'lantern': return p.hanging === 'true' ? [[5, 1, 5, 11, 8, 11], [6, 8, 6, 10, 10, 10], [7,10,7,9,16,9]] : [[5, 0, 5, 11, 7, 11], [6, 7, 6, 10, 9, 10]];
     case 'chain': return [[7, 0, 7, 9, 16, 9]];
     case 'rod': return [[7, 0, 7, 9, 16, 9]];
     case 'custom': return CUSTOM[r.id];
@@ -385,7 +388,7 @@ function loop() {
   if(GL.hl.visible&&GL.hl.mesh){gl.disable(gl.DEPTH_TEST);drawGeometry(GL.hl.mesh,1,gl.LINES);gl.enable(gl.DEPTH_TEST);}
   gl.depthMask(true);
 }
-const PRESETS={estate:{th:.68,ph:.80,d:320,t:[-695,112,790]},
+const PRESETS={estate:{th:.68,ph:.80,d:380,t:[-690,112,790]},
   east:{th:.25,ph:1.12,d:175,t:[-680,143,790]},west:{th:Math.PI-.3,ph:1.15,d:180,t:[-700,138,790]},
   north:{th:Math.PI/2+.1,ph:1.1,d:150,t:[-690,140,790]},south:{th:-Math.PI/2-.2,ph:1.1,d:150,t:[-690,140,790]},
   top:{th:-Math.PI/2,ph:.02,d:200,t:[-690,130,790]},iso:{th:.75,ph:.95,d:195,t:[-690,135,790]}
@@ -443,7 +446,7 @@ function buildGroupPanel() {
   $$('[data-gpreset]').forEach(b => b.onclick = () => {
     const p = b.dataset.gpreset; S3.hidden.clear();
     D.groups.forEach((g, i) => {
-      const roof = g.startsWith('dach_') || g === 'observatorium', cellar = g.startsWith('keller') || ['sortierung','bulk_lager','golem_lager','trading_hall','geheimraum','geheimgang','lager_technik','lager_regale','privatlager'].includes(g), light = g === 'beleuchtung';
+      const roof = g.startsWith('dach_') || g === 'observatorium', cellar = g.startsWith('keller') || ['sortierung','bulk_lager','golem_lager','trading_hall','geheimraum','geheimgang','lager_technik','lager_regale','privatlager','shulker_technik'].includes(g), light = g === 'beleuchtung';
       if (p === 'noroof' && roof) S3.hidden.add(i);
       if (p === 'shell' && (cellar || light)) S3.hidden.add(i);
       if (p === 'cellar' && !(cellar || g === 'fundament')) S3.hidden.add(i);
@@ -637,7 +640,7 @@ function renderRooms() {
 /* =====================================================================
    Material
    ===================================================================== */
-const STACK1 = new Set(['water_bucket']); const stackOf = id => (STACK1.has(id) || id.endsWith('_bed')) ? 1 : id.endsWith('_sign') ? 16 : 64;
+const STACK1 = new Set(['water_bucket']); const stackOf = id => (STACK1.has(id) || id.endsWith('_bed') || id.endsWith('shulker_box')) ? 1 : id.endsWith('_sign') ? 16 : 64;
 function packing(id, n) { const st = stackOf(id), per = st * 27, sh = Math.floor(n / per), rem = n % per, stacks = Math.floor(rem / st), loose = rem % st; return { sh, stacks, loose, st }; }
 function packText(id, n) { const p = packing(id, n), a = []; if (p.sh) a.push(`${p.sh} Shulker`); if (p.stacks) a.push(`${p.stacks} Stack${p.stacks > 1 ? 's' : ''}`); if (p.loose) a.push(`${p.loose} einzeln`); return a.join(' + ') || '0'; }
 function matData(g) { return g === 'all' ? D.counts : (D.gcounts[g] || {}); }
@@ -713,7 +716,7 @@ renderBuild();
       <div class="chk-item ok"><b>Originalgelände</b><p>${fmt(D.validation.terrain_columns)} Bodensäulen aus der Originalregion eingelesen. Ist-/Soll-Höhen und Erdarbeiten sind im erweiterten Geländeplan verfügbar.</p></div>
       <div class="chk-item"><b>Aushub im Region-Snapshot</b><p>${fmt(D.terrain.excavate_total)} vorhandene Blöcke in ${fmt(D.terrain.excavate_columns)} geplanten Spalten. Höhlenluft ist abgezogen. Baugrube und Auffüllung wurden für den neuen Grundriss berechnet. Auffüllung: ${fmt(D.terrain.fill_total)} Blöcke; diese sind in den Baumaterialien enthalten.</p></div>
       <div class="chk-item warn"><b>Noch im Spiel zu prüfen</b><p>Licht, Begehbarkeit, Dachanschlüsse und die Sortierschaltung sind nach den Umbauten nicht im Spiel validiert. Alte Simulationswerte werden deshalb nicht als aktuelles Ergebnis angezeigt.</p></div>`;
-  $('#facts').innerHTML = `<div><small>GRUNDSTÜCK</small><b>X ${D.meta.bbox[0]} … ${D.meta.bbox[1]} · Z ${D.meta.bbox[4]} … ${D.meta.bbox[5]}</b></div><div><small>HÖHE</small><b>Y ${D.meta.bbox[2]} (Keller 3) … ${D.meta.bbox[3]} (First)</b></div><div><small>EBENEN</small><b>Keller 105/113/121 · EG 129 · OG 137 · Dach ab 145</b></div><div><small>EINGANG</small><b>Osten, X −646 · Treppe bei X −637 · Z 789/790</b></div><div><small>KLIPPE</small><b>Westen · Terrasse X −742 … −723</b></div><div><small>FIRSTHÖHEN</small><b>Halle Y 157 · Wohnflügel Y 153 · niedriger Ostflügel</b></div>`;
+  $('#facts').innerHTML = `<div><small>GRUNDSTÜCK</small><b>X ${D.meta.bbox[0]} … ${D.meta.bbox[1]} · Z ${D.meta.bbox[4]} … ${D.meta.bbox[5]}</b></div><div><small>HÖHE</small><b>Y ${D.meta.bbox[2]} (Keller 3) … ${D.meta.bbox[3]} (First)</b></div><div><small>EBENEN</small><b>Keller 105/113/121 · EG 129 · OG 137 · Dach ab 145</b></div><div><small>EINGANG</small><b>Osten, X −646 · Treppe bei X −637 · Z 789/790</b></div><div><small>KLIPPE</small><b>Westen · Terrasse X −742 … −723</b></div><div><small>FIRSTHÖHEN</small><b>Halle Y 157 · Gauben Y 154 · Kupferdetails</b></div>`;
 }
 $$('[data-go]').forEach(b => b.onclick = () => showTab(b.dataset.go));
 if (location.hash && $('#tab-' + location.hash.slice(1))) showTab(location.hash.slice(1)); else showTab('overview');

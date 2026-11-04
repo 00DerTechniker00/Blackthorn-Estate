@@ -1,0 +1,103 @@
+﻿Modul;X;Y;Z;Slot;Item;Anzahl;Hinweis
+cobblestone;-675;126;796;1;cobblestone;41;64er Filteritem
+cobblestone;-675;126;796;2;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_2
+cobblestone;-675;126;796;3;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_3
+cobblestone;-675;126;796;4;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_4
+cobblestone;-675;126;796;5;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_5
+dirt;-682;126;796;1;dirt;41;64er Filteritem
+dirt;-682;126;796;2;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_2
+dirt;-682;126;796;3;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_3
+dirt;-682;126;796;4;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_4
+dirt;-682;126;796;5;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_5
+iron_ingot;-689;126;796;1;iron_ingot;41;64er Filteritem
+iron_ingot;-689;126;796;2;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_2
+iron_ingot;-689;126;796;3;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_3
+iron_ingot;-689;126;796;4;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_4
+iron_ingot;-689;126;796;5;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_5
+deepslate;-696;126;796;1;deepslate;41;64er Filteritem
+deepslate;-696;126;796;2;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_2
+deepslate;-696;126;796;3;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_3
+deepslate;-696;126;796;4;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_4
+deepslate;-696;126;796;5;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_5
+stone;-703;126;796;1;stone;41;64er Filteritem
+stone;-703;126;796;2;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_2
+stone;-703;126;796;3;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_3
+stone;-703;126;796;4;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_4
+stone;-703;126;796;5;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_5
+gravel;-710;126;796;1;gravel;41;64er Filteritem
+gravel;-710;126;796;2;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_2
+gravel;-710;126;796;3;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_3
+gravel;-710;126;796;4;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_4
+gravel;-710;126;796;5;paper;1;Im Amboss umbenennen: BLACKTHORN_FILTER_5
+G01;-676;123;783;1;oak_log;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G01;-676;123;783;2;spruce_log;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G01;-676;123;783;3;birch_log;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G01;-676;123;783;4;dark_oak_log;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G01;-676;123;783;5;oak_sapling;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G01;-676;123;783;6;bone_meal;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G01;-676;123;783;7;moss_block;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G01;-676;123;783;8;vine;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G02;-683;123;783;1;wheat;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G02;-683;123;783;2;carrot;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G02;-683;123;783;3;potato;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G02;-683;123;783;4;bread;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G02;-683;123;783;5;apple;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G02;-683;123;783;6;sugar_cane;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G02;-683;123;783;7;pumpkin;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G02;-683;123;783;8;melon_slice;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G03;-690;123;783;1;rotten_flesh;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G03;-690;123;783;2;bone;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G03;-690;123;783;3;string;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G03;-690;123;783;4;gunpowder;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G03;-690;123;783;5;spider_eye;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G03;-690;123;783;6;slime_ball;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G03;-690;123;783;7;ender_pearl;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G03;-690;123;783;8;leather;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G04;-697;123;783;1;redstone;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G04;-697;123;783;2;repeater;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G04;-697;123;783;3;comparator;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G04;-697;123;783;4;piston;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G04;-697;123;783;5;observer;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G04;-697;123;783;6;hopper;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G04;-697;123;783;7;rail;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G04;-697;123;783;8;redstone_torch;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G05;-704;123;783;1;diamond_pickaxe;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G05;-704;123;783;2;diamond_axe;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G05;-704;123;783;3;diamond_shovel;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G05;-704;123;783;4;bow;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G05;-704;123;783;5;shield;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G05;-704;123;783;6;elytra;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G05;-704;123;783;7;shears;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G05;-704;123;783;8;flint_and_steel;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G06;-676;123;770;1;glass;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G06;-676;123;770;2;lantern;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G06;-676;123;770;3;iron_chain;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G06;-676;123;770;4;terracotta;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G06;-676;123;770;5;bricks;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G06;-676;123;770;6;flower_pot;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G06;-676;123;770;7;calcite;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G06;-676;123;770;8;polished_diorite;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G07;-685;123;770;1;diamond;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G07;-685;123;770;2;emerald;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G07;-685;123;770;3;lapis_lazuli;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G07;-685;123;770;4;gold_ingot;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G07;-685;123;770;5;copper_ingot;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G07;-685;123;770;6;raw_iron;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G07;-685;123;770;7;raw_gold;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G07;-685;123;770;8;quartz;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G08;-694;123;770;1;netherrack;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G08;-694;123;770;2;soul_sand;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G08;-694;123;770;3;nether_wart;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G08;-694;123;770;4;blaze_rod;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G08;-694;123;770;5;end_stone;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G08;-694;123;770;6;purpur_block;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G08;-694;123;770;7;chorus_fruit;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G08;-694;123;770;8;obsidian;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G09;-703;123;770;1;book;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G09;-703;123;770;2;paper;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G09;-703;123;770;3;enchanted_book;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G09;-703;123;770;4;glass_bottle;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G09;-703;123;770;5;blaze_powder;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G09;-703;123;770;6;glowstone_dust;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G09;-703;123;770;7;amethyst_shard;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"
+G09;-703;123;770;8;experience_bottle;1;"Seed erhalten; Typenliste kann gezielt ergänzt werden"

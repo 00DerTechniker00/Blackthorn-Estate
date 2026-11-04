@@ -72,7 +72,7 @@ function environment(storage=new Map(),webgl=true){
     addEventListener:(k,fn)=>(listeners[k]??=[]).push(fn),dispatchEvent:e=>{for(const fn of listeners[e.type]||[])fn(e);}};
   global.window=global;
   const context=vm.createContext(global);
-  for(const name of ['progress','app','steps','terrain','system']){
+  for(const name of ['progress','logistics','app','steps','terrain','system']){
     let source=fs.readFileSync(path.join(root,name+'.js'),'utf8');
     if(name==='app')source=source.replace(/\}\)\(\);\s*$/,`window.testHooks={renderMat,renderCoord,renderBuild,PHASES,rayBlock,cameraBasis,viewProjection,buildModel,buildTerrain,predNow,getGL:()=>GL};})();`);
     vm.runInContext(source,context,{filename:name+'.js'});
@@ -107,6 +107,16 @@ for(const mode of ['earthworks','surface','target','height','delta']){
   check(true,'Earthwork map mode runs: '+mode);
 }
 check(doc.getElementById('storageZones').querySelectorAll('article').length===56,'All warehouse and private bays appear in storage UI');
+for(const amount of [0,1,1727,1728,1729,3456,5000,1000000])for(const empty of [0,1,27,81,100]){
+  const r=c.Logistics.bulk(amount,empty);
+  check(r.ready+r.full_boxes*1728+r.active_items+r.unaccepted===amount,'Bulk mass conservation');
+  check(r.ready<=1728&&r.stored_boxes<=81&&r.active_items<1728,'Bulk capacity bounds');
+  if(amount<=1728)check(r.full_boxes===0&&r.active_items===0,'Loose buffer has priority');
+}
+check(c.Logistics.bulk(5000,0).unaccepted===3272,'No empty boxes means backpressure, no lost items');
+check(c.Logistics.bulk(100,27,1600).ready===1700,'Withdrawn loose stock is replenished before packing');
+check(c.Logistics.rare('diamond',32,blueprint.storage_system.regular).matched,'Known rare type finds seeded chest');
+check(!c.Logistics.rare('unknown_item',32,blueprint.storage_system.regular).matched,'Unknown types do not silently match a category');
 for(const button of doc.querySelectorAll('[data-cam]')){
   button.click();const basis=c.testHooks.cameraBasis(),r=basis.right,u=basis.up,b=basis.back;
   const cross=[r[1]*u[2]-r[2]*u[1],r[2]*u[0]-r[0]*u[2],r[0]*u[1]-r[1]*u[0]];
@@ -124,13 +134,13 @@ for(const group of ['all',...blueprint.groups]){
   check(doc.getElementById('matRows').querySelectorAll('tr').length===Object.keys(data).length,'Material rows: '+group);
   check(doc.getElementById('matTot').textContent===Object.values(data).reduce((a,b)=>a+b,0).toLocaleString('de-DE'),'Material total: '+group);
 }
-doc.getElementById('coordQ').value='-708 124 789';doc.getElementById('coordQ').dispatchEvent({type:'input'});
+doc.getElementById('coordQ').value='-672 124 791';doc.getElementById('coordQ').dispatchEvent({type:'input'});
 check(doc.getElementById('coordRows').querySelectorAll('tr').length===1,'Exact XYZ search finds input chest');
-doc.getElementById('coordQ').value='789 124 -708';doc.getElementById('coordQ').dispatchEvent({type:'input'});
+doc.getElementById('coordQ').value='791 124 -672';doc.getElementById('coordQ').dispatchEvent({type:'input'});
 check(doc.getElementById('coordRows').querySelectorAll('tr').length===0,'Swapped axes do not match');
 for(const mode of ['x','y','z']){
   const select=doc.getElementById('planMode');select.value=mode;select.dispatchEvent({type:'change'});
-  const range=doc.getElementById('planRange'),value={x:-708,y:124,z:789}[mode];range.value=value;range.dispatchEvent({type:'input'});
+  const range=doc.getElementById('planRange'),value={x:-672,y:124,z:791}[mode];range.value=value;range.dispatchEvent({type:'input'});
   doc.getElementById('dlLayer').click();const csv=await env.downloads.at(-1).text(),rows=csv.replace(/^\uFEFF/,'').trim().split('\n').slice(1);
   const column={x:1,y:2,z:3}[mode];check(rows.length>0&&rows.every(row=>+row.split(';')[column]===value),'Slice CSV exports selected axis: '+mode);
 }

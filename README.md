@@ -1,47 +1,42 @@
-# Blackthorn Estate · Revision 5.8
+# Blackthorn Estate · Revision 5.9
 
-`index.html` im Browser öffnen. Der Atlas und alle Vorschauen funktionieren lokal,
-ohne CDN oder Internet. Die 3D-Ansicht setzt WebGL voraus.
+`index.html` im Browser öffnen. Vorherige Versionen und Originalwelt bleiben unverändert.
 
-## Was sich geändert hat
+- **180° gedreht:** Pool und Panorama nach Osten, Eingang nach Westen. Die Welt
+  selbst wurde nicht gedreht; Erdarbeiten sind gegen dieselben Originalregionen neu berechnet.
+- **Zufahrt Nordwest:** breiterer Unterbau, Wegschultern und Abstand zum natürlichen
+  Geländeeinschnitt. Die Messdefinition steht in `blueprint.json` unter `route_safety`.
+- **Poolzugang:** Treppe, Möbel und Leuchten aus dem Türdurchgang entfernt. Ebenes
+  Podest innen und außen; Türhälften und Richtungen mitgedreht.
+- **Mehr Details:** sechs verglaste Gauben, helle Ecksteine und Gesimse, Kupferfirst
+  und Erkerfinials. Die ruhige Hauptform bleibt erhalten.
+- **Laternen:** Aufhängungen korrigiert, Ketten ergänzt, ungeeignete Leuchten entfernt.
+  Auch der sichtbare Anschluss von Laternenbügel zu Kette ist im Renderer ergänzt.
+- **Lagerentwurf:** sechs Bulk-Filter mit losem Vorrat und tiefer liegenden
+  Shulker-Speichern, neun Golem-Zieltruhen, Loader/Unloader neben dem Einwurf.
+  Die 400 Regallager- und 48 Privatfässer bleiben als manuelle Reserve erhalten.
 
-- Ruhigeres viktorianisches Herrenhaus: niedrig gestaffelte Dachkörper, keine hohe
-  Observatoriumskuppel, niedrige Erkerhauben, durchlaufende Steingesimse und Portikus.
-- Neue Dachschalen mit Unterdeckung statt massiver Dachfüllungen. Der bestehende
-  Grundriss mit sechs Residenzen und drei Kelleretagen bleibt erhalten.
-- Keller 2: 50 Lagerbuchten mit zusammen 400 Fässern. Keller 3: sechs Privatreserven
-  mit zusammen 48 Fässern. Alle 56 Buchten mit Kategorien und echten Koordinaten.
-- Rund 221 × 171 Blöcke Originalgelände in der Umgebung. In 3D stehen
-  „Originalgelände“, „Geplantes Gelände“ und „Erdarbeiten farbig“ zur Wahl.
-  „Gesamtgelände“ bewegt die Kamera weiter nach außen.
-- Terraforming-Karte mit Ist-/Soll-Höhen, Abtrag, Auffüllung und Vegetationsräumung.
-  Zufahrt über den südöstlichen Plateaustreifen statt über die direkte östliche Hangkante.
+**Wichtig zur Automatik:** Die Shulker-Sequenzsteuerung, die vertikale Dropper-
+Taktung und die Box-Aufnahme sind noch nicht fertig verdrahtet bzw. im Spiel
+bestätigt. Der Atlas kennzeichnet sie als Schaltentwurf, nicht als betriebsfertige
+Automatik. Siehe [Technik und Inbetriebnahme](technik_inbetriebnahme.md).
+Der Browser-Mengenrechner ersetzt keine Redstone-/Paper-Simulation.
 
-## Wo ihr was findet
+## Listen
 
-- **Übersicht:** berechnete Modellvorschau, neue Dachform und Kapazität.
-- **3D-Modell:** Gebäude, Schichten, weiter herausgezoomte Landschaft und drei Geländezustände.
-- **Lagerplanung:** alle Lagerkategorien, Koordinaten und Bestandsnotizen.
-- **Sortierkeller & Handel:** Kellerübersicht einschließlich der 50 Regallagerbuchten.
-- **Gelände & Erdarbeiten:** orange = Abtrag, türkis = Auffüllung, violett = beides,
-  ocker = Oberflächenwechsel. Hover zeigt Mengen und Weltkoordinaten.
-- **Bauplan:** vollständiges Backup von Fortschritt und Bestandsnotizen.
+`blockliste.csv`, `materialbedarf.csv`, `materialbedarf_baugruppen.csv` enthalten
+die tatsächlichen Baupositionen. `terraforming.csv` zeigt Ist-/Soll-Boden und
+Arbeitsmengen; Abtrag und Auffüllung sind zusätzlich als Einzelblocklisten vorhanden.
+Die Auffülllisten sind eine Teilmenge der Baumaterialien, nicht nochmals addieren.
 
-## Arbeitslisten
+`technik_module.csv` und `technik_inventare.csv` dokumentieren die technischen
+Positionen sowie manuell einzurichtende Inventare. `lagerbuchten.csv` enthält die
+erhaltenen Regallager-/Privatbuchten mit ihren neuen Weltkoordinaten.
 
-`blockliste.csv` und `materialbedarf*.csv` enthalten Haus, Einrichtung und geplante
-Erdauffüllung. `auffuellung_materialien.csv` ist eine Teilmenge davon – nicht nochmals
-zur Gesamtliste addieren. Die Abtragliste enthält vorhandene Blöcke, keine Baumaterialien.
+Alle Blockstates, Raumbereiche, Inventarpositionen und Ziele wurden um 180° um
+X=-690/Z=790 gedreht. Fortschritt früherer Versionen wird nicht automatisch übernommen.
 
-`terraforming.csv` beschreibt jede Arbeitsspalte, `aushub_blockliste.csv` den Abtrag,
-`auffuellung_blockliste.csv` den Auftrag und `vegetation_entfernen.csv` die separate
-Räumung von Vegetation oberhalb des Bodens. `bestandskonflikte.csv` enthält betroffene
-vorhandene Marker und gebaute Blöcke. Diese vor einer Umsetzung im Spiel prüfen.
-
-`lagerbuchten.csv` enthält die tatsächlichen Fasspositionen als Buchtenübersicht;
-alle Einzelbehälter stehen zusätzlich in `blueprint.json` und der Blockliste.
-
-## Prüfungen
+## Prüfen / reproduzieren
 
 ```sh
 python tools/model.py
@@ -50,19 +45,11 @@ python tools/validate.py
 node tools/test_app.mjs
 ```
 
-Die Modell-/Webgeneratoren benötigen Python 3.10+ und die benachbarte Revision 5.7
-sowie `mca.zip`. Beim normalen Öffnen des Bauatlas werden diese Quellen nicht benötigt.
+Generatoren brauchen die benachbarte Revision 5.8 und `mca.zip`. Zum normalen
+Öffnen reicht der ausgelieferte Ordner, ohne Internet. Vorschauen werden aus der
+tatsächlichen Viewer-Geometrie berechnet: `node tools/export_preview.mjs`, danach
+`python tools/render_preview.py` (Pillow/NumPy erforderlich).
 
-Die Vorschauen unter `assets/` stammen aus den tatsächlichen Geometrien des lokalen
-Viewers, die mit einem Software-Renderer gezeichnet wurden. Es sind keine KI-Bilder
-und keine Browser-Screenshots. Zum Neuerzeugen: `node tools/export_preview.mjs`, dann
-`python tools/render_preview.py` (dafür zusätzlich Pillow und NumPy).
-
-Der Browserstart ist in dieser Ausführungsumgebung durch gesperrte Betriebssystem-
-Sockets blockiert. Laufzeit- und Datenprüfungen ersetzen keinen Browser-/Minecraft-Test.
-Licht, Redstone, Kupfergolemwege, Dachanschlüsse und Geländestabilität sind noch im Spiel
-zu prüfen. Die neuen Lagerbuchten werden manuell befüllt; sie sind kein fertig
-verkabeltes automatisches Lagersystem.
-
-Fortschrittsdateien älterer Modelle werden wegen der Änderungen nicht automatisch
-übernommen. Revision 5.7 und alle ursprünglichen Übergabedateien bleiben erhalten.
+Ein Browser-/GPU-Sichttest ist in dieser Ausführungsumgebung wegen gesperrter
+Betriebssystem-Sockets blockiert. Die Modellvorschauen sind Software-Renderings.
+Minecraft-/Paper-Tests sowie eine aktuelle Lichtsimulation stehen aus.

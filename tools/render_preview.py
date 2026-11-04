@@ -9,7 +9,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT=Path(__file__).resolve().parent.parent
-faces=json.loads(Path('/tmp/blackthorn-58-geometry.json').read_text())
+faces=json.loads(Path('/tmp/blackthorn-59-geometry.json').read_text())
 points=np.array([f[0] for f in faces]).reshape(-1,4,3)
 colors=np.clip(np.array([f[1] for f in faces])*255,0,255).astype('uint8')
 alpha=np.array([round(f[2]*255) for f in faces])
@@ -36,11 +36,11 @@ def render(name,theta,phi,distance,target,width=1600,height=1000):
         draw.polygon(poly,fill=(*color,a))
     draw.rectangle((0,height-48,width,height),fill=(16,29,23,235))
     font=ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf',18)
-    draw.text((22,height-34),'BLACKTHORN ESTATE  ·  REVISION 5.8  ·  BERECHNETE MODELLVORSCHAU',font=font,fill=(232,228,211,255))
+    draw.text((22,height-34),'BLACKTHORN ESTATE  ·  REVISION 5.9  ·  BERECHNETE MODELLVORSCHAU',font=font,fill=(232,228,211,255))
     img.save(ROOT/'assets'/name)
     print('Rendered',name)
 
 
-render('anwesen_ost.png',.42,1.02,170,[-683,137,-790])
+render('anwesen_ost.png',.42,1.02,175,[-681,137,-790])
 render('anwesen_west.png',math.pi-.42,1.02,173,[-700,135,-790])
 render('gelaende_gesamt.png',.68,.75,310,[-695,110,-790])

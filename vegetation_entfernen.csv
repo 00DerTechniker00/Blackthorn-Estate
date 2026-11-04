@@ -1,5 +1,836 @@
 ﻿X;Y;Z;Ist-Block;Bereich
--724;120;750;minecraft:short_grass;Hausunterbau
+-790;126;710;minecraft:wildflowers;Wegschulter
+-789;126;709;minecraft:allium;Wegschulter
+-789;126;710;minecraft:short_grass;Wegschulter
+-789;126;711;minecraft:wildflowers;Wegschulter
+-789;126;712;minecraft:short_grass;Wegschulter
+-788;126;706;minecraft:allium;Wegschulter
+-788;126;708;minecraft:allium;Wegschulter
+-788;126;712;minecraft:allium;Wegschulter
+-788;126;713;minecraft:wildflowers;Wegschulter
+-787;126;706;minecraft:short_grass;Wegschulter
+-787;126;710;minecraft:wildflowers;Wegschulter
+-787;126;712;minecraft:allium;Wegschulter
+-787;126;714;minecraft:wildflowers;Wegschulter
+-787;126;715;minecraft:short_grass;Wegschulter
+-787;126;716;minecraft:short_grass;Wegschulter
+-786;127;704;minecraft:wildflowers;Wegschulter
+-786;127;707;minecraft:short_grass;Wegschulter
+-786;126;708;minecraft:wildflowers;Wegschulter
+-786;126;709;minecraft:allium;Wegschulter
+-786;126;710;minecraft:allium;Wegschulter
+-786;126;711;minecraft:short_grass;Wegschulter
+-786;126;713;minecraft:wildflowers;Wegschulter
+-786;126;715;minecraft:wildflowers;Wegschulter
+-786;126;716;minecraft:short_grass;Wegschulter
+-786;125;719;minecraft:wildflowers;Wegschulter
+-785;127;706;minecraft:allium;Wegschulter
+-785;127;707;minecraft:allium;Wegschulter
+-785;126;712;minecraft:allium;Zufahrt Nordwest
+-785;126;714;minecraft:short_grass;Wegschulter
+-785;126;716;minecraft:short_grass;Wegschulter
+-785;125;717;minecraft:short_grass;Wegschulter
+-785;125;719;minecraft:short_grass;Wegschulter
+-784;127;707;minecraft:allium;Wegschulter
+-784;127;708;minecraft:allium;Wegschulter
+-784;127;709;minecraft:allium;Zufahrt Nordwest
+-784;127;710;minecraft:allium;Zufahrt Nordwest
+-784;126;711;minecraft:wildflowers;Zufahrt Nordwest
+-784;125;720;minecraft:wildflowers;Wegschulter
+-783;127;704;minecraft:allium;Wegschulter
+-783;127;706;minecraft:wildflowers;Wegschulter
+-783;127;710;minecraft:allium;Zufahrt Nordwest
+-783;126;714;minecraft:short_grass;Zufahrt Nordwest
+-783;126;718;minecraft:wildflowers;Wegschulter
+-782;128;704;minecraft:allium;Wegschulter
+-782;128;706;minecraft:wildflowers;Wegschulter
+-782;127;708;minecraft:short_grass;Wegschulter
+-782;127;709;minecraft:allium;Zufahrt Nordwest
+-782;127;710;minecraft:short_grass;Zufahrt Nordwest
+-782;127;711;minecraft:short_grass;Zufahrt Nordwest
+-782;126;714;minecraft:wildflowers;Zufahrt Nordwest
+-782;126;717;minecraft:short_grass;Wegschulter
+-781;128;704;minecraft:wildflowers;Wegschulter
+-781;128;705;minecraft:allium;Wegschulter
+-781;128;706;minecraft:allium;Wegschulter
+-781;128;707;minecraft:allium;Wegschulter
+-781;127;709;minecraft:wildflowers;Wegschulter
+-781;127;710;minecraft:allium;Zufahrt Nordwest
+-781;127;712;minecraft:allium;Zufahrt Nordwest
+-781;126;715;minecraft:wildflowers;Zufahrt Nordwest
+-781;126;718;minecraft:short_grass;Wegschulter
+-780;128;704;minecraft:allium;Wegschulter
+-780;128;706;minecraft:short_grass;Wegschulter
+-780;127;710;minecraft:wildflowers;Wegschulter
+-780;126;715;minecraft:allium;Zufahrt Nordwest
+-780;126;719;minecraft:wildflowers;Wegschulter
+-779;128;707;minecraft:wildflowers;Wegschulter
+-779;126;718;minecraft:wildflowers;Wegschulter
+-779;126;722;minecraft:short_grass;Wegschulter
+-778;129;705;minecraft:allium;Wegschulter
+-778;129;706;minecraft:allium;Wegschulter
+-778;128;712;minecraft:allium;Zufahrt Nordwest
+-778;126;720;minecraft:short_grass;Wegschulter
+-778;126;724;minecraft:short_grass;Wegschulter
+-776;129;708;minecraft:wildflowers;Wegschulter
+-776;129;713;minecraft:short_grass;Wegschulter
+-775;129;714;minecraft:short_grass;Zufahrt Nordwest
+-775;128;716;minecraft:wildflowers;Zufahrt Nordwest
+-775;126;726;minecraft:wildflowers;Wegschulter
+-774;129;715;minecraft:short_grass;Zufahrt Nordwest
+-774;127;720;minecraft:short_grass;Zufahrt Nordwest
+-774;126;727;minecraft:wildflowers;Wegschulter
+-774;126;728;minecraft:short_grass;Wegschulter
+-773;130;711;minecraft:short_grass;Wegschulter
+-773;130;713;minecraft:short_grass;Wegschulter
+-773;129;715;minecraft:wildflowers;Wegschulter
+-773;126;724;minecraft:short_grass;Wegschulter
+-773;126;726;minecraft:wildflowers;Wegschulter
+-772;129;715;minecraft:short_grass;Wegschulter
+-772;129;716;minecraft:wildflowers;Wegschulter
+-772;127;725;minecraft:wildflowers;Wegschulter
+-772;126;727;minecraft:wildflowers;Wegschulter
+-771;131;710;minecraft:wildflowers;Wegschulter
+-771;131;711;minecraft:wildflowers;Wegschulter
+-771;130;713;minecraft:short_grass;Wegschulter
+-771;130;714;minecraft:short_grass;Wegschulter
+-771;128;718;minecraft:wildflowers;Zufahrt Nordwest
+-771;128;721;minecraft:allium;Zufahrt Nordwest
+-771;127;726;minecraft:short_grass;Wegschulter
+-771;126;728;minecraft:wildflowers;Wegschulter
+-771;126;729;minecraft:short_grass;Wegschulter
+-771;126;731;minecraft:short_grass;Wegschulter
+-770;130;714;minecraft:wildflowers;Wegschulter
+-770;129;717;minecraft:allium;Wegschulter
+-770;128;719;minecraft:allium;Zufahrt Nordwest
+-770;128;721;minecraft:short_grass;Zufahrt Nordwest
+-770;127;724;minecraft:short_grass;Zufahrt Nordwest
+-770;127;725;minecraft:allium;Wegschulter
+-770;127;726;minecraft:short_grass;Wegschulter
+-770;126;729;minecraft:short_grass;Wegschulter
+-769;127;726;minecraft:wildflowers;Wegschulter
+-769;127;727;minecraft:short_grass;Wegschulter
+-769;127;728;minecraft:short_grass;Wegschulter
+-769;127;729;minecraft:wildflowers;Wegschulter
+-768;130;715;minecraft:wildflowers;Wegschulter
+-768;130;716;minecraft:wildflowers;Wegschulter
+-768;129;718;minecraft:allium;Wegschulter
+-768;129;719;minecraft:allium;Wegschulter
+-768;128;723;minecraft:allium;Zufahrt Nordwest
+-768;128;724;minecraft:short_grass;Zufahrt Nordwest
+-768;127;729;minecraft:wildflowers;Wegschulter
+-768;125;735;minecraft:short_grass;Wegschulter
+-767;130;716;minecraft:wildflowers;Wegschulter
+-767;129;718;minecraft:short_grass;Wegschulter
+-767;129;719;minecraft:wildflowers;Wegschulter
+-767;128;721;minecraft:allium;Zufahrt Nordwest
+-767;128;722;minecraft:allium;Zufahrt Nordwest
+-767;128;723;minecraft:short_grass;Zufahrt Nordwest
+-767;127;728;minecraft:wildflowers;Wegschulter
+-767;127;731;minecraft:short_grass;Wegschulter
+-767;126;732;minecraft:wildflowers;Wegschulter
+-766;131;714;minecraft:short_grass;Wegschulter
+-766;130;716;minecraft:short_grass;Wegschulter
+-766;128;722;minecraft:short_grass;Zufahrt Nordwest
+-766;128;723;minecraft:wildflowers;Zufahrt Nordwest
+-766;127;729;minecraft:short_grass;Zufahrt Nordwest
+-766;127;731;minecraft:wildflowers;Wegschulter
+-766;125;737;minecraft:short_grass;Wegschulter
+-765;130;716;minecraft:short_grass;Wegschulter
+-765;129;720;minecraft:wildflowers;Wegschulter
+-765;128;726;minecraft:short_grass;Zufahrt Nordwest
+-765;127;730;minecraft:short_grass;Zufahrt Nordwest
+-765;125;738;minecraft:short_grass;Wegschulter
+-764;130;719;minecraft:wildflowers;Wegschulter
+-764;129;722;minecraft:short_grass;Wegschulter
+-764;128;724;minecraft:allium;Zufahrt Nordwest
+-764;128;726;minecraft:allium;Zufahrt Nordwest
+-764;128;729;minecraft:short_grass;Zufahrt Nordwest
+-764;127;734;minecraft:short_grass;Wegschulter
+-764;126;736;minecraft:short_grass;Wegschulter
+-764;126;737;minecraft:short_grass;Wegschulter
+-764;124;741;minecraft:wildflowers;Wegschulter
+-764;124;742;minecraft:allium;Wegschulter
+-763;131;716;minecraft:short_grass;Wegschulter
+-763;130;719;minecraft:wildflowers;Wegschulter
+-763;129;722;minecraft:short_grass;Wegschulter
+-763;129;724;minecraft:short_grass;Zufahrt Nordwest
+-763;129;725;minecraft:wildflowers;Zufahrt Nordwest
+-763;128;727;minecraft:short_grass;Zufahrt Nordwest
+-763;128;729;minecraft:short_grass;Zufahrt Nordwest
+-763;128;731;minecraft:wildflowers;Zufahrt Nordwest
+-763;125;739;minecraft:short_grass;Wegschulter
+-763;123;743;minecraft:allium;Wegschulter
+-762;129;722;minecraft:short_grass;Wegschulter
+-762;129;723;minecraft:short_grass;Wegschulter
+-762;126;737;minecraft:short_grass;Wegschulter
+-762;123;744;minecraft:short_grass;Wegschulter
+-762;123;745;minecraft:short_grass;Wegschulter
+-762;123;746;minecraft:wildflowers;Wegschulter
+-762;123;747;minecraft:allium;Wegschulter
+-761;130;719;minecraft:short_grass;Wegschulter
+-761;129;722;minecraft:short_grass;Wegschulter
+-761;128;729;minecraft:short_grass;Zufahrt Nordwest
+-761;126;736;minecraft:short_grass;Zufahrt Nordwest
+-761;125;739;minecraft:allium;Wegschulter
+-761;124;742;minecraft:allium;Wegschulter
+-761;123;744;minecraft:allium;Wegschulter
+-761;123;745;minecraft:allium;Wegschulter
+-760;128;729;minecraft:wildflowers;Zufahrt Nordwest
+-760;125;740;minecraft:short_grass;Wegschulter
+-760;124;742;minecraft:wildflowers;Wegschulter
+-760;124;743;minecraft:allium;Wegschulter
+-760;123;744;minecraft:short_grass;Wegschulter
+-760;123;745;minecraft:allium;Wegschulter
+-760;123;746;minecraft:allium;Wegschulter
+-760;122;750;minecraft:allium;Wegschulter
+-760;117;762;minecraft:short_grass;Wegschulter
+-760;117;763;minecraft:short_grass;Wegschulter
+-760;115;765;minecraft:allium;Wegschulter
+-760;113;769;minecraft:wildflowers;Wegschulter
+-760;113;770;minecraft:allium;Wegschulter
+-759;129;723;minecraft:short_grass;Wegschulter
+-759;128;730;minecraft:short_grass;Wegschulter
+-759;124;743;minecraft:allium;Wegschulter
+-759;123;745;minecraft:allium;Wegschulter
+-759;123;746;minecraft:allium;Wegschulter
+-759;123;747;minecraft:short_grass;Wegschulter
+-759;122;748;minecraft:wildflowers;Wegschulter
+-759;122;749;minecraft:short_grass;Wegschulter
+-759;121;754;minecraft:short_grass;Wegschulter
+-759;121;756;minecraft:wildflowers;Wegschulter
+-759;121;757;minecraft:short_grass;Wegschulter
+-759;113;768;minecraft:tall_grass;Wegschulter
+-759;114;768;minecraft:tall_grass;Wegschulter
+-758;128;729;minecraft:wildflowers;Wegschulter
+-758;124;744;minecraft:allium;Zufahrt Nordwest
+-758;123;745;minecraft:allium;Wegschulter
+-758;123;746;minecraft:allium;Wegschulter
+-758;122;752;minecraft:wildflowers;Wegschulter
+-758;121;757;minecraft:short_grass;Wegschulter
+-758;121;758;minecraft:short_grass;Wegschulter
+-758;114;767;minecraft:allium;Wegschulter
+-758;113;768;minecraft:wildflowers;Wegschulter
+-758;113;771;minecraft:wildflowers;Wegschulter
+-758;114;776;minecraft:allium;Wegschulter
+-758;114;780;minecraft:short_grass;Wegschulter
+-757;128;730;minecraft:wildflowers;Wegschulter
+-757;123;747;minecraft:allium;Wegschulter
+-757;115;766;minecraft:short_grass;Wegschulter
+-757;114;767;minecraft:short_grass;Wegschulter
+-757;113;769;minecraft:tall_grass;Wegschulter
+-757;114;769;minecraft:tall_grass;Wegschulter
+-757;114;773;minecraft:short_grass;Wegschulter
+-757;114;774;minecraft:allium;Wegschulter
+-757;114;778;minecraft:allium;Wegschulter
+-757;114;779;minecraft:short_grass;Wegschulter
+-757;114;781;minecraft:wildflowers;Wegschulter
+-757;114;782;minecraft:short_grass;Wegschulter
+-756;124;743;minecraft:short_grass;Zufahrt Nordwest
+-756;121;753;minecraft:short_grass;Wegschulter
+-756;120;759;minecraft:short_grass;Wegschulter
+-756;117;763;minecraft:short_grass;Wegschulter
+-756;116;764;minecraft:short_grass;Wegschulter
+-756;114;775;minecraft:allium;Wegschulter
+-756;115;785;minecraft:short_grass;Wegschulter
+-755;128;727;minecraft:allium;Wegschulter
+-755;128;728;minecraft:short_grass;Wegschulter
+-755;126;733;minecraft:wildflowers;Wegschulter
+-755;124;743;minecraft:allium;Zufahrt Nordwest
+-755;113;770;minecraft:short_grass;Wegschulter
+-755;114;774;minecraft:allium;Wegschulter
+-755;114;775;minecraft:short_grass;Wegschulter
+-755;114;779;minecraft:allium;Wegschulter
+-755;115;782;minecraft:allium;Wegschulter
+-755;115;785;minecraft:allium;Wegschulter
+-755;115;787;minecraft:allium;Wegschulter
+-754;126;732;minecraft:wildflowers;Wegschulter
+-754;123;745;minecraft:allium;Zufahrt Nordwest
+-754;123;746;minecraft:short_grass;Zufahrt Nordwest
+-754;123;747;minecraft:short_grass;Zufahrt Nordwest
+-754;123;748;minecraft:wildflowers;Zufahrt Nordwest
+-754;122;752;minecraft:short_grass;Zufahrt Nordwest
+-754;121;753;minecraft:wildflowers;Zufahrt Nordwest
+-754;121;754;minecraft:wildflowers;Zufahrt Nordwest
+-754;120;760;minecraft:short_grass;Zufahrt Nordwest
+-754;113;769;minecraft:allium;Zufahrt Nordwest
+-754;114;773;minecraft:allium;Wegschulter
+-754;114;775;minecraft:allium;Wegschulter
+-754;114;776;minecraft:allium;Wegschulter
+-754;114;777;minecraft:short_grass;Wegschulter
+-754;114;778;minecraft:allium;Wegschulter
+-754;114;779;minecraft:allium;Wegschulter
+-754;114;780;minecraft:allium;Wegschulter
+-754;115;781;minecraft:allium;Wegschulter
+-754;115;784;minecraft:allium;Wegschulter
+-754;115;786;minecraft:allium;Wegschulter
+-754;115;787;minecraft:short_grass;Wegschulter
+-754;115;788;minecraft:short_grass;Wegschulter
+-753;127;731;minecraft:allium;Wegschulter
+-753;123;745;minecraft:short_grass;Zufahrt Nordwest
+-753;122;752;minecraft:short_grass;Zufahrt Nordwest
+-753;121;755;minecraft:wildflowers;Zufahrt Nordwest
+-753;113;769;minecraft:allium;Zufahrt Nordwest
+-753;114;772;minecraft:short_grass;Zufahrt Nordwest
+-753;114;773;minecraft:allium;Zufahrt Nordwest
+-753;114;774;minecraft:allium;Zufahrt Nordwest
+-753;114;775;minecraft:allium;Zufahrt Nordwest
+-753;114;776;minecraft:allium;Zufahrt Nordwest
+-753;114;778;minecraft:allium;Wegschulter
+-753;114;779;minecraft:wildflowers;Wegschulter
+-753;115;781;minecraft:allium;Wegschulter
+-753;115;784;minecraft:allium;Wegschulter
+-753;116;789;minecraft:short_grass;Wegschulter
+-753;116;790;minecraft:short_grass;Wegschulter
+-752;125;735;minecraft:wildflowers;Wegschulter
+-752;121;754;minecraft:wildflowers;Zufahrt Nordwest
+-752;114;766;minecraft:short_grass;Zufahrt Nordwest
+-752;114;772;minecraft:allium;Zufahrt Nordwest
+-752;114;777;minecraft:allium;Zufahrt Nordwest
+-752;115;782;minecraft:allium;Wegschulter
+-752;115;786;minecraft:short_grass;Wegschulter
+-752;115;787;minecraft:wildflowers;Wegschulter
+-752;116;789;minecraft:short_grass;Wegschulter
+-752;117;792;minecraft:allium;Wegschulter
+-751;126;734;minecraft:wildflowers;Wegschulter
+-751;124;743;minecraft:short_grass;Wegschulter
+-751;123;748;minecraft:short_grass;Zufahrt Nordwest
+-751;122;749;minecraft:short_grass;Zufahrt Nordwest
+-751;121;757;minecraft:short_grass;Zufahrt Nordwest
+-751;120;759;minecraft:wildflowers;Zufahrt Nordwest
+-751;114;764;minecraft:wildflowers;Zufahrt Nordwest
+-751;114;765;minecraft:wildflowers;Zufahrt Nordwest
+-751;114;767;minecraft:allium;Zufahrt Nordwest
+-751;114;769;minecraft:allium;Zufahrt Nordwest
+-751;114;771;minecraft:allium;Zufahrt Nordwest
+-751;114;773;minecraft:short_grass;Zufahrt Nordwest
+-751;114;774;minecraft:short_grass;Zufahrt Nordwest
+-751;114;775;minecraft:allium;Zufahrt Nordwest
+-751;114;777;minecraft:allium;Zufahrt Nordwest
+-751;115;783;minecraft:allium;Zufahrt Nordwest
+-751;115;785;minecraft:short_grass;Wegschulter
+-751;116;789;minecraft:wildflowers;Wegschulter
+-751;116;791;minecraft:short_grass;Wegschulter
+-751;118;794;minecraft:wildflowers;Wegschulter
+-750;126;736;minecraft:wildflowers;Wegschulter
+-750;122;749;minecraft:short_grass;Wegschulter
+-750;122;751;minecraft:short_grass;Zufahrt Nordwest
+-750;122;752;minecraft:short_grass;Zufahrt Nordwest
+-750;121;756;minecraft:wildflowers;Zufahrt Nordwest
+-750;114;770;minecraft:allium;Zufahrt Nordwest
+-750;114;772;minecraft:allium;Zufahrt Nordwest
+-750;114;773;minecraft:allium;Zufahrt Nordwest
+-750;114;774;minecraft:allium;Zufahrt Nordwest
+-750;114;775;minecraft:allium;Zufahrt Nordwest
+-750;114;776;minecraft:allium;Zufahrt Nordwest
+-750;115;778;minecraft:allium;Zufahrt Nordwest
+-750;115;782;minecraft:allium;Zufahrt Nordwest
+-750;115;783;minecraft:allium;Zufahrt Nordwest
+-750;115;785;minecraft:allium;Zufahrt Nordwest
+-750;116;790;minecraft:wildflowers;Wegschulter
+-750;116;791;minecraft:short_grass;Wegschulter
+-749;124;742;minecraft:short_grass;Wegschulter
+-749;123;747;minecraft:short_grass;Wegschulter
+-749;121;755;minecraft:wildflowers;Wegschulter
+-749;121;757;minecraft:wildflowers;Wegschulter
+-749;121;759;minecraft:short_grass;Wegschulter
+-749;114;764;minecraft:allium;Wegschulter
+-749;114;768;minecraft:allium;Wegschulter
+-749;114;769;minecraft:tall_grass;Wegschulter
+-749;115;769;minecraft:tall_grass;Wegschulter
+-749;114;770;minecraft:allium;Wegschulter
+-749;114;771;minecraft:allium;Zufahrt Nordwest
+-749;114;772;minecraft:tall_grass;Zufahrt Nordwest
+-749;115;772;minecraft:tall_grass;Zufahrt Nordwest
+-749;114;774;minecraft:allium;Zufahrt Nordwest
+-749;115;779;minecraft:short_grass;Zufahrt Nordwest
+-749;115;783;minecraft:allium;Zufahrt Nordwest
+-749;115;788;minecraft:short_grass;Wegschulter
+-749;115;789;minecraft:wildflowers;Wegschulter
+-749;116;791;minecraft:short_grass;Wegschulter
+-749;116;792;minecraft:short_grass;Wegschulter
+-749;117;795;minecraft:wildflowers;Wegschulter
+-748;124;742;minecraft:short_grass;Wegschulter
+-748;121;759;minecraft:short_grass;Wegschulter
+-748;114;766;minecraft:allium;Wegschulter
+-748;114;768;minecraft:allium;Wegschulter
+-748;114;771;minecraft:allium;Wegschulter
+-748;114;772;minecraft:allium;Wegschulter
+-748;114;773;minecraft:allium;Wegschulter
+-748;114;775;minecraft:allium;Wegschulter
+-748;115;776;minecraft:tall_grass;Zufahrt Nordwest
+-748;116;776;minecraft:tall_grass;Zufahrt Nordwest
+-748;115;777;minecraft:allium;Zufahrt Nordwest
+-748;115;778;minecraft:allium;Zufahrt Nordwest
+-748;115;783;minecraft:short_grass;Zufahrt Nordwest
+-748;115;786;minecraft:short_grass;Zufahrt Nordwest
+-748;115;787;minecraft:wildflowers;Zufahrt Nordwest
+-748;115;788;minecraft:wildflowers;Zufahrt Nordwest
+-748;116;793;minecraft:wildflowers;Wegschulter
+-747;121;758;minecraft:short_grass;Wegschulter
+-747;121;759;minecraft:short_grass;Wegschulter
+-747;121;760;minecraft:wildflowers;Wegschulter
+-747;119;761;minecraft:wildflowers;Wegschulter
+-747;114;766;minecraft:allium;Wegschulter
+-747;114;769;minecraft:allium;Wegschulter
+-747;114;770;minecraft:allium;Wegschulter
+-747;114;771;minecraft:tall_grass;Wegschulter
+-747;115;771;minecraft:tall_grass;Wegschulter
+-747;114;772;minecraft:allium;Wegschulter
+-747;114;774;minecraft:short_grass;Wegschulter
+-747;115;777;minecraft:allium;Wegschulter
+-747;115;779;minecraft:short_grass;Wegschulter
+-747;115;780;minecraft:short_grass;Zufahrt Nordwest
+-747;115;781;minecraft:wildflowers;Zufahrt Nordwest
+-747;115;784;minecraft:short_grass;Zufahrt Nordwest
+-747;115;785;minecraft:short_grass;Zufahrt Nordwest
+-747;115;786;minecraft:short_grass;Zufahrt Nordwest
+-747;115;788;minecraft:allium;Zufahrt Nordwest
+-747;115;789;minecraft:short_grass;Zufahrt Nordwest
+-747;115;790;minecraft:allium;Zufahrt Nordwest
+-747;115;791;minecraft:allium;Wegschulter
+-747;117;797;minecraft:short_grass;Wegschulter
+-746;121;756;minecraft:short_grass;Wegschulter
+-746;114;769;minecraft:wildflowers;Wegschulter
+-746;114;770;minecraft:tall_grass;Wegschulter
+-746;115;770;minecraft:tall_grass;Wegschulter
+-746;115;774;minecraft:short_grass;Wegschulter
+-746;115;775;minecraft:tall_grass;Wegschulter
+-746;116;775;minecraft:tall_grass;Wegschulter
+-746;115;776;minecraft:short_grass;Wegschulter
+-746;115;777;minecraft:tall_grass;Wegschulter
+-746;116;777;minecraft:tall_grass;Wegschulter
+-745;121;758;minecraft:short_grass;Wegschulter
+-745;121;759;minecraft:wildflowers;Wegschulter
+-745;114;772;minecraft:tall_grass;Wegschulter
+-745;115;772;minecraft:tall_grass;Wegschulter
+-745;115;773;minecraft:tall_grass;Wegschulter
+-745;116;773;minecraft:tall_grass;Wegschulter
+-745;115;774;minecraft:wildflowers;Wegschulter
+-745;115;775;minecraft:short_grass;Wegschulter
+-745;115;778;minecraft:wildflowers;Wegschulter
+-745;115;784;minecraft:wildflowers;Eingangshof
+-745;115;788;minecraft:short_grass;Eingangshof
+-745;115;793;minecraft:short_grass;Eingangshof
+-745;116;795;minecraft:short_grass;Eingangshof
+-745;116;796;minecraft:wildflowers;Eingangshof
+-745;117;797;minecraft:short_grass;Wegschulter
+-744;122;755;minecraft:wildflowers;Wegschulter
+-744;115;767;minecraft:allium;Wegschulter
+-744;115;771;minecraft:short_grass;Wegschulter
+-744;115;772;minecraft:tall_grass;Wegschulter
+-744;116;772;minecraft:tall_grass;Wegschulter
+-744;115;773;minecraft:tall_grass;Wegschulter
+-744;116;773;minecraft:tall_grass;Wegschulter
+-744;115;774;minecraft:wildflowers;Wegschulter
+-744;115;775;minecraft:tall_grass;Wegschulter
+-744;116;775;minecraft:tall_grass;Wegschulter
+-744;115;792;minecraft:short_grass;Eingangshof
+-743;115;772;minecraft:allium;Wegschulter
+-743;115;773;minecraft:short_grass;Wegschulter
+-743;115;776;minecraft:wildflowers;Wegschulter
+-743;115;783;minecraft:wildflowers;Wegschulter
+-743;115;785;minecraft:wildflowers;Eingangshof
+-743;115;787;minecraft:short_grass;Eingangshof
+-742;115;777;minecraft:short_grass;Wegschulter
+-742;116;779;minecraft:short_grass;Wegschulter
+-742;116;780;minecraft:short_grass;Wegschulter
+-742;115;791;minecraft:short_grass;Eingangshof
+-741;116;783;minecraft:wildflowers;Wegschulter
+-740;115;795;minecraft:short_grass;Eingangshof
+-739;115;786;minecraft:tall_grass;Eingangshof
+-739;116;786;minecraft:tall_grass;Eingangshof
+-739;115;790;minecraft:wildflowers;Eingangshof
+-739;115;791;minecraft:wildflowers;Eingangshof
+-739;115;793;minecraft:wildflowers;Eingangshof
+-739;115;794;minecraft:short_grass;Eingangshof
+-738;120;751;minecraft:allium;Hausunterbau
+-738;120;753;minecraft:short_grass;Hausunterbau
+-738;116;766;minecraft:short_grass;Hausunterbau
+-738;115;770;minecraft:short_grass;Hausunterbau
+-738;115;771;minecraft:short_grass;Hausunterbau
+-738;116;774;minecraft:short_grass;Hausunterbau
+-738;116;779;minecraft:short_grass;Hausunterbau
+-738;116;786;minecraft:tall_grass;Eingangshof
+-738;117;786;minecraft:tall_grass;Eingangshof
+-738;115;787;minecraft:wildflowers;Eingangshof
+-738;115;790;minecraft:short_grass;Eingangshof
+-738;115;791;minecraft:wildflowers;Eingangshof
+-738;115;796;minecraft:short_grass;Eingangshof
+-738;116;800;minecraft:short_grass;Hausunterbau
+-738;116;801;minecraft:allium;Hausunterbau
+-738;118;807;minecraft:short_grass;Hausunterbau
+-738;118;808;minecraft:allium;Hausunterbau
+-738;118;813;minecraft:wildflowers;Hausunterbau
+-738;118;816;minecraft:short_grass;Hausunterbau
+-738;119;822;minecraft:short_grass;Hausunterbau
+-738;119;824;minecraft:short_grass;Hausunterbau
+-738;119;825;minecraft:short_grass;Hausunterbau
+-737;120;755;minecraft:short_grass;Hausunterbau
+-737;119;759;minecraft:short_grass;Hausunterbau
+-737;117;762;minecraft:short_grass;Hausunterbau
+-737;116;768;minecraft:short_grass;Hausunterbau
+-737;116;773;minecraft:short_grass;Hausunterbau
+-737;116;779;minecraft:short_grass;Hausunterbau
+-737;116;781;minecraft:wildflowers;Hausunterbau
+-737;116;784;minecraft:tall_grass;Eingangshof
+-737;117;784;minecraft:tall_grass;Eingangshof
+-737;115;787;minecraft:wildflowers;Eingangshof
+-737;115;792;minecraft:short_grass;Eingangshof
+-737;116;799;minecraft:short_grass;Hausunterbau
+-737;116;802;minecraft:allium;Hausunterbau
+-737;116;804;minecraft:short_grass;Hausunterbau
+-737;117;805;minecraft:allium;Hausunterbau
+-737;117;806;minecraft:allium;Hausunterbau
+-737;118;808;minecraft:allium;Hausunterbau
+-737;118;809;minecraft:short_grass;Hausunterbau
+-737;118;810;minecraft:allium;Hausunterbau
+-737;118;812;minecraft:wildflowers;Hausunterbau
+-737;118;818;minecraft:wildflowers;Hausunterbau
+-737;118;820;minecraft:wildflowers;Hausunterbau
+-737;118;821;minecraft:short_grass;Hausunterbau
+-736;120;755;minecraft:short_grass;Hausunterbau
+-736;118;761;minecraft:short_grass;Hausunterbau
+-736;117;762;minecraft:wildflowers;Hausunterbau
+-736;117;763;minecraft:short_grass;Hausunterbau
+-736;116;764;minecraft:short_grass;Hausunterbau
+-736;116;770;minecraft:short_grass;Hausunterbau
+-736;116;781;minecraft:short_grass;Hausunterbau
+-736;116;785;minecraft:tall_grass;Hausunterbau
+-736;117;785;minecraft:tall_grass;Hausunterbau
+-736;116;798;minecraft:short_grass;Hausunterbau
+-736;116;801;minecraft:allium;Hausunterbau
+-736;117;806;minecraft:allium;Hausunterbau
+-736;117;808;minecraft:allium;Hausunterbau
+-736;117;809;minecraft:allium;Hausunterbau
+-736;118;811;minecraft:wildflowers;Hausunterbau
+-736;118;813;minecraft:short_grass;Hausunterbau
+-736;119;823;minecraft:wildflowers;Hausunterbau
+-736;119;824;minecraft:wildflowers;Hausunterbau
+-736;119;826;minecraft:wildflowers;Hausunterbau
+-736;119;827;minecraft:short_grass;Hausunterbau
+-735;121;752;minecraft:short_grass;Hausunterbau
+-735;121;753;minecraft:short_grass;Hausunterbau
+-735;120;757;minecraft:short_grass;Hausunterbau
+-735;117;763;minecraft:short_grass;Hausunterbau
+-735;116;769;minecraft:short_grass;Hausunterbau
+-735;116;770;minecraft:short_grass;Hausunterbau
+-735;116;771;minecraft:short_grass;Hausunterbau
+-735;116;781;minecraft:tall_grass;Hausunterbau
+-735;117;781;minecraft:tall_grass;Hausunterbau
+-735;116;782;minecraft:wildflowers;Hausunterbau
+-735;116;785;minecraft:tall_grass;Hausunterbau
+-735;117;785;minecraft:tall_grass;Hausunterbau
+-735;116;787;minecraft:short_grass;Hausunterbau
+-735;115;789;minecraft:wildflowers;Hausunterbau
+-735;115;790;minecraft:wildflowers;Hausunterbau
+-735;115;792;minecraft:wildflowers;Hausunterbau
+-735;115;794;minecraft:wildflowers;Hausunterbau
+-735;115;795;minecraft:short_grass;Hausunterbau
+-735;116;798;minecraft:short_grass;Hausunterbau
+-735;116;800;minecraft:short_grass;Hausunterbau
+-735;116;802;minecraft:allium;Hausunterbau
+-735;116;803;minecraft:allium;Hausunterbau
+-735;117;806;minecraft:allium;Hausunterbau
+-735;118;811;minecraft:short_grass;Hausunterbau
+-735;119;824;minecraft:wildflowers;Hausunterbau
+-735;119;828;minecraft:short_grass;Hausunterbau
+-734;122;753;minecraft:wildflowers;Hausunterbau
+-734;117;763;minecraft:wildflowers;Hausunterbau
+-734;116;768;minecraft:short_grass;Hausunterbau
+-734;116;781;minecraft:tall_grass;Hausunterbau
+-734;117;781;minecraft:tall_grass;Hausunterbau
+-734;116;785;minecraft:short_grass;Hausunterbau
+-734;116;786;minecraft:tall_grass;Hausunterbau
+-734;117;786;minecraft:tall_grass;Hausunterbau
+-734;116;787;minecraft:tall_grass;Hausunterbau
+-734;117;787;minecraft:tall_grass;Hausunterbau
+-734;115;795;minecraft:short_grass;Hausunterbau
+-734;116;802;minecraft:allium;Hausunterbau
+-734;116;803;minecraft:short_grass;Hausunterbau
+-734;117;804;minecraft:allium;Hausunterbau
+-734;117;806;minecraft:allium;Hausunterbau
+-734;118;813;minecraft:wildflowers;Hausunterbau
+-734;119;814;minecraft:wildflowers;Hausunterbau
+-734;119;815;minecraft:short_grass;Hausunterbau
+-734;119;821;minecraft:wildflowers;Hausunterbau
+-734;119;826;minecraft:wildflowers;Hausunterbau
+-734;119;827;minecraft:short_grass;Hausunterbau
+-734;119;829;minecraft:short_grass;Hausunterbau
+-733;116;773;minecraft:short_grass;Hausunterbau
+-733;117;777;minecraft:short_grass;Hausunterbau
+-733;117;778;minecraft:short_grass;Hausunterbau
+-733;116;781;minecraft:tall_grass;Hausunterbau
+-733;117;781;minecraft:tall_grass;Hausunterbau
+-733;116;784;minecraft:tall_grass;Hausunterbau
+-733;117;784;minecraft:tall_grass;Hausunterbau
+-733;116;785;minecraft:tall_grass;Hausunterbau
+-733;117;785;minecraft:tall_grass;Hausunterbau
+-733;116;786;minecraft:tall_grass;Hausunterbau
+-733;117;786;minecraft:tall_grass;Hausunterbau
+-733;116;788;minecraft:tall_grass;Hausunterbau
+-733;117;788;minecraft:tall_grass;Hausunterbau
+-733;116;790;minecraft:wildflowers;Hausunterbau
+-733;116;793;minecraft:wildflowers;Hausunterbau
+-733;116;794;minecraft:short_grass;Hausunterbau
+-733;116;803;minecraft:allium;Hausunterbau
+-733;117;806;minecraft:wildflowers;Hausunterbau
+-733;118;809;minecraft:short_grass;Hausunterbau
+-733;119;814;minecraft:short_grass;Hausunterbau
+-733;119;817;minecraft:short_grass;Hausunterbau
+-733;119;820;minecraft:wildflowers;Hausunterbau
+-733;120;822;minecraft:short_grass;Hausunterbau
+-733;119;828;minecraft:allium;Hausunterbau
+-732;121;757;minecraft:wildflowers;Hausunterbau
+-732;118;761;minecraft:wildflowers;Hausunterbau
+-732;117;776;minecraft:short_grass;Hausunterbau
+-732;117;781;minecraft:short_grass;Hausunterbau
+-732;116;786;minecraft:tall_grass;Hausunterbau
+-732;117;786;minecraft:tall_grass;Hausunterbau
+-732;116;787;minecraft:wildflowers;Hausunterbau
+-732;116;793;minecraft:short_grass;Hausunterbau
+-732;115;799;minecraft:leaf_litter;Hausunterbau
+-732;116;803;minecraft:allium;Hausunterbau
+-732;117;804;minecraft:short_grass;Hausunterbau
+-732;120;815;minecraft:short_grass;Hausunterbau
+-732;120;824;minecraft:short_grass;Hausunterbau
+-732;120;826;minecraft:wildflowers;Hausunterbau
+-731;119;760;minecraft:short_grass;Hausunterbau
+-731;118;762;minecraft:short_grass;Hausunterbau
+-731;117;766;minecraft:short_grass;Hausunterbau
+-731;117;768;minecraft:short_grass;Hausunterbau
+-731;117;770;minecraft:short_grass;Hausunterbau
+-731;117;778;minecraft:short_grass;Hausunterbau
+-731;117;780;minecraft:wildflowers;Hausunterbau
+-731;117;782;minecraft:tall_grass;Hausunterbau
+-731;118;782;minecraft:tall_grass;Hausunterbau
+-731;116;784;minecraft:short_grass;Hausunterbau
+-731;116;785;minecraft:short_grass;Hausunterbau
+-731;116;791;minecraft:wildflowers;Hausunterbau
+-731;116;793;minecraft:leaf_litter;Hausunterbau
+-731;116;795;minecraft:leaf_litter;Hausunterbau
+-731;116;796;minecraft:short_grass;Hausunterbau
+-731;115;798;minecraft:short_grass;Hausunterbau
+-731;114;799;minecraft:short_grass;Hausunterbau
+-731;114;800;minecraft:short_grass;Hausunterbau
+-731;115;801;minecraft:allium;Hausunterbau
+-731;117;805;minecraft:allium;Hausunterbau
+-731;117;807;minecraft:allium;Hausunterbau
+-731;119;811;minecraft:short_grass;Hausunterbau
+-731;120;815;minecraft:wildflowers;Hausunterbau
+-731;120;816;minecraft:wildflowers;Hausunterbau
+-731;120;819;minecraft:wildflowers;Hausunterbau
+-731;120;827;minecraft:allium;Hausunterbau
+-731;120;829;minecraft:allium;Hausunterbau
+-730;121;752;minecraft:allium;Hausunterbau
+-730;118;761;minecraft:wildflowers;Hausunterbau
+-730;117;764;minecraft:wildflowers;Hausunterbau
+-730;117;768;minecraft:short_grass;Hausunterbau
+-730;117;774;minecraft:short_grass;Hausunterbau
+-730;117;775;minecraft:short_grass;Hausunterbau
+-730;117;776;minecraft:short_grass;Hausunterbau
+-730;117;777;minecraft:wildflowers;Hausunterbau
+-730;117;783;minecraft:tall_grass;Hausunterbau
+-730;118;783;minecraft:tall_grass;Hausunterbau
+-730;116;787;minecraft:short_grass;Hausunterbau
+-730;116;791;minecraft:wildflowers;Hausunterbau
+-730;116;792;minecraft:wildflowers;Hausunterbau
+-730;116;794;minecraft:short_grass;Hausunterbau
+-730;116;795;minecraft:leaf_litter;Hausunterbau
+-730;118;796;minecraft:oak_leaves;Hausunterbau
+-730;119;796;minecraft:oak_leaves;Hausunterbau
+-730;115;797;minecraft:leaf_litter;Hausunterbau
+-730;118;797;minecraft:oak_leaves;Hausunterbau
+-730;119;797;minecraft:oak_leaves;Hausunterbau
+-730;114;798;minecraft:leaf_litter;Hausunterbau
+-730;118;798;minecraft:oak_leaves;Hausunterbau
+-730;119;798;minecraft:oak_leaves;Hausunterbau
+-730;114;799;minecraft:allium;Hausunterbau
+-730;118;799;minecraft:oak_leaves;Hausunterbau
+-730;119;799;minecraft:oak_leaves;Hausunterbau
+-730;114;800;minecraft:short_grass;Hausunterbau
+-730;114;801;minecraft:short_grass;Hausunterbau
+-730;115;802;minecraft:allium;Hausunterbau
+-730;117;803;minecraft:short_grass;Hausunterbau
+-730;118;810;minecraft:wildflowers;Hausunterbau
+-730;120;821;minecraft:short_grass;Hausunterbau
+-730;120;827;minecraft:allium;Hausunterbau
+-730;120;828;minecraft:allium;Hausunterbau
+-729;123;756;minecraft:allium;Hausunterbau
+-729;118;761;minecraft:wildflowers;Hausunterbau
+-729;118;763;minecraft:short_grass;Hausunterbau
+-729;117;768;minecraft:short_grass;Hausunterbau
+-729;117;769;minecraft:wildflowers;Hausunterbau
+-729;117;773;minecraft:short_grass;Hausunterbau
+-729;117;775;minecraft:short_grass;Hausunterbau
+-729;116;787;minecraft:tall_grass;Hausunterbau
+-729;117;787;minecraft:tall_grass;Hausunterbau
+-729;116;795;minecraft:leaf_litter;Hausunterbau
+-729;118;795;minecraft:oak_leaves;Hausunterbau
+-729;119;795;minecraft:oak_leaves;Hausunterbau
+-729;116;796;minecraft:leaf_litter;Hausunterbau
+-729;118;796;minecraft:oak_leaves;Hausunterbau
+-729;119;796;minecraft:oak_leaves;Hausunterbau
+-729;115;797;minecraft:short_grass;Hausunterbau
+-729;118;797;minecraft:oak_leaves;Hausunterbau
+-729;119;797;minecraft:oak_leaves;Hausunterbau
+-729;120;797;minecraft:oak_leaves;Hausunterbau
+-729;121;797;minecraft:oak_leaves;Hausunterbau
+-729;114;798;minecraft:leaf_litter;Hausunterbau
+-729;118;798;minecraft:oak_leaves;Hausunterbau
+-729;119;798;minecraft:oak_leaves;Hausunterbau
+-729;114;799;minecraft:leaf_litter;Hausunterbau
+-729;118;799;minecraft:oak_leaves;Hausunterbau
+-729;119;799;minecraft:oak_leaves;Hausunterbau
+-729;114;801;minecraft:short_grass;Hausunterbau
+-729;115;803;minecraft:short_grass;Hausunterbau
+-729;120;813;minecraft:wildflowers;Hausunterbau
+-729;120;815;minecraft:short_grass;Hausunterbau
+-729;120;821;minecraft:short_grass;Hausunterbau
+-729;120;825;minecraft:wildflowers;Hausunterbau
+-729;120;829;minecraft:allium;Hausunterbau
+-728;119;751;minecraft:short_grass;Hausunterbau
+-728;123;756;minecraft:allium;Hausunterbau
+-728;118;761;minecraft:wildflowers;Hausunterbau
+-728;118;763;minecraft:short_grass;Hausunterbau
+-728;117;765;minecraft:wildflowers;Hausunterbau
+-728;117;767;minecraft:short_grass;Hausunterbau
+-728;117;771;minecraft:allium;Hausunterbau
+-728;117;776;minecraft:allium;Hausunterbau
+-728;116;789;minecraft:wildflowers;Hausunterbau
+-728;116;790;minecraft:wildflowers;Hausunterbau
+-728;116;792;minecraft:wildflowers;Hausunterbau
+-728;116;793;minecraft:leaf_litter;Hausunterbau
+-728;116;794;minecraft:leaf_litter;Hausunterbau
+-728;116;795;minecraft:leaf_litter;Hausunterbau
+-728;118;795;minecraft:oak_leaves;Hausunterbau
+-728;119;795;minecraft:oak_leaves;Hausunterbau
+-728;116;796;minecraft:leaf_litter;Hausunterbau
+-728;118;796;minecraft:oak_leaves;Hausunterbau
+-728;119;796;minecraft:oak_leaves;Hausunterbau
+-728;120;796;minecraft:oak_leaves;Hausunterbau
+-728;121;796;minecraft:oak_leaves;Hausunterbau
+-728;116;797;minecraft:oak_log;Hausunterbau
+-728;117;797;minecraft:oak_log;Hausunterbau
+-728;118;797;minecraft:oak_log;Hausunterbau
+-728;119;797;minecraft:oak_log;Hausunterbau
+-728;120;797;minecraft:oak_log;Hausunterbau
+-728;121;797;minecraft:oak_leaves;Hausunterbau
+-728;115;798;minecraft:allium;Hausunterbau
+-728;118;798;minecraft:oak_leaves;Hausunterbau
+-728;119;798;minecraft:oak_leaves;Hausunterbau
+-728;120;798;minecraft:oak_leaves;Hausunterbau
+-728;121;798;minecraft:oak_leaves;Hausunterbau
+-728;118;799;minecraft:oak_leaves;Hausunterbau
+-728;119;799;minecraft:oak_leaves;Hausunterbau
+-728;120;829;minecraft:allium;Hausunterbau
+-727;122;757;minecraft:allium;Hausunterbau
+-727;120;758;minecraft:wildflowers;Hausunterbau
+-727;118;763;minecraft:short_grass;Hausunterbau
+-727;117;769;minecraft:short_grass;Hausunterbau
+-727;117;775;minecraft:allium;Hausunterbau
+-727;116;794;minecraft:short_grass;Hausunterbau
+-727;116;795;minecraft:allium;Hausunterbau
+-727;118;795;minecraft:oak_leaves;Hausunterbau
+-727;119;795;minecraft:oak_leaves;Hausunterbau
+-727;116;796;minecraft:allium;Hausunterbau
+-727;118;796;minecraft:oak_leaves;Hausunterbau
+-727;119;796;minecraft:oak_leaves;Hausunterbau
+-727;116;797;minecraft:leaf_litter;Hausunterbau
+-727;118;797;minecraft:oak_leaves;Hausunterbau
+-727;119;797;minecraft:oak_leaves;Hausunterbau
+-727;120;797;minecraft:oak_leaves;Hausunterbau
+-727;121;797;minecraft:oak_leaves;Hausunterbau
+-727;116;798;minecraft:leaf_litter;Hausunterbau
+-727;118;798;minecraft:oak_leaves;Hausunterbau
+-727;119;798;minecraft:oak_leaves;Hausunterbau
+-727;115;799;minecraft:leaf_litter;Hausunterbau
+-727;118;799;minecraft:oak_leaves;Hausunterbau
+-727;119;799;minecraft:oak_leaves;Hausunterbau
+-727;115;804;minecraft:allium;Hausunterbau
+-727;117;805;minecraft:short_grass;Hausunterbau
+-727;117;806;minecraft:wildflowers;Hausunterbau
+-727;119;810;minecraft:short_grass;Hausunterbau
+-727;120;818;minecraft:wildflowers;Hausunterbau
+-727;120;820;minecraft:wildflowers;Hausunterbau
+-727;120;825;minecraft:short_grass;Hausunterbau
+-727;120;828;minecraft:allium;Hausunterbau
+-726;122;754;minecraft:allium;Hausunterbau
+-726;122;757;minecraft:allium;Hausunterbau
+-726;119;760;minecraft:wildflowers;Hausunterbau
+-726;118;770;minecraft:wildflowers;Hausunterbau
+-726;118;772;minecraft:short_grass;Hausunterbau
+-726;118;774;minecraft:allium;Hausunterbau
+-726;118;775;minecraft:short_grass;Hausunterbau
+-726;117;777;minecraft:allium;Hausunterbau
+-726;117;779;minecraft:wildflowers;Hausunterbau
+-726;117;791;minecraft:allium;Hausunterbau
+-726;116;793;minecraft:short_grass;Hausunterbau
+-726;116;794;minecraft:leaf_litter;Hausunterbau
+-726;116;795;minecraft:leaf_litter;Hausunterbau
+-726;119;795;minecraft:oak_leaves;Hausunterbau
+-726;116;796;minecraft:leaf_litter;Hausunterbau
+-726;118;796;minecraft:oak_leaves;Hausunterbau
+-726;119;796;minecraft:oak_leaves;Hausunterbau
+-726;117;797;minecraft:leaf_litter;Hausunterbau
+-726;118;797;minecraft:oak_leaves;Hausunterbau
+-726;119;797;minecraft:oak_leaves;Hausunterbau
+-726;117;798;minecraft:leaf_litter;Hausunterbau
+-726;118;798;minecraft:oak_leaves;Hausunterbau
+-726;119;798;minecraft:oak_leaves;Hausunterbau
+-726;116;799;minecraft:leaf_litter;Hausunterbau
+-726;118;799;minecraft:oak_leaves;Hausunterbau
+-726;119;799;minecraft:oak_leaves;Hausunterbau
+-726;115;800;minecraft:allium;Hausunterbau
+-726;115;804;minecraft:allium;Hausunterbau
+-726;120;815;minecraft:wildflowers;Hausunterbau
+-726;120;820;minecraft:wildflowers;Hausunterbau
+-726;120;822;minecraft:wildflowers;Hausunterbau
+-726;120;827;minecraft:allium;Hausunterbau
+-726;120;828;minecraft:wildflowers;Hausunterbau
+-725;123;755;minecraft:allium;Hausunterbau
+-725;122;757;minecraft:short_grass;Hausunterbau
+-725;120;759;minecraft:short_grass;Hausunterbau
+-725;118;767;minecraft:wildflowers;Hausunterbau
+-725;118;768;minecraft:wildflowers;Hausunterbau
+-725;118;769;minecraft:short_grass;Hausunterbau
+-725;118;771;minecraft:short_grass;Hausunterbau
+-725;118;772;minecraft:short_grass;Hausunterbau
+-725;118;773;minecraft:allium;Hausunterbau
+-725;118;774;minecraft:allium;Hausunterbau
+-725;118;775;minecraft:allium;Hausunterbau
+-725;118;778;minecraft:wildflowers;Hausunterbau
+-725;117;786;minecraft:wildflowers;Hausunterbau
+-725;117;789;minecraft:short_grass;Hausunterbau
+-725;117;791;minecraft:wildflowers;Hausunterbau
+-725;117;792;minecraft:allium;Hausunterbau
+-725;117;795;minecraft:allium;Hausunterbau
+-725;117;797;minecraft:leaf_litter;Hausunterbau
+-725;117;798;minecraft:allium;Hausunterbau
+-725;117;799;minecraft:leaf_litter;Hausunterbau
+-725;119;809;minecraft:short_grass;Hausunterbau
+-725;120;814;minecraft:short_grass;Hausunterbau
+-725;120;822;minecraft:short_grass;Hausunterbau
+-725;120;826;minecraft:allium;Hausunterbau
+-724;120;758;minecraft:wildflowers;Hausunterbau
+-724;118;769;minecraft:short_grass;Hausunterbau
+-724;118;770;minecraft:wildflowers;Hausunterbau
+-724;118;771;minecraft:short_grass;Hausunterbau
+-724;118;772;minecraft:allium;Hausunterbau
+-724;118;775;minecraft:allium;Hausunterbau
+-724;118;777;minecraft:allium;Hausunterbau
+-724;117;785;minecraft:short_grass;Hausunterbau
+-724;117;792;minecraft:allium;Hausunterbau
+-724;117;793;minecraft:leaf_litter;Hausunterbau
+-724;117;795;minecraft:leaf_litter;Hausunterbau
+-724;117;796;minecraft:leaf_litter;Hausunterbau
+-724;117;797;minecraft:leaf_litter;Hausunterbau
+-724;117;799;minecraft:allium;Hausunterbau
+-724;114;802;minecraft:allium;Hausunterbau
+-724;116;805;minecraft:allium;Hausunterbau
+-724;119;810;minecraft:wildflowers;Hausunterbau
+-724;120;821;minecraft:short_grass;Hausunterbau
+-724;120;826;minecraft:allium;Hausunterbau
 -723;123;756;minecraft:wildflowers;Hausunterbau
 -723;118;766;minecraft:short_grass;Hausunterbau
 -723;118;767;minecraft:short_grass;Hausunterbau
@@ -24,6 +855,20 @@
 -722;123;755;minecraft:allium;Hausunterbau
 -722;123;756;minecraft:allium;Hausunterbau
 -722;118;764;minecraft:short_grass;Hausunterbau
+-722;118;773;minecraft:allium;Hausunterbau
+-722;118;776;minecraft:allium;Hausunterbau
+-722;118;778;minecraft:short_grass;Hausunterbau
+-722;118;780;minecraft:allium;Hausunterbau
+-722;118;781;minecraft:allium;Hausunterbau
+-722;119;784;minecraft:allium;Hausunterbau
+-722;119;785;minecraft:allium;Hausunterbau
+-722;117;793;minecraft:allium;Hausunterbau
+-722;117;794;minecraft:allium;Hausunterbau
+-722;117;795;minecraft:wildflowers;Hausunterbau
+-722;117;796;minecraft:wildflowers;Hausunterbau
+-722;116;800;minecraft:allium;Hausunterbau
+-722;118;807;minecraft:short_grass;Hausunterbau
+-722;119;814;minecraft:wildflowers;Hausunterbau
 -722;119;816;minecraft:wildflowers;Hausunterbau
 -722;120;819;minecraft:short_grass;Hausunterbau
 -722;120;820;minecraft:short_grass;Hausunterbau
@@ -33,112 +878,209 @@
 -721;123;755;minecraft:allium;Hausunterbau
 -721;123;756;minecraft:allium;Hausunterbau
 -721;122;759;minecraft:short_grass;Hausunterbau
+-721;118;767;minecraft:wildflowers;Hausunterbau
+-721;119;774;minecraft:allium;Hausunterbau
+-721;119;775;minecraft:allium;Hausunterbau
+-721;119;777;minecraft:short_grass;Hausunterbau
+-721;119;780;minecraft:allium;Hausunterbau
+-721;119;782;minecraft:allium;Hausunterbau
+-721;120;784;minecraft:allium;Hausunterbau
+-721;120;785;minecraft:allium;Hausunterbau
+-721;119;789;minecraft:allium;Hausunterbau
+-721;118;791;minecraft:short_grass;Hausunterbau
+-721;117;792;minecraft:wildflowers;Hausunterbau
+-721;117;794;minecraft:allium;Hausunterbau
+-721;117;796;minecraft:allium;Hausunterbau
+-721;114;804;minecraft:wildflowers;Hausunterbau
+-721;119;809;minecraft:short_grass;Hausunterbau
+-721;119;814;minecraft:allium;Hausunterbau
 -721;120;826;minecraft:short_grass;Hausunterbau
 -721;120;828;minecraft:allium;Hausunterbau
 -720;123;751;minecraft:allium;Hausunterbau
 -720;123;755;minecraft:allium;Hausunterbau
 -720;123;757;minecraft:allium;Hausunterbau
+-720;118;767;minecraft:short_grass;Hausunterbau
+-720;118;768;minecraft:wildflowers;Hausunterbau
+-720;119;773;minecraft:wildflowers;Hausunterbau
+-720;119;774;minecraft:allium;Hausunterbau
+-720;118;791;minecraft:wildflowers;Hausunterbau
+-720;117;793;minecraft:wildflowers;Hausunterbau
+-720;117;794;minecraft:allium;Hausunterbau
+-720;117;798;minecraft:allium;Hausunterbau
+-720;117;800;minecraft:allium;Hausunterbau
+-720;114;803;minecraft:wildflowers;Hausunterbau
+-720;119;809;minecraft:allium;Hausunterbau
+-720;119;810;minecraft:allium;Hausunterbau
+-720;119;811;minecraft:allium;Hausunterbau
+-720;119;814;minecraft:allium;Hausunterbau
 -720;119;815;minecraft:wildflowers;Hausunterbau
 -720;119;817;minecraft:short_grass;Hausunterbau
 -720;120;823;minecraft:allium;Hausunterbau
 -720;120;825;minecraft:allium;Hausunterbau
 -720;120;827;minecraft:allium;Hausunterbau
 -720;120;829;minecraft:short_grass;Hausunterbau
--720;120;830;minecraft:wildflowers;Gartenböschung
--720;120;831;minecraft:wildflowers;Gartenböschung
--720;120;835;minecraft:short_grass;Gartenböschung
--719;120;748;minecraft:short_grass;Gartenböschung
 -719;124;752;minecraft:allium;Hausunterbau
 -719;124;754;minecraft:wildflowers;Hausunterbau
 -719;122;760;minecraft:wildflowers;Hausunterbau
 -719;119;763;minecraft:short_grass;Hausunterbau
+-719;119;766;minecraft:short_grass;Hausunterbau
+-719;119;773;minecraft:wildflowers;Hausunterbau
+-719;120;776;minecraft:short_grass;Hausunterbau
+-719;120;780;minecraft:allium;Hausunterbau
+-719;120;782;minecraft:allium;Hausunterbau
+-719;118;791;minecraft:allium;Hausunterbau
+-719;118;808;minecraft:short_grass;Hausunterbau
 -719;119;818;minecraft:short_grass;Hausunterbau
 -719;120;824;minecraft:allium;Hausunterbau
 -719;120;827;minecraft:allium;Hausunterbau
--719;120;832;minecraft:wildflowers;Gartenböschung
 -718;124;752;minecraft:allium;Hausunterbau
 -718;124;755;minecraft:wildflowers;Hausunterbau
 -718;123;758;minecraft:short_grass;Hausunterbau
 -718;120;762;minecraft:short_grass;Hausunterbau
+-718;120;767;minecraft:short_grass;Hausunterbau
+-718;120;769;minecraft:wildflowers;Hausunterbau
+-718;120;775;minecraft:wildflowers;Hausunterbau
+-718;120;782;minecraft:allium;Hausunterbau
+-718;120;783;minecraft:allium;Hausunterbau
+-718;121;784;minecraft:allium;Hausunterbau
+-718;118;793;minecraft:allium;Hausunterbau
+-718;114;803;minecraft:wildflowers;Hausunterbau
+-718;118;808;minecraft:wildflowers;Hausunterbau
+-718;119;809;minecraft:allium;Hausunterbau
+-718;119;814;minecraft:allium;Hausunterbau
 -718;119;816;minecraft:allium;Hausunterbau
 -718;119;817;minecraft:short_grass;Hausunterbau
 -718;119;818;minecraft:short_grass;Hausunterbau
 -718;120;827;minecraft:allium;Hausunterbau
 -718;120;828;minecraft:allium;Hausunterbau
 -718;120;829;minecraft:allium;Hausunterbau
--718;120;830;minecraft:allium;Gartenböschung
--718;120;831;minecraft:allium;Gartenböschung
--718;120;833;minecraft:wildflowers;Gartenböschung
--717;119;746;minecraft:wildflowers;Gartenböschung
--717;120;747;minecraft:short_grass;Gartenböschung
--717;120;748;minecraft:wildflowers;Gartenböschung
 -717;124;753;minecraft:allium;Hausunterbau
 -717;124;756;minecraft:short_grass;Hausunterbau
 -717;123;757;minecraft:allium;Hausunterbau
 -717;123;759;minecraft:allium;Hausunterbau
 -717;122;761;minecraft:short_grass;Hausunterbau
 -717;121;763;minecraft:short_grass;Hausunterbau
+-717;120;766;minecraft:wildflowers;Hausunterbau
+-717;120;776;minecraft:wildflowers;Hausunterbau
+-717;120;778;minecraft:allium;Hausunterbau
+-717;120;779;minecraft:short_grass;Hausunterbau
+-717;120;780;minecraft:allium;Hausunterbau
+-717;120;781;minecraft:short_grass;Hausunterbau
+-717;120;783;minecraft:short_grass;Hausunterbau
+-717;120;791;minecraft:short_grass;Hausunterbau
+-717;119;792;minecraft:allium;Hausunterbau
+-717;119;793;minecraft:allium;Hausunterbau
+-717;119;794;minecraft:allium;Hausunterbau
+-717;119;795;minecraft:allium;Hausunterbau
+-717;119;796;minecraft:allium;Hausunterbau
+-717;118;797;minecraft:allium;Hausunterbau
+-717;119;811;minecraft:allium;Hausunterbau
+-717;119;812;minecraft:allium;Hausunterbau
+-717;119;814;minecraft:allium;Hausunterbau
 -717;119;815;minecraft:allium;Hausunterbau
 -717;119;818;minecraft:short_grass;Hausunterbau
 -717;120;824;minecraft:allium;Hausunterbau
--717;120;830;minecraft:short_grass;Gartenböschung
--717;120;831;minecraft:wildflowers;Gartenböschung
--717;120;833;minecraft:allium;Gartenböschung
--717;120;834;minecraft:wildflowers;Gartenböschung
 -716;123;751;minecraft:allium;Hausunterbau
 -716;124;752;minecraft:allium;Hausunterbau
 -716;124;756;minecraft:wildflowers;Hausunterbau
 -716;123;761;minecraft:wildflowers;Hausunterbau
 -716;123;762;minecraft:wildflowers;Hausunterbau
+-716;122;768;minecraft:wildflowers;Hausunterbau
+-716;121;769;minecraft:short_grass;Hausunterbau
+-716;120;772;minecraft:short_grass;Hausunterbau
+-716;120;773;minecraft:short_grass;Hausunterbau
+-716;120;774;minecraft:short_grass;Hausunterbau
+-716;121;775;minecraft:short_grass;Hausunterbau
+-716;121;777;minecraft:short_grass;Hausunterbau
+-716;121;778;minecraft:allium;Hausunterbau
+-716;121;780;minecraft:allium;Hausunterbau
+-716;121;782;minecraft:wildflowers;Hausunterbau
+-716;121;783;minecraft:allium;Hausunterbau
+-716;120;792;minecraft:allium;Hausunterbau
+-716;119;812;minecraft:allium;Hausunterbau
+-716;119;813;minecraft:allium;Hausunterbau
+-716;119;814;minecraft:allium;Hausunterbau
 -716;119;816;minecraft:allium;Hausunterbau
 -716;119;818;minecraft:allium;Hausunterbau
 -716;120;822;minecraft:allium;Hausunterbau
 -716;120;823;minecraft:wildflowers;Hausunterbau
 -716;120;824;minecraft:wildflowers;Hausunterbau
 -716;120;827;minecraft:allium;Hausunterbau
--716;120;832;minecraft:short_grass;Gartenböschung
--716;120;833;minecraft:wildflowers;Gartenböschung
--716;120;834;minecraft:short_grass;Gartenböschung
--715;119;745;minecraft:short_grass;Gartenböschung
--715;119;746;minecraft:short_grass;Gartenböschung
 -715;124;757;minecraft:allium;Hausunterbau
+-715;122;766;minecraft:short_grass;Hausunterbau
+-715;122;767;minecraft:wildflowers;Hausunterbau
+-715;122;768;minecraft:wildflowers;Hausunterbau
+-715;120;772;minecraft:wildflowers;Hausunterbau
+-715;121;774;minecraft:short_grass;Hausunterbau
+-715;121;782;minecraft:short_grass;Hausunterbau
+-715;120;789;minecraft:allium;Hausunterbau
+-715;120;790;minecraft:short_grass;Techniknische
+-715;120;792;minecraft:allium;Techniknische
+-715;120;793;minecraft:short_grass;Techniknische
+-715;120;795;minecraft:allium;Techniknische
+-715;119;796;minecraft:allium;Techniknische
+-715;119;798;minecraft:allium;Techniknische
+-715;119;813;minecraft:wildflowers;Techniknische
+-715;119;814;minecraft:wildflowers;Techniknische
 -715;119;815;minecraft:allium;Hausunterbau
 -715;120;828;minecraft:allium;Hausunterbau
--715;120;830;minecraft:short_grass;Gartenböschung
--715;120;832;minecraft:wildflowers;Gartenböschung
--714;119;745;minecraft:short_grass;Gartenböschung
--714;119;746;minecraft:short_grass;Gartenböschung
--714;119;747;minecraft:short_grass;Gartenböschung
--714;120;750;minecraft:short_grass;Gartenböschung
 -714;123;755;minecraft:wildflowers;Hausunterbau
 -714;123;758;minecraft:allium;Hausunterbau
 -714;123;759;minecraft:allium;Hausunterbau
 -714;123;761;minecraft:wildflowers;Hausunterbau
 -714;122;765;minecraft:short_grass;Hausunterbau
+-714;122;768;minecraft:short_grass;Hausunterbau
+-714;121;776;minecraft:short_grass;Hausunterbau
+-714;121;778;minecraft:short_grass;Hausunterbau
+-714;121;779;minecraft:wildflowers;Hausunterbau
+-714;121;782;minecraft:allium;Hausunterbau
+-714;121;783;minecraft:allium;Hausunterbau
+-714;120;787;minecraft:allium;Hausunterbau
+-714;120;788;minecraft:short_grass;Hausunterbau
+-714;120;792;minecraft:allium;Techniknische
+-714;120;793;minecraft:short_grass;Techniknische
+-714;120;795;minecraft:wildflowers;Techniknische
+-714;120;796;minecraft:short_grass;Techniknische
+-714;119;797;minecraft:allium;Techniknische
+-714;119;798;minecraft:allium;Techniknische
+-714;118;800;minecraft:short_grass;Techniknische
+-714;119;814;minecraft:short_grass;Techniknische
 -714;119;815;minecraft:short_grass;Hausunterbau
 -714;120;818;minecraft:allium;Hausunterbau
 -714;120;825;minecraft:allium;Hausunterbau
 -714;120;827;minecraft:allium;Hausunterbau
 -714;120;828;minecraft:allium;Hausunterbau
--714;120;830;minecraft:allium;Gartenböschung
--714;120;832;minecraft:short_grass;Gartenböschung
--714;120;836;minecraft:short_grass;Gartenböschung
--713;119;747;minecraft:short_grass;Gartenböschung
 -713;122;755;minecraft:wildflowers;Hausunterbau
 -713;123;757;minecraft:allium;Hausunterbau
 -713;123;761;minecraft:allium;Hausunterbau
 -713;122;764;minecraft:short_grass;Hausunterbau
+-713;121;772;minecraft:wildflowers;Hausunterbau
+-713;121;774;minecraft:wildflowers;Hausunterbau
+-713;121;776;minecraft:wildflowers;Hausunterbau
+-713;121;784;minecraft:short_grass;Hausunterbau
+-713;120;786;minecraft:wildflowers;Hausunterbau
+-713;120;791;minecraft:short_grass;Techniknische
+-713;120;792;minecraft:wildflowers;Techniknische
 -713;119;816;minecraft:short_grass;Hausunterbau
 -713;120;822;minecraft:wildflowers;Hausunterbau
 -713;120;823;minecraft:allium;Hausunterbau
 -713;120;824;minecraft:allium;Hausunterbau
 -713;121;828;minecraft:wildflowers;Hausunterbau
--713;120;835;minecraft:short_grass;Gartenböschung
--712;119;749;minecraft:short_grass;Gartenböschung
 -712;119;752;minecraft:short_grass;Hausunterbau
 -712;123;758;minecraft:allium;Hausunterbau
 -712;123;759;minecraft:short_grass;Hausunterbau
 -712;122;762;minecraft:short_grass;Hausunterbau
+-712;120;780;minecraft:short_grass;Hausunterbau
+-712;121;783;minecraft:allium;Hausunterbau
+-712;120;793;minecraft:short_grass;Techniknische
+-712;120;794;minecraft:short_grass;Techniknische
+-712;120;795;minecraft:wildflowers;Techniknische
+-712;120;798;minecraft:short_grass;Techniknische
+-712;120;800;minecraft:wildflowers;Techniknische
+-712;119;801;minecraft:short_grass;Techniknische
+-712;119;803;minecraft:short_grass;Techniknische
+-712;119;811;minecraft:short_grass;Techniknische
+-712;119;814;minecraft:allium;Techniknische
 -712;119;816;minecraft:allium;Hausunterbau
 -712;120;819;minecraft:wildflowers;Hausunterbau
 -712;120;823;minecraft:short_grass;Hausunterbau
@@ -146,34 +1088,22 @@
 -712;121;826;minecraft:wildflowers;Hausunterbau
 -712;121;827;minecraft:short_grass;Hausunterbau
 -712;121;829;minecraft:short_grass;Hausunterbau
--712;121;831;minecraft:short_grass;Gartenböschung
--712;120;833;minecraft:wildflowers;Gartenböschung
--712;120;836;minecraft:short_grass;Gartenböschung
--711;119;747;minecraft:torch;Gartenböschung
--711;119;748;minecraft:allium;Gartenböschung
--711;119;749;minecraft:short_grass;Gartenböschung
 -711;119;751;minecraft:short_grass;Hausunterbau
 -711;120;753;minecraft:short_grass;Hausunterbau
 -711;122;761;minecraft:short_grass;Hausunterbau
+-711;122;768;minecraft:wildflowers;Hausunterbau
+-711;121;770;minecraft:wildflowers;Hausunterbau
+-711;121;785;minecraft:wildflowers;Hausunterbau
+-711;120;789;minecraft:short_grass;Hausunterbau
+-711;120;796;minecraft:short_grass;Techniknische
 -711;120;818;minecraft:short_grass;Hausunterbau
 -711;120;819;minecraft:short_grass;Hausunterbau
 -711;121;827;minecraft:short_grass;Hausunterbau
--711;121;830;minecraft:wildflowers;Gartenböschung
--711;121;831;minecraft:short_grass;Gartenböschung
--711;121;832;minecraft:wildflowers;Gartenböschung
--710;119;748;minecraft:short_grass;Gartenböschung
 -710;119;751;minecraft:allium;Hausunterbau
 -710;121;820;minecraft:short_grass;Hausunterbau
 -710;121;826;minecraft:wildflowers;Hausunterbau
 -710;121;827;minecraft:short_grass;Hausunterbau
 -710;121;828;minecraft:wildflowers;Hausunterbau
--710;121;832;minecraft:short_grass;Gartenböschung
--710;121;836;minecraft:short_grass;Gartenböschung
--709;119;744;minecraft:allium;Gartenböschung
--709;119;745;minecraft:allium;Gartenböschung
--709;119;746;minecraft:allium;Gartenböschung
--709;119;747;minecraft:allium;Gartenböschung
--709;119;748;minecraft:allium;Gartenböschung
 -709;119;751;minecraft:allium;Hausunterbau
 -709;119;752;minecraft:allium;Hausunterbau
 -709;120;754;minecraft:torch;Hausunterbau
@@ -184,13 +1114,6 @@
 -709;121;821;minecraft:short_grass;Hausunterbau
 -709;122;824;minecraft:short_grass;Hausunterbau
 -709;122;827;minecraft:short_grass;Hausunterbau
--709;121;832;minecraft:short_grass;Gartenböschung
--709;121;833;minecraft:wildflowers;Gartenböschung
--709;121;834;minecraft:wildflowers;Gartenböschung
--709;121;836;minecraft:short_grass;Gartenböschung
--708;119;744;minecraft:allium;Gartenböschung
--708;119;745;minecraft:allium;Gartenböschung
--708;119;749;minecraft:allium;Gartenböschung
 -708;122;762;minecraft:short_grass;Hausunterbau
 -708;122;764;minecraft:short_grass;Hausunterbau
 -708;122;816;minecraft:wildflowers;Hausunterbau
@@ -198,7 +1121,6 @@
 -708;122;826;minecraft:wildflowers;Hausunterbau
 -708;122;827;minecraft:wildflowers;Hausunterbau
 -708;122;828;minecraft:short_grass;Hausunterbau
--707;119;746;minecraft:allium;Gartenböschung
 -707;119;753;minecraft:wildflowers;Hausunterbau
 -707;121;756;minecraft:short_grass;Hausunterbau
 -707;122;762;minecraft:short_grass;Hausunterbau
@@ -206,24 +1128,12 @@
 -707;122;816;minecraft:short_grass;Hausunterbau
 -707;122;819;minecraft:short_grass;Hausunterbau
 -707;122;828;minecraft:short_grass;Hausunterbau
--707;121;835;minecraft:wildflowers;Gartenböschung
--707;121;836;minecraft:wildflowers;Gartenböschung
--706;119;745;minecraft:allium;Gartenböschung
--706;119;747;minecraft:wildflowers;Gartenböschung
--706;119;748;minecraft:allium;Gartenböschung
 -706;119;752;minecraft:wildflowers;Hausunterbau
 -706;120;757;minecraft:short_grass;Hausunterbau
 -706;122;760;minecraft:short_grass;Hausunterbau
 -706;122;763;minecraft:short_grass;Hausunterbau
 -706;122;825;minecraft:short_grass;Hausunterbau
 -706;122;828;minecraft:short_grass;Hausunterbau
--706;122;831;minecraft:short_grass;Gartenböschung
--706;122;833;minecraft:short_grass;Gartenböschung
--705;120;744;minecraft:allium;Gartenböschung
--705;119;746;minecraft:allium;Gartenböschung
--705;119;747;minecraft:allium;Gartenböschung
--705;119;748;minecraft:allium;Gartenböschung
--705;119;749;minecraft:allium;Gartenböschung
 -705;119;753;minecraft:short_grass;Hausunterbau
 -705;120;756;minecraft:wildflowers;Hausunterbau
 -705;120;757;minecraft:short_grass;Hausunterbau
@@ -231,10 +1141,6 @@
 -705;122;816;minecraft:wildflowers;Hausunterbau
 -705;123;824;minecraft:wildflowers;Hausunterbau
 -705;122;829;minecraft:wildflowers;Hausunterbau
--705;122;832;minecraft:short_grass;Gartenböschung
--704;120;744;minecraft:allium;Gartenböschung
--704;119;749;minecraft:allium;Gartenböschung
--704;119;750;minecraft:allium;Gartenböschung
 -704;120;758;minecraft:wildflowers;Hausunterbau
 -704;122;763;minecraft:tall_grass;Hausunterbau
 -704;123;763;minecraft:tall_grass;Hausunterbau
@@ -242,13 +1148,6 @@
 -704;123;815;minecraft:short_grass;Hausunterbau
 -704;123;820;minecraft:short_grass;Hausunterbau
 -704;122;829;minecraft:short_grass;Hausunterbau
--704;122;830;minecraft:short_grass;Gartenböschung
--704;122;834;minecraft:short_grass;Gartenböschung
--704;122;835;minecraft:short_grass;Gartenböschung
--703;120;744;minecraft:allium;Gartenböschung
--703;120;745;minecraft:short_grass;Gartenböschung
--703;120;747;minecraft:short_grass;Gartenböschung
--703;120;749;minecraft:wildflowers;Gartenböschung
 -703;119;755;minecraft:wildflowers;Hausunterbau
 -703;119;756;minecraft:wildflowers;Hausunterbau
 -703;122;760;minecraft:torch;Hausunterbau
@@ -259,13 +1158,6 @@
 -703;123;822;minecraft:short_grass;Hausunterbau
 -703;123;825;minecraft:short_grass;Hausunterbau
 -703;123;826;minecraft:allium;Hausunterbau
--703;122;832;minecraft:short_grass;Gartenböschung
--703;122;836;minecraft:short_grass;Gartenböschung
--702;120;746;minecraft:allium;Gartenböschung
--702;120;747;minecraft:short_grass;Gartenböschung
--702;120;748;minecraft:short_grass;Gartenböschung
--702;120;749;minecraft:allium;Gartenböschung
--702;120;750;minecraft:allium;Gartenböschung
 -702;119;756;minecraft:wildflowers;Hausunterbau
 -702;121;760;minecraft:short_grass;Hausunterbau
 -702;123;818;minecraft:wildflowers;Hausunterbau
@@ -276,13 +1168,6 @@
 -702;123;827;minecraft:short_grass;Hausunterbau
 -702;123;828;minecraft:allium;Hausunterbau
 -702;123;829;minecraft:short_grass;Hausunterbau
--702;123;832;minecraft:short_grass;Gartenböschung
--702;122;834;minecraft:short_grass;Gartenböschung
--702;122;836;minecraft:allium;Gartenböschung
--701;120;744;minecraft:allium;Gartenböschung
--701;120;745;minecraft:short_grass;Gartenböschung
--701;120;748;minecraft:wildflowers;Gartenböschung
--701;120;749;minecraft:allium;Gartenböschung
 -701;120;753;minecraft:short_grass;Hausunterbau
 -701;119;754;minecraft:wildflowers;Hausunterbau
 -701;120;757;minecraft:wildflowers;Hausunterbau
@@ -292,17 +1177,9 @@
 -701;122;764;minecraft:tall_grass;Hausunterbau
 -701;123;815;minecraft:wildflowers;Hausunterbau
 -701;123;826;minecraft:wildflowers;Hausunterbau
--701;123;830;minecraft:short_grass;Gartenböschung
--701;123;831;minecraft:short_grass;Gartenböschung
--701;123;834;minecraft:short_grass;Gartenböschung
--701;123;835;minecraft:allium;Gartenböschung
--700;120;748;minecraft:short_grass;Gartenböschung
 -700;120;751;minecraft:short_grass;Hausunterbau
 -700;121;761;minecraft:short_grass;Hausunterbau
 -700;123;822;minecraft:wildflowers;Hausunterbau
--700;123;830;minecraft:allium;Gartenböschung
--699;121;744;minecraft:allium;Gartenböschung
--699;120;749;minecraft:short_grass;Gartenböschung
 -699;120;751;minecraft:wildflowers;Hausunterbau
 -699;120;759;minecraft:wildflowers;Hausunterbau
 -699;120;761;minecraft:tall_grass;Hausunterbau
@@ -312,10 +1189,6 @@
 -699;123;816;minecraft:short_grass;Hausunterbau
 -699;123;817;minecraft:short_grass;Hausunterbau
 -699;123;827;minecraft:wildflowers;Hausunterbau
--699;123;833;minecraft:allium;Gartenböschung
--699;123;835;minecraft:allium;Gartenböschung
--698;120;747;minecraft:short_grass;Gartenböschung
--698;120;748;minecraft:wildflowers;Gartenböschung
 -698;121;765;minecraft:torch;Hausunterbau
 -698;124;815;minecraft:allium;Hausunterbau
 -698;124;819;minecraft:short_grass;Hausunterbau
@@ -325,9 +1198,6 @@
 -698;124;826;minecraft:wildflowers;Hausunterbau
 -698;124;827;minecraft:short_grass;Hausunterbau
 -698;123;829;minecraft:allium;Hausunterbau
--698;123;831;minecraft:wildflowers;Gartenböschung
--697;121;745;minecraft:torch;Gartenböschung
--697;121;747;minecraft:wildflowers;Gartenböschung
 -697;120;751;minecraft:allium;Hausunterbau
 -697;120;753;minecraft:short_grass;Hausunterbau
 -697;120;756;minecraft:short_grass;Hausunterbau
@@ -335,9 +1205,6 @@
 -697;120;765;minecraft:short_grass;Hausunterbau
 -697;124;827;minecraft:allium;Hausunterbau
 -697;124;829;minecraft:allium;Hausunterbau
--697;124;830;minecraft:allium;Gartenböschung
--697;124;832;minecraft:allium;Gartenböschung
--696;121;750;minecraft:wildflowers;Gartenböschung
 -696;120;754;minecraft:wildflowers;Hausunterbau
 -696;120;755;minecraft:allium;Hausunterbau
 -696;120;756;minecraft:allium;Hausunterbau
@@ -349,9 +1216,6 @@
 -696;124;825;minecraft:allium;Hausunterbau
 -696;124;827;minecraft:short_grass;Hausunterbau
 -696;124;828;minecraft:short_grass;Hausunterbau
--696;124;832;minecraft:allium;Gartenböschung
--696;124;833;minecraft:short_grass;Gartenböschung
--695;122;749;minecraft:torch;Gartenböschung
 -695;120;755;minecraft:allium;Hausunterbau
 -695;120;756;minecraft:allium;Hausunterbau
 -695;120;759;minecraft:short_grass;Hausunterbau
@@ -367,10 +1231,6 @@
 -695;124;825;minecraft:short_grass;Hausunterbau
 -695;124;827;minecraft:short_grass;Hausunterbau
 -695;124;829;minecraft:allium;Hausunterbau
--695;124;831;minecraft:allium;Gartenböschung
--695;124;833;minecraft:allium;Gartenböschung
--695;124;835;minecraft:short_grass;Gartenböschung
--694;122;749;minecraft:wildflowers;Gartenböschung
 -694;121;755;minecraft:allium;Hausunterbau
 -694;121;756;minecraft:allium;Hausunterbau
 -694;121;764;minecraft:tall_grass;Hausunterbau
@@ -378,7 +1238,6 @@
 -694;124;817;minecraft:wildflowers;Hausunterbau
 -694;124;824;minecraft:allium;Hausunterbau
 -694;124;829;minecraft:allium;Hausunterbau
--694;124;830;minecraft:allium;Gartenböschung
 -693;122;752;minecraft:short_grass;Hausunterbau
 -693;122;753;minecraft:allium;Hausunterbau
 -693;122;754;minecraft:short_grass;Hausunterbau
@@ -391,8 +1250,6 @@
 -693;124;826;minecraft:allium;Hausunterbau
 -693;124;828;minecraft:allium;Hausunterbau
 -693;124;829;minecraft:short_grass;Hausunterbau
--693;125;831;minecraft:allium;Gartenböschung
--692;123;748;minecraft:short_grass;Gartenböschung
 -692;122;754;minecraft:allium;Hausunterbau
 -692;122;755;minecraft:allium;Hausunterbau
 -692;122;758;minecraft:torch;Hausunterbau
@@ -405,8 +1262,6 @@
 -692;124;826;minecraft:wildflowers;Hausunterbau
 -692;124;827;minecraft:short_grass;Hausunterbau
 -692;125;829;minecraft:allium;Hausunterbau
--691;123;747;minecraft:wildflowers;Gartenböschung
--691;123;750;minecraft:wildflowers;Gartenböschung
 -691;122;752;minecraft:short_grass;Hausunterbau
 -691;122;754;minecraft:allium;Hausunterbau
 -691;122;756;minecraft:allium;Hausunterbau
@@ -425,7 +1280,6 @@
 -690;122;755;minecraft:allium;Hausunterbau
 -690;122;756;minecraft:allium;Hausunterbau
 -690;123;760;minecraft:allium;Hausunterbau
--689;124;746;minecraft:allium;Gartenböschung
 -689;123;752;minecraft:wildflowers;Hausunterbau
 -689;122;755;minecraft:wildflowers;Hausunterbau
 -689;123;757;minecraft:short_grass;Hausunterbau
@@ -434,26 +1288,20 @@
 -689;127;823;minecraft:torch;Hausunterbau
 -688;122;756;minecraft:short_grass;Hausunterbau
 -688;125;761;minecraft:short_grass;Hausunterbau
--687;124;749;minecraft:allium;Gartenböschung
 -687;124;751;minecraft:short_grass;Hausunterbau
 -687;123;755;minecraft:wildflowers;Hausunterbau
 -687;124;758;minecraft:short_grass;Hausunterbau
 -687;126;762;minecraft:short_grass;Hausunterbau
--687;125;834;minecraft:wildflowers;Gartenböschung
 -686;124;752;minecraft:allium;Hausunterbau
 -686;124;753;minecraft:allium;Hausunterbau
 -686;124;756;minecraft:short_grass;Hausunterbau
 -686;125;758;minecraft:short_grass;Hausunterbau
--686;125;834;minecraft:short_grass;Gartenböschung
--685;126;749;minecraft:short_grass;Gartenböschung
--685;126;750;minecraft:allium;Gartenböschung
 -685;125;752;minecraft:allium;Hausunterbau
 -685;125;753;minecraft:allium;Hausunterbau
 -685;125;755;minecraft:allium;Hausunterbau
 -685;126;758;minecraft:short_grass;Hausunterbau
 -685;126;759;minecraft:wildflowers;Hausunterbau
 -685;127;763;minecraft:torch;Hausunterbau
--684;126;750;minecraft:torch;Gartenböschung
 -684;126;751;minecraft:short_grass;Hausunterbau
 -684;126;752;minecraft:wildflowers;Hausunterbau
 -684;126;754;minecraft:short_grass;Hausunterbau
@@ -467,8 +1315,6 @@
 -683;126;759;minecraft:short_grass;Hausunterbau
 -683;127;760;minecraft:short_grass;Hausunterbau
 -683;126;761;minecraft:wildflowers;Hausunterbau
--683;125;834;minecraft:short_grass;Gartenböschung
--682;126;750;minecraft:short_grass;Gartenböschung
 -682;126;751;minecraft:allium;Hausunterbau
 -682;126;752;minecraft:allium;Hausunterbau
 -682;126;754;minecraft:wildflowers;Hausunterbau
@@ -495,21 +1341,20 @@
 -676;127;759;minecraft:short_grass;Hausunterbau
 -676;127;761;minecraft:short_grass;Hausunterbau
 -676;127;763;minecraft:torch;Hausunterbau
--676;125;834;minecraft:short_grass;Gartenböschung
 -675;127;757;minecraft:short_grass;Hausunterbau
 -675;127;764;minecraft:wildflowers;Hausunterbau
 -675;127;822;minecraft:torch;Hausunterbau
 -674;127;754;minecraft:torch;Hausunterbau
 -674;127;759;minecraft:wildflowers;Hausunterbau
 -674;127;763;minecraft:short_grass;Hausunterbau
+-674;127;769;minecraft:wildflowers;Hausunterbau
+-673;127;771;minecraft:short_grass;Hausunterbau
 -672;127;763;minecraft:torch;Hausunterbau
 -672;127;816;minecraft:torch;Hausunterbau
 -671;127;761;minecraft:wildflowers;Hausunterbau
 -669;127;769;minecraft:wildflowers;Hausunterbau
 -669;127;770;minecraft:torch;Hausunterbau
 -668;127;763;minecraft:torch;Hausunterbau
--668;127;775;minecraft:wildflowers;Hausunterbau
--668;127;794;minecraft:torch;Hausunterbau
 -667;127;752;minecraft:wildflowers;Hausunterbau
 -667;127;757;minecraft:short_grass;Hausunterbau
 -667;127;758;minecraft:wildflowers;Hausunterbau
@@ -518,57 +1363,36 @@
 -666;127;757;minecraft:short_grass;Hausunterbau
 -666;127;760;minecraft:short_grass;Hausunterbau
 -666;127;766;minecraft:wildflowers;Hausunterbau
--666;127;777;minecraft:short_grass;Hausunterbau
 -666;127;821;minecraft:torch;Hausunterbau
 -666;127;826;minecraft:torch;Hausunterbau
 -665;127;752;minecraft:short_grass;Hausunterbau
 -665;127;755;minecraft:short_grass;Hausunterbau
 -665;127;758;minecraft:wildflowers;Hausunterbau
--665;127;775;minecraft:short_grass;Hausunterbau
--665;127;776;minecraft:short_grass;Hausunterbau
 -665;127;811;minecraft:torch;Hausunterbau
 -664;127;760;minecraft:allium;Hausunterbau
 -664;127;763;minecraft:torch;Hausunterbau
--663;126;749;minecraft:allium;Gartenböschung
 -663;127;755;minecraft:wildflowers;Hausunterbau
 -663;127;756;minecraft:short_grass;Hausunterbau
 -663;127;758;minecraft:allium;Hausunterbau
 -663;127;759;minecraft:allium;Hausunterbau
--662;126;747;minecraft:short_grass;Gartenböschung
--662;126;748;minecraft:allium;Gartenböschung
--662;126;750;minecraft:allium;Gartenböschung
 -662;127;759;minecraft:wildflowers;Hausunterbau
--662;127;784;minecraft:torch;Hausunterbau
--661;126;747;minecraft:allium;Gartenböschung
--661;126;748;minecraft:tall_grass;Gartenböschung
--661;127;748;minecraft:tall_grass;Gartenböschung
--661;126;749;minecraft:allium;Gartenböschung
 -661;126;751;minecraft:tall_grass;Hausunterbau
 -661;127;751;minecraft:tall_grass;Hausunterbau
 -661;127;759;minecraft:short_grass;Hausunterbau
--660;125;746;minecraft:short_grass;Gartenböschung
--660;126;750;minecraft:allium;Gartenböschung
 -660;126;753;minecraft:wildflowers;Hausunterbau
 -660;127;763;minecraft:torch;Hausunterbau
 -660;127;809;minecraft:short_grass;Hausunterbau
 -660;127;818;minecraft:torch;Hausunterbau
--659;125;747;minecraft:wildflowers;Gartenböschung
 -659;127;754;minecraft:wildflowers;Hausunterbau
 -659;127;757;minecraft:short_grass;Hausunterbau
 -659;127;758;minecraft:short_grass;Hausunterbau
 -659;127;760;minecraft:short_grass;Hausunterbau
--659;127;793;minecraft:wildflowers;Hausunterbau
--658;126;750;minecraft:short_grass;Gartenböschung
 -658;126;751;minecraft:short_grass;Hausunterbau
 -658;127;755;minecraft:allium;Hausunterbau
 -658;127;758;minecraft:allium;Hausunterbau
 -658;127;759;minecraft:allium;Hausunterbau
--658;127;767;minecraft:short_grass;Hausunterbau
--658;127;786;minecraft:white_banner;Hausunterbau
--658;127;794;minecraft:allium;Hausunterbau
 -658;127;826;minecraft:torch;Hausunterbau
--657;124;746;minecraft:short_grass;Gartenböschung
--657;125;748;minecraft:wildflowers;Gartenböschung
+-657;125;748;minecraft:wildflowers;Hausunterbau
 -657;126;751;minecraft:short_grass;Hausunterbau
 -657;127;755;minecraft:torch;Hausunterbau
 -657;127;756;minecraft:short_grass;Hausunterbau
@@ -576,169 +1400,6 @@
 -657;127;759;minecraft:short_grass;Hausunterbau
 -657;127;796;minecraft:wildflowers;Hausunterbau
 -657;127;814;minecraft:torch;Hausunterbau
--656;124;746;minecraft:wildflowers;Gartenböschung
--656;124;747;minecraft:short_grass;Gartenböschung
--656;125;748;minecraft:allium;Gartenböschung
 -656;126;752;minecraft:allium;Hausunterbau
--656;127;757;minecraft:short_grass;Hausunterbau
--656;127;760;minecraft:short_grass;Hausunterbau
--656;127;761;minecraft:wildflowers;Hausunterbau
--656;127;763;minecraft:torch;Hausunterbau
--656;127;770;minecraft:wildflowers;Hausunterbau
--655;124;747;minecraft:short_grass;Gartenböschung
--655;125;749;minecraft:allium;Gartenböschung
 -655;126;751;minecraft:short_grass;Hausunterbau
--655;127;756;minecraft:short_grass;Hausunterbau
--655;127;758;minecraft:short_grass;Hausunterbau
--655;127;762;minecraft:short_grass;Hausunterbau
--655;127;780;minecraft:short_grass;Hausunterbau
--655;127;788;minecraft:torch;Hausunterbau
--655;127;789;minecraft:wildflowers;Hausunterbau
--655;127;795;minecraft:wildflowers;Hausunterbau
 -655;127;828;minecraft:short_grass;Hausunterbau
--654;121;744;minecraft:short_grass;Gartenböschung
--654;126;751;minecraft:short_grass;Hausunterbau
--654;126;752;minecraft:allium;Hausunterbau
--654;126;754;minecraft:allium;Hausunterbau
--654;127;756;minecraft:short_grass;Hausunterbau
--654;127;757;minecraft:short_grass;Hausunterbau
--654;127;758;minecraft:short_grass;Hausunterbau
--654;127;764;minecraft:wildflowers;Hausunterbau
--654;127;776;minecraft:wildflowers;Hausunterbau
--654;127;781;minecraft:wildflowers;Hausunterbau
--654;127;785;minecraft:wildflowers;Hausunterbau
--654;127;794;minecraft:wildflowers;Hausunterbau
--654;127;798;minecraft:wildflowers;Hausunterbau
--654;127;825;minecraft:wildflowers;Hausunterbau
--653;125;747;minecraft:short_grass;Gartenböschung
--653;126;752;minecraft:allium;Hausunterbau
--653;126;755;minecraft:short_grass;Hausunterbau
--653;126;756;minecraft:allium;Hausunterbau
--653;127;757;minecraft:wildflowers;Hausunterbau
--653;127;758;minecraft:short_grass;Hausunterbau
--653;127;760;minecraft:short_grass;Hausunterbau
--653;127;762;minecraft:wildflowers;Hausunterbau
--653;127;764;minecraft:short_grass;Hausunterbau
--653;127;780;minecraft:short_grass;Hausunterbau
--653;127;791;minecraft:wildflowers;Hausunterbau
--653;127;792;minecraft:wildflowers;Hausunterbau
--653;127;797;minecraft:wildflowers;Hausunterbau
--653;127;799;minecraft:short_grass;Hausunterbau
--653;127;803;minecraft:torch;Hausunterbau
--652;126;751;minecraft:short_grass;Hausunterbau
--652;126;752;minecraft:allium;Hausunterbau
--652;126;753;minecraft:allium;Hausunterbau
--652;126;755;minecraft:allium;Hausunterbau
--652;126;756;minecraft:allium;Hausunterbau
--652;126;757;minecraft:allium;Hausunterbau
--652;127;763;minecraft:torch;Hausunterbau
--652;127;771;minecraft:wildflowers;Hausunterbau
--652;127;775;minecraft:wildflowers;Hausunterbau
--652;127;786;minecraft:wildflowers;Hausunterbau
--652;127;797;minecraft:short_grass;Hausunterbau
--652;127;819;minecraft:torch;Hausunterbau
--651;125;747;minecraft:allium;Gartenböschung
--651;126;753;minecraft:torch;Hausunterbau
--651;126;754;minecraft:allium;Hausunterbau
--651;127;757;minecraft:short_grass;Hausunterbau
--651;127;771;minecraft:wildflowers;Hausunterbau
--651;127;773;minecraft:torch;Hausunterbau
--651;127;776;minecraft:short_grass;Hausunterbau
--651;127;815;minecraft:short_grass;Hausunterbau
--650;126;748;minecraft:allium;Gartenböschung
--650;126;750;minecraft:allium;Gartenböschung
--650;126;752;minecraft:allium;Hausunterbau
--650;127;757;minecraft:short_grass;Hausunterbau
--650;127;758;minecraft:allium;Hausunterbau
--650;127;777;minecraft:short_grass;Hausunterbau
--650;127;795;minecraft:torch;Hausunterbau
--650;127;798;minecraft:allium;Hausunterbau
--650;127;810;minecraft:wildflowers;Hausunterbau
--650;127;823;minecraft:wildflowers;Hausunterbau
--649;125;746;minecraft:torch;Gartenböschung
--649;126;748;minecraft:allium;Gartenböschung
--649;126;749;minecraft:allium;Gartenböschung
--649;126;751;minecraft:short_grass;Hausunterbau
--649;126;753;minecraft:short_grass;Hausunterbau
--649;126;754;minecraft:allium;Hausunterbau
--649;126;755;minecraft:wildflowers;Hausunterbau
--649;127;757;minecraft:short_grass;Hausunterbau
--649;127;759;minecraft:wildflowers;Hausunterbau
--649;127;799;minecraft:short_grass;Hausunterbau
--649;127;804;minecraft:torch;Hausunterbau
--649;127;807;minecraft:short_grass;Hausunterbau
--649;127;811;minecraft:torch;Hausunterbau
--648;126;754;minecraft:short_grass;Hausunterbau
--648;126;755;minecraft:allium;Hausunterbau
--648;127;756;minecraft:short_grass;Hausunterbau
--648;127;763;minecraft:torch;Hausunterbau
--648;127;802;minecraft:wildflowers;Hausunterbau
--648;127;829;minecraft:allium;Hausunterbau
--647;126;754;minecraft:allium;Hausunterbau
--647;126;755;minecraft:allium;Hausunterbau
--647;127;767;minecraft:torch;Hausunterbau
--647;127;804;minecraft:short_grass;Hausunterbau
--647;127;805;minecraft:short_grass;Hausunterbau
--647;127;808;minecraft:short_grass;Hausunterbau
--647;127;819;minecraft:wildflowers;Hausunterbau
--647;127;825;minecraft:wildflowers;Hausunterbau
--646;126;757;minecraft:short_grass;Hausunterbau
--646;127;802;minecraft:short_grass;Hausunterbau
--646;127;803;minecraft:short_grass;Hausunterbau
--646;127;804;minecraft:short_grass;Hausunterbau
--646;127;807;minecraft:wildflowers;Hausunterbau
--646;127;810;minecraft:short_grass;Hausunterbau
--646;127;815;minecraft:wildflowers;Hausunterbau
--646;127;824;minecraft:wildflowers;Hausunterbau
--645;124;753;minecraft:short_grass;Hausunterbau
--645;124;756;minecraft:wildflowers;Hausunterbau
--645;127;763;minecraft:torch;Hausunterbau
--645;127;809;minecraft:short_grass;Hausunterbau
--645;127;820;minecraft:wildflowers;Hausunterbau
--644;127;762;minecraft:short_grass;Hausunterbau
--644;127;784;minecraft:torch;Hausunterbau
--644;127;799;minecraft:torch;Hausunterbau
--644;127;802;minecraft:wildflowers;Hausunterbau
--644;127;812;minecraft:torch;Hausunterbau
--643;122;752;minecraft:short_grass;Hausunterbau
--643;123;757;minecraft:short_grass;Hausunterbau
--642;120;752;minecraft:short_grass;Hausunterbau
--642;127;806;minecraft:short_grass;Hausunterbau
--642;127;828;minecraft:allium;Hausunterbau
--641;127;783;minecraft:wildflowers;Eingangshof
--640;127;791;minecraft:torch;Eingangshof
--640;127;799;minecraft:short_grass;Eingangshof
--639;127;787;minecraft:wildflowers;Eingangshof
--638;126;786;minecraft:wildflowers;Eingangshof
--638;127;788;minecraft:wildflowers;Zufahrt Südost
--637;126;787;minecraft:wildflowers;Eingangshof
--635;116;783;minecraft:short_grass;Eingangshof
--635;117;784;minecraft:tall_grass;Eingangshof
--635;118;784;minecraft:tall_grass;Eingangshof
--635;127;798;minecraft:torch;Eingangshof
--629;127;806;minecraft:torch;Zufahrt Südost
--625;127;824;minecraft:torch;Zufahrt Südost
--622;127;831;minecraft:torch;Zufahrt Südost
--619;127;839;minecraft:torch;Zufahrt Südost
--619;126;841;minecraft:short_grass;Zufahrt Südost
--618;127;835;minecraft:wildflowers;Zufahrt Südost
--618;126;841;minecraft:short_grass;Zufahrt Südost
--617;126;838;minecraft:allium;Zufahrt Südost
--617;126;844;minecraft:short_grass;Zufahrt Südost
--616;126;840;minecraft:allium;Zufahrt Südost
--616;126;843;minecraft:allium;Zufahrt Südost
--615;126;839;minecraft:allium;Zufahrt Südost
--615;126;842;minecraft:wildflowers;Zufahrt Südost
--615;126;844;minecraft:allium;Zufahrt Südost
--615;126;845;minecraft:allium;Zufahrt Südost
--615;126;846;minecraft:allium;Zufahrt Südost
--614;125;841;minecraft:wildflowers;Zufahrt Südost
--614;126;843;minecraft:allium;Zufahrt Südost
--613;126;843;minecraft:short_grass;Zufahrt Südost
--611;126;844;minecraft:short_grass;Zufahrt Südost
--611;126;847;minecraft:short_grass;Zufahrt Südost
--610;125;845;minecraft:short_grass;Zufahrt Südost
--609;125;845;minecraft:short_grass;Zufahrt Südost
--609;124;850;minecraft:short_grass;Zufahrt Südost
--608;122;852;minecraft:allium;Zufahrt Südost
--607;121;851;minecraft:allium;Zufahrt Südost

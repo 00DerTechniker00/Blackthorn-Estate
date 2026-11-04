@@ -1,57 +1,57 @@
 ﻿ID;Kategorie;Kellerboden_Y;X;Y;Z;Faesser;Inventarplaetze;Betrieb
-R01;Bruchstein;113;-705;114;769;8;216;Manuelles Hauptlager
-R02;Stein & Varianten;113;-698;114;769;8;216;Manuelles Hauptlager
-R03;Tiefenschiefer;113;-691;114;769;8;216;Manuelles Hauptlager
-R04;Erde & Lehm;113;-684;114;769;8;216;Manuelles Hauptlager
-R05;Sand & Glas;113;-677;114;769;8;216;Manuelles Hauptlager
-R06;Kies & Beton;113;-705;114;773;8;216;Manuelles Hauptlager
-R07;Eisen;113;-698;114;773;8;216;Manuelles Hauptlager
-R08;Kupfer;113;-691;114;773;8;216;Manuelles Hauptlager
-R09;Gold;113;-684;114;773;8;216;Manuelles Hauptlager
-R10;Kohle & Brennstoffe;113;-677;114;773;8;216;Manuelles Hauptlager
-R11;Eiche;113;-705;114;777;8;216;Manuelles Hauptlager
-R12;Fichte;113;-698;114;777;8;216;Manuelles Hauptlager
-R13;Birke;113;-691;114;777;8;216;Manuelles Hauptlager
-R14;Dunkeleiche;113;-684;114;777;8;216;Manuelles Hauptlager
-R15;Tropenholz & Akazie;113;-677;114;777;8;216;Manuelles Hauptlager
-R16;Mangrove & Kirsche;113;-705;114;781;8;216;Manuelles Hauptlager
-R17;Bambus & Blassholz;113;-698;114;781;8;216;Manuelles Hauptlager
-R18;Holzbauteile;113;-691;114;781;8;216;Manuelles Hauptlager
-R19;Laub & Setzlinge;113;-684;114;781;8;216;Manuelles Hauptlager
-R20;Blumen & Moos;113;-677;114;781;8;216;Manuelles Hauptlager
-R21;Redstone;113;-705;114;785;8;216;Manuelles Hauptlager
-R22;Hopper & Schienen;113;-698;114;785;8;216;Manuelles Hauptlager
-R23;Kolben & Beobachter;113;-691;114;785;8;216;Manuelles Hauptlager
-R24;Lampen & Licht;113;-684;114;785;8;216;Manuelles Hauptlager
-R25;Werkzeuge;113;-677;114;785;8;216;Manuelles Hauptlager
-R26;Rüstung;113;-705;114;795;8;216;Manuelles Hauptlager
-R27;Waffen;113;-698;114;795;8;216;Manuelles Hauptlager
-R28;Verzauberte Bücher;113;-691;114;795;8;216;Manuelles Hauptlager
-R29;Papier & Bücher;113;-684;114;795;8;216;Manuelles Hauptlager
-R30;Karten & Navigation;113;-677;114;795;8;216;Manuelles Hauptlager
-R31;Nahrung;113;-705;114;799;8;216;Manuelles Hauptlager
-R32;Getreide & Samen;113;-698;114;799;8;216;Manuelles Hauptlager
-R33;Gemüse;113;-691;114;799;8;216;Manuelles Hauptlager
-R34;Tierprodukte;113;-684;114;799;8;216;Manuelles Hauptlager
-R35;Angeln & Meer;113;-677;114;799;8;216;Manuelles Hauptlager
-R36;Mobdrops;113;-705;114;803;8;216;Manuelles Hauptlager
-R37;Wolle & Farben;113;-698;114;803;8;216;Manuelles Hauptlager
-R38;Leder & Federn;113;-691;114;803;8;216;Manuelles Hauptlager
-R39;Tränke & Zutaten;113;-684;114;803;8;216;Manuelles Hauptlager
-R40;Seltene Beute;113;-677;114;803;8;216;Manuelles Hauptlager
-R41;Netherstein & Quarz;113;-705;114;807;8;216;Manuelles Hauptlager
-R42;Netherpflanzen;113;-698;114;807;8;216;Manuelles Hauptlager
-R43;Endstein & Purpur;113;-691;114;807;8;216;Manuelles Hauptlager
-R44;Shulker & Endbeute;113;-684;114;807;8;216;Manuelles Hauptlager
-R45;Erze & Edelsteine;113;-677;114;807;8;216;Manuelles Hauptlager
-R46;Ziegel & Keramik;113;-705;114;811;8;216;Manuelles Hauptlager
-R47;Deko & Terrakotta;113;-698;114;811;8;216;Manuelles Hauptlager
-R48;Treppen & Stufen;113;-691;114;811;8;216;Manuelles Hauptlager
-R49;Bauprojekt-Reserve;113;-684;114;811;8;216;Manuelles Hauptlager
-R50;Unsorte & Überlauf;113;-677;114;811;8;216;Manuelles Hauptlager
-P1;Privatreserve Spieler 1;105;-681;106;797;8;216;Privat · manuell
-P2;Privatreserve Spieler 2;105;-677;106;797;8;216;Privat · manuell
-P3;Privatreserve Spieler 3;105;-673;106;797;8;216;Privat · manuell
-P4;Privatreserve Spieler 4;105;-681;106;806;8;216;Privat · manuell
-P5;Privatreserve Spieler 5;105;-677;106;806;8;216;Privat · manuell
-P6;Privatreserve Spieler 6;105;-673;106;806;8;216;Privat · manuell
+R01;Bruchstein;113;-675;114;811;8;216;Manuelles Hauptlager
+R02;Stein & Varianten;113;-682;114;811;8;216;Manuelles Hauptlager
+R03;Tiefenschiefer;113;-689;114;811;8;216;Manuelles Hauptlager
+R04;Erde & Lehm;113;-696;114;811;8;216;Manuelles Hauptlager
+R05;Sand & Glas;113;-703;114;811;8;216;Manuelles Hauptlager
+R06;Kies & Beton;113;-678;114;768;8;216;Manuelles Hauptlager
+R07;Eisen;113;-685;114;768;8;216;Manuelles Hauptlager
+R08;Kupfer;113;-692;114;768;8;216;Manuelles Hauptlager
+R09;Gold;113;-699;114;768;8;216;Manuelles Hauptlager
+R10;Kohle & Brennstoffe;113;-706;114;768;8;216;Manuelles Hauptlager
+R11;Eiche;113;-675;114;803;8;216;Manuelles Hauptlager
+R12;Fichte;113;-682;114;803;8;216;Manuelles Hauptlager
+R13;Birke;113;-689;114;803;8;216;Manuelles Hauptlager
+R14;Dunkeleiche;113;-696;114;803;8;216;Manuelles Hauptlager
+R15;Tropenholz & Akazie;113;-703;114;803;8;216;Manuelles Hauptlager
+R16;Mangrove & Kirsche;113;-675;114;799;8;216;Manuelles Hauptlager
+R17;Bambus & Blassholz;113;-682;114;799;8;216;Manuelles Hauptlager
+R18;Holzbauteile;113;-689;114;799;8;216;Manuelles Hauptlager
+R19;Laub & Setzlinge;113;-696;114;799;8;216;Manuelles Hauptlager
+R20;Blumen & Moos;113;-703;114;799;8;216;Manuelles Hauptlager
+R21;Redstone;113;-675;114;795;8;216;Manuelles Hauptlager
+R22;Hopper & Schienen;113;-682;114;795;8;216;Manuelles Hauptlager
+R23;Kolben & Beobachter;113;-689;114;795;8;216;Manuelles Hauptlager
+R24;Lampen & Licht;113;-696;114;795;8;216;Manuelles Hauptlager
+R25;Werkzeuge;113;-703;114;795;8;216;Manuelles Hauptlager
+R26;Rüstung;113;-675;114;785;8;216;Manuelles Hauptlager
+R27;Waffen;113;-682;114;785;8;216;Manuelles Hauptlager
+R28;Verzauberte Bücher;113;-689;114;785;8;216;Manuelles Hauptlager
+R29;Papier & Bücher;113;-696;114;785;8;216;Manuelles Hauptlager
+R30;Karten & Navigation;113;-703;114;785;8;216;Manuelles Hauptlager
+R31;Nahrung;113;-675;114;781;8;216;Manuelles Hauptlager
+R32;Getreide & Samen;113;-682;114;781;8;216;Manuelles Hauptlager
+R33;Gemüse;113;-689;114;781;8;216;Manuelles Hauptlager
+R34;Tierprodukte;113;-696;114;781;8;216;Manuelles Hauptlager
+R35;Angeln & Meer;113;-703;114;781;8;216;Manuelles Hauptlager
+R36;Mobdrops;113;-675;114;777;8;216;Manuelles Hauptlager
+R37;Wolle & Farben;113;-682;114;777;8;216;Manuelles Hauptlager
+R38;Leder & Federn;113;-689;114;777;8;216;Manuelles Hauptlager
+R39;Tränke & Zutaten;113;-696;114;777;8;216;Manuelles Hauptlager
+R40;Seltene Beute;113;-703;114;777;8;216;Manuelles Hauptlager
+R41;Netherstein & Quarz;113;-675;114;773;8;216;Manuelles Hauptlager
+R42;Netherpflanzen;113;-682;114;773;8;216;Manuelles Hauptlager
+R43;Endstein & Purpur;113;-689;114;773;8;216;Manuelles Hauptlager
+R44;Shulker & Endbeute;113;-696;114;773;8;216;Manuelles Hauptlager
+R45;Erze & Edelsteine;113;-703;114;773;8;216;Manuelles Hauptlager
+R46;Ziegel & Keramik;113;-675;114;769;8;216;Manuelles Hauptlager
+R47;Deko & Terrakotta;113;-682;114;769;8;216;Manuelles Hauptlager
+R48;Treppen & Stufen;113;-689;114;769;8;216;Manuelles Hauptlager
+R49;Bauprojekt-Reserve;113;-696;114;769;8;216;Manuelles Hauptlager
+R50;Unsorte & Überlauf;113;-703;114;769;8;216;Manuelles Hauptlager
+P1;Privatreserve Spieler 1;105;-699;106;783;8;216;Privat · manuell
+P2;Privatreserve Spieler 2;105;-703;106;783;8;216;Privat · manuell
+P3;Privatreserve Spieler 3;105;-707;106;783;8;216;Privat · manuell
+P4;Privatreserve Spieler 4;105;-699;106;774;8;216;Privat · manuell
+P5;Privatreserve Spieler 5;105;-703;106;774;8;216;Privat · manuell
+P6;Privatreserve Spieler 6;105;-707;106;774;8;216;Privat · manuell

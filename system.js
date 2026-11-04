@@ -1,30 +1,34 @@
-
 (() => {
-'use strict';
-const d=JSON.parse(document.getElementById('data').textContent),S=d.storage_system;
-const $=s=>document.querySelector(s);
-const row=(label,x,y,z,extra='')=>`<div class="sys-mat-row"><b>${label}</b><span>X ${x}, Y ${y}, Z ${z}${extra?' · '+extra:''}</span></div>`;
-$('#sysBulk').innerHTML=S.bulk.map(b=>row(b.label,b.x,b.y,b.z,b.id)).join('');
-$('#sysRegular').innerHTML=S.regular.map(b=>row(b.label,b.x,b.y,b.z)).join('');
-$('#sysStalls').innerHTML=S.stalls.map(v=>row(v.id+' · '+v.profession,v.x,v.y,v.z,v.workstation)).join('');
-const c=$('#sysMap'),ctx=c.getContext('2d'),info=$('#sysInfo'),markers=[];
-const ext={x0:-724,x1:-669,z0:765,z1:815},dx=(c.width-100)/(ext.x1-ext.x0+1),dz=(c.height-80)/(ext.z1-ext.z0+1),scale=Math.min(dx,dz);
-const px=x=>70+(x-ext.x0)*scale,pz=z=>40+(z-ext.z0)*scale;
-function rect(x0,z0,x1,z1,color,label){ctx.fillStyle=color;ctx.fillRect(px(x0),pz(z0),(x1-x0+1)*scale,(z1-z0+1)*scale);if(label){ctx.fillStyle='#fff';ctx.font='13px system-ui';ctx.fillText(label,px(x0)+6,pz(z0)+16)}}
-function pin(x,y,z,title,color='#f4c76d'){
- const X=px(x)+scale/2,Z=pz(z)+scale/2;ctx.beginPath();ctx.arc(X,Z,5.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();ctx.strokeStyle='#14231c';ctx.lineWidth=1.5;ctx.stroke();markers.push({X,Z,x,y,z,title});
-}
-function render(){const level=+$('#sysLevel').value;markers.length=0;ctx.clearRect(0,0,c.width,c.height);ctx.fillStyle='#13231d';ctx.fillRect(0,0,c.width,c.height);
- ctx.strokeStyle='#27372f';ctx.lineWidth=.7;for(let x=ext.x0;x<=ext.x1;x+=5){ctx.beginPath();ctx.moveTo(px(x),pz(ext.z0));ctx.lineTo(px(x),pz(ext.z1+1));ctx.stroke();}for(let z=ext.z0;z<=ext.z1;z+=5){ctx.beginPath();ctx.moveTo(px(ext.x0),pz(z));ctx.lineTo(px(ext.x1+1),pz(z));ctx.stroke();}
- ctx.fillStyle='#ccd8ca';ctx.font='13px system-ui';ctx.fillText('X → Osten',68,22);ctx.fillText('Z → Süden',730,22);
- rect(-721,767,-671,786,'#253a30','Nordräume');rect(-721,788,-671,792,'#4d4832','Mittelgang');rect(-721,794,-671,813,'#263a35','Südräume');
- if(level===121){rect(-706,767,-675,784,'#514c35','Bulklager');rect(-694,795,-671,812,'#214f46','Golems');pin(S.input.x,S.input.y,S.input.z,'Einziger Einwurf','#ffcc55');for(const b of S.bulk)pin(b.x,b.y,b.z,'Bulk: '+b.label,'#ffb366');for(const r of S.regular)pin(r.x,r.y,r.z,'Golem: '+r.label,'#65c9b5');pin(-675,123,797,'Kupfertruhe','#55a9ff')}
- if(level===113){rect(-706,767,-671,813,'#35423b','50 Lagerbuchten · 400 Fässer');rect(-706,788,-671,792,'#645943','Mittelgang');for(const b of d.storage_bays.filter(b=>b.floor===113))pin(b.x,b.y,b.z,b.id+' · '+b.name+' · '+b.slots+' Plätze','#e1b86c');}
- if(level===105){for(const b of d.storage_bays.filter(b=>b.floor===105))pin(b.x,b.y,b.z,b.name,'#d2b790');rect(-706,767,-684,786,'#514c35','Trading Hall');rect(-694,794,-684,813,'#3e304f','Geheimlounge');for(const v of S.stalls)pin(v.x,v.y,v.z,v.id+' · '+v.profession,'#65c9b5');for(const s of S.secrets)pin(s.x,s.y,s.z,s.name,'#d98ef1')}
-}
-function pick(e){const b=c.getBoundingClientRect(),mx=(e.clientX-b.left)*c.width/b.width,mz=(e.clientY-b.top)*c.height/b.height;let closest=null,dist=1e12;for(const p of markers){const dd=(p.X-mx)**2+(p.Z-mz)**2;if(dd<dist){dist=dd;closest=p}}if(closest&&dist<230){info.textContent=`${closest.title} · X=${closest.x}, Y=${closest.y}, Z=${closest.z}`;return}const x=Math.floor((mx-70)/scale+ext.x0),z=Math.floor((mz-40)/scale+ext.z0);info.textContent=`X=${x}, Z=${z} · Kellerboden Y=${$('#sysLevel').value}`;}
-c.addEventListener('mousemove',pick);c.addEventListener('click',pick);$('#sysLevel').addEventListener('change',render);
-$('#sysGotoInput').onclick=()=>{document.querySelector('#tabs button[data-tab="plan"]').click();const mode=$('#planMode');mode.value='y';mode.dispatchEvent(new Event('change'));$('#planRange').value=124;$('#planRange').dispatchEvent(new Event('input'))};
-$('#sysGotoTrade').onclick=()=>{document.querySelector('#tabs button[data-tab="plan"]').click();const mode=$('#planMode');mode.value='y';mode.dispatchEvent(new Event('change'));$('#planRange').value=106;$('#planRange').dispatchEvent(new Event('input'))};
-render();
+  'use strict';
+  const $=s=>document.querySelector(s),D=JSON.parse($('#data').textContent),S=D.storage_system;
+  const fmt=n=>n.toLocaleString('de-DE');
+  const row=(name,p,extra='')=>`<div class="sys-mat-row"><b>${name}</b><span>X ${p[0]} / Y ${p[1]} / Z ${p[2]}${extra?' · '+extra:''}</span></div>`;
+  $('#sysBulk').innerHTML=S.bulk.map(b=>row(b.label,b.loose,'27 Stacks lose · 81 Shulkerplätze darunter')).join('');
+  $('#sysRegular').innerHTML=S.regular.map(b=>row(b.label,[b.x,b.y,b.z],b.seeds.join(', '))).join('');
+  $('#sysStations').innerHTML=S.stations.map(b=>row(b.name,b.active_box,'eigener Leerbox-/Rückgabeweg')).join('');
+  $('#sysStalls').innerHTML=S.stalls.map(b=>row(b.id+' · '+b.profession,[b.x,b.y,b.z])).join('');
+  $('#simItem').innerHTML=S.bulk.map(b=>`<option value="${b.id}">${b.label}</option>`).join('');
+  function simulate(){try{
+    const r=Logistics.bulk(Number($('#simAmount').value),Number($('#simBoxes').value));
+    $('#simResult').textContent=`Loser Vorrat: ${fmt(r.ready)} Items · ${r.full_boxes} volle Boxen eingelagert · aktive Box: ${fmt(r.active_items)} Items · ${fmt(r.unaccepted)} Items noch nicht angenommen`+(r.blocked?' · STOPP: '+r.reason:'');
+  }catch(e){$('#simResult').textContent=e.message;}}
+  $('#simRun').onclick=simulate;simulate();
+  const c=$('#sysMap'),ctx=c.getContext('2d'),bounds={x0:-716,x1:-651,z0:763,z1:817},scale=Math.min((c.width-70)/(bounds.x1-bounds.x0+1),(c.height-65)/(bounds.z1-bounds.z0+1));
+  const px=x=>45+(x-bounds.x0+.5)*scale,pz=z=>35+(z-bounds.z0+.5)*scale;let markers=[];
+  function pin(name,p,color){const [x,y,z]=p;ctx.fillStyle=color;ctx.beginPath();ctx.arc(px(x),pz(z),4.8,0,Math.PI*2);ctx.fill();markers.push({name,p,x:px(x),z:pz(z)});}
+  function render(){const level=+$('#sysLevel').value;markers=[];ctx.clearRect(0,0,c.width,c.height);ctx.fillStyle='#13231c';ctx.fillRect(0,0,c.width,c.height);ctx.strokeStyle='#33463b';ctx.lineWidth=.5;
+    for(let x=bounds.x0;x<=bounds.x1;x+=5){ctx.beginPath();ctx.moveTo(px(x),pz(bounds.z0));ctx.lineTo(px(x),pz(bounds.z1));ctx.stroke();}
+    for(let z=bounds.z0;z<=bounds.z1;z+=5){ctx.beginPath();ctx.moveTo(px(bounds.x0),pz(z));ctx.lineTo(px(bounds.x1),pz(z));ctx.stroke();}
+    ctx.fillStyle='#e2decf';ctx.font='13px system-ui';ctx.fillText('Norden ↑ · Osten → · Markierungen anklicken',40,20);
+    if(level===121){pin('Einwurf',[S.input.x,S.input.y,S.input.z],'#f2ce79');for(const a of S.bulk)pin('Bulk '+a.label,a.loose,'#c69e73');for(const a of S.stations)pin(a.name,a.active_box,'#ba8ece');for(const a of S.regular)pin(a.label,[a.x,a.y,a.z],'#77c1ac');pin('Kupfer-Eingang',[S.copper_input.x,S.copper_input.y,S.copper_input.z],'#da8e53');}
+    else {for(const a of D.storage_bays.filter(a=>a.floor===level))pin(a.id+' '+a.name,[a.x,a.y,a.z],'#cfbd8e');
+      if(level===113)for(const a of S.bulk)for(const p of a.bins)pin('Gepackte Shulker: '+a.label,p,'#b08bc4');
+      if(level===105)for(const a of S.stalls)pin(a.id,[a.x,a.y,a.z],'#80c4c0');}
+  }
+  function pick(e,open){const rect=c.getBoundingClientRect(),x=(e.clientX-rect.left)*c.width/rect.width,z=(e.clientY-rect.top)*c.height/rect.height;
+    const closest=markers.map(p=>({...p,d:(p.x-x)**2+(p.z-z)**2})).sort((a,b)=>a.d-b.d)[0];
+    if(closest&&closest.d<250){$('#sysInfo').textContent=`${closest.name} · X ${closest.p[0]} / Y ${closest.p[1]} / Z ${closest.p[2]}`;if(open)window.__focusPlan(...closest.p);}}
+  c.addEventListener('pointermove',e=>pick(e,false));c.addEventListener('click',e=>pick(e,true));$('#sysLevel').onchange=render;render();
+  $('#sysGotoInput').onclick=()=>window.__focusPlan(S.input.x,S.input.y,S.input.z);
+  $('#sysGotoTrade').onclick=()=>{const p=S.stalls[0];window.__focusPlan(p.x,p.y,p.z);};
 })();

@@ -1,592 +1,81 @@
 ﻿X;Z;Unterkante_Y;Abtrag;Bereich
--722;766;107;11;Kellerbaugrube
--722;767;108;10;Kellerbaugrube
--722;768;108;10;Kellerbaugrube
--722;769;108;10;Kellerbaugrube
--722;770;107;11;Kellerbaugrube
--722;771;106;12;Kellerbaugrube
--722;772;105;13;Kellerbaugrube
--722;773;105;13;Kellerbaugrube
--722;774;105;13;Kellerbaugrube
--722;775;105;13;Kellerbaugrube
--722;776;105;13;Kellerbaugrube
--722;777;105;13;Kellerbaugrube
--722;778;105;13;Kellerbaugrube
--722;779;105;13;Kellerbaugrube
--722;780;105;13;Kellerbaugrube
--722;781;105;13;Kellerbaugrube
--722;782;105;14;Kellerbaugrube
--722;783;105;14;Kellerbaugrube
--722;784;105;14;Kellerbaugrube
--722;785;105;12;Kellerbaugrube
--722;786;105;10;Kellerbaugrube
--722;787;105;10;Kellerbaugrube
--722;788;105;14;Kellerbaugrube
--722;789;105;13;Kellerbaugrube
--722;790;105;13;Kellerbaugrube
--722;791;105;12;Kellerbaugrube
--722;792;105;12;Kellerbaugrube
--722;793;105;12;Kellerbaugrube
--722;794;105;12;Kellerbaugrube
--722;795;105;12;Kellerbaugrube
--722;796;105;12;Kellerbaugrube
--722;797;105;12;Kellerbaugrube
--722;798;105;12;Kellerbaugrube
--722;799;105;12;Kellerbaugrube
--722;800;105;11;Kellerbaugrube
--722;801;105;9;Kellerbaugrube
--722;802;105;9;Kellerbaugrube
--722;803;105;9;Kellerbaugrube
--722;804;105;9;Kellerbaugrube
--722;805;105;10;Kellerbaugrube
--722;806;105;13;Kellerbaugrube
--722;807;105;13;Kellerbaugrube
--722;808;105;14;Kellerbaugrube
--722;809;105;14;Kellerbaugrube
--722;810;105;14;Kellerbaugrube
--722;811;105;15;Kellerbaugrube
--722;812;105;15;Kellerbaugrube
--722;813;105;15;Kellerbaugrube
--722;814;105;14;Kellerbaugrube
--721;766;108;10;Kellerbaugrube
--721;767;109;9;Kellerbaugrube
--721;768;109;9;Kellerbaugrube
--721;769;109;9;Kellerbaugrube
--721;770;108;10;Kellerbaugrube
--721;771;106;12;Kellerbaugrube
--721;772;105;13;Kellerbaugrube
--721;773;105;13;Kellerbaugrube
--721;774;105;14;Kellerbaugrube
--721;775;105;14;Kellerbaugrube
--721;776;105;14;Kellerbaugrube
--721;777;105;14;Kellerbaugrube
--721;778;105;14;Kellerbaugrube
--721;779;105;14;Kellerbaugrube
--721;780;105;14;Kellerbaugrube
--721;781;105;14;Kellerbaugrube
--721;782;105;14;Kellerbaugrube
--721;783;105;14;Kellerbaugrube
--721;784;105;15;Kellerbaugrube
--721;785;105;11;Kellerbaugrube
--721;786;105;11;Kellerbaugrube
--721;787;105;12;Kellerbaugrube
--721;788;105;15;Kellerbaugrube
--721;789;105;14;Kellerbaugrube
--721;790;105;13;Kellerbaugrube
--721;791;105;13;Kellerbaugrube
--721;792;105;12;Kellerbaugrube
--721;793;105;12;Kellerbaugrube
--721;794;105;12;Kellerbaugrube
--721;795;105;12;Kellerbaugrube
--721;796;105;12;Kellerbaugrube
--721;797;105;12;Kellerbaugrube
--721;798;105;12;Kellerbaugrube
--721;799;105;12;Kellerbaugrube
--721;800;105;12;Kellerbaugrube
--721;801;105;9;Kellerbaugrube
--721;802;105;9;Kellerbaugrube
--721;803;105;9;Kellerbaugrube
--721;804;105;9;Kellerbaugrube
--721;805;105;9;Kellerbaugrube
--721;806;105;13;Kellerbaugrube
--721;807;105;13;Kellerbaugrube
--721;808;105;14;Kellerbaugrube
--721;809;105;14;Kellerbaugrube
--721;810;105;14;Kellerbaugrube
--721;811;105;15;Kellerbaugrube
--721;812;105;15;Kellerbaugrube
--721;813;105;15;Kellerbaugrube
--721;814;105;14;Kellerbaugrube
--720;766;108;10;Kellerbaugrube
--720;767;109;9;Kellerbaugrube
--720;768;109;9;Kellerbaugrube
--720;769;109;9;Kellerbaugrube
--720;770;108;10;Kellerbaugrube
--720;771;107;11;Kellerbaugrube
--720;772;105;13;Kellerbaugrube
--720;773;105;14;Kellerbaugrube
--720;774;105;14;Kellerbaugrube
--720;775;105;14;Kellerbaugrube
--720;776;105;14;Kellerbaugrube
--720;777;105;14;Kellerbaugrube
--720;778;105;14;Kellerbaugrube
--720;779;105;14;Kellerbaugrube
--720;780;105;14;Kellerbaugrube
--720;781;105;14;Kellerbaugrube
--720;782;105;15;Kellerbaugrube
--720;783;105;15;Kellerbaugrube
--720;784;105;14;Kellerbaugrube
--720;785;105;11;Kellerbaugrube
--720;786;105;11;Kellerbaugrube
--720;787;105;13;Kellerbaugrube
--720;788;105;15;Kellerbaugrube
--720;789;105;14;Kellerbaugrube
--720;790;105;14;Kellerbaugrube
--720;791;105;13;Kellerbaugrube
--720;792;105;12;Kellerbaugrube
--720;793;105;12;Kellerbaugrube
--720;794;105;12;Kellerbaugrube
--720;795;105;12;Kellerbaugrube
--720;796;105;12;Kellerbaugrube
--720;797;105;12;Kellerbaugrube
--720;798;105;12;Kellerbaugrube
--720;799;105;12;Kellerbaugrube
--720;800;105;12;Kellerbaugrube
--720;801;105;10;Kellerbaugrube
--720;802;105;9;Kellerbaugrube
--720;803;105;9;Kellerbaugrube
--720;804;105;9;Kellerbaugrube
--720;805;105;9;Kellerbaugrube
--720;806;105;11;Kellerbaugrube
--720;807;105;13;Kellerbaugrube
--720;808;105;13;Kellerbaugrube
--720;809;105;14;Kellerbaugrube
--720;810;105;14;Kellerbaugrube
--720;811;105;14;Kellerbaugrube
--720;812;105;15;Kellerbaugrube
--720;813;105;15;Kellerbaugrube
--720;814;105;14;Kellerbaugrube
--719;766;109;10;Kellerbaugrube
--719;767;110;9;Kellerbaugrube
--719;768;110;9;Kellerbaugrube
--719;769;110;9;Kellerbaugrube
--719;770;109;10;Kellerbaugrube
--719;771;107;12;Kellerbaugrube
--719;772;105;14;Kellerbaugrube
--719;773;105;14;Kellerbaugrube
--719;774;105;14;Kellerbaugrube
--719;775;105;14;Kellerbaugrube
--719;776;105;15;Kellerbaugrube
--719;777;105;15;Kellerbaugrube
--719;778;105;15;Kellerbaugrube
--719;779;105;15;Kellerbaugrube
--719;780;105;15;Kellerbaugrube
--719;781;105;15;Kellerbaugrube
--719;782;105;15;Kellerbaugrube
--719;783;105;15;Kellerbaugrube
--719;784;105;12;Kellerbaugrube
--719;785;105;11;Kellerbaugrube
--719;786;105;11;Kellerbaugrube
--719;787;105;15;Kellerbaugrube
--719;788;105;15;Kellerbaugrube
--719;789;105;15;Kellerbaugrube
--719;790;105;14;Kellerbaugrube
--719;791;105;13;Kellerbaugrube
--719;792;105;13;Kellerbaugrube
--719;793;105;13;Kellerbaugrube
--719;794;105;13;Kellerbaugrube
--719;795;105;13;Kellerbaugrube
--719;796;105;13;Kellerbaugrube
--719;797;105;13;Kellerbaugrube
--719;798;105;12;Kellerbaugrube
--719;799;105;12;Kellerbaugrube
--719;800;105;12;Kellerbaugrube
--719;801;105;12;Kellerbaugrube
--719;802;105;10;Kellerbaugrube
--719;803;105;9;Kellerbaugrube
--719;804;105;9;Kellerbaugrube
--719;805;105;9;Kellerbaugrube
--719;806;105;9;Kellerbaugrube
--719;807;105;11;Kellerbaugrube
--719;808;105;13;Kellerbaugrube
--719;809;105;14;Kellerbaugrube
--719;810;105;14;Kellerbaugrube
--719;811;105;14;Kellerbaugrube
--719;812;105;14;Kellerbaugrube
--719;813;105;14;Kellerbaugrube
--719;814;105;14;Kellerbaugrube
--718;766;110;10;Kellerbaugrube
--718;767;110;10;Kellerbaugrube
--718;768;110;10;Kellerbaugrube
--718;769;110;10;Kellerbaugrube
--718;770;109;10;Kellerbaugrube
--718;771;105;14;Kellerbaugrube
--718;772;105;14;Kellerbaugrube
--718;773;105;14;Kellerbaugrube
--718;774;105;15;Kellerbaugrube
--718;775;105;15;Kellerbaugrube
--718;776;105;15;Kellerbaugrube
--718;777;105;15;Kellerbaugrube
--718;778;105;15;Kellerbaugrube
--718;779;105;15;Kellerbaugrube
--718;780;105;15;Kellerbaugrube
--718;781;105;15;Kellerbaugrube
--718;782;105;15;Kellerbaugrube
--718;783;105;12;Kellerbaugrube
--718;784;105;10;Kellerbaugrube
--718;785;105;9;Kellerbaugrube
--718;786;105;14;Kellerbaugrube
--718;787;105;15;Kellerbaugrube
--718;788;105;15;Kellerbaugrube
--718;789;105;15;Kellerbaugrube
--718;790;105;14;Kellerbaugrube
--718;791;105;14;Kellerbaugrube
--718;792;105;14;Kellerbaugrube
--718;793;105;13;Kellerbaugrube
--718;794;105;13;Kellerbaugrube
--718;795;105;13;Kellerbaugrube
--718;796;105;13;Kellerbaugrube
--718;797;105;13;Kellerbaugrube
--718;798;105;13;Kellerbaugrube
--718;799;105;12;Kellerbaugrube
--718;800;105;12;Kellerbaugrube
--718;801;105;12;Kellerbaugrube
--718;802;105;9;Kellerbaugrube
--718;803;105;9;Kellerbaugrube
--718;804;105;9;Kellerbaugrube
--718;805;105;9;Kellerbaugrube
--718;806;105;9;Kellerbaugrube
--718;807;105;10;Kellerbaugrube
--718;808;105;13;Kellerbaugrube
--718;809;105;14;Kellerbaugrube
--718;810;105;14;Kellerbaugrube
--718;811;105;14;Kellerbaugrube
--718;812;105;14;Kellerbaugrube
--718;813;105;14;Kellerbaugrube
--718;814;105;14;Kellerbaugrube
--717;766;110;10;Kellerbaugrube
--717;767;110;10;Kellerbaugrube
--717;768;110;10;Kellerbaugrube
--717;769;110;10;Kellerbaugrube
--717;770;109;11;Kellerbaugrube
--717;771;105;15;Kellerbaugrube
--717;772;105;15;Kellerbaugrube
--717;773;105;15;Kellerbaugrube
--717;774;105;15;Kellerbaugrube
--717;775;105;15;Kellerbaugrube
--717;776;105;15;Kellerbaugrube
--717;777;105;15;Kellerbaugrube
--717;778;105;15;Kellerbaugrube
--717;779;105;15;Kellerbaugrube
--717;780;105;15;Kellerbaugrube
--717;781;105;15;Kellerbaugrube
--717;782;105;15;Kellerbaugrube
--717;783;105;12;Kellerbaugrube
--717;784;105;12;Kellerbaugrube
--717;785;105;11;Kellerbaugrube
--717;786;105;15;Kellerbaugrube
--717;787;105;15;Kellerbaugrube
--717;788;105;15;Kellerbaugrube
--717;789;105;15;Kellerbaugrube
--717;790;105;15;Kellerbaugrube
--717;791;105;15;Kellerbaugrube
--717;792;105;14;Kellerbaugrube
--717;793;105;14;Kellerbaugrube
--717;794;105;14;Kellerbaugrube
--717;795;105;14;Kellerbaugrube
--717;796;105;14;Kellerbaugrube
--717;797;105;13;Kellerbaugrube
--717;798;105;13;Kellerbaugrube
--717;799;105;13;Kellerbaugrube
--717;800;105;12;Kellerbaugrube
--717;801;105;12;Kellerbaugrube
--717;802;105;9;Kellerbaugrube
--717;803;105;9;Kellerbaugrube
--717;804;105;9;Kellerbaugrube
--717;805;105;9;Kellerbaugrube
--717;806;105;9;Kellerbaugrube
--717;807;105;9;Kellerbaugrube
--717;808;105;11;Kellerbaugrube
--717;809;105;13;Kellerbaugrube
--717;810;105;14;Kellerbaugrube
--717;811;105;14;Kellerbaugrube
--717;812;105;14;Kellerbaugrube
--717;813;105;14;Kellerbaugrube
--717;814;105;14;Kellerbaugrube
--716;766;110;12;Kellerbaugrube
--716;767;111;11;Kellerbaugrube
--716;768;111;11;Kellerbaugrube
--716;769;111;10;Kellerbaugrube
--716;770;110;11;Kellerbaugrube
--716;771;105;15;Kellerbaugrube
--716;772;105;15;Kellerbaugrube
--716;773;105;15;Kellerbaugrube
--716;774;105;15;Kellerbaugrube
--716;775;105;16;Kellerbaugrube
--716;776;105;16;Kellerbaugrube
--716;777;105;16;Kellerbaugrube
--716;778;105;16;Kellerbaugrube
--716;779;105;16;Kellerbaugrube
--716;780;105;16;Kellerbaugrube
--716;781;105;16;Kellerbaugrube
--716;782;105;16;Kellerbaugrube
--716;783;105;16;Kellerbaugrube
--716;784;105;16;Kellerbaugrube
--716;785;105;16;Kellerbaugrube
--716;786;105;15;Kellerbaugrube
--716;787;105;15;Kellerbaugrube
--716;788;105;15;Kellerbaugrube
--716;789;105;15;Kellerbaugrube
--716;790;105;15;Kellerbaugrube
--716;791;105;15;Kellerbaugrube
--716;792;105;15;Kellerbaugrube
--716;793;105;15;Kellerbaugrube
--716;794;105;15;Kellerbaugrube
--716;795;105;14;Kellerbaugrube
--716;796;105;14;Kellerbaugrube
--716;797;105;14;Kellerbaugrube
--716;798;105;13;Kellerbaugrube
--716;799;105;13;Kellerbaugrube
--716;800;105;12;Kellerbaugrube
--716;801;105;12;Kellerbaugrube
--716;802;105;10;Kellerbaugrube
--716;803;105;9;Kellerbaugrube
--716;804;105;9;Kellerbaugrube
--716;805;105;9;Kellerbaugrube
--716;806;105;9;Kellerbaugrube
--716;807;105;9;Kellerbaugrube
--716;808;105;10;Kellerbaugrube
--716;809;105;13;Kellerbaugrube
--716;810;105;13;Kellerbaugrube
--716;811;105;14;Kellerbaugrube
--716;812;105;14;Kellerbaugrube
--716;813;105;14;Kellerbaugrube
--716;814;105;14;Kellerbaugrube
--715;766;111;11;Kellerbaugrube
--715;767;111;11;Kellerbaugrube
--715;768;111;11;Kellerbaugrube
--715;769;111;11;Kellerbaugrube
--715;770;110;11;Kellerbaugrube
--715;771;105;16;Kellerbaugrube
--715;772;105;15;Kellerbaugrube
--715;773;105;15;Kellerbaugrube
--715;774;105;16;Kellerbaugrube
--715;775;105;16;Kellerbaugrube
--715;776;105;16;Kellerbaugrube
--715;777;105;16;Kellerbaugrube
--715;778;105;16;Kellerbaugrube
--715;779;105;16;Kellerbaugrube
--715;780;105;16;Kellerbaugrube
--715;781;105;16;Kellerbaugrube
--715;782;105;16;Kellerbaugrube
--715;783;105;16;Kellerbaugrube
--715;784;105;16;Kellerbaugrube
--715;785;105;15;Kellerbaugrube
--715;786;105;15;Kellerbaugrube
--715;787;105;15;Kellerbaugrube
--715;788;105;15;Kellerbaugrube
--715;789;105;15;Kellerbaugrube
--715;790;105;15;Kellerbaugrube
--715;791;105;15;Kellerbaugrube
--715;792;105;15;Kellerbaugrube
--715;793;105;15;Kellerbaugrube
--715;794;105;15;Kellerbaugrube
--715;795;105;15;Kellerbaugrube
--715;796;105;14;Kellerbaugrube
--715;797;105;14;Kellerbaugrube
--715;798;105;14;Kellerbaugrube
--715;799;105;13;Kellerbaugrube
--715;800;105;13;Kellerbaugrube
--715;801;105;13;Kellerbaugrube
--715;802;105;13;Kellerbaugrube
--715;803;105;9;Kellerbaugrube
--715;804;105;9;Kellerbaugrube
--715;805;105;9;Kellerbaugrube
--715;806;105;9;Kellerbaugrube
--715;807;105;9;Kellerbaugrube
--715;808;105;10;Kellerbaugrube
--715;809;105;13;Kellerbaugrube
--715;810;105;14;Kellerbaugrube
--715;811;105;14;Kellerbaugrube
--715;812;105;14;Kellerbaugrube
--715;813;105;14;Kellerbaugrube
--715;814;105;14;Kellerbaugrube
--714;766;111;11;Kellerbaugrube
--714;767;112;10;Kellerbaugrube
--714;768;112;10;Kellerbaugrube
--714;769;111;11;Kellerbaugrube
--714;770;110;11;Kellerbaugrube
--714;771;105;16;Kellerbaugrube
--714;772;105;15;Kellerbaugrube
--714;773;105;16;Kellerbaugrube
--714;774;105;16;Kellerbaugrube
--714;775;105;16;Kellerbaugrube
--714;776;105;16;Kellerbaugrube
--714;777;105;16;Kellerbaugrube
--714;778;105;16;Kellerbaugrube
--714;779;105;16;Kellerbaugrube
--714;780;105;16;Kellerbaugrube
--714;781;105;16;Kellerbaugrube
--714;782;105;16;Kellerbaugrube
--714;783;105;16;Kellerbaugrube
--714;784;105;16;Kellerbaugrube
--714;785;105;15;Kellerbaugrube
--714;786;105;15;Kellerbaugrube
--714;787;105;15;Kellerbaugrube
--714;788;105;15;Kellerbaugrube
--714;789;105;15;Kellerbaugrube
--714;790;105;15;Kellerbaugrube
--714;791;105;15;Kellerbaugrube
--714;792;105;15;Kellerbaugrube
--714;793;105;15;Kellerbaugrube
--714;794;105;15;Kellerbaugrube
--714;795;105;15;Kellerbaugrube
--714;796;105;15;Kellerbaugrube
--714;797;105;14;Kellerbaugrube
--714;798;105;14;Kellerbaugrube
--714;799;105;14;Kellerbaugrube
--714;800;105;13;Kellerbaugrube
--714;801;105;13;Kellerbaugrube
--714;802;105;13;Kellerbaugrube
--714;803;105;10;Kellerbaugrube
--714;804;105;9;Kellerbaugrube
--714;805;105;9;Kellerbaugrube
--714;806;105;9;Kellerbaugrube
--714;807;105;9;Kellerbaugrube
--714;808;105;9;Kellerbaugrube
--714;809;105;13;Kellerbaugrube
--714;810;105;14;Kellerbaugrube
--714;811;105;14;Kellerbaugrube
--714;812;105;14;Kellerbaugrube
--714;813;105;14;Kellerbaugrube
--714;814;105;14;Kellerbaugrube
--713;766;112;10;Kellerbaugrube
--713;767;112;10;Kellerbaugrube
--713;768;112;10;Kellerbaugrube
--713;769;111;11;Kellerbaugrube
--713;770;105;12;Kellerbaugrube
--713;771;107;14;Kellerbaugrube
--713;772;107;14;Kellerbaugrube
--713;773;107;14;Kellerbaugrube
--713;774;105;16;Kellerbaugrube
--713;775;105;16;Kellerbaugrube
--713;776;105;14;Kellerbaugrube
--713;777;105;14;Kellerbaugrube
--713;778;105;16;Kellerbaugrube
--713;779;105;16;Kellerbaugrube
--713;780;105;15;Kellerbaugrube
--713;781;105;16;Kellerbaugrube
--713;782;105;16;Kellerbaugrube
--713;783;105;16;Kellerbaugrube
--713;784;105;16;Kellerbaugrube
--713;785;105;15;Kellerbaugrube
--713;786;105;15;Kellerbaugrube
--713;787;105;15;Kellerbaugrube
--713;788;105;15;Kellerbaugrube
--713;789;105;15;Kellerbaugrube
--713;790;105;15;Kellerbaugrube
--713;791;105;15;Kellerbaugrube
--713;792;105;15;Kellerbaugrube
--713;793;105;15;Kellerbaugrube
--713;794;105;15;Kellerbaugrube
--713;795;105;15;Kellerbaugrube
--713;796;105;15;Kellerbaugrube
--713;797;105;15;Kellerbaugrube
--713;798;105;14;Kellerbaugrube
--713;799;105;14;Kellerbaugrube
--713;800;105;14;Kellerbaugrube
--713;801;105;14;Kellerbaugrube
--713;802;105;14;Kellerbaugrube
--713;803;105;11;Kellerbaugrube
--713;804;105;9;Kellerbaugrube
--713;805;105;9;Kellerbaugrube
--713;806;105;9;Kellerbaugrube
--713;807;105;9;Kellerbaugrube
--713;808;105;9;Kellerbaugrube
--713;809;105;10;Kellerbaugrube
--713;810;105;14;Kellerbaugrube
--713;811;105;14;Kellerbaugrube
--713;812;105;14;Kellerbaugrube
--713;813;105;14;Kellerbaugrube
--713;814;105;14;Kellerbaugrube
--712;766;105;11;Kellerbaugrube
--712;767;112;10;Kellerbaugrube
--712;768;112;10;Kellerbaugrube
--712;769;111;11;Kellerbaugrube
--712;770;110;11;Kellerbaugrube
--712;771;108;13;Kellerbaugrube
--712;772;108;11;Kellerbaugrube
--712;773;107;11;Kellerbaugrube
--712;774;105;12;Kellerbaugrube
--712;775;105;12;Kellerbaugrube
--712;776;105;12;Kellerbaugrube
--712;777;105;12;Kellerbaugrube
--712;778;105;12;Kellerbaugrube
--712;779;105;14;Kellerbaugrube
--712;780;105;15;Kellerbaugrube
--712;781;105;15;Kellerbaugrube
--712;782;105;15;Kellerbaugrube
--712;783;105;16;Kellerbaugrube
--712;784;105;16;Kellerbaugrube
--712;785;105;15;Kellerbaugrube
--712;786;105;15;Kellerbaugrube
--712;787;105;15;Kellerbaugrube
--712;788;105;15;Kellerbaugrube
--712;789;105;15;Kellerbaugrube
--712;790;105;15;Kellerbaugrube
--712;791;105;15;Kellerbaugrube
--712;792;105;15;Kellerbaugrube
--712;793;105;15;Kellerbaugrube
--712;794;105;15;Kellerbaugrube
--712;795;105;15;Kellerbaugrube
--712;796;105;15;Kellerbaugrube
--712;797;105;15;Kellerbaugrube
--712;798;105;15;Kellerbaugrube
--712;799;105;15;Kellerbaugrube
--712;800;105;15;Kellerbaugrube
--712;801;105;14;Kellerbaugrube
--712;802;105;14;Kellerbaugrube
--712;803;105;14;Kellerbaugrube
--712;804;105;9;Kellerbaugrube
--712;805;105;9;Kellerbaugrube
--712;806;105;9;Kellerbaugrube
--712;807;105;9;Kellerbaugrube
--712;808;105;9;Kellerbaugrube
--712;809;105;10;Kellerbaugrube
--712;810;105;14;Kellerbaugrube
--712;811;105;14;Kellerbaugrube
--712;812;105;14;Kellerbaugrube
--712;813;105;14;Kellerbaugrube
--712;814;105;14;Kellerbaugrube
--711;766;105;11;Kellerbaugrube
--711;767;105;11;Kellerbaugrube
--711;768;112;10;Kellerbaugrube
--711;769;111;11;Kellerbaugrube
--711;770;108;13;Kellerbaugrube
--711;771;108;13;Kellerbaugrube
--711;772;107;12;Kellerbaugrube
--711;773;107;11;Kellerbaugrube
--711;774;105;12;Kellerbaugrube
--711;775;105;11;Kellerbaugrube
--711;776;105;11;Kellerbaugrube
--711;777;105;11;Kellerbaugrube
--711;778;105;11;Kellerbaugrube
--711;779;105;11;Kellerbaugrube
--711;780;105;12;Kellerbaugrube
--711;781;105;12;Kellerbaugrube
--711;782;105;12;Kellerbaugrube
--711;783;105;14;Kellerbaugrube
--711;784;105;16;Kellerbaugrube
--711;785;105;16;Kellerbaugrube
--711;786;105;15;Kellerbaugrube
--711;787;105;15;Kellerbaugrube
--711;788;105;15;Kellerbaugrube
--711;789;105;15;Kellerbaugrube
--711;790;105;15;Kellerbaugrube
--711;791;105;12;Kellerbaugrube
--711;792;105;12;Kellerbaugrube
--711;793;105;12;Kellerbaugrube
--711;794;105;13;Kellerbaugrube
--711;795;105;15;Kellerbaugrube
--711;796;105;15;Kellerbaugrube
--711;797;105;15;Kellerbaugrube
--711;798;105;15;Kellerbaugrube
--711;799;105;15;Kellerbaugrube
--711;800;105;15;Kellerbaugrube
--711;801;105;14;Kellerbaugrube
--711;802;105;14;Kellerbaugrube
--711;803;105;14;Kellerbaugrube
--711;804;105;10;Kellerbaugrube
--711;805;105;9;Kellerbaugrube
--711;806;105;9;Kellerbaugrube
--711;807;105;9;Kellerbaugrube
--711;808;105;9;Kellerbaugrube
--711;809;105;9;Kellerbaugrube
--711;810;105;11;Kellerbaugrube
--711;811;105;14;Kellerbaugrube
--711;812;105;15;Kellerbaugrube
--711;813;105;15;Kellerbaugrube
--711;814;105;15;Kellerbaugrube
+-772;717;128;1;Zufahrt Nordwest
+-771;714;128;2;Wegschulter
+-771;717;128;1;Zufahrt Nordwest
+-770;714;128;2;Wegschulter
+-770;715;128;2;Wegschulter
+-770;718;128;1;Zufahrt Nordwest
+-769;713;129;2;Wegschulter
+-769;714;128;2;Wegschulter
+-769;715;128;2;Wegschulter
+-769;719;128;1;Zufahrt Nordwest
+-768;715;128;2;Wegschulter
+-768;716;128;2;Wegschulter
+-768;720;128;1;Zufahrt Nordwest
+-767;716;128;2;Wegschulter
+-767;717;128;2;Wegschulter
+-767;720;128;1;Zufahrt Nordwest
+-766;717;128;2;Wegschulter
+-766;718;128;2;Wegschulter
+-766;721;128;1;Zufahrt Nordwest
+-765;717;128;2;Wegschulter
+-765;718;128;2;Wegschulter
+-765;722;128;1;Zufahrt Nordwest
+-765;729;127;1;Zufahrt Nordwest
+-764;718;128;2;Wegschulter
+-764;719;128;2;Wegschulter
+-764;723;128;1;Zufahrt Nordwest
+-764;729;127;1;Zufahrt Nordwest
+-764;730;127;1;Zufahrt Nordwest
+-763;719;128;2;Wegschulter
+-763;724;128;1;Zufahrt Nordwest
+-763;725;128;1;Zufahrt Nordwest
+-763;728;127;1;Zufahrt Nordwest
+-763;729;127;1;Zufahrt Nordwest
+-763;730;127;1;Zufahrt Nordwest
+-763;731;127;1;Zufahrt Nordwest
+-763;734;126;1;Zufahrt Nordwest
+-762;720;128;2;Wegschulter
+-762;725;127;2;Wegschulter
+-762;726;127;1;Zufahrt Nordwest
+-762;727;127;1;Zufahrt Nordwest
+-762;728;127;1;Zufahrt Nordwest
+-762;729;127;1;Zufahrt Nordwest
+-762;730;127;1;Zufahrt Nordwest
+-762;731;127;1;Zufahrt Nordwest
+-762;734;126;1;Zufahrt Nordwest
+-761;721;128;2;Wegschulter
+-761;725;127;2;Wegschulter
+-761;726;127;2;Wegschulter
+-761;728;127;1;Zufahrt Nordwest
+-761;729;127;1;Zufahrt Nordwest
+-761;730;127;1;Zufahrt Nordwest
+-761;731;127;1;Zufahrt Nordwest
+-761;734;126;1;Zufahrt Nordwest
+-760;724;127;2;Wegschulter
+-760;725;127;2;Wegschulter
+-760;726;127;2;Wegschulter
+-760;729;127;1;Zufahrt Nordwest
+-760;730;127;1;Zufahrt Nordwest
+-760;731;127;1;Zufahrt Nordwest
+-760;733;126;1;Zufahrt Nordwest
+-760;734;126;1;Zufahrt Nordwest
+-759;724;127;2;Wegschulter
+-759;725;127;2;Wegschulter
+-759;726;127;2;Wegschulter
+-759;730;126;2;Wegschulter
+-759;731;126;1;Zufahrt Nordwest
+-759;732;126;1;Zufahrt Nordwest
+-759;733;126;1;Zufahrt Nordwest
+-759;734;126;1;Zufahrt Nordwest
+-758;726;127;2;Wegschulter
+-758;730;126;2;Wegschulter
+-758;733;126;1;Zufahrt Nordwest
+-757;729;126;2;Wegschulter
+-757;730;126;2;Wegschulter
+-756;729;126;2;Wegschulter
+-756;730;126;2;Wegschulter
+-756;736;125;1;Zufahrt Nordwest
 -710;766;105;10;Kellerbaugrube
 -710;767;105;11;Kellerbaugrube
 -710;768;112;10;Kellerbaugrube
@@ -1518,6 +1007,7 @@
 -692;812;105;20;Kellerbaugrube
 -692;813;105;20;Kellerbaugrube
 -692;814;105;20;Kellerbaugrube
+-692;829;123;2;Hausunterbau
 -691;766;105;20;Kellerbaugrube
 -691;767;105;20;Kellerbaugrube
 -691;768;105;20;Kellerbaugrube
@@ -1567,6 +1057,7 @@
 -691;812;105;20;Kellerbaugrube
 -691;813;105;20;Kellerbaugrube
 -691;814;105;20;Kellerbaugrube
+-691;829;123;2;Hausunterbau
 -690;766;105;22;Kellerbaugrube
 -690;767;105;22;Kellerbaugrube
 -690;768;105;22;Kellerbaugrube
@@ -1616,6 +1107,7 @@
 -690;812;105;22;Kellerbaugrube
 -690;813;105;22;Kellerbaugrube
 -690;814;105;22;Kellerbaugrube
+-690;829;123;4;Hausunterbau
 -689;766;105;22;Kellerbaugrube
 -689;767;105;22;Kellerbaugrube
 -689;768;105;22;Kellerbaugrube
@@ -1665,6 +1157,7 @@
 -689;812;105;22;Kellerbaugrube
 -689;813;105;22;Kellerbaugrube
 -689;814;105;22;Kellerbaugrube
+-689;829;123;4;Hausunterbau
 -688;766;105;22;Kellerbaugrube
 -688;767;105;22;Kellerbaugrube
 -688;768;105;22;Kellerbaugrube
@@ -1714,6 +1207,7 @@
 -688;812;105;22;Kellerbaugrube
 -688;813;105;22;Kellerbaugrube
 -688;814;105;22;Kellerbaugrube
+-688;829;123;4;Hausunterbau
 -687;766;105;22;Kellerbaugrube
 -687;767;105;22;Kellerbaugrube
 -687;768;105;22;Kellerbaugrube
@@ -1763,6 +1257,7 @@
 -687;812;105;22;Kellerbaugrube
 -687;813;105;22;Kellerbaugrube
 -687;814;105;22;Kellerbaugrube
+-687;829;122;5;Hausunterbau
 -686;766;105;22;Kellerbaugrube
 -686;767;105;22;Kellerbaugrube
 -686;768;105;22;Kellerbaugrube
@@ -1812,6 +1307,7 @@
 -686;812;105;22;Kellerbaugrube
 -686;813;105;22;Kellerbaugrube
 -686;814;105;22;Kellerbaugrube
+-686;829;122;5;Hausunterbau
 -685;766;105;22;Kellerbaugrube
 -685;767;105;22;Kellerbaugrube
 -685;768;105;22;Kellerbaugrube
@@ -1861,6 +1357,8 @@
 -685;812;105;22;Kellerbaugrube
 -685;813;105;22;Kellerbaugrube
 -685;814;105;22;Kellerbaugrube
+-685;829;121;6;Hausunterbau
+-684;751;124;2;Hausunterbau
 -684;766;105;22;Kellerbaugrube
 -684;767;105;22;Kellerbaugrube
 -684;768;105;22;Kellerbaugrube
@@ -1910,6 +1408,8 @@
 -684;812;105;22;Kellerbaugrube
 -684;813;105;22;Kellerbaugrube
 -684;814;105;22;Kellerbaugrube
+-684;829;121;6;Hausunterbau
+-683;751;125;1;Hausunterbau
 -683;766;105;22;Kellerbaugrube
 -683;767;105;22;Kellerbaugrube
 -683;768;105;22;Kellerbaugrube
@@ -1959,6 +1459,8 @@
 -683;812;105;22;Kellerbaugrube
 -683;813;105;22;Kellerbaugrube
 -683;814;105;22;Kellerbaugrube
+-683;829;121;6;Hausunterbau
+-682;751;124;2;Hausunterbau
 -682;766;105;22;Kellerbaugrube
 -682;767;105;22;Kellerbaugrube
 -682;768;105;22;Kellerbaugrube
@@ -2008,6 +1510,8 @@
 -682;812;105;22;Kellerbaugrube
 -682;813;105;22;Kellerbaugrube
 -682;814;105;22;Kellerbaugrube
+-682;829;120;7;Hausunterbau
+-681;751;123;3;Hausunterbau
 -681;766;105;22;Kellerbaugrube
 -681;767;105;22;Kellerbaugrube
 -681;768;105;22;Kellerbaugrube
@@ -2057,6 +1561,8 @@
 -681;812;105;22;Kellerbaugrube
 -681;813;105;22;Kellerbaugrube
 -681;814;105;22;Kellerbaugrube
+-681;829;121;6;Hausunterbau
+-680;751;123;4;Hausunterbau
 -680;766;105;22;Kellerbaugrube
 -680;767;105;22;Kellerbaugrube
 -680;768;105;22;Kellerbaugrube
@@ -2106,6 +1612,8 @@
 -680;812;105;22;Kellerbaugrube
 -680;813;105;22;Kellerbaugrube
 -680;814;105;22;Kellerbaugrube
+-680;829;121;6;Hausunterbau
+-679;751;123;4;Hausunterbau
 -679;766;105;22;Kellerbaugrube
 -679;767;105;22;Kellerbaugrube
 -679;768;105;22;Kellerbaugrube
@@ -2155,10 +1663,8 @@
 -679;812;105;22;Kellerbaugrube
 -679;813;105;22;Kellerbaugrube
 -679;814;105;22;Kellerbaugrube
--678;747;126;2;Gartenböschung
--678;748;126;2;Gartenböschung
--678;749;126;2;Gartenböschung
--678;750;126;2;Gartenböschung
+-679;829;120;7;Hausunterbau
+-678;751;124;4;Hausunterbau
 -678;766;105;22;Kellerbaugrube
 -678;767;105;22;Kellerbaugrube
 -678;768;105;22;Kellerbaugrube
@@ -2208,11 +1714,8 @@
 -678;812;105;22;Kellerbaugrube
 -678;813;105;22;Kellerbaugrube
 -678;814;105;22;Kellerbaugrube
--677;746;127;2;Gartenböschung
--677;747;127;2;Gartenböschung
--677;748;127;2;Gartenböschung
--677;749;126;3;Gartenböschung
--677;750;126;3;Gartenböschung
+-678;829;120;7;Hausunterbau
+-677;751;122;6;Hausunterbau
 -677;766;105;22;Kellerbaugrube
 -677;767;105;22;Kellerbaugrube
 -677;768;105;22;Kellerbaugrube
@@ -2262,12 +1765,8 @@
 -677;812;105;22;Kellerbaugrube
 -677;813;105;22;Kellerbaugrube
 -677;814;105;22;Kellerbaugrube
--676;745;128;2;Gartenböschung
--676;746;128;2;Gartenböschung
--676;747;128;2;Gartenböschung
--676;748;127;3;Gartenböschung
--676;749;127;3;Gartenböschung
--676;750;126;3;Gartenböschung
+-677;829;119;8;Hausunterbau
+-676;751;123;5;Hausunterbau
 -676;766;105;22;Kellerbaugrube
 -676;767;105;22;Kellerbaugrube
 -676;768;105;22;Kellerbaugrube
@@ -2317,19 +1816,15 @@
 -676;812;105;22;Kellerbaugrube
 -676;813;105;22;Kellerbaugrube
 -676;814;105;22;Kellerbaugrube
--675;745;128;2;Gartenböschung
--675;746;128;3;Gartenböschung
--675;747;128;3;Gartenböschung
--675;748;128;3;Gartenböschung
--675;749;127;3;Gartenböschung
--675;750;126;3;Gartenböschung
--675;766;105;22;Kellerbaugrube
--675;767;105;22;Kellerbaugrube
--675;768;105;22;Kellerbaugrube
--675;769;105;22;Kellerbaugrube
--675;770;105;22;Kellerbaugrube
--675;771;105;22;Kellerbaugrube
--675;772;105;22;Kellerbaugrube
+-676;829;119;8;Hausunterbau
+-675;751;123;5;Hausunterbau
+-675;766;105;22;Hausunterbau
+-675;767;105;8;Hausunterbau
+-675;768;105;11;Hausunterbau
+-675;769;105;8;Hausunterbau
+-675;770;105;8;Hausunterbau
+-675;771;105;4;Hausunterbau
+-675;772;105;11;Hausunterbau
 -675;773;105;22;Kellerbaugrube
 -675;774;105;22;Kellerbaugrube
 -675;775;105;22;Kellerbaugrube
@@ -2365,26 +1860,22 @@
 -675;805;105;22;Kellerbaugrube
 -675;806;105;22;Kellerbaugrube
 -675;807;105;22;Kellerbaugrube
--675;808;105;22;Kellerbaugrube
--675;809;105;22;Kellerbaugrube
--675;810;105;22;Kellerbaugrube
--675;811;105;22;Kellerbaugrube
--675;812;105;22;Kellerbaugrube
--675;813;105;22;Kellerbaugrube
--675;814;105;22;Kellerbaugrube
--674;745;128;2;Gartenböschung
--674;746;128;3;Gartenböschung
--674;747;128;4;Gartenböschung
--674;748;128;3;Gartenböschung
--674;749;127;3;Gartenböschung
--674;750;126;3;Gartenböschung
--674;766;105;21;Kellerbaugrube
--674;767;105;22;Kellerbaugrube
--674;768;105;22;Kellerbaugrube
--674;769;105;22;Kellerbaugrube
--674;770;105;22;Kellerbaugrube
--674;771;105;22;Kellerbaugrube
--674;772;105;22;Kellerbaugrube
+-675;808;105;5;Hausunterbau
+-675;809;105;5;Hausunterbau
+-675;810;105;6;Hausunterbau
+-675;811;105;9;Hausunterbau
+-675;812;105;9;Hausunterbau
+-675;813;105;5;Hausunterbau
+-675;814;105;22;Hausunterbau
+-675;829;119;8;Hausunterbau
+-674;751;122;6;Hausunterbau
+-674;766;105;21;Hausunterbau
+-674;767;105;4;Hausunterbau
+-674;768;105;4;Hausunterbau
+-674;769;105;4;Hausunterbau
+-674;770;105;4;Hausunterbau
+-674;771;105;4;Hausunterbau
+-674;772;105;4;Hausunterbau
 -674;773;105;22;Kellerbaugrube
 -674;774;105;22;Kellerbaugrube
 -674;775;105;22;Kellerbaugrube
@@ -2420,26 +1911,22 @@
 -674;805;105;22;Kellerbaugrube
 -674;806;105;22;Kellerbaugrube
 -674;807;105;22;Kellerbaugrube
--674;808;105;22;Kellerbaugrube
--674;809;105;22;Kellerbaugrube
--674;810;105;22;Kellerbaugrube
--674;811;105;22;Kellerbaugrube
--674;812;105;22;Kellerbaugrube
--674;813;105;22;Kellerbaugrube
--674;814;105;22;Kellerbaugrube
--673;745;128;2;Gartenböschung
--673;746;128;3;Gartenböschung
--673;747;128;3;Gartenböschung
--673;748;128;3;Gartenböschung
--673;749;127;3;Gartenböschung
--673;750;126;3;Gartenböschung
--673;766;105;20;Kellerbaugrube
--673;767;105;21;Kellerbaugrube
--673;768;105;22;Kellerbaugrube
--673;769;105;22;Kellerbaugrube
--673;770;105;22;Kellerbaugrube
--673;771;105;22;Kellerbaugrube
--673;772;105;22;Kellerbaugrube
+-674;808;105;5;Hausunterbau
+-674;809;105;5;Hausunterbau
+-674;810;105;5;Hausunterbau
+-674;811;105;5;Hausunterbau
+-674;812;105;5;Hausunterbau
+-674;813;105;5;Hausunterbau
+-674;814;105;22;Hausunterbau
+-674;829;119;8;Hausunterbau
+-673;751;122;6;Hausunterbau
+-673;766;105;20;Hausunterbau
+-673;767;105;21;Hausunterbau
+-673;768;105;22;Hausunterbau
+-673;769;105;22;Hausunterbau
+-673;770;105;22;Hausunterbau
+-673;771;105;22;Hausunterbau
+-673;772;105;22;Hausunterbau
 -673;773;105;22;Kellerbaugrube
 -673;774;105;22;Kellerbaugrube
 -673;775;105;22;Kellerbaugrube
@@ -2475,26 +1962,22 @@
 -673;805;105;22;Kellerbaugrube
 -673;806;105;22;Kellerbaugrube
 -673;807;105;22;Kellerbaugrube
--673;808;105;22;Kellerbaugrube
--673;809;105;22;Kellerbaugrube
--673;810;105;22;Kellerbaugrube
--673;811;105;22;Kellerbaugrube
--673;812;105;22;Kellerbaugrube
--673;813;105;22;Kellerbaugrube
--673;814;105;22;Kellerbaugrube
--672;745;128;2;Gartenböschung
--672;746;128;2;Gartenböschung
--672;747;128;2;Gartenböschung
--672;748;127;3;Gartenböschung
--672;749;127;3;Gartenböschung
--672;750;126;3;Gartenböschung
--672;766;105;18;Kellerbaugrube
--672;767;105;19;Kellerbaugrube
--672;768;105;20;Kellerbaugrube
--672;769;105;21;Kellerbaugrube
--672;770;105;22;Kellerbaugrube
--672;771;105;22;Kellerbaugrube
--672;772;105;22;Kellerbaugrube
+-673;808;105;22;Hausunterbau
+-673;809;105;22;Hausunterbau
+-673;810;105;22;Hausunterbau
+-673;811;105;22;Hausunterbau
+-673;812;105;22;Hausunterbau
+-673;813;105;22;Hausunterbau
+-673;814;105;22;Hausunterbau
+-673;829;119;8;Hausunterbau
+-672;751;122;6;Hausunterbau
+-672;766;105;18;Hausunterbau
+-672;767;105;3;Hausunterbau
+-672;768;105;3;Hausunterbau
+-672;769;105;3;Hausunterbau
+-672;770;105;3;Hausunterbau
+-672;771;105;3;Hausunterbau
+-672;772;105;3;Hausunterbau
 -672;773;105;22;Kellerbaugrube
 -672;774;105;22;Kellerbaugrube
 -672;775;105;22;Kellerbaugrube
@@ -2530,25 +2013,22 @@
 -672;805;105;22;Kellerbaugrube
 -672;806;105;22;Kellerbaugrube
 -672;807;105;22;Kellerbaugrube
--672;808;105;22;Kellerbaugrube
--672;809;105;22;Kellerbaugrube
--672;810;105;22;Kellerbaugrube
--672;811;105;22;Kellerbaugrube
--672;812;105;22;Kellerbaugrube
--672;813;105;22;Kellerbaugrube
--672;814;105;22;Kellerbaugrube
--671;746;127;2;Gartenböschung
--671;747;127;2;Gartenböschung
--671;748;127;2;Gartenböschung
--671;749;126;3;Gartenböschung
--671;750;126;3;Gartenböschung
--671;766;105;19;Kellerbaugrube
--671;767;105;18;Kellerbaugrube
--671;768;105;19;Kellerbaugrube
--671;769;105;19;Kellerbaugrube
--671;770;105;22;Kellerbaugrube
--671;771;105;22;Kellerbaugrube
--671;772;105;22;Kellerbaugrube
+-672;808;105;3;Hausunterbau
+-672;809;105;3;Hausunterbau
+-672;810;105;3;Hausunterbau
+-672;811;105;3;Hausunterbau
+-672;812;105;3;Hausunterbau
+-672;813;105;3;Hausunterbau
+-672;814;105;22;Hausunterbau
+-672;829;119;8;Hausunterbau
+-671;751;122;6;Hausunterbau
+-671;766;105;19;Hausunterbau
+-671;767;105;3;Hausunterbau
+-671;768;105;3;Hausunterbau
+-671;769;105;3;Hausunterbau
+-671;770;105;3;Hausunterbau
+-671;771;105;3;Hausunterbau
+-671;772;105;3;Hausunterbau
 -671;773;105;22;Kellerbaugrube
 -671;774;105;22;Kellerbaugrube
 -671;775;105;22;Kellerbaugrube
@@ -2584,24 +2064,22 @@
 -671;805;105;22;Kellerbaugrube
 -671;806;105;22;Kellerbaugrube
 -671;807;105;22;Kellerbaugrube
--671;808;105;22;Kellerbaugrube
--671;809;105;22;Kellerbaugrube
--671;810;105;22;Kellerbaugrube
--671;811;105;22;Kellerbaugrube
--671;812;105;22;Kellerbaugrube
--671;813;105;22;Kellerbaugrube
--671;814;105;22;Kellerbaugrube
--670;747;126;2;Gartenböschung
--670;748;126;2;Gartenböschung
--670;749;126;2;Gartenböschung
--670;750;126;2;Gartenböschung
--670;766;105;19;Kellerbaugrube
--670;767;105;19;Kellerbaugrube
--670;768;105;19;Kellerbaugrube
--670;769;105;19;Kellerbaugrube
--670;770;105;21;Kellerbaugrube
--670;771;105;22;Kellerbaugrube
--670;772;105;22;Kellerbaugrube
+-671;808;105;3;Hausunterbau
+-671;809;105;3;Hausunterbau
+-671;810;105;3;Hausunterbau
+-671;811;105;3;Hausunterbau
+-671;812;105;3;Hausunterbau
+-671;813;105;5;Hausunterbau
+-671;814;105;22;Hausunterbau
+-671;829;120;7;Hausunterbau
+-670;751;121;7;Hausunterbau
+-670;766;105;19;Hausunterbau
+-670;767;105;3;Hausunterbau
+-670;768;105;3;Hausunterbau
+-670;769;105;3;Hausunterbau
+-670;770;105;3;Hausunterbau
+-670;771;105;3;Hausunterbau
+-670;772;105;3;Hausunterbau
 -670;773;105;22;Kellerbaugrube
 -670;774;105;22;Kellerbaugrube
 -670;775;105;22;Kellerbaugrube
@@ -2637,130 +2115,1052 @@
 -670;805;105;22;Kellerbaugrube
 -670;806;105;22;Kellerbaugrube
 -670;807;105;22;Kellerbaugrube
--670;808;105;22;Kellerbaugrube
--670;809;105;22;Kellerbaugrube
--670;810;105;22;Kellerbaugrube
--670;811;105;22;Kellerbaugrube
--670;812;105;22;Kellerbaugrube
--670;813;105;22;Kellerbaugrube
--670;814;105;22;Kellerbaugrube
--624;830;126;1;Zufahrt Südost
--624;831;126;1;Zufahrt Südost
--624;832;126;1;Zufahrt Südost
--624;833;126;1;Zufahrt Südost
--624;834;126;1;Zufahrt Südost
--623;829;126;1;Zufahrt Südost
--623;830;126;1;Zufahrt Südost
--623;831;126;1;Zufahrt Südost
--623;832;126;1;Zufahrt Südost
--623;833;126;1;Zufahrt Südost
--623;834;126;1;Zufahrt Südost
--623;835;126;1;Zufahrt Südost
--622;829;126;1;Zufahrt Südost
--622;830;126;1;Zufahrt Südost
--622;831;126;1;Zufahrt Südost
--622;832;126;1;Zufahrt Südost
--622;833;126;1;Zufahrt Südost
--622;834;126;1;Zufahrt Südost
--622;835;126;1;Zufahrt Südost
--622;836;126;1;Zufahrt Südost
--622;837;126;1;Zufahrt Südost
--621;829;126;1;Zufahrt Südost
--621;830;126;1;Zufahrt Südost
--621;831;126;1;Zufahrt Südost
--621;832;126;1;Zufahrt Südost
--621;833;126;1;Zufahrt Südost
--621;834;126;1;Zufahrt Südost
--621;835;126;1;Zufahrt Südost
--621;836;126;1;Zufahrt Südost
--621;837;126;1;Zufahrt Südost
--621;838;126;1;Zufahrt Südost
--620;830;126;1;Zufahrt Südost
--620;831;126;1;Zufahrt Südost
--620;832;126;1;Zufahrt Südost
--620;833;126;1;Zufahrt Südost
--620;834;126;1;Zufahrt Südost
--620;835;126;1;Zufahrt Südost
--620;836;126;1;Zufahrt Südost
--620;837;126;1;Zufahrt Südost
--620;838;126;1;Zufahrt Südost
--620;839;126;1;Zufahrt Südost
--619;833;126;1;Zufahrt Südost
--619;834;126;1;Zufahrt Südost
--619;835;126;1;Zufahrt Südost
--619;836;126;1;Zufahrt Südost
--619;837;126;1;Zufahrt Südost
--619;838;126;1;Zufahrt Südost
--619;839;126;1;Zufahrt Südost
--618;834;126;1;Zufahrt Südost
--618;835;126;1;Zufahrt Südost
--618;836;126;1;Zufahrt Südost
--618;837;126;1;Zufahrt Südost
--618;838;126;1;Zufahrt Südost
--618;840;125;1;Zufahrt Südost
--618;841;125;1;Zufahrt Südost
--618;842;125;1;Zufahrt Südost
--618;843;125;1;Zufahrt Südost
--617;836;126;1;Zufahrt Südost
--617;837;126;1;Zufahrt Südost
--617;839;125;1;Zufahrt Südost
--617;840;125;1;Zufahrt Südost
--617;841;125;1;Zufahrt Südost
--617;842;125;1;Zufahrt Südost
--617;843;125;1;Zufahrt Südost
--617;844;125;1;Zufahrt Südost
--616;839;125;1;Zufahrt Südost
--616;840;125;1;Zufahrt Südost
--616;841;125;1;Zufahrt Südost
--616;842;125;1;Zufahrt Südost
--616;843;125;1;Zufahrt Südost
--616;844;125;1;Zufahrt Südost
--616;845;125;1;Zufahrt Südost
--615;839;125;1;Zufahrt Südost
--615;842;125;1;Zufahrt Südost
--615;843;125;1;Zufahrt Südost
--615;844;125;1;Zufahrt Südost
--615;845;125;1;Zufahrt Südost
--615;846;125;1;Zufahrt Südost
--614;842;125;1;Zufahrt Südost
--614;843;125;1;Zufahrt Südost
--614;844;125;1;Zufahrt Südost
--614;845;125;1;Zufahrt Südost
--614;846;125;1;Zufahrt Südost
--614;847;125;1;Zufahrt Südost
--613;842;125;1;Zufahrt Südost
--613;843;125;1;Zufahrt Südost
--613;844;125;1;Zufahrt Südost
--613;845;125;1;Zufahrt Südost
--613;846;125;1;Zufahrt Südost
--613;847;125;2;Zufahrt Südost
--613;848;125;2;Zufahrt Südost
--612;843;125;1;Zufahrt Südost
--612;844;125;1;Zufahrt Südost
--612;845;125;1;Zufahrt Südost
--612;846;124;3;Zufahrt Südost
--612;847;124;3;Zufahrt Südost
--612;848;124;3;Zufahrt Südost
--612;849;125;1;Zufahrt Südost
--611;844;125;1;Zufahrt Südost
--611;845;124;2;Zufahrt Südost
--611;846;124;2;Zufahrt Südost
--611;847;124;2;Zufahrt Südost
--611;848;124;3;Zufahrt Südost
--611;849;124;2;Zufahrt Südost
--610;845;124;1;Zufahrt Südost
--610;846;124;2;Zufahrt Südost
--610;847;124;2;Zufahrt Südost
--610;848;124;2;Zufahrt Südost
--610;849;124;2;Zufahrt Südost
--610;850;124;1;Zufahrt Südost
--609;845;124;1;Zufahrt Südost
--609;846;124;1;Zufahrt Südost
--609;847;124;1;Zufahrt Südost
--609;848;124;2;Zufahrt Südost
--609;849;124;1;Zufahrt Südost
--608;847;124;1;Zufahrt Südost
--608;848;124;1;Zufahrt Südost
--608;849;124;1;Zufahrt Südost
--744;798;115;3;Einzelne Baukollisionen
--744;799;115;4;Einzelne Baukollisionen
+-670;808;105;3;Hausunterbau
+-670;809;105;3;Hausunterbau
+-670;810;105;3;Hausunterbau
+-670;811;105;3;Hausunterbau
+-670;812;105;3;Hausunterbau
+-670;813;105;6;Hausunterbau
+-670;814;105;22;Hausunterbau
+-670;829;120;7;Hausunterbau
+-669;751;121;6;Hausunterbau
+-669;766;105;18;Hausunterbau
+-669;767;105;3;Hausunterbau
+-669;768;105;3;Hausunterbau
+-669;769;105;3;Hausunterbau
+-669;770;105;3;Hausunterbau
+-669;771;105;3;Hausunterbau
+-669;772;105;3;Hausunterbau
+-669;773;105;22;Kellerbaugrube
+-669;774;105;22;Kellerbaugrube
+-669;775;105;22;Kellerbaugrube
+-669;776;105;22;Kellerbaugrube
+-669;777;105;22;Kellerbaugrube
+-669;778;105;22;Kellerbaugrube
+-669;779;105;22;Kellerbaugrube
+-669;780;105;22;Kellerbaugrube
+-669;781;105;22;Kellerbaugrube
+-669;782;105;22;Kellerbaugrube
+-669;783;105;22;Kellerbaugrube
+-669;784;105;22;Kellerbaugrube
+-669;785;105;22;Kellerbaugrube
+-669;786;105;22;Kellerbaugrube
+-669;787;105;21;Kellerbaugrube
+-669;788;105;22;Kellerbaugrube
+-669;789;105;21;Kellerbaugrube
+-669;790;105;22;Kellerbaugrube
+-669;791;105;21;Kellerbaugrube
+-669;792;105;21;Kellerbaugrube
+-669;793;105;22;Kellerbaugrube
+-669;794;105;21;Kellerbaugrube
+-669;795;105;22;Kellerbaugrube
+-669;796;105;21;Kellerbaugrube
+-669;797;105;22;Kellerbaugrube
+-669;798;105;22;Kellerbaugrube
+-669;799;105;22;Kellerbaugrube
+-669;800;105;22;Kellerbaugrube
+-669;801;105;22;Kellerbaugrube
+-669;802;105;22;Kellerbaugrube
+-669;803;105;22;Kellerbaugrube
+-669;804;105;22;Kellerbaugrube
+-669;805;105;22;Kellerbaugrube
+-669;806;105;22;Kellerbaugrube
+-669;807;105;22;Kellerbaugrube
+-669;808;105;3;Hausunterbau
+-669;809;105;3;Hausunterbau
+-669;810;105;3;Hausunterbau
+-669;811;105;3;Hausunterbau
+-669;812;105;3;Hausunterbau
+-669;813;105;5;Hausunterbau
+-669;814;105;22;Hausunterbau
+-669;829;120;7;Hausunterbau
+-668;751;122;5;Hausunterbau
+-668;766;105;19;Hausunterbau
+-668;767;105;3;Hausunterbau
+-668;768;105;3;Hausunterbau
+-668;769;105;3;Hausunterbau
+-668;770;105;3;Hausunterbau
+-668;771;105;3;Hausunterbau
+-668;772;105;3;Hausunterbau
+-668;773;105;22;Kellerbaugrube
+-668;774;105;22;Kellerbaugrube
+-668;775;105;22;Kellerbaugrube
+-668;776;105;22;Kellerbaugrube
+-668;777;105;22;Kellerbaugrube
+-668;778;105;22;Kellerbaugrube
+-668;779;105;22;Kellerbaugrube
+-668;780;105;22;Kellerbaugrube
+-668;781;105;22;Kellerbaugrube
+-668;782;105;22;Kellerbaugrube
+-668;783;105;22;Kellerbaugrube
+-668;784;105;22;Kellerbaugrube
+-668;785;105;22;Kellerbaugrube
+-668;786;105;22;Kellerbaugrube
+-668;787;105;22;Kellerbaugrube
+-668;788;105;22;Kellerbaugrube
+-668;789;105;22;Kellerbaugrube
+-668;790;105;22;Kellerbaugrube
+-668;791;105;22;Kellerbaugrube
+-668;792;105;22;Kellerbaugrube
+-668;793;105;22;Kellerbaugrube
+-668;794;105;22;Kellerbaugrube
+-668;795;105;22;Kellerbaugrube
+-668;796;105;22;Kellerbaugrube
+-668;797;105;22;Kellerbaugrube
+-668;798;105;22;Kellerbaugrube
+-668;799;105;22;Kellerbaugrube
+-668;800;105;22;Kellerbaugrube
+-668;801;105;22;Kellerbaugrube
+-668;802;105;22;Kellerbaugrube
+-668;803;105;22;Kellerbaugrube
+-668;804;105;22;Kellerbaugrube
+-668;805;105;22;Kellerbaugrube
+-668;806;105;22;Kellerbaugrube
+-668;807;105;22;Kellerbaugrube
+-668;808;105;3;Hausunterbau
+-668;809;105;3;Hausunterbau
+-668;810;105;3;Hausunterbau
+-668;811;105;3;Hausunterbau
+-668;812;105;3;Hausunterbau
+-668;813;105;6;Hausunterbau
+-668;814;105;22;Hausunterbau
+-668;829;119;8;Hausunterbau
+-667;751;121;6;Hausunterbau
+-667;766;105;19;Hausunterbau
+-667;767;105;3;Hausunterbau
+-667;768;105;3;Hausunterbau
+-667;769;105;3;Hausunterbau
+-667;770;105;3;Hausunterbau
+-667;771;105;3;Hausunterbau
+-667;772;105;3;Hausunterbau
+-667;773;105;22;Kellerbaugrube
+-667;774;105;22;Kellerbaugrube
+-667;775;105;22;Kellerbaugrube
+-667;776;105;22;Kellerbaugrube
+-667;777;105;22;Kellerbaugrube
+-667;778;105;22;Kellerbaugrube
+-667;779;105;22;Kellerbaugrube
+-667;780;105;22;Kellerbaugrube
+-667;781;105;22;Kellerbaugrube
+-667;782;105;22;Kellerbaugrube
+-667;783;105;22;Kellerbaugrube
+-667;784;105;22;Kellerbaugrube
+-667;785;105;22;Kellerbaugrube
+-667;786;105;22;Kellerbaugrube
+-667;787;105;22;Kellerbaugrube
+-667;788;105;22;Kellerbaugrube
+-667;789;105;22;Kellerbaugrube
+-667;790;105;22;Kellerbaugrube
+-667;791;105;21;Kellerbaugrube
+-667;792;105;21;Kellerbaugrube
+-667;793;105;22;Kellerbaugrube
+-667;794;105;22;Kellerbaugrube
+-667;795;105;22;Kellerbaugrube
+-667;796;105;22;Kellerbaugrube
+-667;797;105;22;Kellerbaugrube
+-667;798;105;22;Kellerbaugrube
+-667;799;105;22;Kellerbaugrube
+-667;800;105;22;Kellerbaugrube
+-667;801;105;22;Kellerbaugrube
+-667;802;105;22;Kellerbaugrube
+-667;803;105;22;Kellerbaugrube
+-667;804;105;22;Kellerbaugrube
+-667;805;105;22;Kellerbaugrube
+-667;806;105;22;Kellerbaugrube
+-667;807;105;22;Kellerbaugrube
+-667;808;105;4;Hausunterbau
+-667;809;105;3;Hausunterbau
+-667;810;105;3;Hausunterbau
+-667;811;105;3;Hausunterbau
+-667;812;105;3;Hausunterbau
+-667;813;105;5;Hausunterbau
+-667;814;105;22;Hausunterbau
+-667;829;119;8;Hausunterbau
+-666;751;120;7;Hausunterbau
+-666;766;105;18;Hausunterbau
+-666;767;105;6;Hausunterbau
+-666;768;105;3;Hausunterbau
+-666;769;105;3;Hausunterbau
+-666;770;105;3;Hausunterbau
+-666;771;105;3;Hausunterbau
+-666;772;105;3;Hausunterbau
+-666;773;105;22;Kellerbaugrube
+-666;774;105;22;Kellerbaugrube
+-666;775;105;22;Kellerbaugrube
+-666;776;105;22;Kellerbaugrube
+-666;777;105;22;Kellerbaugrube
+-666;778;105;22;Kellerbaugrube
+-666;779;105;22;Kellerbaugrube
+-666;780;105;22;Kellerbaugrube
+-666;781;105;22;Kellerbaugrube
+-666;782;105;22;Kellerbaugrube
+-666;783;105;22;Kellerbaugrube
+-666;784;105;22;Kellerbaugrube
+-666;785;105;22;Kellerbaugrube
+-666;786;105;22;Kellerbaugrube
+-666;787;105;22;Kellerbaugrube
+-666;788;105;22;Kellerbaugrube
+-666;789;105;22;Kellerbaugrube
+-666;790;105;22;Kellerbaugrube
+-666;791;105;22;Kellerbaugrube
+-666;792;105;22;Kellerbaugrube
+-666;793;105;22;Kellerbaugrube
+-666;794;105;22;Kellerbaugrube
+-666;795;105;22;Kellerbaugrube
+-666;796;105;22;Kellerbaugrube
+-666;797;105;22;Kellerbaugrube
+-666;798;105;22;Kellerbaugrube
+-666;799;105;22;Kellerbaugrube
+-666;800;105;22;Kellerbaugrube
+-666;801;105;22;Kellerbaugrube
+-666;802;105;22;Kellerbaugrube
+-666;803;105;22;Kellerbaugrube
+-666;804;105;22;Kellerbaugrube
+-666;805;105;22;Kellerbaugrube
+-666;806;105;22;Kellerbaugrube
+-666;807;105;22;Kellerbaugrube
+-666;808;105;3;Hausunterbau
+-666;809;105;3;Hausunterbau
+-666;810;105;3;Hausunterbau
+-666;811;105;3;Hausunterbau
+-666;812;105;3;Hausunterbau
+-666;813;105;6;Hausunterbau
+-666;814;105;22;Hausunterbau
+-666;829;120;7;Hausunterbau
+-665;751;120;7;Hausunterbau
+-665;766;105;19;Hausunterbau
+-665;767;105;3;Hausunterbau
+-665;768;105;3;Hausunterbau
+-665;769;105;3;Hausunterbau
+-665;770;105;3;Hausunterbau
+-665;771;105;3;Hausunterbau
+-665;772;105;3;Hausunterbau
+-665;773;105;22;Kellerbaugrube
+-665;774;105;22;Kellerbaugrube
+-665;775;105;22;Kellerbaugrube
+-665;776;105;22;Kellerbaugrube
+-665;777;105;22;Kellerbaugrube
+-665;778;105;22;Kellerbaugrube
+-665;779;105;22;Kellerbaugrube
+-665;780;105;22;Kellerbaugrube
+-665;781;105;22;Kellerbaugrube
+-665;782;105;22;Kellerbaugrube
+-665;783;105;22;Kellerbaugrube
+-665;784;105;22;Kellerbaugrube
+-665;785;105;22;Kellerbaugrube
+-665;786;105;22;Kellerbaugrube
+-665;787;105;21;Kellerbaugrube
+-665;788;105;21;Kellerbaugrube
+-665;789;105;22;Kellerbaugrube
+-665;790;105;22;Kellerbaugrube
+-665;791;105;22;Kellerbaugrube
+-665;792;105;22;Kellerbaugrube
+-665;793;105;22;Kellerbaugrube
+-665;794;105;22;Kellerbaugrube
+-665;795;105;22;Kellerbaugrube
+-665;796;105;22;Kellerbaugrube
+-665;797;105;22;Kellerbaugrube
+-665;798;105;22;Kellerbaugrube
+-665;799;105;22;Kellerbaugrube
+-665;800;105;22;Kellerbaugrube
+-665;801;105;22;Kellerbaugrube
+-665;802;105;22;Kellerbaugrube
+-665;803;105;22;Kellerbaugrube
+-665;804;105;22;Kellerbaugrube
+-665;805;105;22;Kellerbaugrube
+-665;806;105;22;Kellerbaugrube
+-665;807;105;22;Kellerbaugrube
+-665;808;105;3;Hausunterbau
+-665;809;105;3;Hausunterbau
+-665;810;105;3;Hausunterbau
+-665;811;105;3;Hausunterbau
+-665;812;105;3;Hausunterbau
+-665;813;105;5;Hausunterbau
+-665;814;105;22;Hausunterbau
+-665;829;121;6;Hausunterbau
+-664;751;120;7;Hausunterbau
+-664;766;105;19;Hausunterbau
+-664;767;105;3;Hausunterbau
+-664;768;105;3;Hausunterbau
+-664;769;105;3;Hausunterbau
+-664;770;105;3;Hausunterbau
+-664;771;105;3;Hausunterbau
+-664;772;105;3;Hausunterbau
+-664;773;105;22;Kellerbaugrube
+-664;774;105;22;Kellerbaugrube
+-664;775;105;22;Kellerbaugrube
+-664;776;105;22;Kellerbaugrube
+-664;777;105;22;Kellerbaugrube
+-664;778;105;22;Kellerbaugrube
+-664;779;105;22;Kellerbaugrube
+-664;780;105;22;Kellerbaugrube
+-664;781;105;22;Kellerbaugrube
+-664;782;105;22;Kellerbaugrube
+-664;783;105;22;Kellerbaugrube
+-664;784;105;22;Kellerbaugrube
+-664;785;105;22;Kellerbaugrube
+-664;786;105;22;Kellerbaugrube
+-664;787;105;22;Kellerbaugrube
+-664;788;105;22;Kellerbaugrube
+-664;789;105;22;Kellerbaugrube
+-664;790;105;22;Kellerbaugrube
+-664;791;105;22;Kellerbaugrube
+-664;792;105;22;Kellerbaugrube
+-664;793;105;22;Kellerbaugrube
+-664;794;105;22;Kellerbaugrube
+-664;795;105;22;Kellerbaugrube
+-664;796;105;22;Kellerbaugrube
+-664;797;105;22;Kellerbaugrube
+-664;798;105;22;Kellerbaugrube
+-664;799;105;22;Kellerbaugrube
+-664;800;105;22;Kellerbaugrube
+-664;801;105;22;Kellerbaugrube
+-664;802;105;22;Kellerbaugrube
+-664;803;105;22;Kellerbaugrube
+-664;804;105;22;Kellerbaugrube
+-664;805;105;22;Kellerbaugrube
+-664;806;105;22;Kellerbaugrube
+-664;807;105;22;Kellerbaugrube
+-664;808;105;4;Hausunterbau
+-664;809;105;3;Hausunterbau
+-664;810;105;3;Hausunterbau
+-664;811;105;3;Hausunterbau
+-664;812;105;3;Hausunterbau
+-664;813;105;6;Hausunterbau
+-664;814;105;22;Hausunterbau
+-664;829;124;3;Hausunterbau
+-663;751;120;7;Hausunterbau
+-663;766;105;18;Hausunterbau
+-663;767;105;3;Hausunterbau
+-663;768;105;3;Hausunterbau
+-663;769;105;3;Hausunterbau
+-663;770;105;3;Hausunterbau
+-663;771;105;3;Hausunterbau
+-663;772;105;3;Hausunterbau
+-663;773;105;22;Kellerbaugrube
+-663;774;105;22;Kellerbaugrube
+-663;775;105;22;Kellerbaugrube
+-663;776;105;22;Kellerbaugrube
+-663;777;105;22;Kellerbaugrube
+-663;778;105;22;Kellerbaugrube
+-663;779;105;22;Kellerbaugrube
+-663;780;105;22;Kellerbaugrube
+-663;781;105;22;Kellerbaugrube
+-663;782;105;22;Kellerbaugrube
+-663;783;105;22;Kellerbaugrube
+-663;784;105;22;Kellerbaugrube
+-663;785;105;22;Kellerbaugrube
+-663;786;105;22;Kellerbaugrube
+-663;787;105;22;Kellerbaugrube
+-663;788;105;22;Kellerbaugrube
+-663;789;105;22;Kellerbaugrube
+-663;790;105;22;Kellerbaugrube
+-663;791;105;22;Kellerbaugrube
+-663;792;105;22;Kellerbaugrube
+-663;793;105;22;Kellerbaugrube
+-663;794;105;22;Kellerbaugrube
+-663;795;105;22;Kellerbaugrube
+-663;796;105;22;Kellerbaugrube
+-663;797;105;22;Kellerbaugrube
+-663;798;105;22;Kellerbaugrube
+-663;799;105;22;Kellerbaugrube
+-663;800;105;22;Kellerbaugrube
+-663;801;105;22;Kellerbaugrube
+-663;802;105;22;Kellerbaugrube
+-663;803;105;22;Kellerbaugrube
+-663;804;105;22;Kellerbaugrube
+-663;805;105;22;Kellerbaugrube
+-663;806;105;22;Kellerbaugrube
+-663;807;105;22;Kellerbaugrube
+-663;808;105;3;Hausunterbau
+-663;809;105;3;Hausunterbau
+-663;810;105;3;Hausunterbau
+-663;811;105;3;Hausunterbau
+-663;812;105;3;Hausunterbau
+-663;813;105;5;Hausunterbau
+-663;814;105;22;Hausunterbau
+-663;829;123;4;Hausunterbau
+-662;751;121;5;Hausunterbau
+-662;766;105;19;Hausunterbau
+-662;767;105;3;Hausunterbau
+-662;768;105;3;Hausunterbau
+-662;769;105;3;Hausunterbau
+-662;770;105;3;Hausunterbau
+-662;771;105;3;Hausunterbau
+-662;772;105;3;Hausunterbau
+-662;773;105;22;Kellerbaugrube
+-662;774;105;22;Kellerbaugrube
+-662;775;105;22;Kellerbaugrube
+-662;776;105;22;Kellerbaugrube
+-662;777;105;22;Kellerbaugrube
+-662;778;105;22;Kellerbaugrube
+-662;779;105;22;Kellerbaugrube
+-662;780;105;22;Kellerbaugrube
+-662;781;105;22;Kellerbaugrube
+-662;782;105;22;Kellerbaugrube
+-662;783;105;22;Kellerbaugrube
+-662;784;105;22;Kellerbaugrube
+-662;785;105;22;Kellerbaugrube
+-662;786;105;22;Kellerbaugrube
+-662;787;105;22;Kellerbaugrube
+-662;788;105;22;Kellerbaugrube
+-662;789;105;22;Kellerbaugrube
+-662;790;105;22;Kellerbaugrube
+-662;791;105;22;Kellerbaugrube
+-662;792;105;22;Kellerbaugrube
+-662;793;105;22;Kellerbaugrube
+-662;794;105;22;Kellerbaugrube
+-662;795;105;22;Kellerbaugrube
+-662;796;105;22;Kellerbaugrube
+-662;797;105;22;Kellerbaugrube
+-662;798;105;22;Kellerbaugrube
+-662;799;105;22;Kellerbaugrube
+-662;800;105;22;Kellerbaugrube
+-662;801;105;22;Kellerbaugrube
+-662;802;105;22;Kellerbaugrube
+-662;803;105;22;Kellerbaugrube
+-662;804;105;22;Kellerbaugrube
+-662;805;105;22;Kellerbaugrube
+-662;806;105;22;Kellerbaugrube
+-662;807;105;22;Kellerbaugrube
+-662;808;105;3;Hausunterbau
+-662;809;105;3;Hausunterbau
+-662;810;105;3;Hausunterbau
+-662;811;105;3;Hausunterbau
+-662;812;105;3;Hausunterbau
+-662;813;105;6;Hausunterbau
+-662;814;105;22;Hausunterbau
+-662;829;123;4;Hausunterbau
+-661;751;120;6;Hausunterbau
+-661;766;105;18;Hausunterbau
+-661;767;105;3;Hausunterbau
+-661;768;105;3;Hausunterbau
+-661;769;105;3;Hausunterbau
+-661;770;105;3;Hausunterbau
+-661;771;105;3;Hausunterbau
+-661;772;105;3;Hausunterbau
+-661;773;105;22;Kellerbaugrube
+-661;774;105;22;Kellerbaugrube
+-661;775;105;22;Kellerbaugrube
+-661;776;105;22;Kellerbaugrube
+-661;777;105;22;Kellerbaugrube
+-661;778;105;22;Kellerbaugrube
+-661;779;105;22;Kellerbaugrube
+-661;780;105;22;Kellerbaugrube
+-661;781;105;22;Kellerbaugrube
+-661;782;105;22;Kellerbaugrube
+-661;783;105;22;Kellerbaugrube
+-661;784;105;22;Kellerbaugrube
+-661;785;105;22;Kellerbaugrube
+-661;786;105;22;Kellerbaugrube
+-661;787;105;22;Kellerbaugrube
+-661;788;105;22;Kellerbaugrube
+-661;789;105;22;Kellerbaugrube
+-661;790;105;22;Kellerbaugrube
+-661;791;105;22;Kellerbaugrube
+-661;792;105;22;Kellerbaugrube
+-661;793;105;22;Kellerbaugrube
+-661;794;105;22;Kellerbaugrube
+-661;795;105;22;Kellerbaugrube
+-661;796;105;22;Kellerbaugrube
+-661;797;105;22;Kellerbaugrube
+-661;798;105;22;Kellerbaugrube
+-661;799;105;22;Kellerbaugrube
+-661;800;105;22;Kellerbaugrube
+-661;801;105;22;Kellerbaugrube
+-661;802;105;22;Kellerbaugrube
+-661;803;105;22;Kellerbaugrube
+-661;804;105;22;Kellerbaugrube
+-661;805;105;22;Kellerbaugrube
+-661;806;105;22;Kellerbaugrube
+-661;807;105;22;Kellerbaugrube
+-661;808;105;3;Hausunterbau
+-661;809;105;3;Hausunterbau
+-661;810;105;3;Hausunterbau
+-661;811;105;3;Hausunterbau
+-661;812;105;3;Hausunterbau
+-661;813;105;5;Hausunterbau
+-661;814;105;22;Hausunterbau
+-661;829;123;4;Hausunterbau
+-660;751;121;5;Hausunterbau
+-660;766;105;17;Hausunterbau
+-660;767;105;3;Hausunterbau
+-660;768;105;3;Hausunterbau
+-660;769;105;3;Hausunterbau
+-660;770;105;3;Hausunterbau
+-660;771;105;3;Hausunterbau
+-660;772;105;3;Hausunterbau
+-660;773;105;22;Kellerbaugrube
+-660;774;105;22;Kellerbaugrube
+-660;775;105;22;Kellerbaugrube
+-660;776;105;22;Kellerbaugrube
+-660;777;105;22;Kellerbaugrube
+-660;778;105;22;Kellerbaugrube
+-660;779;105;22;Kellerbaugrube
+-660;780;105;22;Kellerbaugrube
+-660;781;105;22;Kellerbaugrube
+-660;782;105;22;Kellerbaugrube
+-660;783;105;22;Kellerbaugrube
+-660;784;105;22;Kellerbaugrube
+-660;785;105;22;Kellerbaugrube
+-660;786;105;22;Kellerbaugrube
+-660;787;105;22;Kellerbaugrube
+-660;788;105;22;Kellerbaugrube
+-660;789;105;22;Kellerbaugrube
+-660;790;105;22;Kellerbaugrube
+-660;791;105;22;Kellerbaugrube
+-660;792;105;22;Kellerbaugrube
+-660;793;105;22;Kellerbaugrube
+-660;794;105;22;Kellerbaugrube
+-660;795;105;22;Kellerbaugrube
+-660;796;105;22;Kellerbaugrube
+-660;797;105;22;Kellerbaugrube
+-660;798;105;22;Kellerbaugrube
+-660;799;105;22;Kellerbaugrube
+-660;800;105;22;Kellerbaugrube
+-660;801;105;22;Kellerbaugrube
+-660;802;105;22;Kellerbaugrube
+-660;803;105;22;Kellerbaugrube
+-660;804;105;22;Kellerbaugrube
+-660;805;105;22;Kellerbaugrube
+-660;806;105;22;Kellerbaugrube
+-660;807;105;22;Kellerbaugrube
+-660;808;105;3;Hausunterbau
+-660;809;105;3;Hausunterbau
+-660;810;105;4;Hausunterbau
+-660;811;105;3;Hausunterbau
+-660;812;105;3;Hausunterbau
+-660;813;105;6;Hausunterbau
+-660;814;105;22;Hausunterbau
+-660;829;124;3;Hausunterbau
+-659;751;120;6;Hausunterbau
+-659;766;105;17;Hausunterbau
+-659;767;105;2;Hausunterbau
+-659;768;105;3;Hausunterbau
+-659;769;105;3;Hausunterbau
+-659;770;105;3;Hausunterbau
+-659;771;105;3;Hausunterbau
+-659;772;105;3;Hausunterbau
+-659;773;105;22;Kellerbaugrube
+-659;774;105;22;Kellerbaugrube
+-659;775;105;22;Kellerbaugrube
+-659;776;105;22;Kellerbaugrube
+-659;777;105;22;Kellerbaugrube
+-659;778;105;22;Kellerbaugrube
+-659;779;105;22;Kellerbaugrube
+-659;780;105;22;Kellerbaugrube
+-659;781;105;22;Kellerbaugrube
+-659;782;105;22;Kellerbaugrube
+-659;783;105;22;Kellerbaugrube
+-659;784;105;22;Kellerbaugrube
+-659;785;105;22;Kellerbaugrube
+-659;786;105;22;Kellerbaugrube
+-659;787;105;22;Kellerbaugrube
+-659;788;105;22;Kellerbaugrube
+-659;789;105;22;Kellerbaugrube
+-659;790;105;22;Kellerbaugrube
+-659;791;105;22;Kellerbaugrube
+-659;792;105;22;Kellerbaugrube
+-659;793;105;22;Kellerbaugrube
+-659;794;105;22;Kellerbaugrube
+-659;795;105;22;Kellerbaugrube
+-659;796;105;22;Kellerbaugrube
+-659;797;105;22;Kellerbaugrube
+-659;798;105;22;Kellerbaugrube
+-659;799;105;22;Kellerbaugrube
+-659;800;105;22;Kellerbaugrube
+-659;801;105;22;Kellerbaugrube
+-659;802;105;22;Kellerbaugrube
+-659;803;105;22;Kellerbaugrube
+-659;804;105;22;Kellerbaugrube
+-659;805;105;22;Kellerbaugrube
+-659;806;105;22;Kellerbaugrube
+-659;807;105;22;Kellerbaugrube
+-659;808;105;3;Hausunterbau
+-659;809;105;3;Hausunterbau
+-659;810;105;3;Hausunterbau
+-659;811;105;3;Hausunterbau
+-659;812;105;3;Hausunterbau
+-659;813;105;3;Hausunterbau
+-659;814;105;22;Hausunterbau
+-659;829;123;4;Hausunterbau
+-658;751;120;6;Hausunterbau
+-658;752;121;5;Hausunterbau
+-658;753;121;5;Hausunterbau
+-658;754;120;6;Hausunterbau
+-658;755;120;7;Hausunterbau
+-658;756;121;6;Hausunterbau
+-658;757;120;7;Hausunterbau
+-658;758;120;7;Hausunterbau
+-658;759;120;7;Hausunterbau
+-658;760;121;6;Hausunterbau
+-658;761;121;6;Hausunterbau
+-658;762;119;8;Hausunterbau
+-658;763;119;8;Hausunterbau
+-658;764;120;7;Hausunterbau
+-658;765;121;6;Hausunterbau
+-658;766;105;18;Kellerbaugrube
+-658;767;105;17;Kellerbaugrube
+-658;768;105;17;Kellerbaugrube
+-658;769;105;18;Kellerbaugrube
+-658;770;105;17;Kellerbaugrube
+-658;771;105;22;Kellerbaugrube
+-658;772;105;22;Kellerbaugrube
+-658;773;105;22;Kellerbaugrube
+-658;774;105;22;Kellerbaugrube
+-658;775;105;22;Kellerbaugrube
+-658;776;105;22;Kellerbaugrube
+-658;777;105;22;Kellerbaugrube
+-658;778;105;22;Kellerbaugrube
+-658;779;105;22;Kellerbaugrube
+-658;780;105;22;Kellerbaugrube
+-658;781;105;22;Kellerbaugrube
+-658;782;105;22;Kellerbaugrube
+-658;783;105;22;Kellerbaugrube
+-658;784;105;22;Kellerbaugrube
+-658;785;105;22;Kellerbaugrube
+-658;786;105;22;Kellerbaugrube
+-658;787;105;22;Kellerbaugrube
+-658;788;105;22;Kellerbaugrube
+-658;789;105;22;Kellerbaugrube
+-658;790;105;22;Kellerbaugrube
+-658;791;105;22;Kellerbaugrube
+-658;792;105;22;Kellerbaugrube
+-658;793;105;22;Kellerbaugrube
+-658;794;105;22;Kellerbaugrube
+-658;795;105;22;Kellerbaugrube
+-658;796;105;22;Kellerbaugrube
+-658;797;105;22;Kellerbaugrube
+-658;798;105;22;Kellerbaugrube
+-658;799;105;22;Kellerbaugrube
+-658;800;105;22;Kellerbaugrube
+-658;801;105;22;Kellerbaugrube
+-658;802;105;22;Kellerbaugrube
+-658;803;105;22;Kellerbaugrube
+-658;804;105;22;Kellerbaugrube
+-658;805;105;22;Kellerbaugrube
+-658;806;105;22;Kellerbaugrube
+-658;807;105;22;Kellerbaugrube
+-658;808;105;22;Kellerbaugrube
+-658;809;105;22;Kellerbaugrube
+-658;810;105;22;Kellerbaugrube
+-658;811;105;22;Kellerbaugrube
+-658;812;105;22;Kellerbaugrube
+-658;813;105;22;Kellerbaugrube
+-658;814;105;22;Kellerbaugrube
+-658;815;118;9;Hausunterbau
+-658;816;119;8;Hausunterbau
+-658;817;118;9;Hausunterbau
+-658;818;119;8;Hausunterbau
+-658;819;120;7;Hausunterbau
+-658;820;120;7;Hausunterbau
+-658;821;120;7;Hausunterbau
+-658;822;122;5;Hausunterbau
+-658;823;122;5;Hausunterbau
+-658;824;124;3;Hausunterbau
+-658;825;124;3;Hausunterbau
+-658;826;124;3;Hausunterbau
+-658;827;125;2;Hausunterbau
+-658;828;124;3;Hausunterbau
+-658;829;122;5;Hausunterbau
+-657;770;121;6;Hausunterbau
+-657;810;118;9;Hausunterbau
+-638;810;115;12;Einzelne Baukollisionen
+-641;810;115;12;Einzelne Baukollisionen
+-638;809;115;12;Einzelne Baukollisionen
+-640;808;115;12;Einzelne Baukollisionen
+-638;807;115;12;Einzelne Baukollisionen
+-638;805;115;12;Einzelne Baukollisionen
+-638;804;115;12;Einzelne Baukollisionen
+-638;802;115;12;Einzelne Baukollisionen
+-636;798;115;12;Einzelne Baukollisionen
+-636;797;115;12;Einzelne Baukollisionen
+-638;796;115;12;Einzelne Baukollisionen
+-638;795;115;12;Einzelne Baukollisionen
+-636;794;115;12;Einzelne Baukollisionen
+-638;794;115;12;Einzelne Baukollisionen
+-636;793;115;12;Einzelne Baukollisionen
+-638;793;115;12;Einzelne Baukollisionen
+-638;792;115;12;Einzelne Baukollisionen
+-638;791;115;12;Einzelne Baukollisionen
+-636;790;115;12;Einzelne Baukollisionen
+-638;790;115;12;Einzelne Baukollisionen
+-636;789;115;12;Einzelne Baukollisionen
+-638;788;115;12;Einzelne Baukollisionen
+-640;788;115;12;Einzelne Baukollisionen
+-645;788;115;12;Einzelne Baukollisionen
+-638;787;115;12;Einzelne Baukollisionen
+-636;786;115;8;Einzelne Baukollisionen
+-638;786;115;11;Einzelne Baukollisionen
+-636;785;115;6;Einzelne Baukollisionen
+-638;785;115;10;Einzelne Baukollisionen
+-638;784;115;9;Einzelne Baukollisionen
+-636;782;115;2;Einzelne Baukollisionen
+-650;778;115;12;Einzelne Baukollisionen
+-655;778;115;12;Einzelne Baukollisionen
+-639;810;116;11;Einzelne Baukollisionen
+-642;810;116;11;Einzelne Baukollisionen
+-643;810;116;11;Einzelne Baukollisionen
+-646;810;116;11;Einzelne Baukollisionen
+-647;810;116;11;Einzelne Baukollisionen
+-645;808;116;11;Einzelne Baukollisionen
+-638;803;116;11;Einzelne Baukollisionen
+-638;799;116;11;Einzelne Baukollisionen
+-638;798;116;11;Einzelne Baukollisionen
+-640;798;116;11;Einzelne Baukollisionen
+-645;798;116;11;Einzelne Baukollisionen
+-638;797;116;11;Einzelne Baukollisionen
+-638;789;116;11;Einzelne Baukollisionen
+-650;788;116;11;Einzelne Baukollisionen
+-638;783;116;8;Einzelne Baukollisionen
+-640;778;116;11;Einzelne Baukollisionen
+-645;778;116;11;Einzelne Baukollisionen
+-640;810;117;10;Einzelne Baukollisionen
+-644;810;117;10;Einzelne Baukollisionen
+-645;810;117;10;Einzelne Baukollisionen
+-648;810;117;10;Einzelne Baukollisionen
+-650;810;117;10;Einzelne Baukollisionen
+-651;810;117;10;Einzelne Baukollisionen
+-652;810;117;10;Einzelne Baukollisionen
+-653;810;117;10;Einzelne Baukollisionen
+-638;808;117;10;Einzelne Baukollisionen
+-650;808;117;10;Einzelne Baukollisionen
+-638;806;117;10;Einzelne Baukollisionen
+-638;801;117;10;Einzelne Baukollisionen
+-638;800;117;10;Einzelne Baukollisionen
+-650;798;117;10;Einzelne Baukollisionen
+-655;798;117;10;Einzelne Baukollisionen
+-655;788;117;10;Einzelne Baukollisionen
+-638;782;117;7;Einzelne Baukollisionen
+-638;781;117;7;Einzelne Baukollisionen
+-638;777;117;8;Einzelne Baukollisionen
+-638;776;117;9;Einzelne Baukollisionen
+-645;772;117;10;Einzelne Baukollisionen
+-650;772;117;10;Einzelne Baukollisionen
+-649;810;118;9;Einzelne Baukollisionen
+-655;810;118;9;Einzelne Baukollisionen
+-655;808;118;9;Einzelne Baukollisionen
+-638;780;118;5;Einzelne Baukollisionen
+-638;779;118;6;Einzelne Baukollisionen
+-638;778;118;7;Einzelne Baukollisionen
+-638;775;118;8;Einzelne Baukollisionen
+-638;774;118;8;Einzelne Baukollisionen
+-638;773;118;9;Einzelne Baukollisionen
+-654;810;119;8;Einzelne Baukollisionen
+-656;810;119;8;Einzelne Baukollisionen
+-640;772;119;8;Einzelne Baukollisionen
+-655;772;119;8;Einzelne Baukollisionen
+-638;772;120;7;Einzelne Baukollisionen
+-647;770;120;6;Einzelne Baukollisionen
+-648;770;120;6;Einzelne Baukollisionen
+-638;770;121;6;Einzelne Baukollisionen
+-639;770;121;6;Einzelne Baukollisionen
+-640;770;121;6;Einzelne Baukollisionen
+-641;770;121;6;Einzelne Baukollisionen
+-642;770;121;6;Einzelne Baukollisionen
+-643;770;121;6;Einzelne Baukollisionen
+-644;770;121;6;Einzelne Baukollisionen
+-645;770;121;6;Einzelne Baukollisionen
+-646;770;121;6;Einzelne Baukollisionen
+-653;770;121;6;Einzelne Baukollisionen
+-654;770;121;6;Einzelne Baukollisionen
+-655;770;121;6;Einzelne Baukollisionen
+-656;770;121;6;Einzelne Baukollisionen
+-638;771;122;5;Einzelne Baukollisionen
+-650;770;122;5;Einzelne Baukollisionen
+-651;770;122;5;Einzelne Baukollisionen
+-652;770;122;5;Einzelne Baukollisionen
+-649;770;123;4;Einzelne Baukollisionen
+-640;801;126;1;Einzelne Baukollisionen
+-641;801;126;1;Einzelne Baukollisionen
+-642;801;126;1;Einzelne Baukollisionen
+-643;801;126;1;Einzelne Baukollisionen
+-644;801;126;1;Einzelne Baukollisionen
+-645;801;126;1;Einzelne Baukollisionen
+-646;801;126;1;Einzelne Baukollisionen
+-647;801;126;1;Einzelne Baukollisionen
+-648;801;126;1;Einzelne Baukollisionen
+-649;801;126;1;Einzelne Baukollisionen
+-650;801;126;1;Einzelne Baukollisionen
+-651;801;126;1;Einzelne Baukollisionen
+-652;801;126;1;Einzelne Baukollisionen
+-640;800;126;1;Einzelne Baukollisionen
+-641;800;126;1;Einzelne Baukollisionen
+-642;800;126;1;Einzelne Baukollisionen
+-643;800;126;1;Einzelne Baukollisionen
+-644;800;126;1;Einzelne Baukollisionen
+-645;800;126;1;Einzelne Baukollisionen
+-646;800;126;1;Einzelne Baukollisionen
+-647;800;126;1;Einzelne Baukollisionen
+-648;800;126;1;Einzelne Baukollisionen
+-649;800;126;1;Einzelne Baukollisionen
+-650;800;126;1;Einzelne Baukollisionen
+-651;800;126;1;Einzelne Baukollisionen
+-652;800;126;1;Einzelne Baukollisionen
+-640;799;126;1;Einzelne Baukollisionen
+-641;799;126;1;Einzelne Baukollisionen
+-642;799;126;1;Einzelne Baukollisionen
+-643;799;126;1;Einzelne Baukollisionen
+-644;799;126;1;Einzelne Baukollisionen
+-645;799;126;1;Einzelne Baukollisionen
+-646;799;126;1;Einzelne Baukollisionen
+-647;799;126;1;Einzelne Baukollisionen
+-648;799;126;1;Einzelne Baukollisionen
+-649;799;126;1;Einzelne Baukollisionen
+-650;799;126;1;Einzelne Baukollisionen
+-651;799;126;1;Einzelne Baukollisionen
+-652;799;126;1;Einzelne Baukollisionen
+-641;798;126;1;Einzelne Baukollisionen
+-642;798;126;1;Einzelne Baukollisionen
+-643;798;126;1;Einzelne Baukollisionen
+-644;798;126;1;Einzelne Baukollisionen
+-646;798;126;1;Einzelne Baukollisionen
+-647;798;126;1;Einzelne Baukollisionen
+-648;798;126;1;Einzelne Baukollisionen
+-649;798;126;1;Einzelne Baukollisionen
+-651;798;126;1;Einzelne Baukollisionen
+-652;798;126;1;Einzelne Baukollisionen
+-640;797;126;1;Einzelne Baukollisionen
+-641;797;126;1;Einzelne Baukollisionen
+-642;797;126;1;Einzelne Baukollisionen
+-643;797;126;1;Einzelne Baukollisionen
+-644;797;126;1;Einzelne Baukollisionen
+-645;797;126;1;Einzelne Baukollisionen
+-646;797;126;1;Einzelne Baukollisionen
+-647;797;126;1;Einzelne Baukollisionen
+-648;797;126;1;Einzelne Baukollisionen
+-649;797;126;1;Einzelne Baukollisionen
+-650;797;126;1;Einzelne Baukollisionen
+-651;797;126;1;Einzelne Baukollisionen
+-652;797;126;1;Einzelne Baukollisionen
+-640;796;126;1;Einzelne Baukollisionen
+-641;796;126;1;Einzelne Baukollisionen
+-642;796;126;1;Einzelne Baukollisionen
+-643;796;126;1;Einzelne Baukollisionen
+-644;796;126;1;Einzelne Baukollisionen
+-645;796;126;1;Einzelne Baukollisionen
+-646;796;126;1;Einzelne Baukollisionen
+-647;796;126;1;Einzelne Baukollisionen
+-648;796;126;1;Einzelne Baukollisionen
+-649;796;126;1;Einzelne Baukollisionen
+-650;796;126;1;Einzelne Baukollisionen
+-651;796;126;1;Einzelne Baukollisionen
+-652;796;126;1;Einzelne Baukollisionen
+-640;795;126;1;Einzelne Baukollisionen
+-641;795;126;1;Einzelne Baukollisionen
+-642;795;126;1;Einzelne Baukollisionen
+-643;795;126;1;Einzelne Baukollisionen
+-644;795;126;1;Einzelne Baukollisionen
+-645;795;126;1;Einzelne Baukollisionen
+-646;795;126;1;Einzelne Baukollisionen
+-647;795;126;1;Einzelne Baukollisionen
+-648;795;126;1;Einzelne Baukollisionen
+-649;795;126;1;Einzelne Baukollisionen
+-650;795;126;1;Einzelne Baukollisionen
+-651;795;126;1;Einzelne Baukollisionen
+-652;795;126;1;Einzelne Baukollisionen
+-640;794;126;1;Einzelne Baukollisionen
+-641;794;126;1;Einzelne Baukollisionen
+-642;794;126;1;Einzelne Baukollisionen
+-643;794;126;1;Einzelne Baukollisionen
+-644;794;126;1;Einzelne Baukollisionen
+-645;794;126;1;Einzelne Baukollisionen
+-646;794;126;1;Einzelne Baukollisionen
+-647;794;126;1;Einzelne Baukollisionen
+-648;794;126;1;Einzelne Baukollisionen
+-649;794;126;1;Einzelne Baukollisionen
+-650;794;126;1;Einzelne Baukollisionen
+-651;794;126;1;Einzelne Baukollisionen
+-652;794;126;1;Einzelne Baukollisionen
+-640;793;126;1;Einzelne Baukollisionen
+-641;793;126;1;Einzelne Baukollisionen
+-642;793;126;1;Einzelne Baukollisionen
+-643;793;126;1;Einzelne Baukollisionen
+-644;793;126;1;Einzelne Baukollisionen
+-645;793;126;1;Einzelne Baukollisionen
+-646;793;126;1;Einzelne Baukollisionen
+-647;793;126;1;Einzelne Baukollisionen
+-648;793;126;1;Einzelne Baukollisionen
+-649;793;126;1;Einzelne Baukollisionen
+-650;793;126;1;Einzelne Baukollisionen
+-651;793;126;1;Einzelne Baukollisionen
+-652;793;126;1;Einzelne Baukollisionen
+-640;792;126;1;Einzelne Baukollisionen
+-641;792;126;1;Einzelne Baukollisionen
+-642;792;126;1;Einzelne Baukollisionen
+-643;792;126;1;Einzelne Baukollisionen
+-644;792;126;1;Einzelne Baukollisionen
+-645;792;126;1;Einzelne Baukollisionen
+-646;792;126;1;Einzelne Baukollisionen
+-647;792;126;1;Einzelne Baukollisionen
+-648;792;126;1;Einzelne Baukollisionen
+-649;792;126;1;Einzelne Baukollisionen
+-650;792;126;1;Einzelne Baukollisionen
+-651;792;126;1;Einzelne Baukollisionen
+-652;792;126;1;Einzelne Baukollisionen
+-640;791;126;1;Einzelne Baukollisionen
+-641;791;126;1;Einzelne Baukollisionen
+-642;791;126;1;Einzelne Baukollisionen
+-643;791;126;1;Einzelne Baukollisionen
+-644;791;126;1;Einzelne Baukollisionen
+-645;791;126;1;Einzelne Baukollisionen
+-646;791;126;1;Einzelne Baukollisionen
+-647;791;126;1;Einzelne Baukollisionen
+-648;791;126;1;Einzelne Baukollisionen
+-649;791;126;1;Einzelne Baukollisionen
+-650;791;126;1;Einzelne Baukollisionen
+-651;791;126;1;Einzelne Baukollisionen
+-652;791;126;1;Einzelne Baukollisionen
+-640;790;126;1;Einzelne Baukollisionen
+-641;790;126;1;Einzelne Baukollisionen
+-642;790;126;1;Einzelne Baukollisionen
+-643;790;126;1;Einzelne Baukollisionen
+-644;790;126;1;Einzelne Baukollisionen
+-645;790;126;1;Einzelne Baukollisionen
+-646;790;126;1;Einzelne Baukollisionen
+-647;790;126;1;Einzelne Baukollisionen
+-648;790;126;1;Einzelne Baukollisionen
+-649;790;126;1;Einzelne Baukollisionen
+-650;790;126;1;Einzelne Baukollisionen
+-651;790;126;1;Einzelne Baukollisionen
+-652;790;126;1;Einzelne Baukollisionen
+-640;789;126;1;Einzelne Baukollisionen
+-641;789;126;1;Einzelne Baukollisionen
+-642;789;126;1;Einzelne Baukollisionen
+-643;789;126;1;Einzelne Baukollisionen
+-644;789;126;1;Einzelne Baukollisionen
+-645;789;126;1;Einzelne Baukollisionen
+-646;789;126;1;Einzelne Baukollisionen
+-647;789;126;1;Einzelne Baukollisionen
+-648;789;126;1;Einzelne Baukollisionen
+-649;789;126;1;Einzelne Baukollisionen
+-650;789;126;1;Einzelne Baukollisionen
+-651;789;126;1;Einzelne Baukollisionen
+-652;789;126;1;Einzelne Baukollisionen
+-641;788;126;1;Einzelne Baukollisionen
+-642;788;126;1;Einzelne Baukollisionen
+-643;788;126;1;Einzelne Baukollisionen
+-644;788;126;1;Einzelne Baukollisionen
+-646;788;126;1;Einzelne Baukollisionen
+-647;788;126;1;Einzelne Baukollisionen
+-648;788;126;1;Einzelne Baukollisionen
+-649;788;126;1;Einzelne Baukollisionen
+-651;788;126;1;Einzelne Baukollisionen
+-652;788;126;1;Einzelne Baukollisionen
+-640;787;126;1;Einzelne Baukollisionen
+-641;787;126;1;Einzelne Baukollisionen
+-642;787;126;1;Einzelne Baukollisionen
+-643;787;126;1;Einzelne Baukollisionen
+-644;787;126;1;Einzelne Baukollisionen
+-645;787;126;1;Einzelne Baukollisionen
+-646;787;126;1;Einzelne Baukollisionen
+-647;787;126;1;Einzelne Baukollisionen
+-648;787;126;1;Einzelne Baukollisionen
+-649;787;126;1;Einzelne Baukollisionen
+-650;787;126;1;Einzelne Baukollisionen
+-651;787;126;1;Einzelne Baukollisionen
+-652;787;126;1;Einzelne Baukollisionen
+-640;786;126;1;Einzelne Baukollisionen
+-641;786;126;1;Einzelne Baukollisionen
+-642;786;126;1;Einzelne Baukollisionen
+-643;786;126;1;Einzelne Baukollisionen
+-644;786;126;1;Einzelne Baukollisionen
+-645;786;126;1;Einzelne Baukollisionen
+-646;786;126;1;Einzelne Baukollisionen
+-647;786;126;1;Einzelne Baukollisionen
+-648;786;126;1;Einzelne Baukollisionen
+-649;786;126;1;Einzelne Baukollisionen
+-650;786;126;1;Einzelne Baukollisionen
+-651;786;126;1;Einzelne Baukollisionen
+-652;786;126;1;Einzelne Baukollisionen
+-640;785;126;1;Einzelne Baukollisionen
+-641;785;126;1;Einzelne Baukollisionen
+-642;785;126;1;Einzelne Baukollisionen
+-643;785;126;1;Einzelne Baukollisionen
+-644;785;126;1;Einzelne Baukollisionen
+-645;785;126;1;Einzelne Baukollisionen
+-646;785;126;1;Einzelne Baukollisionen
+-647;785;126;1;Einzelne Baukollisionen
+-648;785;126;1;Einzelne Baukollisionen
+-649;785;126;1;Einzelne Baukollisionen
+-650;785;126;1;Einzelne Baukollisionen
+-651;785;126;1;Einzelne Baukollisionen
+-652;785;126;1;Einzelne Baukollisionen
+-640;784;126;1;Einzelne Baukollisionen
+-641;784;126;1;Einzelne Baukollisionen
+-642;784;126;1;Einzelne Baukollisionen
+-643;784;126;1;Einzelne Baukollisionen
+-644;784;126;1;Einzelne Baukollisionen
+-645;784;126;1;Einzelne Baukollisionen
+-646;784;126;1;Einzelne Baukollisionen
+-647;784;126;1;Einzelne Baukollisionen
+-648;784;126;1;Einzelne Baukollisionen
+-649;784;126;1;Einzelne Baukollisionen
+-650;784;126;1;Einzelne Baukollisionen
+-651;784;126;1;Einzelne Baukollisionen
+-652;784;126;1;Einzelne Baukollisionen
+-640;783;126;1;Einzelne Baukollisionen
+-641;783;126;1;Einzelne Baukollisionen
+-642;783;126;1;Einzelne Baukollisionen
+-643;783;126;1;Einzelne Baukollisionen
+-644;783;126;1;Einzelne Baukollisionen
+-645;783;126;1;Einzelne Baukollisionen
+-646;783;126;1;Einzelne Baukollisionen
+-647;783;126;1;Einzelne Baukollisionen
+-648;783;126;1;Einzelne Baukollisionen
+-649;783;126;1;Einzelne Baukollisionen
+-650;783;126;1;Einzelne Baukollisionen
+-651;783;126;1;Einzelne Baukollisionen
+-652;783;126;1;Einzelne Baukollisionen
+-640;782;126;1;Einzelne Baukollisionen
+-641;782;126;1;Einzelne Baukollisionen
+-642;782;126;1;Einzelne Baukollisionen
+-643;782;126;1;Einzelne Baukollisionen
+-644;782;126;1;Einzelne Baukollisionen
+-645;782;126;1;Einzelne Baukollisionen
+-646;782;126;1;Einzelne Baukollisionen
+-647;782;126;1;Einzelne Baukollisionen
+-648;782;126;1;Einzelne Baukollisionen
+-649;782;126;1;Einzelne Baukollisionen
+-650;782;126;1;Einzelne Baukollisionen
+-651;782;126;1;Einzelne Baukollisionen
+-652;782;126;1;Einzelne Baukollisionen
+-640;781;126;1;Einzelne Baukollisionen
+-641;781;126;1;Einzelne Baukollisionen
+-642;781;126;1;Einzelne Baukollisionen
+-643;781;126;1;Einzelne Baukollisionen
+-644;781;126;1;Einzelne Baukollisionen
+-645;781;126;1;Einzelne Baukollisionen
+-646;781;126;1;Einzelne Baukollisionen
+-647;781;126;1;Einzelne Baukollisionen
+-648;781;126;1;Einzelne Baukollisionen
+-649;781;126;1;Einzelne Baukollisionen
+-650;781;126;1;Einzelne Baukollisionen
+-651;781;126;1;Einzelne Baukollisionen
+-652;781;126;1;Einzelne Baukollisionen
+-640;780;126;1;Einzelne Baukollisionen
+-641;780;126;1;Einzelne Baukollisionen
+-642;780;126;1;Einzelne Baukollisionen
+-643;780;126;1;Einzelne Baukollisionen
+-644;780;126;1;Einzelne Baukollisionen
+-645;780;126;1;Einzelne Baukollisionen
+-646;780;126;1;Einzelne Baukollisionen
+-647;780;126;1;Einzelne Baukollisionen
+-648;780;126;1;Einzelne Baukollisionen
+-649;780;126;1;Einzelne Baukollisionen
+-650;780;126;1;Einzelne Baukollisionen
+-651;780;126;1;Einzelne Baukollisionen
+-652;780;126;1;Einzelne Baukollisionen
+-640;779;126;1;Einzelne Baukollisionen
+-641;779;126;1;Einzelne Baukollisionen
+-642;779;126;1;Einzelne Baukollisionen
+-643;779;126;1;Einzelne Baukollisionen
+-644;779;126;1;Einzelne Baukollisionen
+-645;779;126;1;Einzelne Baukollisionen
+-646;779;126;1;Einzelne Baukollisionen
+-647;779;126;1;Einzelne Baukollisionen
+-648;779;126;1;Einzelne Baukollisionen
+-649;779;126;1;Einzelne Baukollisionen
+-650;779;126;1;Einzelne Baukollisionen
+-651;779;126;1;Einzelne Baukollisionen
+-652;779;126;1;Einzelne Baukollisionen
