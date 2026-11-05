@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const $=s=>document.querySelector(s),D=JSON.parse($('#data').textContent),S=D.storage_system;
+  const $=s=>document.querySelector(s),D=window.BLACKTHORN_DATA,S=D.storage_system;
   const fmt=n=>n.toLocaleString('de-DE');
   const row=(name,p,extra='')=>`<div class="sys-mat-row"><b>${name}</b><span>X ${p[0]} / Y ${p[1]} / Z ${p[2]}${extra?' · '+extra:''}</span></div>`;
   $('#sysBulk').innerHTML=S.bulk.map(b=>row(b.label,b.loose,'27 Stacks lose · 81 Shulkerplätze darunter')).join('');

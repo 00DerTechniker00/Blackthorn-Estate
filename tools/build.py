@@ -217,6 +217,10 @@ Die Licht- und Erreichbarkeitszahlen unter `checks` sind historische Daten, kein
 
 Steinsäger: geeignete Steintreppen ergeben eine Treppe je Vollblock, gegenüber vier Treppen aus sechs Vollblöcken an der Werkbank. Holztreppen gehören nicht zu diesen Rezepten. Steinplatten liefern bei beiden Verfahren zwei Stück je Vollblock.
 
+Die Website gliedert ihre 14 Ansichten in fünf Bereichscontainer. Haupt- und Untertabs unterstützen ARIA-Rollen, eindeutige Beschriftungen und Pfeiltasten, Home und End. Daten liegen in blueprint-data.js; die Originaldaten bleiben in blueprint.json. model-data.js wird erst beim Start des Textur-Viewers geladen. Beide Skripte funktionieren ohne lokalen Webserver. Zum Weitergeben müssen HTML und Begleitdateien zusammenbleiben.
+
+Geprüft sind IDs, ARIA-Verweise, Überschriftenfolge, Datenidentität, Tastaturfunktionen und JavaScript-Syntax. Ein Browsertest konnte wegen der Betriebssystembeschränkung beim Chromium-Start nicht durchgeführt werden.
+
 Ingame-Lauftest, Türen-/Leitertest und aktuelle Lichtsimulation sind offen.
 """
     (ROOT/'analysebericht.md').write_text(report)
@@ -226,6 +230,7 @@ Ingame-Lauftest, Türen-/Leitertest und aktuelle Lichtsimulation sind offen.
         'stair_clearance':clearance,'stair_separation':d['structure']['stair_separation'],
         'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],
         'litematics':[{'file':m['source'],'sha256':m['sha256'],'blocks':m['total_blocks'],'metadata_blocks_match':True} for m in modules['modules']],
+        'website_checks':{'aria_references':True,'heading_order':True,'keyboard_logic':True,'data_identity':True,'browser_status':'Chromium-Start durch Betriebssystembeschränkung blockiert'},
         'browser_render_verified':False,'in_game_walk_test':False,'in_game_redstone_verified':False}
     (ROOT/'pruefprotokoll.json').write_text(json.dumps(protocol,ensure_ascii=False,indent=2)+'\n')
 

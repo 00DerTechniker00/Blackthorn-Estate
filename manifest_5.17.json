@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 1869,
-      "sha256": "68e5a742b60fc9002b6a938225f7c45cc1c637df1199f999ca453ed095176038"
+      "bytes": 2526,
+      "sha256": "671fbcd9752da3c4b5620cf0881af5ce739695900ff81c96548837e451282822"
     },
     {
       "path": "aenderungen_5.10_zu_5.11.csv",
@@ -23,13 +23,13 @@
     },
     {
       "path": "analysebericht.md",
-      "bytes": 1776,
-      "sha256": "7e7861bb75ab0e09b241a6c2154626766304a1bea6ae193e816b7891bb0f3b3c"
+      "bytes": 2433,
+      "sha256": "43dd1f51297ffa2deea88faf0332a7764ea9490b6c134845c8358999bf1682a6"
     },
     {
       "path": "app.js",
-      "bytes": 63623,
-      "sha256": "d79d2d95ee0dd77d5c6f9016eac9114785aeddf92181e2fcd15b14a7b22bbca2"
+      "bytes": 63741,
+      "sha256": "70f2d1a115b3ec010fb1732af0e279f617586c823d750588dd758d7f62cc1246"
     },
     {
       "path": "archive/README.md",
@@ -1632,6 +1632,11 @@
       "sha256": "7af8664f972c57a32cdd5ffc11443260a96e572d03f5943594de911a2dffdef8"
     },
     {
+      "path": "blueprint-data.js",
+      "bytes": 4879900,
+      "sha256": "ed571e239505df8e15b64122265145966e740dfdcd9b120c9fa9f9f807224278"
+    },
+    {
       "path": "blueprint.json",
       "bytes": 4879876,
       "sha256": "68bcb4be017bc915232286c213216af8467bd32a472fb4f757128a21d17f7035"
@@ -1648,8 +1653,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5526785,
-      "sha256": "38ede58062f1ab927b87ccd371d80fe2aaba34f6ea736cd0519fc8643a60954c"
+      "bytes": 50572,
+      "sha256": "e6d7c6b055ffad5b9efa96344af6793e2165c87fd8b0e5c0b20724def819bd6f"
     },
     {
       "path": "lager_kategorien.csv",
@@ -1703,18 +1708,23 @@
     },
     {
       "path": "minecraft_viewer.js",
-      "bytes": 3517,
-      "sha256": "55bced9a092814945025d6641d7f4067f95cebb0a1bce4885ae90dda704a99c3"
+      "bytes": 3993,
+      "sha256": "45b9171cea90deb053d27b184d5551ed23677b6c7c57e9f17b6ce66f92a90212"
+    },
+    {
+      "path": "model-data.js",
+      "bytes": 600116,
+      "sha256": "49cd790e743599e160c7eb678d230c47fc6abc482ea78552d36b7db8dd6ea9d5"
     },
     {
       "path": "progress.js",
-      "bytes": 5199,
-      "sha256": "ec42cf54766239ae4693bb9f3e86b3bda13000b5c8ecac15bc12ca6b235b21c8"
+      "bytes": 5166,
+      "sha256": "eef737ef6ec1b284168d753029f1b6d2bb08869c3caa5e33eea9b801cea156db"
     },
     {
       "path": "pruefprotokoll.json",
-      "bytes": 4796,
-      "sha256": "d72ff8dc76a3919bdd6600f9e0d80f7bba71e8e4a2ef07fecde5d8193a8e273f"
+      "bytes": 5017,
+      "sha256": "c6fff880a225ed5f163c23818803349d5a11704f01915a3d37ebf4a8ce89e738"
     },
     {
       "path": "source-data/README.md",
@@ -1848,18 +1858,18 @@
     },
     {
       "path": "steps.js",
-      "bytes": 4825,
-      "sha256": "7fad03674c3668d5a6a8fd445898c5d34a93c3b7921d43c8d7e80307f8858255"
+      "bytes": 4813,
+      "sha256": "e79826127166213bcaedb0490fcb8a6ea98100b2829bb8dad144d2d044b409e7"
     },
     {
       "path": "styles.css",
-      "bytes": 32332,
-      "sha256": "29ae8c2d9efcd97f15f9b3dbb7ce74cd921762c6ced795b9a74732ceaf1d15b2"
+      "bytes": 32702,
+      "sha256": "bd789689fa06a8ae0f84abd1cf5ca66319e48475ca53f57ebba45ff66d66963b"
     },
     {
       "path": "system.js",
-      "bytes": 3745,
-      "sha256": "6ecbf295c23117e6f3bd23fafb29325968259d7bd5860e8dd5d23b1dbdf35766"
+      "bytes": 3733,
+      "sha256": "7b156e345471f612b98a57277f4df6641fc6ed74385922e234c1f27814aecdff"
     },
     {
       "path": "technik_inbetriebnahme.md",
@@ -1888,13 +1898,13 @@
     },
     {
       "path": "terrain.js",
-      "bytes": 10450,
-      "sha256": "127601dead6653d6c89f02b7bb3f59bbde68d0f0430ea12683aabdd18a0345c9"
+      "bytes": 10438,
+      "sha256": "1b419f2a7b6f840ddaa0d70bf9666fdd42bb68d6a6933f8673afb4e1bf59a062"
     },
     {
       "path": "tools/build.py",
-      "bytes": 16570,
-      "sha256": "a24157cc012a711d6bc400df2f5979f356004c72ebd30826a3cd2f35de193993"
+      "bytes": 17420,
+      "sha256": "86da27f6b528ad0ad370110a964b60210a78ab7428a4cf5a694bcb5d3f497183"
     },
     {
       "path": "tools/export_preview.mjs",
@@ -2028,13 +2038,18 @@
     },
     {
       "path": "tools/web.py",
-      "bytes": 35531,
-      "sha256": "5af6e86759c1c47b8c307c43b560b8dfa42bca0576afff3c7f6c0613b0bd5c8e"
+      "bytes": 36679,
+      "sha256": "43365443497e94aa21d4fcd2166c7214df548e800d2aa09227fc15d8d77bb9f6"
+    },
+    {
+      "path": "tools/web_accessibility.py",
+      "bytes": 2838,
+      "sha256": "3280e103123439e672c05b7ca7916a2c9ab5756d35c043d5ed19d18fb43e9d8d"
     },
     {
       "path": "ui.js",
-      "bytes": 6438,
-      "sha256": "017e4d62e638d148e7451c9520cc161015df438403f09e938cc81e75da2edc74"
+      "bytes": 7304,
+      "sha256": "c7b87d1360f666540faf0a42fda561a420667d01373e507aa896fbbd9d43903c"
     },
     {
       "path": "vegetation_entfernen.csv",

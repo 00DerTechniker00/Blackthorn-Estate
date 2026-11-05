@@ -1,7 +1,7 @@
 /* Complete backups; compatible 5.16 progress retains only unchanged positions/groups. */
 (() => {
   'use strict';
-  const data=JSON.parse(document.getElementById('data').textContent),compat=data.progress_compat;
+  const data=window.BLACKTHORN_DATA,compat=data.progress_compat;
   const KEY='blackthorn:5.17:progress',groups=new Set(data.groups),validBlocks=new Set(),changed=new Set(compat.changed_positions);
   for(const [y,z,x,n] of data.runs)for(let i=0;i<n;i++)validBlocks.add(`${x+i},${y},${z}`);
   const empty=()=>({groups:{},people:{},blocks:{},inventory:{}}),state=empty();let storageOK=true,initialMigration=null;

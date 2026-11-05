@@ -1,9 +1,9 @@
 (() => {
   'use strict';
-  const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],D=JSON.parse($('#data').textContent),safe=BT.escape;
+  const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],D=window.BLACKTHORN_DATA,safe=BT.escape;
   const routes={overview:['start','Start'], '3d':['atlas','Bauatlas'],structure:['atlas','Hausstruktur'],plan:['atlas','Ebenenplan'],steps:['atlas','Baubegleitung'],rooms:['atlas','Raumbuch'],viewer:['atlas','Minecraft-Texturen'],lighting:['atlas','Leuchtenplan'],terrain:['terrain','Gelände & Erdarbeiten'],storage:['storage','Lagerbestände'],system:['storage','Sortierung & Technik'],build:['organize','Baufortschritt'],material:['organize','Materialbedarf'],downloads:['organize','Dateien & Berichte']};
   const groupNames={start:'ÜBERSICHT',atlas:'BAUATLAS',terrain:'GELÄNDE',storage:'LAGER',organize:'ORGANISATION'};
-  let menuOpen=false;
+  let menuOpen=false,keyboardRouting=false;
   function menu(open,focus=false){menuOpen=open;document.documentElement.classList.toggle('nav-open',open);$('#navScrim').hidden=!open;$('#menuButton').setAttribute('aria-expanded',String(open));$('#sidebar').inert=matchMedia('(max-width:760px)').matches&&!open;if(open)$('#tabs button').focus?.({preventScroll:true});if(!open&&focus)$('#menuButton').focus?.();}
   $('#menuButton').onclick=()=>menu(!menuOpen);$('#navScrim').onclick=()=>menu(false,true);
   window.addEventListener('keydown',e=>{if(e.key==='Escape'&&menuOpen)menu(false,true);});
@@ -12,12 +12,28 @@
   function paint(){const id=active(),[group,title]=routes[id]||routes.overview;
     $('#viewTitle').textContent=title;$('#viewEyebrow').textContent='BLACKTHORN ESTATE / '+groupNames[group];
     document.title=title+' · Blackthorn Estate';
-    $$('#tabs button').forEach(b=>{const on=b.dataset.group===group;b.classList.toggle('on',on);b.setAttribute('aria-current',on?'page':'false');});
+    $$('#tabs button').forEach(b=>{const on=b.dataset.group===group;b.classList.toggle('on',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1;});
     $$('#subtabs [data-subgroup]').forEach(row=>{row.hidden=row.dataset.subgroup!==group;});$('#subtabs').hidden=group==='start';
-    $$('#subtabs button').forEach(b=>{const on=b.dataset.tab===id;b.classList.toggle('on',on);b.setAttribute('aria-current',on?'page':'false');});
-    const wasOpen=menuOpen;menu(false);if(wasOpen)$('#main').focus?.({preventScroll:true});
+    $$('#subtabs button').forEach(b=>{const on=b.dataset.tab===id;b.classList.toggle('on',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1;});
+    if(!keyboardRouting){const wasOpen=menuOpen;menu(false);if(wasOpen)$('#main').focus?.({preventScroll:true});}
     if(id==='lighting')renderLights();if(id==='3d')syncFloor();
   }
+  function keyboardTabs(list,vertical=false){
+    list.addEventListener('keydown',e=>{
+      const buttons=[...list.querySelectorAll('[role="tab"]')],index=buttons.indexOf(e.target);
+      if(index<0)return;
+      const previous=vertical?'ArrowUp':'ArrowLeft',next=vertical?'ArrowDown':'ArrowRight';
+      let target;
+      if(e.key===previous)target=(index+buttons.length-1)%buttons.length;
+      else if(e.key===next)target=(index+1)%buttons.length;
+      else if(e.key==='Home')target=0;
+      else if(e.key==='End')target=buttons.length-1;
+      else return;
+      e.preventDefault();keyboardRouting=true;try{buttons[target].click();}finally{keyboardRouting=false;}buttons[target].focus();
+    });
+  }
+  keyboardTabs($('#tabs'),true);
+  $$('#subtabs [role="tablist"]').forEach(list=>keyboardTabs(list));
   window.addEventListener('bt:tab',paint);
   function saved(){const ok=BT.storageOK(),el=$('#globalSaveStatus');el.classList.toggle('error',!ok);
     el.innerHTML='<span class="status-dot"></span>'+(ok?'Speichert lokal':'Backup erforderlich');

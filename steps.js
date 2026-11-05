@@ -2,7 +2,7 @@
 (() => {
 'use strict';
 const $=s=>document.querySelector(s);
-const d=JSON.parse($('#data').textContent);
+const d=window.BLACKTHORN_DATA;
 const zones=d.storage_zones;
 const reg=d.reg, runs=d.runs, byY=new Map();
 let n=0;

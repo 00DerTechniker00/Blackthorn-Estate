@@ -1,7 +1,7 @@
 /* A single surveyed coordinate grid powers comparison, column work and profiles. */
 (() => {
   'use strict';
-  const $=s=>document.querySelector(s),D=JSON.parse($('#data').textContent),T=D.terrain,safe=BT.escape;
+  const $=s=>document.querySelector(s),D=window.BLACKTHORN_DATA,T=D.terrain,safe=BT.escape;
   const [x0,x1,z0,z1]=T.bounds,w=x1-x0+1,h=z1-z0+1,canvas=$('#geologyCanvas'),ctx=canvas.getContext('2d');
   const bitmap=document.createElement('canvas');bitmap.width=w;bitmap.height=h;const bc=bitmap.getContext('2d');
   const work=new Map(T.work.map(r=>[r[0]+','+r[1],r])),spans={cut:new Map(),fill:new Map()};

@@ -230,6 +230,13 @@
       "metadata_blocks_match": true
     }
   ],
+  "website_checks": {
+    "aria_references": true,
+    "heading_order": true,
+    "keyboard_logic": true,
+    "data_identity": true,
+    "browser_status": "Chromium-Start durch Betriebssystembeschränkung blockiert"
+  },
   "browser_render_verified": false,
   "in_game_walk_test": false,
   "in_game_redstone_verified": false

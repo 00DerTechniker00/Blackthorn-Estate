@@ -4,20 +4,31 @@
   const $=s=>document.querySelector(s),frame=$('#textureViewer'),status=$('#textureViewerStatus');
   const origin='https://structure-viewer.ewanhowell.com',version='26.3',pending=new Map();
   let sequence=0,ready=false,started=false,packsReady=false,requested='house';
-  const models={house:{element:'structureNbt',name:'Blackthorn Estate · Revision '+JSON.parse($('#data').textContent).meta.version+'.nbt',url:'blackthorn_estate_'+JSON.parse($('#data').textContent).meta.version+'.nbt'},copper:{element:'litematicCopper',name:'Copper Golem MIS Cherry.litematic',url:'litematics/Copper Golem MIS Cherry.litematic'},filter:{element:'litematicFilter',name:'Golem MIS Dustless Filter.litematic',url:'litematics/Golem MIS Dustless Filter.litematic'}};
+  const models={house:{element:'structureNbt',name:'Blackthorn Estate · Revision '+window.BLACKTHORN_DATA.meta.version+'.nbt',url:'blackthorn_estate_'+window.BLACKTHORN_DATA.meta.version+'.nbt'},copper:{element:'litematicCopper',name:'Copper Golem MIS Cherry.litematic',url:'litematics/Copper Golem MIS Cherry.litematic'},filter:{element:'litematicFilter',name:'Golem MIS Dustless Filter.litematic',url:'litematics/Golem MIS Dustless Filter.litematic'}};
   const say=(message,error=false)=>{status.textContent=message;status.classList.toggle('error',error);};
   function send(type,body,transfer=[]){return new Promise((resolve,reject)=>{
     const id=++sequence,timer=setTimeout(()=>{pending.delete(id);reject(Error('Der Minecraft-Viewer hat nicht rechtzeitig geantwortet.'));},90000);
     pending.set(id,message=>{clearTimeout(timer);if(message.ok)resolve(message);else reject(Error(message.error||'Der Minecraft-Viewer konnte die Ansicht nicht laden.'));});
     frame.contentWindow.postMessage({source:'structure-viewer',type,id,...body},origin,transfer);
   });}
+  let payloadReady;
+  function loadPayload(){
+    if(window.BLACKTHORN_MODELS)return Promise.resolve();
+    if(!payloadReady)payloadReady=new Promise((resolve,reject)=>{
+      const script=document.createElement('script');script.src='model-data.js';
+      script.onload=resolve;script.onerror=()=>{payloadReady=null;script.remove();reject(Error('Modell-Daten konnten nicht geladen werden.'));};
+      document.head.appendChild(script);
+    });
+    return payloadReady;
+  }
   async function loadModel(key){
     requested=key;const model=models[key];if(!model)return;
     if(!ready){say('Der Structure Viewer verbindet sich …');return;}
     try{
       if(!packsReady){say('Minecraft 26.3 Blockmodelle werden geladen …');await send('loadPacks',{base:version});packsReady=true;}
       say(model.name+' wird geladen …');
-      const encoded=$('#'+model.element).textContent.trim(),binary=atob(encoded),bytes=new Uint8Array(binary.length);
+      await loadPayload();
+      const encoded=window.BLACKTHORN_MODELS[model.element],binary=atob(encoded),bytes=new Uint8Array(binary.length);
       for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
       await send('loadStructure',{data:bytes,name:model.name,version},[bytes.buffer]);
       say('Fertig: '+model.name+' · drehen, zoomen und erkunden.');

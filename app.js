@@ -1,7 +1,7 @@
 (() => {
 'use strict';
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-const D = JSON.parse(document.getElementById('data').textContent);
+const D = window.BLACKTHORN_DATA;
 const fmt = n => Number(n).toLocaleString('de-DE');
 const LS = {
   get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
@@ -151,6 +151,9 @@ function applyTheme(t) {
 
 /* ---------- Tabs ---------- */
 function showTab(id) {
+  const panel=$('#tab-'+id);if(!panel)return;
+  $$('.tab-group').forEach(g=>g.hidden=!g.contains(panel));
+  $$('.tab').forEach(t=>t.hidden=t!==panel);
   $$('.tab').forEach(t => t.classList.toggle('on', t.id === 'tab-' + id));
   $$('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === id));
   if (id === '3d') ensureGL();
