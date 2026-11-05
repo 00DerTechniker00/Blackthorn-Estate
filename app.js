@@ -61,7 +61,19 @@ function colorOf(id) {
   if (COLORS[id]) return COLORS[id];
   const m = id.match(/^(.*)_(stairs|slab|wall)$/);
   if (m) { const b = m[1]; return COLORS[b] || COLORS[b + 's'] || COLORS[b + '_planks'] || '#999999'; }
-  return '#ff00ff';
+  if(/oxidized_copper/.test(id))return '#669b85';
+  if(/copper/.test(id))return '#b77a55';
+  if(/cherry/.test(id))return /leaves/.test(id)?'#9a6677':'#b77b76';
+  if(/deepslate|blackstone|basalt/.test(id))return '#55545a';
+  if(/stone|tuff|andesite|diorite|granite|cobble/.test(id))return '#85847e';
+  if(/glass|ice/.test(id))return '#c4e0e6';
+  if(/oak|spruce|birch|jungle|wood|planks|log|stripped/.test(id))return '#94734e';
+  if(/white|quartz|bone/.test(id))return '#d6d1c5';
+  if(/redstone|red_/.test(id))return '#a34d41';
+  if(/iron|chain|hopper|rail/.test(id))return '#969994';
+  const palette=['#788d80','#887b69','#73818b','#988476','#778c91','#8c807b','#818b70','#8a8790'];
+  let hash=2166136261;for(let i=0;i<id.length;i++)hash=Math.imul(hash^id.charCodeAt(i),16777619);
+  return palette[(hash>>>0)%palette.length];
 }
 const CUSTOM = {
       hopper:[],waxed_copper_chest:[[1,0,1,15,14,15]],redstone_wire:[[0,0,0,16,1,16]],
@@ -157,6 +169,8 @@ window.__focusPlan=(x,y,z)=>{planSetMode('y');PL.val=y;$('#planRange').value=y;s
    3D
    ===================================================================== */
 let GL = null;
+let renderScheduled=false, dirtyValue=false;
+function queueRender(){if(renderScheduled)return;renderScheduled=true;requestAnimationFrame(()=>{renderScheduled=false;loop();});}
 const S3 = { ymax: BB[3], single: false, terrain: true, hidden: new Set(), cut: BB[3] };
 const SHADE = { up: 1, down: .5, north: .74, south: .92, east: .8, west: .66 };
 const FACES = {
@@ -336,6 +350,8 @@ function ensureGL() {
         for(let i=0;i<8;i++){B.p.push(x+(i&1?.51:-.51),y+(i&2?.51:-.51),z+(i&4?.51:-.51));B.c.push(1,.2,.08);B.u.push(.5,.5);}
         GL.hl.mesh=uploadGeometry(B);
       }}}};
+    dirtyValue=true;
+    Object.defineProperty(GL,'dirty',{get(){return dirtyValue;},set(value){dirtyValue=!!value;if(dirtyValue)queueRender();}});
     gl.enable(gl.DEPTH_TEST); gl.disable(gl.CULL_FACE);
     bindControls(cv); buildGroupPanel(); resize3d();
     new ResizeObserver(resize3d).observe(cv.parentElement);
@@ -400,7 +416,6 @@ function applyCut() {
   if(GL) GL.dirty=true;
 }
 function loop() {
-  requestAnimationFrame(loop);
   if(!GL || !GL.dirty || !$('#tab-3d').classList.contains('on')) return;
   GL.dirty=false; const gl=GL.gl, dark=css('--mode')==='dark';
   gl.clearColor(...(dark?[.05,.075,.06,1]:[.81,.85,.85,1])); gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);

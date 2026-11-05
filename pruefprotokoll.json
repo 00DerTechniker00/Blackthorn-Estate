@@ -1,14 +1,22 @@
 {
-  "revision": "5.12",
-  "status": "Generiert; externe Browseransicht nicht visuell verifiziert.",
-  "basis": "Revision 5.11; unverändertes Blockmodell",
-  "strukturdatei": "blackthorn_estate_5.12.nbt",
-  "blockpositionen": 132070,
-  "palette_eintraege": 164,
-  "viewer_version": "26.3",
-  "externer_viewer_visuell_verifiziert": false,
-  "grund": "In dieser Arbeitsumgebung konnte kein Browser für den externen Embed gestartet werden.",
-  "fortschritt_5_11_kompatibel": true,
-  "modellpositionen_geaendert": 0,
-  "inventardaten_in_nbt": false
+  "revision": "5.13",
+  "status": "Bauplan und Website erzeugt; externe Ansicht und Redstone nicht im Spiel abgenommen.",
+  "base_revision": "5.12",
+  "roof_lantern_blocks": 85,
+  "litematics": [
+    {
+      "file": "Copper Golem MIS Cherry.litematic",
+      "sha256": "1d127741d3d1d874a162b1978e84afd282e7f508384721ee097f637f5386f85b",
+      "blocks": 4919,
+      "metadata_blocks_match": true
+    },
+    {
+      "file": "Golem MIS Dustless Filter.litematic",
+      "sha256": "795e4c199bd558fbce7969dd967e29c28ad7087bb1e82ae8b007903340c8f6ca",
+      "blocks": 4543,
+      "metadata_blocks_match": true
+    }
+  ],
+  "browser_render_verified": false,
+  "in_game_redstone_verified": false
 }

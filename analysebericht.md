@@ -1,11 +1,14 @@
-# Revision 5.12 · Minecraft-Strukturviewer
+# Revision 5.13 · Dachlaterne und Lagertechnik
 
-Revision 5.12 macht das vollständige Anwesen mit den originalen Java-26.3-Blockmodellen und -Texturen darstellbar. Dazu exportiert der Generator sämtliche 132.070 Positionen des bestehenden Modells als gzip-komprimierte Minecraft-Strukturdatei. Der Export umfasst Palette, Blocknamen, Eigenschaften/Blockstates und den ursprünglichen Weltursprung X −791 / Y 105 / Z 703. Er enthält keine erfundenen Inventardaten.
+Die Große Halle erhält eine verglaste Dachlaterne mit steinernem Sockel, hellem Gesims und oxidiertem Kupferabschluss. Die neue Konstruktion umfasst 85 echte Blockpositionen und steht in der Baugruppenliste `dach_schmuck`. Revision 5.12 bleibt im Git-Tag `v5.12` erhalten. Der Fortschrittsimport übernimmt alte Häkchen und setzt die geänderte Dachgruppe zurück.
 
-Im Unterbereich **Bauatlas → Minecraft-Texturen** wird die Datei erst nach einem bewussten Klick an den externen Structure Viewer übergeben. Der Viewer kann `.nbt` direkt laden und bietet freie 3D-Ansicht sowie Rundgang. Beim eingebetteten Aufruf nutzt die Seite die dokumentierte `postMessage`-Schnittstelle, wartet auf das Bereitschaftssignal und lädt zuerst die Minecraft-Daten für 26.3. Die externe Seite erhält damit dieselben Blockdaten, die auch in der mitgelieferten NBT-Datei stehen. Ein Link zum manuellen Herunterladen und Öffnen bleibt sichtbar.
+## Eingebundene Litematics
 
-Die Transferinformation steht direkt vor dem Viewer. Die Nutzerseite weist darauf hin, dass die Daten an `structure-viewer.ewanhowell.com` übergeben werden und die Minecraft-Texturen eine Internetverbindung brauchen. Andere Atlas-Ansichten bleiben lokal. Die Website lädt den externen Renderer nicht beim Öffnen der Startseite.
+- **Copper Golem MIS Cherry**: 4,919 Blockpositionen, 27 × 24 × 27 Blöcke, 56 Entities, 1104 Blockentities.
+- **Golem MIS Dustless Filter**: 4,543 Blockpositionen, 27 × 22 × 27 Blöcke, 60 Entities, 1092 Blockentities.
 
-Das Gebäude, die 236 Laternen, der neue Garten, das Gelände, die Materiallisten und Erdarbeiten sind gegenüber 5.11 unverändert. Die Kompatibilität des Fortschritts speichert exakt den 5.11-Fingerabdruck und eine leere Änderungsmenge; Häkchen, Zuständigkeiten und Lagernotizen bleiben deshalb erhalten. `aenderungen_5.11_zu_5.12.csv` dokumentiert die fehlenden Modelländerungen.
+Die Dateien bleiben unverändert und werden im Textur-Viewer direkt als `.litematic` geladen. So bleiben Kupfergolems, Truhen, Hopper, Schilder und deren NBT-Daten in der Vorlage erhalten. Die Platzierung ist als neue Technikhalle unter Keller 3 vorgeschlagen: MIS bei X −715 / Y 80 / Z 770, Dustless Filter bei X −685 / Y 82 / Z 770, ohne Drehung. Ein drei Blöcke breiter Zwischenraum ist für Wartung und Zugang reserviert. Der Aushub und die Verbindung zur bestehenden Sortierung sind Planungsarbeit und noch nicht im Bauplan enthalten.
 
-Der Site-Code und die Strukturdatei wurden lokal erzeugt. In dieser Umgebung war kein echter Browser verfügbar, daher wurde der externe 26.3-Renderlauf nicht visuell überprüft. Falls die Verbindung oder ein Versionsdownload beim Anwender fehlschlägt, kann die ausgelieferte `.nbt`-Datei direkt in der Viewer-Website geöffnet werden. Die technische Ingame-Simulation, Redstone- und Lichtsimulation bleiben außerhalb dieses Renderexports.
+## Prüfgrenzen
+
+Die Litematic-Dateien wurden blockweise aus ihren gepackten Paletten gelesen; die decodierten Nicht-Luft-Zahlen stimmen mit den eingebetteten Metadaten überein. Renderer und externe 26.3-Texturansicht wurden in dieser Umgebung nicht visuell im Browser geprüft. Die Redstone- und Golem-Sortierlogik muss vor dem produktiven Einbau auf dem Server abgenommen werden.

@@ -1,30 +1,23 @@
 # Blackthorn Estate
 
-Aktueller Bauatlas: **Revision 5.12**. `index.html` lokal im Browser öffnen.
+Aktueller Bauatlas: **Revision 5.13**. `index.html` lokal im Browser öffnen.
+
+## Was ist neu?
+
+- Eine begehbare Dachlaterne mit Kupferabschluss sitzt über dem First der Großen Halle.
+- Der interne Voxel-Renderer lädt die Szene nur bei Änderungen und ordnet unbekannte Blockmaterialien mit passenden Ersatzfarben ein.
+- Unter **Lager → Sortierung & Technik** sind die beiden mitgelieferten Copper-Golem-Litematics mit Maßen, Materiallisten, Vorschlagskoordinaten und direkter Texturansicht eingebunden.
+
+Die Maschinen sind separate, unveränderte Litematic-Vorlagen. Der vorgeschlagene Technikstollen liegt unter Keller 3; Aushub, Servicezugang, Itemwege und Redstone wurden noch nicht in den Hauptbauplan übernommen oder im Spiel abgenommen. Die Originaldateien bleiben als Litematics erhalten.
 
 ## Versionsverlauf
 
-Die formalen Revisionen 5.1 bis 5.12 sind chronologisch als Git-Commits importiert und mit `v5.1` bis `v5.12` markiert.
+`git log --oneline --decorate` zeigt die Revisionen. `v5.12` bleibt als vorheriger Stand erhalten; der neue Stand ist mit `v5.13` markiert.
 
-```sh
-git log --oneline --decorate
-git switch --detach v5.11
-```
-
-Die Commit-Zeitpunkte zeigen den Import in dieses Repository; sie sind keine behaupteten ursprünglichen Änderungszeitpunkte.
-
-## Materialbedarf und Detailansicht
-
-Auf der Startseite steht die Gesamtmenge sichtbar. Unter **Bauatlas → Minecraft-Texturen** lässt sich die `.nbt`-Struktur optional an den externen Viewer übergeben.
-
-## Lokaler Neuaufbau
+## Neu aufbauen
 
 ```sh
 python tools/build.py
 ```
 
-Der Generator verwendet die `blueprint.json` im Repository und die Vorlage in `tools/seeds/revision-5.9/`. Nachbarordner oder ZIP-Dateien werden nicht benötigt.
-
-## Quelldaten und Archiv
-
-Die Arbeitskopie enthält keine ZIP-Dateien. Frühere ZIP-Exporte wurden inhaltlich als Git-Versionen übernommen oder ihre Quellprojekte entpackt im Ordner `archive/` abgelegt. Ursprüngliche Weltregionen und Referenzen liegen getrennt unter `source-data/`.
+Der Build verwendet die gespeicherte 5.12-Grundlage, die Vorlagenoberfläche unter `tools/seeds/revision-5.9/` und die Litematics unter `litematics/`.

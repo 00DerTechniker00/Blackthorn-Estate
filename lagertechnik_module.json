@@ -1,0 +1,344 @@
+{
+  "source": "cubicmetre",
+  "source_note": "Originale Litematic-Dateien; Inventardaten/Blockentities und Entities bleiben in den Dateien erhalten.",
+  "placement_status": "Planungsvorschlag; Grube, Zugang und Redstone-Verbindung noch nicht im Hauptbauplan bzw. im Spiel abgenommen.",
+  "vault": {
+    "bounds": [
+      -715,
+      -659,
+      80,
+      103,
+      770,
+      796
+    ],
+    "width": 57,
+    "height": 24,
+    "depth": 27,
+    "service_gap_x": [
+      -688,
+      -686
+    ],
+    "shaft_target": [
+      -687,
+      105,
+      790
+    ],
+    "note": "Vorgeschlagene Technikhalle direkt unter Keller 3; die Litematics separat und ohne Rotation an ihren Ankern platzieren."
+  },
+  "modules": [
+    {
+      "name": "Copper Golem MIS Cherry",
+      "source": "Copper Golem MIS Cherry.litematic",
+      "author": "cubicmetre",
+      "sha256": "1d127741d3d1d874a162b1978e84afd282e7f508384721ee097f637f5386f85b",
+      "data_version": 4556,
+      "litematic_version": 7,
+      "total_blocks": 4919,
+      "total_volume": 11737,
+      "bounds_size": [
+        27,
+        24,
+        27
+      ],
+      "regions": [
+        {
+          "name": "Copper Golem MIS 3",
+          "position": {
+            "z": 0,
+            "x": 26,
+            "y": 23
+          },
+          "signed_size": {
+            "z": 27,
+            "x": -27,
+            "y": -8
+          },
+          "size": [
+            27,
+            8,
+            27
+          ],
+          "volume": 5832,
+          "blocks": 2645,
+          "block_entities": 407,
+          "entities": 56
+        },
+        {
+          "name": "Copper Golem MIS 1",
+          "position": {
+            "z": 2,
+            "x": 8,
+            "y": 0
+          },
+          "signed_size": {
+            "z": 5,
+            "x": -7,
+            "y": 8
+          },
+          "size": [
+            7,
+            8,
+            5
+          ],
+          "volume": 280,
+          "blocks": 99,
+          "block_entities": 0,
+          "entities": 0
+        },
+        {
+          "name": "Copper Golem MIS",
+          "position": {
+            "z": 15,
+            "x": 2,
+            "y": 0
+          },
+          "signed_size": {
+            "z": -9,
+            "x": 12,
+            "y": 8
+          },
+          "size": [
+            12,
+            8,
+            9
+          ],
+          "volume": 864,
+          "blocks": 255,
+          "block_entities": 33,
+          "entities": 0
+        },
+        {
+          "name": "Copper Golem MIS 2",
+          "position": {
+            "z": 2,
+            "x": 24,
+            "y": 15
+          },
+          "signed_size": {
+            "z": 23,
+            "x": -23,
+            "y": -9
+          },
+          "size": [
+            23,
+            9,
+            23
+          ],
+          "volume": 4761,
+          "blocks": 1920,
+          "block_entities": 664,
+          "entities": 0
+        }
+      ],
+      "materials": {
+        "cherry_slab": 547,
+        "cherry_planks": 529,
+        "chest": 488,
+        "dirt": 476,
+        "hopper": 381,
+        "tuff_brick_slab": 336,
+        "cherry_log": 237,
+        "glass": 187,
+        "tuff_bricks": 183,
+        "tuff_slab": 180,
+        "polished_tuff_slab": 146,
+        "comparator": 123,
+        "white_terracotta": 110,
+        "tuff_brick_stairs": 90,
+        "observer": 86,
+        "redstone_wire": 79,
+        "copper_bulb": 73,
+        "iron_chain": 64,
+        "dropper": 46,
+        "vine": 44,
+        "crimson_planks": 42,
+        "polished_tuff_stairs": 42,
+        "tuff_stairs": 40,
+        "shroomlight": 38,
+        "crimson_shelf": 36,
+        "crimson_stairs": 36,
+        "cherry_wood": 31,
+        "ladder": 23,
+        "cherry_stairs": 22,
+        "bubble_column": 20,
+        "lantern": 20,
+        "cherry_door": 16,
+        "cherry_fence": 16,
+        "cherry_shelf": 16,
+        "polished_tuff_wall": 16,
+        "glow_lichen": 12,
+        "cherry_trapdoor": 11,
+        "cherry_pressure_plate": 8,
+        "firefly_bush": 8,
+        "stone_button": 8,
+        "water": 8,
+        "waxed_copper_chest": 8,
+        "repeater": 7,
+        "dispenser": 5,
+        "note_block": 4,
+        "redstone_torch": 4,
+        "torch": 4,
+        "activator_rail": 2,
+        "redstone_wall_torch": 2,
+        "cobblestone_wall": 1,
+        "composter": 1,
+        "iron_trapdoor": 1,
+        "piston": 1,
+        "piston_head": 1,
+        "soul_sand": 1,
+        "target": 1,
+        "waxed_copper_grate": 1,
+        "white_shulker_box": 1
+      },
+      "block_entities": {
+        "chest": 496,
+        "hopper": 381,
+        "comparator": 123,
+        "shelf": 52,
+        "dropper": 46,
+        "dispenser": 5,
+        "shulker_box": 1
+      },
+      "block_entity_total": 1104,
+      "entities": {
+        "copper_golem": 56
+      },
+      "entity_total": 56,
+      "key": "golem_mis",
+      "proposed_world_anchor": [
+        -715,
+        80,
+        770
+      ],
+      "rotation": "unverändert; Quellorientierung beibehalten"
+    },
+    {
+      "name": "Golem MIS Dustless Filter",
+      "source": "Golem MIS Dustless Filter.litematic",
+      "author": "cubicmetre",
+      "sha256": "795e4c199bd558fbce7969dd967e29c28ad7087bb1e82ae8b007903340c8f6ca",
+      "data_version": 4556,
+      "litematic_version": 7,
+      "total_blocks": 4543,
+      "total_volume": 14038,
+      "bounds_size": [
+        27,
+        22,
+        27
+      ],
+      "regions": [
+        {
+          "name": "Input Handling",
+          "position": {
+            "z": 2,
+            "x": 24,
+            "y": 0
+          },
+          "signed_size": {
+            "z": 23,
+            "x": -23,
+            "y": 10
+          },
+          "size": [
+            23,
+            10,
+            23
+          ],
+          "volume": 5290,
+          "blocks": 1725,
+          "block_entities": 47,
+          "entities": 0
+        },
+        {
+          "name": "Storage and Sorting",
+          "position": {
+            "z": 26,
+            "x": 0,
+            "y": 10
+          },
+          "signed_size": {
+            "z": -27,
+            "x": 27,
+            "y": 12
+          },
+          "size": [
+            27,
+            12,
+            27
+          ],
+          "volume": 8748,
+          "blocks": 2818,
+          "block_entities": 1045,
+          "entities": 60
+        }
+      ],
+      "materials": {
+        "white_stained_glass": 1884,
+        "chest": 488,
+        "oxidized_copper": 479,
+        "hopper": 383,
+        "waxed_cut_copper_slab": 374,
+        "white_concrete": 190,
+        "comparator": 124,
+        "observer": 88,
+        "waxed_copper_block": 78,
+        "redstone_wire": 75,
+        "waxed_copper_bulb": 73,
+        "dropper": 46,
+        "vine": 44,
+        "acacia_shelf": 36,
+        "iron_chain": 36,
+        "bubble_column": 20,
+        "ladder": 20,
+        "cobblestone_wall": 16,
+        "glass": 10,
+        "glowstone": 9,
+        "repeater": 8,
+        "scaffolding": 8,
+        "stone_button": 8,
+        "water": 8,
+        "waxed_copper_chest": 8,
+        "dispenser": 5,
+        "note_block": 4,
+        "redstone_torch": 4,
+        "redstone_wall_torch": 3,
+        "activator_rail": 2,
+        "composter": 1,
+        "honey_block": 1,
+        "iron_trapdoor": 1,
+        "oak_fence_gate": 1,
+        "oxidized_cut_copper_slab": 1,
+        "pale_oak_wall_sign": 1,
+        "piston": 1,
+        "piston_head": 1,
+        "target": 1,
+        "warped_trapdoor": 1,
+        "waxed_copper_grate": 1,
+        "white_shulker_box": 1
+      },
+      "block_entities": {
+        "chest": 496,
+        "hopper": 383,
+        "comparator": 124,
+        "dropper": 46,
+        "shelf": 36,
+        "dispenser": 5,
+        "shulker_box": 1,
+        "sign": 1
+      },
+      "block_entity_total": 1092,
+      "entities": {
+        "copper_golem": 56,
+        "oak_chest_boat": 4
+      },
+      "entity_total": 60,
+      "key": "dustless_filter",
+      "proposed_world_anchor": [
+        -685,
+        82,
+        770
+      ],
+      "rotation": "unverändert; Quellorientierung beibehalten"
+    }
+  ]
+}
