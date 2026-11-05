@@ -1,7 +1,7 @@
 {
-  "revision": "5.18",
-  "status": "Poolfassade, begehbarer Balkon, Stützbögen und drei Dachkamine modelliert.",
-  "base_revision": "5.17",
+  "revision": "5.19",
+  "status": "Westportal, Aussichtsturm, Gartentreppe und Klippenkaskaden modelliert.",
+  "base_revision": "5.18",
   "geometry_changed": true,
   "stair_clearance": [
     {
@@ -32,7 +32,7 @@
     "basement_to_main_route": "Bibliothek → Große Halle"
   },
   "enhancements": {
-    "title": "Poolfassade, Panoramabalkon und Klippenbögen",
+    "title": "Herrschaftliches Westportal, Aussichtsturm und Gartentreppe",
     "features": [
       {
         "group": "poolfassade",
@@ -53,29 +53,39 @@
         "group": "dach_kamine",
         "name": "Drei gemauerte Dachkamine",
         "description": "Unterschiedliche Abschlusshöhen Y 153–156; direkt auf dem Dach verankert, mit offenen Rauchstellen."
-      }
-    ],
-    "chimneys": [
-      {
-        "x": -704,
-        "z": 778,
-        "base": 149,
-        "top": 154
       },
       {
-        "x": -686,
-        "z": 803,
-        "base": 147,
-        "top": 153
+        "group": "prunkportal",
+        "name": "Monumentales Westportal",
+        "description": "Zwei 2×2-Säulen, Schwarzstein-Kapitelle, zweilagiger Dreiecksgiebel und Kupfer-Gold-Wappen über dem freien Ankunftsweg."
       },
       {
-        "x": -666,
-        "z": 775,
-        "base": 151,
-        "top": 156
+        "group": "aussichtsturm",
+        "name": "Begehbarer Aussichtsturm",
+        "description": "OG-Zugang bei X −731 / Z 775, Leiter bis zur Galerie Y 163, steinerne Balustrade und gewachste oxidierte Kupferkrone bis Y 171."
+      },
+      {
+        "group": "gartentreppe",
+        "name": "Zweiflügelige Südgartentreppe",
+        "description": "Neue Doppeltür bei Z 831; obere Terrasse Y 129, zwei seitliche Läufe und gemeinsamer Gartenweg auf Y 126 bis zum Anschluss auf Y 125."
+      },
+      {
+        "group": "klippenfuesse",
+        "name": "Verbreiterte Bogenfüße",
+        "description": "Nach unten ausgestellte Sockel aus Tiefenschiefer-Fliesen und Bruchtiefenschiefer an den freiliegenden Pfeilerfüßen."
+      },
+      {
+        "group": "kaskaden",
+        "name": "Zwei Klippenkaskaden",
+        "description": "Separate, eingefasste Speier bei Z 780 und 783 mit Fallwasser und Auffangmulden; unabhängig vom Schwimmbecken."
+      },
+      {
+        "group": "fassadenlicht",
+        "name": "Verdeckte Portalbeleuchtung",
+        "description": "Zwei Meereslaternen hinter Fichtenblenden seitlich der Frontsäulen."
       }
     ],
-    "limits": "Bogenfüße berücksichtigen die mitgelieferte Oberflächenkarte; der Anschluss an den tatsächlichen Klippenfels muss vor Ort geprüft werden. Die Kamine sind Dachdetails ohne durchgehende Innenraum-Abzüge. Neue Lichtquellen sind kein Nachweis für Spawn-Sicherheit."
+    "limits": "Wasserfluss, Lichtwirkung und Laufwege sind im Spiel abzunehmen. Lichtquellen strahlen in Minecraft nicht gerichtet nach oben. Der Turm ist per Leiter erreichbar; ein Uhrenmechanismus ist nicht eingebaut. Zusätzliche Aushubpositionen für Garten und Kaskaden stehen in architektur_erdarbeiten.csv."
   },
   "service_shaft": {
     "position": [

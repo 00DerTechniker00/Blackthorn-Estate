@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Revision 5.17 with static access checks and an explicit service-shaft plan."""
+"""Build Revision 5.19 with static access checks and an explicit service-shaft plan."""
 import csv
 import hashlib
 import json
@@ -10,9 +10,9 @@ from structure_export import export as export_structure
 from litematic_import import build as import_litematics
 
 ROOT=Path(__file__).resolve().parent.parent
-SEED=ROOT/'tools'/'seeds'/'revision-5.17'/'blueprint.json'
-VERSION='5.18'
-VERSION_PREVIOUS='5.17'
+SEED=ROOT/'tools'/'seeds'/'revision-5.18'/'blueprint.json'
+VERSION='5.19'
+VERSION_PREVIOUS='5.18'
 
 def build_structure_metadata(d):
     levels=[
@@ -21,7 +21,7 @@ def build_structure_metadata(d):
         ('keller_1','Keller 1',121,128,['keller_1','golem_lager','lager_technik','shulker_technik','keller_treppe']),
         ('erdgeschoss','Erdgeschoss',129,136,['halle','halle_treppe','kueche','speisesaal','vestibuel','portikus','bibliothek','res1','res2','res3','res4','res5','res6']),
         ('obergeschoss','Obergeschoss & Galerie',137,144,['halle','halle_treppe','galerie','bibliothek','res1','res2','res3','res4','res5','res6','dach_ostfluegel']),
-        ('dach','Dach & Türme',145,157,['dach_halle','dach_res','dach_bibliothek','fassade','dach_schmuck'])]
+        ('dach','Dach & Türme',145,171,['dach_halle','dach_res','dach_bibliothek','fassade','dach_schmuck','aussichtsturm'])]
     output=[]
     for key,label,low,high,groups in levels:
         positions=0
@@ -122,12 +122,21 @@ def main():
     write_blocklist(sequence)
     write_materials(counts,gcounts,group_names)
     write_diff(additions)
+    terrain=d['terrain'];tx,_,tz,_=terrain['bounds']
+    with (ROOT/'architektur_erdarbeiten.csv').open('w',encoding='utf-8-sig',newline='') as f:
+        writer=csv.writer(f,delimiter=';');writer.writerow(['X','Y','Z','Aktion','Baugruppe','Hinweis'])
+        for (x,y,z),(prior,value) in sorted(additions.items()):
+            if value and value[2] in ('gartentreppe','kaskaden','klippenfuesse') and y<=terrain['target_heights'][z-tz][x-tx]:
+                writer.writerow([x,y,z,'Gelaende ersetzen',value[2],'Zusaetzlich zum bisherigen Terraformingplan; mit Bestandswelt abgleichen'])
+
     write_placement(modules)
     update_progress()
     write_project_docs(d,modules)
+    from elevation import build as build_elevation
+    build_elevation(d,ROOT)
     from web import build
     build(d)
-    for oldfile in ('blackthorn_estate_5.17.nbt','manifest_5.17.json','aenderungen_5.16_zu_5.17.csv'):
+    for oldfile in ('blackthorn_estate_5.18.nbt','manifest_5.18.json','aenderungen_5.17_zu_5.18.csv'):
         p=ROOT/oldfile
         if p.exists():p.unlink()
     write_manifest()
@@ -180,8 +189,8 @@ def write_manifest():
     (ROOT/f'manifest_{VERSION}.json').write_text(json.dumps({'revision':VERSION,'files':files},ensure_ascii=False,indent=2)+'\n')
 
 def update_progress():
-    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.17'/'progress.js').read_text()
-    s=s.replace('5.17','5.18').replace('5.16','5.17')
+    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.18'/'progress.js').read_text()
+    s=s.replace('5.18','5.19').replace('5.17','5.18')
     p.write_text(s)
 
 def write_project_docs(d,modules):
@@ -193,6 +202,8 @@ def write_project_docs(d,modules):
 {enhancements['title']}
 
 {chr(10).join('- '+f['name']+': '+f['description'] for f in enhancements['features'])}
+
+Statisch geprüft: freie Portalachse, Turmzugang und Leiter, beide Gartenläufe, Pooltüren, unverändertes Schwimmbecken und Treppen-Kopfraum. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
 
 Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die neue Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der tiefere Technikstollen und automatische Itemlift stehen aus.
 
@@ -206,7 +217,7 @@ Die Daten bleiben in externen JavaScript-Dateien, damit der Atlas lokal ohne Web
 """
     (ROOT/'analysebericht.md').write_text(report)
     (ROOT/'README.md').write_text(report+f"\nAtlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v{VERSION}`.\n")
-    protocol={'revision':VERSION,'status':'Poolfassade, begehbarer Balkon, Stützbögen und drei Dachkamine modelliert.',
+    protocol={'revision':VERSION,'status':'Westportal, Aussichtsturm, Gartentreppe und Klippenkaskaden modelliert.',
         'base_revision':VERSION_PREVIOUS,'geometry_changed':True,
         'stair_clearance':clearance,'stair_separation':d['structure']['stair_separation'],
         'enhancements':enhancements,'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],

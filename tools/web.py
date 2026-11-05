@@ -93,9 +93,10 @@ def build(d):
     changes=d['structure'].get('enhancements')
     if changes:
         cards=''.join(f'<article class="card"><h3>{f["name"]}</h3><p>{f["description"]}</p><button class="mini" data-axis-group="{f["group"]}">Bauteil in 3D ansehen →</button></article>' for f in changes['features'])
-        structure_section=structure_section.replace('</section>',f'<div class="section-heading"><h2>Architektur · Revision {version}</h2></div><div class="grid2">{cards}</div><p class="notice">{changes["limits"]}</p></section>')
+        structure_section=structure_section.replace('</section>',f'<div class="section-heading"><h2>Architektur · Revision {version}</h2></div><a href="assets/westansicht_5.19.svg"><img src="assets/westansicht_5.19.svg" alt="Westansicht des aktuellen Blockmodells mit Portal und Aussichtsturm" loading="lazy" style="width:100%;max-height:560px;object-fit:contain"></a><div class="grid2">{cards}</div><p class="notice">{changes["limits"]} <a href="architektur_erdarbeiten.csv" download>Zusätzliche Erdarbeiten herunterladen</a></p></section>')
     all_tabs='\n'.join(tabs[id] for id in ['overview','3d','plan','steps','rooms','terrain','storage','system','build','material'])+structure_section+viewer+lighting+downloads
     all_tabs=re.sub(r'<h1(.*?)>(.*?)</h1>',r'<h2\1>\2</h2>',all_tabs,flags=re.S)
+    all_tabs=all_tabs.replace('value="157"','value="'+str(d['meta']['bbox'][3])+'"').replace('max="157"','max="'+str(d['meta']['bbox'][3])+'"')
     all_tabs=group_panels(all_tabs)
     canvas_labels={'gl':'3D-Modell des Anwesens. Alternativen: Ebenenplan, Räume und Blockliste.','planCv':'Ebenenplan. Die Blockliste enthält dieselben Baupositionen als Text.','sysMap':'Lagerübersicht. Die Lagertabellen enthalten die zugehörigen Daten.'}
     for canvas,label in canvas_labels.items():
@@ -151,7 +152,7 @@ def build(d):
     app=app.replace("window.__openGroup = (g) => {", "window.__openGroup = (g) => {S3.terrainOnly=false;$('#houseChk').checked=true;")
     app=app.replace("const COLORS = {", "const COLORS = {grass_block:'#689450',dirt:'#92704e',gravel:'#b3a78c',oak_leaves:'#456b36',glowstone:'#e3ba6b',allium:'#b08ac8',oxeye_daisy:'#eee8cc',cornflower:'#5a86cf',")
     app=app.replace("const BASE_DE = {", "const BASE_DE = {grass_block:'Grasblock',dirt:'Erde',gravel:'Kies',oak_leaves:'Eichenlaub',allium:'Sternlauch',oxeye_daisy:'Margerite',cornflower:'Kornblume',")
-    app=app.replace("const gname = g =>", "GROUP_DE.poolfassade='Poolfassade';GROUP_DE.panoramabalkon='Panoramabalkon';GROUP_DE.poolboegen='Pool-Stützbögen';GROUP_DE.dach_kamine='Dachkamine';PHASES.push({id:'p10',name:'10 · Architektur & Klippenbögen',text:'Bogenfüße vor Ort mit Fels abgleichen, anschließend Fassade und Balkon bauen.',groups:['poolfassade','panoramabalkon','poolboegen','dach_kamine']});GROUP_DE.gartendeko='Garten & Außendekoration';PHASES.push({id:'p9',name:'9 · Garten & Außendekoration',text:'Begrünte Böschungen zuerst; danach Hecken, Blütenbeete, Bänke und Gartenpavillon.',groups:['gartendeko']});\nconst gname = g =>")
+    app=app.replace("const gname = g =>", "GROUP_DE.prunkportal='Westportal';GROUP_DE.aussichtsturm='Aussichtsturm';GROUP_DE.gartentreppe='Gartentreppe';GROUP_DE.klippenfuesse='Klippenfüße';GROUP_DE.kaskaden='Kaskaden';GROUP_DE.fassadenlicht='Portallicht';PHASES.push({id:'p11',name:'11 · Portal, Turm & Garten',text:'Zusätzliche Erdarbeiten beachten; Wasser zuletzt einsetzen.',groups:['prunkportal','aussichtsturm','gartentreppe','klippenfuesse','kaskaden','fassadenlicht']});GROUP_DE.poolfassade='Poolfassade';GROUP_DE.panoramabalkon='Panoramabalkon';GROUP_DE.poolboegen='Pool-Stützbögen';GROUP_DE.dach_kamine='Dachkamine';PHASES.push({id:'p10',name:'10 · Architektur & Klippenbögen',text:'Bogenfüße vor Ort mit Fels abgleichen, anschließend Fassade und Balkon bauen.',groups:['poolfassade','panoramabalkon','poolboegen','dach_kamine']});GROUP_DE.gartendeko='Garten & Außendekoration';PHASES.push({id:'p9',name:'9 · Garten & Außendekoration',text:'Begrünte Böschungen zuerst; danach Hecken, Blütenbeete, Bänke und Gartenpavillon.',groups:['gartendeko']});\nconst gname = g =>")
     app=app.replace("function kindOf(id) {", "function kindOf(id) {if(['allium','oxeye_daisy','cornflower'].includes(id))return 'flower';")
     app=app.replace("if(k==='lantern'){", "if(k==='flower'){addBox(L.main,x,y,z,[7,0,7,9,9,9],[.25,.45,.16],1,null);addBox(L.main,x,y,z,[4,8,4,12,11,12],col,1,null);\n    } else if(k==='lantern'){")
     app=app.replace("switch (k) {", "switch (k) {case 'flower': return [[7,0,7,9,9,9],[4,8,4,12,11,12]];")
@@ -166,8 +167,9 @@ def build(d):
 ''' +app[end:]
     app=app.replace("id === 'glass_pane' || id === 'iron_bars'","id === 'glass_pane' || id.endsWith('_stained_glass_pane') || id === 'iron_bars'")
     app=app.replace("r.id === 'glass_pane'","(r.id === 'glass_pane' || r.id.endsWith('_stained_glass_pane'))")
-    app=app.replace("const COLORS = {","const COLORS = {gray_stained_glass_pane:'#858991',polished_basalt:'#626367',mossy_cobblestone:'#647458',campfire:'#d18a42',")
+    app=app.replace("const COLORS = {","const COLORS = {sea_lantern:'#d4e7bc',gray_stained_glass_pane:'#858991',polished_basalt:'#626367',mossy_cobblestone:'#647458',campfire:'#d18a42',")
     app=app.replace("const CUSTOM = {","const CUSTOM = {campfire:[[0,0,0,16,7,16]],")
+    app=app.replace("id === 'glass'","(id === 'glass' || id.endsWith('_stained_glass'))")
     (ROOT/'app.js').write_text(app)
     steps=(BASE/'steps.js').read_text().replace('Revision 5.9',f'Revision {version}')
     a=steps.index('function renderStorage()');end=steps.index("\n$('#storageQuery')",a)
