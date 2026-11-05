@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],D=JSON.parse($('#data').textContent),safe=BT.escape;
-  const routes={overview:['start','Start'], '3d':['atlas','Bauatlas'],plan:['atlas','Ebenenplan'],steps:['atlas','Baubegleitung'],rooms:['atlas','Raumbuch'],viewer:['atlas','Minecraft-Texturen'],lighting:['atlas','Leuchtenplan'],terrain:['terrain','Gelände & Erdarbeiten'],storage:['storage','Lagerbestände'],system:['storage','Sortierung & Technik'],build:['organize','Baufortschritt'],material:['organize','Materialbedarf'],downloads:['organize','Dateien & Berichte']};
+  const routes={overview:['start','Start'], '3d':['atlas','Bauatlas'],structure:['atlas','Hausstruktur'],plan:['atlas','Ebenenplan'],steps:['atlas','Baubegleitung'],rooms:['atlas','Raumbuch'],viewer:['atlas','Minecraft-Texturen'],lighting:['atlas','Leuchtenplan'],terrain:['terrain','Gelände & Erdarbeiten'],storage:['storage','Lagerbestände'],system:['storage','Sortierung & Technik'],build:['organize','Baufortschritt'],material:['organize','Materialbedarf'],downloads:['organize','Dateien & Berichte']};
   const groupNames={start:'ÜBERSICHT',atlas:'BAUATLAS',terrain:'GELÄNDE',storage:'LAGER',organize:'ORGANISATION'};
   let menuOpen=false;
   function menu(open,focus=false){menuOpen=open;document.documentElement.classList.toggle('nav-open',open);$('#navScrim').hidden=!open;$('#menuButton').setAttribute('aria-expanded',String(open));$('#sidebar').inert=matchMedia('(max-width:760px)').matches&&!open;if(open)$('#tabs button').focus?.({preventScroll:true});if(!open&&focus)$('#menuButton').focus?.();}
@@ -38,10 +38,15 @@
   $('#lightRows').onclick=e=>{const key=e.target.dataset.light3d||e.target.dataset.lightPlan;if(!key)return;const f=fixtures.find(x=>x.id===key);if(!f)return;
     if(e.target.dataset.light3d){window.__focusFixture(f);$('#sceneFloor').value='custom';}else window.__focusPlan(f.x,f.y,f.z);
   };
-  function syncFloor(){const value=$('#cut').value;$('#sceneFloor').value=['157','143','136','127','119','111'].includes(value)?value:'custom';}
+  function syncFloor(){const value=$('#cut').value;$('#sceneFloor').value=['157','144','136','128','120','112'].includes(value)?value:'custom';}
   $('#sceneFloor').onchange=e=>{if(e.target.value==='custom')return;window.__leaveFixture();$('#cut').value=e.target.value;$('#cut').dispatchEvent(new Event('input'));};
   $('#cut').addEventListener('input',syncFloor);$('#cutDown').addEventListener('click',syncFloor);$('#cutUp').addEventListener('click',syncFloor);
   $('#resetScene').onclick=()=>{window.__resetScene();$('#sceneFloor').value=String(D.meta.bbox[3]);$('#terrainState').value='target';$('#terrainState').dispatchEvent(new Event('change'));};
+  $('#tab-structure').addEventListener('click',e=>{
+    const level=e.target.closest('[data-level-cut]');
+    if(level){window.__showTab('3d');$('#cut').value=level.dataset.levelCut;$('#cut').oninput({target:$('#cut')});$('#cut').dispatchEvent(new Event('input'));return;}
+    const axis=e.target.closest('[data-axis-group]');if(axis)window.__openGroup(axis.dataset.axisGroup);
+  });
   $('#leaveDetail').onclick=()=>$('#resetScene').click();
   saved();renderLights();paint();
 })();

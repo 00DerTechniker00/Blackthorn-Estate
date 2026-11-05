@@ -1,8 +1,9 @@
 {
-  "revision": "5.14",
-  "status": "Dachlaterne entfernt; externe Ansicht und Redstone nicht im Spiel abgenommen.",
-  "base_revision": "5.13",
-  "removed_roof_lantern_blocks": 85,
+  "revision": "5.15",
+  "status": "Zweiläufige Haupttreppe in die Große Halle eingefügt; Ingame-Wegeprüfung ausstehend.",
+  "base_revision": "5.14",
+  "geometry_changed": true,
+  "changed_positions": 135,
   "litematics": [
     {
       "file": "Copper Golem MIS Cherry.litematic",

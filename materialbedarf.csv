@@ -6,8 +6,8 @@ deepslate_tiles;12488;64;195;8;7;8
 deepslate_bricks;11123;64;173;51;6;51
 grass_block;7913;64;123;41;4;41
 deepslate_tile_stairs;5873;64;91;49;3;49
+dark_oak_planks;5186;64;81;2;3;2
 spruce_slab;5177;64;80;57;2;57
-dark_oak_planks;5126;64;80;6;2;6
 polished_deepslate;5065;64;79;9;2;9
 spruce_planks;4658;64;72;50;2;50
 stone;2389;64;37;21;1;21
@@ -17,7 +17,7 @@ glass_pane;604;64;9;28;0;28
 barrel;570;64;8;58;0;58
 deepslate_tile_slab;452;64;7;4;0;4
 cracked_deepslate_bricks;430;64;6;46;0;46
-red_carpet;333;64;5;13;0;13
+red_carpet;327;64;5;7;0;7
 gray_carpet;252;64;3;60;0;60
 lantern;235;64;3;43;0;43
 glass;230;64;3;38;0;38
@@ -25,11 +25,11 @@ hopper;216;64;3;24;0;24
 polished_diorite_slab;212;64;3;20;0;20
 spruce_stairs;198;64;3;6;0;6
 iron_chain;188;64;2;60;0;60
+dark_oak_fence;187;64;2;59;0;59
 polished_andesite;160;64;2;32;0;32
 stone_brick_slab;160;64;2;32;0;32
-dark_oak_fence;154;64;2;26;0;26
+dark_oak_stairs;156;64;2;28;0;28
 waxed_oxidized_cut_copper_slab;150;64;2;22;0;22
-dark_oak_stairs;114;64;1;50;0;50
 stone_brick_wall;114;64;1;50;0;50
 dark_oak_slab;93;64;1;29;0;29
 redstone_wire;78;64;1;14;0;14

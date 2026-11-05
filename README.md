@@ -1,18 +1,20 @@
 # Blackthorn Estate
 
-Aktueller Bauatlas: **Revision 5.14**. `index.html` lokal im Browser öffnen.
+Aktueller Bauatlas: **Revision 5.15**. `index.html` lokal im Browser öffnen.
 
 ## Was ist neu?
 
-- Die Dachlaterne aus Revision 5.13 wurde auf Wunsch entfernt; die vorherige Dachform ist wiederhergestellt.
+- Eine breite zweiläufige Haupttreppe führt aus der Großen Halle hinauf zur Nordgalerie.
+- **Hausstruktur** zeigt Etagen, Höhen, Raumbezüge, Gebäudeachsen und Treppen auf Basis des tatsächlichen Blockmodells.
+- Die Richtungshinweise sind korrigiert: Eingang und Zufahrt liegen westlich, Pool und Klippenpanorama östlich.
 - Der interne Voxel-Renderer zeichnet nur bei Änderungen und ordnet unbekannte Blockmaterialien mit passenden Ersatzfarben ein.
-- Unter **Lager → Sortierung & Technik** sind die beiden Copper-Golem-Litematics mit Maßen, Materiallisten, Einbauvorschlag und direkter Texturansicht eingebunden.
+- Die beiden Copper-Golem-Litematics bleiben unter **Lager → Sortierung & Technik** mit Materialübersichten und Einbauvorschlag erreichbar.
 
-Die Maschinen sind separate, unveränderte Litematic-Vorlagen. Aushub, Servicezugang, Itemwege und Redstone wurden noch nicht in den Hauptbauplan übernommen oder im Spiel abgenommen.
+Erdgeschoss und Obergeschoss bleiben bei je acht Y-Ebenen. Die Lagertechnik bleibt vorerst auf Keller 1 und 2 verteilt; ihre Verlegung braucht noch einen abgestimmten Grundriss. Aushub, Zugang, Itemwege und Redstone der Litematic-Module sind weiterhin nicht im Spiel abgenommen.
 
 ## Versionsverlauf
 
-`git log --oneline --decorate` zeigt die Revisionen. Revision 5.13 bleibt als Verlaufspunkt erhalten; der aktuelle Stand ist mit `v5.14` markiert.
+`git log --oneline --decorate` zeigt die Revisionen. Revision 5.14 bleibt als Verlaufspunkt erhalten; der aktuelle Stand ist mit `v5.15` markiert.
 
 ## Neu aufbauen
 

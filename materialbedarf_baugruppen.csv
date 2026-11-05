@@ -112,8 +112,8 @@ res1;red_bed;1
 halle;polished_deepslate;591
 halle;deepslate_tiles;578
 halle;stone_bricks;447
-halle;red_carpet;105
 halle;dark_oak_planks;104
+halle;red_carpet;99
 halle;iron_bars;45
 halle;lantern;36
 halle;iron_chain;27
@@ -355,3 +355,6 @@ gartendeko;dark_oak_stairs;12
 gartendeko;allium;8
 gartendeko;cornflower;8
 gartendeko;dark_oak_slab;8
+halle_treppe;dark_oak_planks;60
+halle_treppe;dark_oak_stairs;42
+halle_treppe;dark_oak_fence;33

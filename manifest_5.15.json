@@ -1,10 +1,10 @@
 {
-  "revision": "5.14",
+  "revision": "5.15",
   "files": [
     {
       "path": "README.md",
-      "bytes": 1033,
-      "sha256": "dddd9722f0635acb0109b5e7862521a1bd32e7313c2188edf64c805755a82755"
+      "bytes": 1324,
+      "sha256": "e724a8dd5b1fc7ef492846f34c47a2a56de8f4b102bee8483e4c24f3e27a9213"
     },
     {
       "path": "aenderungen_5.10_zu_5.11.csv",
@@ -17,19 +17,19 @@
       "sha256": "b502f2d50dd831020bd05f6f4a1a8c240020a980f6769092321071f2e1f0cd15"
     },
     {
-      "path": "aenderungen_5.13_zu_5.14.csv",
-      "bytes": 5236,
-      "sha256": "cd77c0ecdc53929979ca3d0958cfb7618f133e6ee9c880deeeac6169d55e267f"
+      "path": "aenderungen_5.14_zu_5.15.csv",
+      "bytes": 10278,
+      "sha256": "f20b5a159f8e64467d7fe4c44e7f60643ab9b4b2e0fe5389d395704a6f10eaa7"
     },
     {
       "path": "analysebericht.md",
-      "bytes": 969,
-      "sha256": "cb8cc037e46074f404744bf3e09a60da76e9475967a9579cdfa60cf3a8f45ee4"
+      "bytes": 1677,
+      "sha256": "ee7a997034fd49ab1e26ace28feb00a00bced130ee7fbe13aa01baddb068393b"
     },
     {
       "path": "app.js",
-      "bytes": 63551,
-      "sha256": "d2305127b67778243395d3cfe0c72fe9b7cbf7f83c9283a51e94a703e4f7525b"
+      "bytes": 63623,
+      "sha256": "d79d2d95ee0dd77d5c6f9016eac9114785aeddf92181e2fcd15b14a7b22bbca2"
     },
     {
       "path": "archive/README.md",
@@ -1622,24 +1622,24 @@
       "sha256": "c858c1ef8dcf48a1c27386ef8511902d41ea4aada3d412e9df175ae8733ec788"
     },
     {
-      "path": "blackthorn_estate_5.14.nbt",
-      "bytes": 390016,
-      "sha256": "d8a8b80e0a3c9373ca496b2324a81c7acc0557161cbcfa45eb7914a10015967a"
+      "path": "blackthorn_estate_5.15.nbt",
+      "bytes": 390387,
+      "sha256": "05a5f1a60b084aab86d5e18179324fdd5fe8aa984da227deb03745c807ce3bd3"
     },
     {
       "path": "blockliste.csv",
-      "bytes": 8224263,
-      "sha256": "2851e3ff251fafcc1dd6366d2bbf5a16b4cfe4d8e70f1db1c231f3ec2d78cb70"
+      "bytes": 8234565,
+      "sha256": "82937b8b660a010e7e8104f54502aacdde74b1aa95535f3a903456e01e4e9b3d"
     },
     {
       "path": "blueprint.json",
-      "bytes": 4867418,
-      "sha256": "a299190d6dca05d857a15d2e199970def6cb3b8cf07404544c7a2b41794ed2ae"
+      "bytes": 4872514,
+      "sha256": "bfd550acac89b51929d7c2865a6334bfa5f6888c6c0b6843868c215cf49f9044"
     },
     {
       "path": "check_report.json",
       "bytes": 1249,
-      "sha256": "80dcd95beabcb3ab408ffc5023b2904e92bc32302968f4d78aa3926f12547236"
+      "sha256": "db2676fa7ddc48291024b5dee947013c90e90f8d1ac6f4e93c318a50d58f34c7"
     },
     {
       "path": "gelaende_oberflaeche.csv",
@@ -1648,8 +1648,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5505398,
-      "sha256": "8fc5fef3c4263ae31a3f140c24cdf6f3387f340df39e446e48941d50e0566c78"
+      "bytes": 5517203,
+      "sha256": "5048621a334d25a373abcd5fc7007c94a19706688c437af0dd01e8c4437f5aea"
     },
     {
       "path": "lager_kategorien.csv",
@@ -1693,13 +1693,13 @@
     },
     {
       "path": "materialbedarf.csv",
-      "bytes": 2564,
-      "sha256": "dbd5fbd9f0a993fc57268637ffb1220a1478b2acdd68086c14e5d576c27da810"
+      "bytes": 2562,
+      "sha256": "7536a3d5ac5427e9685892e4f6adef9dcbd18168fd8bf6513d9d88f6a412dd4e"
     },
     {
       "path": "materialbedarf_baugruppen.csv",
-      "bytes": 9291,
-      "sha256": "f380f3d3269b8816abd793c258d53af186c214bdd3b86e9a4493d72874e04c62"
+      "bytes": 9388,
+      "sha256": "090f3d506cea87b46737e8801bd6defba9ce75603a7b98f2d853573bc25373ee"
     },
     {
       "path": "minecraft_viewer.js",
@@ -1709,12 +1709,12 @@
     {
       "path": "progress.js",
       "bytes": 5199,
-      "sha256": "f26b38eac38252172c3cc67f9740d56c18a1d220c29eca6d363741e3fe1cc8db"
+      "sha256": "565a833cbf08f7b8a1cfd4cd41d5430775711eb484e986f6749c856f3c49649e"
     },
     {
       "path": "pruefprotokoll.json",
-      "bytes": 692,
-      "sha256": "0d1b4c86c324169377830449fbc940edb15defacd9df50b72c262dbf616a6059"
+      "bytes": 722,
+      "sha256": "1a27c42285248d0e1dd65eb992282bc8656a6209a4312db908ad2a54f49f8897"
     },
     {
       "path": "source-data/README.md",
@@ -1849,12 +1849,12 @@
     {
       "path": "steps.js",
       "bytes": 4825,
-      "sha256": "34c3f5be9004c043a4c44a9b9fd08dd4195ac4c400e3c119f4030a171d5eb65f"
+      "sha256": "b7c473d7f5ef0e5ca4d8dd6f00199128acbd6d005f08e4d2ab455fcb6f48bd48"
     },
     {
       "path": "styles.css",
-      "bytes": 30959,
-      "sha256": "b40e6cc882a79d7b97bee05ad610952080ec16de5bea963d27773e61c4d7940c"
+      "bytes": 32332,
+      "sha256": "29ae8c2d9efcd97f15f9b3dbb7ce74cd921762c6ced795b9a74732ceaf1d15b2"
     },
     {
       "path": "system.js",
@@ -1893,8 +1893,8 @@
     },
     {
       "path": "tools/build.py",
-      "bytes": 11807,
-      "sha256": "87dba4e3284329329adbd0a90f0dbef288722f6b18222b20304b751322e716d7"
+      "bytes": 15339,
+      "sha256": "2a6eb64e0035926629183d6d053aeb3939b3130fbaddb5915222597ad18688db"
     },
     {
       "path": "tools/export_preview.mjs",
@@ -1952,9 +1952,19 @@
       "sha256": "358e902c63e1c269bb6e8b07dd9a90a7b0c98076e0e13b2bddfbc14a9a8d896a"
     },
     {
+      "path": "tools/seeds/revision-5.14/blueprint.json",
+      "bytes": 4867418,
+      "sha256": "a299190d6dca05d857a15d2e199970def6cb3b8cf07404544c7a2b41794ed2ae"
+    },
+    {
+      "path": "tools/seeds/revision-5.14/progress.js",
+      "bytes": 5199,
+      "sha256": "f26b38eac38252172c3cc67f9740d56c18a1d220c29eca6d363741e3fe1cc8db"
+    },
+    {
       "path": "tools/seeds/revision-5.9/app.js",
-      "bytes": 57481,
-      "sha256": "077eba4b556c1e5c4609cc33504b861f4cd9b17df072cde11b8032b21a4ae7a7"
+      "bytes": 57553,
+      "sha256": "0c6f972b4dfaff9b0dbb87b46cb2878e96589f0f8f6655834e6efca45de8e84d"
     },
     {
       "path": "tools/seeds/revision-5.9/index.html",
@@ -1998,13 +2008,13 @@
     },
     {
       "path": "tools/web.py",
-      "bytes": 30860,
-      "sha256": "37392ce3bbd1f07168089b3908f48f8de108fe6c8bbc401586c99aec54c6d730"
+      "bytes": 33902,
+      "sha256": "d8447f0617c66834213d22540b427e23435be9bcebfc767a5def3719d68383dd"
     },
     {
       "path": "ui.js",
-      "bytes": 6019,
-      "sha256": "f3257dfbfc825c5bcf41df0d78568ef88290d7e89c4fe5c9ceb805941053bee5"
+      "bytes": 6438,
+      "sha256": "017e4d62e638d148e7451c9520cc161015df438403f09e938cc81e75da2edc74"
     },
     {
       "path": "vegetation_entfernen.csv",
