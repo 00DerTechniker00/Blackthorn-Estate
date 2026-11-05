@@ -1,18 +1,18 @@
 # Blackthorn Estate
 
-Aktueller Bauatlas: **Revision 5.13**. `index.html` lokal im Browser öffnen.
+Aktueller Bauatlas: **Revision 5.14**. `index.html` lokal im Browser öffnen.
 
 ## Was ist neu?
 
-- Eine begehbare Dachlaterne mit Kupferabschluss sitzt über dem First der Großen Halle.
-- Der interne Voxel-Renderer lädt die Szene nur bei Änderungen und ordnet unbekannte Blockmaterialien mit passenden Ersatzfarben ein.
-- Unter **Lager → Sortierung & Technik** sind die beiden mitgelieferten Copper-Golem-Litematics mit Maßen, Materiallisten, Vorschlagskoordinaten und direkter Texturansicht eingebunden.
+- Die Dachlaterne aus Revision 5.13 wurde auf Wunsch entfernt; die vorherige Dachform ist wiederhergestellt.
+- Der interne Voxel-Renderer zeichnet nur bei Änderungen und ordnet unbekannte Blockmaterialien mit passenden Ersatzfarben ein.
+- Unter **Lager → Sortierung & Technik** sind die beiden Copper-Golem-Litematics mit Maßen, Materiallisten, Einbauvorschlag und direkter Texturansicht eingebunden.
 
-Die Maschinen sind separate, unveränderte Litematic-Vorlagen. Der vorgeschlagene Technikstollen liegt unter Keller 3; Aushub, Servicezugang, Itemwege und Redstone wurden noch nicht in den Hauptbauplan übernommen oder im Spiel abgenommen. Die Originaldateien bleiben als Litematics erhalten.
+Die Maschinen sind separate, unveränderte Litematic-Vorlagen. Aushub, Servicezugang, Itemwege und Redstone wurden noch nicht in den Hauptbauplan übernommen oder im Spiel abgenommen.
 
 ## Versionsverlauf
 
-`git log --oneline --decorate` zeigt die Revisionen. `v5.12` bleibt als vorheriger Stand erhalten; der neue Stand ist mit `v5.13` markiert.
+`git log --oneline --decorate` zeigt die Revisionen. Revision 5.13 bleibt als Verlaufspunkt erhalten; der aktuelle Stand ist mit `v5.14` markiert.
 
 ## Neu aufbauen
 
@@ -20,4 +20,4 @@ Die Maschinen sind separate, unveränderte Litematic-Vorlagen. Der vorgeschlagen
 python tools/build.py
 ```
 
-Der Build verwendet die gespeicherte 5.12-Grundlage, die Vorlagenoberfläche unter `tools/seeds/revision-5.9/` und die Litematics unter `litematics/`.
+Der Build verwendet die gespeicherten Modelle unter `tools/seeds/` und die Litematics unter `litematics/`.

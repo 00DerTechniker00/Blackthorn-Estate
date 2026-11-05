@@ -1,10 +1,10 @@
 {
-  "revision": "5.13",
+  "revision": "5.14",
   "files": [
     {
       "path": "README.md",
-      "bytes": 1188,
-      "sha256": "92ea428bbd7f31fab2d8a08152030781654016090446e68da4363e698a06135a"
+      "bytes": 1033,
+      "sha256": "dddd9722f0635acb0109b5e7862521a1bd32e7313c2188edf64c805755a82755"
     },
     {
       "path": "aenderungen_5.10_zu_5.11.csv",
@@ -17,14 +17,14 @@
       "sha256": "b502f2d50dd831020bd05f6f4a1a8c240020a980f6769092321071f2e1f0cd15"
     },
     {
-      "path": "aenderungen_5.12_zu_5.13.csv",
+      "path": "aenderungen_5.13_zu_5.14.csv",
       "bytes": 5236,
-      "sha256": "e06388f0bf196b4928295ecace3cd4f1b6b746bef4a6fb45b08c17e129f00d18"
+      "sha256": "cd77c0ecdc53929979ca3d0958cfb7618f133e6ee9c880deeeac6169d55e267f"
     },
     {
       "path": "analysebericht.md",
-      "bytes": 1600,
-      "sha256": "df88757eeda7c35969fc5f8d97a78f89e15c63de8a0b8784125a3f2ecd2c7a06"
+      "bytes": 969,
+      "sha256": "cb8cc037e46074f404744bf3e09a60da76e9475967a9579cdfa60cf3a8f45ee4"
     },
     {
       "path": "app.js",
@@ -1622,24 +1622,24 @@
       "sha256": "c858c1ef8dcf48a1c27386ef8511902d41ea4aada3d412e9df175ae8733ec788"
     },
     {
-      "path": "blackthorn_estate_5.13.nbt",
-      "bytes": 390318,
-      "sha256": "0cbfb5e62b36ae82d2285bddf8d7849ad048660e62632ea67e7d7e27bc291ab5"
+      "path": "blackthorn_estate_5.14.nbt",
+      "bytes": 390016,
+      "sha256": "d8a8b80e0a3c9373ca496b2324a81c7acc0557161cbcfa45eb7914a10015967a"
     },
     {
       "path": "blockliste.csv",
-      "bytes": 8229767,
-      "sha256": "e3c08b1b5225b71ed26f09ca1655c8f05388b06c0dcd9278821d4a54dbc541f4"
+      "bytes": 8224263,
+      "sha256": "2851e3ff251fafcc1dd6366d2bbf5a16b4cfe4d8e70f1db1c231f3ec2d78cb70"
     },
     {
       "path": "blueprint.json",
-      "bytes": 4867304,
-      "sha256": "358e902c63e1c269bb6e8b07dd9a90a7b0c98076e0e13b2bddfbc14a9a8d896a"
+      "bytes": 4867418,
+      "sha256": "a299190d6dca05d857a15d2e199970def6cb3b8cf07404544c7a2b41794ed2ae"
     },
     {
       "path": "check_report.json",
       "bytes": 1249,
-      "sha256": "bcd5204f658b57fc3e0fe908e26a53f7a737e72cb454df31b67c25cb6031effe"
+      "sha256": "80dcd95beabcb3ab408ffc5023b2904e92bc32302968f4d78aa3926f12547236"
     },
     {
       "path": "gelaende_oberflaeche.csv",
@@ -1648,8 +1648,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5505684,
-      "sha256": "3fe9288b3f2a3b89036c1a07c90311105946f088ac7cc453757c997bf30b04c5"
+      "bytes": 5505398,
+      "sha256": "8fc5fef3c4263ae31a3f140c24cdf6f3387f340df39e446e48941d50e0566c78"
     },
     {
       "path": "lager_kategorien.csv",
@@ -1693,13 +1693,13 @@
     },
     {
       "path": "materialbedarf.csv",
-      "bytes": 2593,
-      "sha256": "e299ee955586c5c18a7cef5366cfdb4529a2c3d5dc2df6d48ed7168e0a31e5a4"
+      "bytes": 2564,
+      "sha256": "dbd5fbd9f0a993fc57268637ffb1220a1478b2acdd68086c14e5d576c27da810"
     },
     {
       "path": "materialbedarf_baugruppen.csv",
-      "bytes": 9383,
-      "sha256": "5329a5b253365b28ca20687e1f7389ca4145fa554542db44a86fc87cf15e1a5d"
+      "bytes": 9291,
+      "sha256": "f380f3d3269b8816abd793c258d53af186c214bdd3b86e9a4493d72874e04c62"
     },
     {
       "path": "minecraft_viewer.js",
@@ -1709,12 +1709,12 @@
     {
       "path": "progress.js",
       "bytes": 5199,
-      "sha256": "02976732cbf9445662510cb980cf6c2e8f8efe8102308db8c61e1ed9f66802ba"
+      "sha256": "f26b38eac38252172c3cc67f9740d56c18a1d220c29eca6d363741e3fe1cc8db"
     },
     {
       "path": "pruefprotokoll.json",
-      "bytes": 691,
-      "sha256": "79ab4c26a6c14d2bb7ce3f792c9229c38d537c5faacf8db05de6c6ddaf455ad6"
+      "bytes": 692,
+      "sha256": "0d1b4c86c324169377830449fbc940edb15defacd9df50b72c262dbf616a6059"
     },
     {
       "path": "source-data/README.md",
@@ -1849,7 +1849,7 @@
     {
       "path": "steps.js",
       "bytes": 4825,
-      "sha256": "b14b62880ddcbba31871622c486d774671a1448e071ad72f37c33d94c61cf05e"
+      "sha256": "34c3f5be9004c043a4c44a9b9fd08dd4195ac4c400e3c119f4030a171d5eb65f"
     },
     {
       "path": "styles.css",
@@ -1893,8 +1893,8 @@
     },
     {
       "path": "tools/build.py",
-      "bytes": 12380,
-      "sha256": "2e6dee045691c14ea0972ee476d31516dd32a67f4b447f687053bef034246557"
+      "bytes": 11807,
+      "sha256": "87dba4e3284329329adbd0a90f0dbef288722f6b18222b20304b751322e716d7"
     },
     {
       "path": "tools/export_preview.mjs",
@@ -1947,6 +1947,11 @@
       "sha256": "d1f45146bf09236255d43b3e684f1e5a9b5946d477074aee062ac2539c406433"
     },
     {
+      "path": "tools/seeds/revision-5.13/blueprint.json",
+      "bytes": 4867304,
+      "sha256": "358e902c63e1c269bb6e8b07dd9a90a7b0c98076e0e13b2bddfbc14a9a8d896a"
+    },
+    {
       "path": "tools/seeds/revision-5.9/app.js",
       "bytes": 57481,
       "sha256": "077eba4b556c1e5c4609cc33504b861f4cd9b17df072cde11b8032b21a4ae7a7"
@@ -1993,8 +1998,8 @@
     },
     {
       "path": "tools/web.py",
-      "bytes": 30824,
-      "sha256": "38a83f62ce7d81dd754ca21b839f38ca4d54f14edb7c910a0596a851e29c952e"
+      "bytes": 30860,
+      "sha256": "37392ce3bbd1f07168089b3908f48f8de108fe6c8bbc401586c99aec54c6d730"
     },
     {
       "path": "ui.js",
