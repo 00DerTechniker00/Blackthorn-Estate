@@ -1,21 +1,20 @@
-# Blackthorn Estate · Revision 5.17
+# Blackthorn Estate · Revision 5.18
 
-Der neue Leiter-Wartungsschacht liegt bei X −688…−686, Z 789…791 und Y 106…132 in der vorgesehenen Servicelücke. Die Geschossblöcke an der Mittelachse Y 113, 120, 121, 128, 129 sowie der Teppich Y 130 sind ersetzt. Der Boden Y 105 bleibt als sicherer Abschluss erhalten. Vier geschlossene Holztüren geben Zugang von Westen auf K3, K2, K1 und EG. Eine Glasverkleidung sichert die übrigen Seiten. Drei Laternen und ihre Ketten im Schachtbereich entfallen.
+Poolfassade, Panoramabalkon und Klippenbögen
 
-Die Pool-Doppeltür bei X −658, Z 789/790 hat korrigierte äußere Anschläge und einen geschlossenen Rahmen mit Tiefenschieferpfosten und Steinziegelsturz. Der Boden Y 129 und der Durchgang Y 130–132 sind vor und hinter der Tür frei von Stufen bzw. Hindernissen.
+- Gestaffelte Poolfassade: Zwei hohe graue Glasfelder mit vorgezogenen Basaltpfeilern, dunklen Sohlbänken und steinernen Abschlüssen.
+- Begehbarer Panoramabalkon: Boden Y 137, drei Blöcke Ausladung und acht Blöcke Breite; neue OG-Doppeltür mit äußeren Anschlägen und Eisengeländer.
+- Drei Stützbögen unter dem Pool: Je zwei Blöcke tiefe Querbögen bei Z 780, 790 und 800; Tiefenschiefer und einzelne Moossteine, Pfeiler bis Y 115, bei tieferem vermessenem Gelände bis zur Oberfläche verlängert.
+- Drei gemauerte Dachkamine: Unterschiedliche Abschlusshöhen Y 153–156; direkt auf dem Dach verankert, mit offenen Rauchstellen.
 
-Goldene Teppichsegmente kennzeichnen vorhandene Teppichflächen auf Z 790 zwischen Kellerzugang und Haupttreppe. Der Schacht ist zu umgehen; ein durchgängiger Laufweg ist im Spiel zu prüfen.
+Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die neue Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der tiefere Technikstollen und automatische Itemlift stehen aus.
 
-Die Modul-Grube bei Y 80–103 liegt unter K3. Unterer Schachtausbau, automatische Itemförderung und Ein-/Ausgänge stehen aus. Die Original-Litematics bleiben separat.
+Bogenfüße berücksichtigen die mitgelieferte Oberflächenkarte; der Anschluss an den tatsächlichen Klippenfels muss vor Ort geprüft werden. Die Kamine sind Dachdetails ohne durchgehende Innenraum-Abzüge. Neue Lichtquellen sind kein Nachweis für Spawn-Sicherheit.
 
-Die Licht- und Erreichbarkeitszahlen unter `checks` sind historische Daten, keine aktuelle Simulation. Die Terrainangaben betreffen den bisherigen Oberflächen-/Kellerplan; der tiefere Modulstollen ist darin nicht vollständig erfasst. Guard-Post-Zahlen sind kein Nachweis für 54 eigenständige Gebäude.
+Die Website zeigt die neuen Bauteile unter Bauatlas → Hausstruktur mit direktem 3D-Zugriff. Blockliste, Materialbedarf, Änderungsdatei und NBT-Export werden aus demselben Modell erzeugt. Alte Modellhäkchen werden nur für unveränderte Positionen übernommen.
 
-Steinsäger: geeignete Steintreppen ergeben eine Treppe je Vollblock, gegenüber vier Treppen aus sechs Vollblöcken an der Werkbank. Holztreppen gehören nicht zu diesen Rezepten. Steinplatten liefern bei beiden Verfahren zwei Stück je Vollblock.
+Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. Aktuelle Ingame-Abnahme, Lichtsimulation und der Anschluss der Bogenfüße an den Fels stehen aus.
 
-Die Website gliedert ihre 14 Ansichten in fünf Bereichscontainer. Haupt- und Untertabs unterstützen ARIA-Rollen, eindeutige Beschriftungen und Pfeiltasten, Home und End. Daten liegen in blueprint-data.js; die Originaldaten bleiben in blueprint.json. model-data.js wird erst beim Start des Textur-Viewers geladen. Beide Skripte funktionieren ohne lokalen Webserver. Zum Weitergeben müssen HTML und Begleitdateien zusammenbleiben. Historische Archivkopien, ursprüngliche Weltdateien und ältere ungenutzte Seeds bleiben lokal und werden über .gitignore von Git ausgeschlossen. Frühere Revisionen sind über die Git-Historie verfügbar.
+Die Daten bleiben in externen JavaScript-Dateien, damit der Atlas lokal ohne Webserver geöffnet werden kann. Historische Archive und Rohwelten bleiben lokal über .gitignore ausgeschlossen.
 
-Geprüft sind IDs, ARIA-Verweise, Überschriftenfolge, Datenidentität, Tastaturfunktionen und JavaScript-Syntax. Ein Browsertest konnte wegen der Betriebssystembeschränkung beim Chromium-Start nicht durchgeführt werden.
-
-Ingame-Lauftest, Türen-/Leitertest und aktuelle Lichtsimulation sind offen.
-
-Atlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v5.17`.
+Atlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v5.18`.

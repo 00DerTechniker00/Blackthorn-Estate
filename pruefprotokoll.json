@@ -1,7 +1,7 @@
 {
-  "revision": "5.17",
-  "status": "Leiter-Wartungsschacht K3–EG und Teppichführung gebaut; automatische Itemförderung offen.",
-  "base_revision": "5.16",
+  "revision": "5.18",
+  "status": "Poolfassade, begehbarer Balkon, Stützbögen und drei Dachkamine modelliert.",
+  "base_revision": "5.17",
   "geometry_changed": true,
   "stair_clearance": [
     {
@@ -30,6 +30,52 @@
     "center_x": 29,
     "minimum_x_gap": 22,
     "basement_to_main_route": "Bibliothek → Große Halle"
+  },
+  "enhancements": {
+    "title": "Poolfassade, Panoramabalkon und Klippenbögen",
+    "features": [
+      {
+        "group": "poolfassade",
+        "name": "Gestaffelte Poolfassade",
+        "description": "Zwei hohe graue Glasfelder mit vorgezogenen Basaltpfeilern, dunklen Sohlbänken und steinernen Abschlüssen."
+      },
+      {
+        "group": "panoramabalkon",
+        "name": "Begehbarer Panoramabalkon",
+        "description": "Boden Y 137, drei Blöcke Ausladung und acht Blöcke Breite; neue OG-Doppeltür mit äußeren Anschlägen und Eisengeländer."
+      },
+      {
+        "group": "poolboegen",
+        "name": "Drei Stützbögen unter dem Pool",
+        "description": "Je zwei Blöcke tiefe Querbögen bei Z 780, 790 und 800; Tiefenschiefer und einzelne Moossteine, Pfeiler bis Y 115, bei tieferem vermessenem Gelände bis zur Oberfläche verlängert."
+      },
+      {
+        "group": "dach_kamine",
+        "name": "Drei gemauerte Dachkamine",
+        "description": "Unterschiedliche Abschlusshöhen Y 153–156; direkt auf dem Dach verankert, mit offenen Rauchstellen."
+      }
+    ],
+    "chimneys": [
+      {
+        "x": -704,
+        "z": 778,
+        "base": 149,
+        "top": 154
+      },
+      {
+        "x": -686,
+        "z": 803,
+        "base": 147,
+        "top": 153
+      },
+      {
+        "x": -666,
+        "z": 775,
+        "base": 151,
+        "top": 156
+      }
+    ],
+    "limits": "Bogenfüße berücksichtigen die mitgelieferte Oberflächenkarte; der Anschluss an den tatsächlichen Klippenfels muss vor Ort geprüft werden. Die Kamine sind Dachdetails ohne durchgehende Innenraum-Abzüge. Neue Lichtquellen sind kein Nachweis für Spawn-Sicherheit."
   },
   "service_shaft": {
     "position": [

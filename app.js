@@ -44,7 +44,7 @@ function deName(id) {
   if (m) { const b = BASE_DE[m[1]] || BASE_DE[m[1] + 's'] || m[1].replace(/_/g, ' '); const suf = { stairs: 'Treppe', slab: 'Stufe', wall: 'Mauer', door: 'Tür' }[m[2]]; return `${b}-${suf}`; }
   return id.replace(/_/g, ' ');
 }
-const COLORS = {grass_block:'#689450',dirt:'#92704e',gravel:'#b3a78c',oak_leaves:'#456b36',glowstone:'#e3ba6b',allium:'#b08ac8',oxeye_daisy:'#eee8cc',cornflower:'#5a86cf',polished_diorite:'#d1d0c9',waxed_oxidized_cut_copper_slab:'#579989',waxed_copper_chest:'#bd7953',shulker_box:'#8d6aa1',dispenser:'#777e7b',dropper:'#777e7b',piston:'#9b8a69',redstone_block:'#af302a',redstone_wall_torch:'#bc4e2d',iron_chain:'#3a3c42',bricks:'#986c60',polished_diorite:'#d4d5ce',waxed_oxidized_cut_copper_slab:'#5d9d88',waxed_copper_chest:'#bf7950',shulker_box:'#9567a4',piston:'#8d826c',dispenser:'#777e7c',dropper:'#777e7c',redstone_block:'#a82822',redstone_wall_torch:'#bb4c2c',
+const COLORS = {gray_stained_glass_pane:'#858991',polished_basalt:'#626367',mossy_cobblestone:'#647458',campfire:'#d18a42',grass_block:'#689450',dirt:'#92704e',gravel:'#b3a78c',oak_leaves:'#456b36',glowstone:'#e3ba6b',allium:'#b08ac8',oxeye_daisy:'#eee8cc',cornflower:'#5a86cf',polished_diorite:'#d1d0c9',waxed_oxidized_cut_copper_slab:'#579989',waxed_copper_chest:'#bd7953',shulker_box:'#8d6aa1',dispenser:'#777e7b',dropper:'#777e7b',piston:'#9b8a69',redstone_block:'#af302a',redstone_wall_torch:'#bc4e2d',iron_chain:'#3a3c42',bricks:'#986c60',polished_diorite:'#d4d5ce',waxed_oxidized_cut_copper_slab:'#5d9d88',waxed_copper_chest:'#bf7950',shulker_box:'#9567a4',piston:'#8d826c',dispenser:'#777e7c',dropper:'#777e7c',redstone_block:'#a82822',redstone_wall_torch:'#bb4c2c',
   stone_bricks: '#8d8d8a', cracked_stone_bricks: '#82827f', mossy_stone_bricks: '#77876a', deepslate_bricks: '#4b4b52',
   cracked_deepslate_bricks: '#45454c', deepslate_tiles: '#3e3e45', polished_deepslate: '#5a5a62', spruce_planks: '#7d5e36',
   dark_oak_planks: '#4a331e', bookshelf: '#8b6a3a', glass: '#cfeaf5', glass_pane: '#bfe3f2', iron_bars: '#8e9298',
@@ -75,7 +75,7 @@ function colorOf(id) {
   let hash=2166136261;for(let i=0;i<id.length;i++)hash=Math.imul(hash^id.charCodeAt(i),16777619);
   return palette[(hash>>>0)%palette.length];
 }
-const CUSTOM = {
+const CUSTOM = {campfire:[[0,0,0,16,7,16]],
       hopper:[],waxed_copper_chest:[[1,0,1,15,14,15]],redstone_wire:[[0,0,0,16,1,16]],
       repeater:[[0,0,0,16,2,16]],comparator:[[0,0,0,16,2,16]],redstone_wall_torch:[[6,3,6,10,14,10]],
   enchanting_table: [[0, 0, 0, 16, 12, 16]], lectern: [[0, 0, 0, 16, 2, 16], [4, 2, 4, 12, 14, 12], [0, 12, 0, 16, 16, 16]],
@@ -87,7 +87,7 @@ const CUSTOM = {
 function kindOf(id) {if(['allium','oxeye_daisy','cornflower'].includes(id))return 'flower';
   if (id === 'water') return 'water'; if (id === 'glass') return 'glass';
   if (id.endsWith('_stairs')) return 'stairs'; if (id.endsWith('_slab')) return 'slab'; if (id.endsWith('_door')) return 'door';
-  if (id === 'glass_pane' || id === 'iron_bars') return 'pane'; if (id.endsWith('_fence')) return 'fence';
+  if (id === 'glass_pane' || id.endsWith('_stained_glass_pane') || id === 'iron_bars') return 'pane'; if (id.endsWith('_fence')) return 'fence';
   if (id.endsWith('_wall')) return 'wall'; if (id.endsWith('_carpet')) return 'carpet'; if (id.endsWith('_bed')) return 'bed';
   if (id === 'lantern' || id === 'soul_lantern') return 'lantern'; if ((id === 'chain' || id === 'iron_chain')) return 'chain';
   if (id === 'lightning_rod') return 'rod'; if (CUSTOM[id]) return 'custom';
@@ -118,7 +118,7 @@ const PHASES = [
   { id: 'p7', name: '7 · Terrasse & Pool', text: 'Außenanlagen mit Panorama nach Osten; niedrige Erkerhauben sind Teil des Daches.', groups: ['terrasse', 'pool', 'observatorium'] },
   { id: 'p8', name: '8 · Zusatzbeleuchtung', text: 'Gezielte Deckenleuchten mit kurzen Ketten. Bestehende Kronleuchter und Sockelleuchten bleiben erhalten; Lichtwirkung im Spiel prüfen.', groups: ['beleuchtung'] }
 ];
-GROUP_DE.gartendeko='Garten & Außendekoration';PHASES.push({id:'p9',name:'9 · Garten & Außendekoration',text:'Begrünte Böschungen zuerst; danach Hecken, Blütenbeete, Bänke und Gartenpavillon.',groups:['gartendeko']});
+GROUP_DE.poolfassade='Poolfassade';GROUP_DE.panoramabalkon='Panoramabalkon';GROUP_DE.poolboegen='Pool-Stützbögen';GROUP_DE.dach_kamine='Dachkamine';PHASES.push({id:'p10',name:'10 · Architektur & Klippenbögen',text:'Bogenfüße vor Ort mit Fels abgleichen, anschließend Fassade und Balkon bauen.',groups:['poolfassade','panoramabalkon','poolboegen','dach_kamine']});GROUP_DE.gartendeko='Garten & Außendekoration';PHASES.push({id:'p9',name:'9 · Garten & Außendekoration',text:'Begrünte Böschungen zuerst; danach Hecken, Blütenbeete, Bänke und Gartenpavillon.',groups:['gartendeko']});
 const gname = g => GROUP_DE[g] || g;
 
 /* ---------- Räume ---------- */
@@ -226,7 +226,7 @@ function buildModel(pred) {
       }
     } else {
       const boxes = shapeBoxes(r, x, y, z, vis);
-      const tgt = (r.id === 'glass_pane') ? L.glass : L.main;
+      const tgt = ((r.id === 'glass_pane' || r.id.endsWith('_stained_glass_pane'))) ? L.glass : L.main;
       for (const b of boxes) addBox(tgt, x, y, z, b, col, nz, null);
     }
   }

@@ -1,3 +1,3 @@
 # Build-Vorlagen
 
-`revision-5.9/` enthält die unveränderte Ausgangsoberfläche, aus der der Website-Generator die Bereiche und Datenbindungen erstellt. Sie ist im Git-Verlauf mit Tag `v5.9` dokumentiert. Die aktuelle Bauplanquelle liegt direkt im Repository als `blueprint.json`.
+`revision-5.9/` enthält die Ausgangsoberfläche. `revision-5.17/` enthält das Ausgangsmodell und die Fortschrittsvorlage für Revision 5.18. Ältere, ungenutzte Seeds bleiben lokal und werden ignoriert.

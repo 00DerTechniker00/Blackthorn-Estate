@@ -5,13 +5,14 @@ import hashlib
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
+from architecture import enhance
 from structure_export import export as export_structure
 from litematic_import import build as import_litematics
 
 ROOT=Path(__file__).resolve().parent.parent
-SEED=ROOT/'tools'/'seeds'/'revision-5.16'/'blueprint.json'
-VERSION='5.17'
-VERSION_PREVIOUS='5.16'
+SEED=ROOT/'tools'/'seeds'/'revision-5.17'/'blueprint.json'
+VERSION='5.18'
+VERSION_PREVIOUS='5.17'
 
 def build_structure_metadata(d):
     levels=[
@@ -69,28 +70,10 @@ def main():
         bid,state,gi=d['reg'][ri]
         for dx in range(n): old[(x+dx,y,z)]=(bid,state,d['groups'][gi])
     baseline=old.copy()
-    # East-facing double door: north leaf hinges north, south leaf south.
-    for z,hinge in ((789,'left'),(790,'right')):
-        for y,half in ((130,'lower'),(131,'upper')):
-            old[-658,y,z]=('dark_oak_door',f'facing=east,half={half},hinge={hinge},open=false,powered=false','bibliothek')
-    # Frame the two-wide pool door with solid jambs and a lintel.
-    for z in (788,791):
-        for y in (130,131):old[-658,y,z]=('polished_deepslate','','bibliothek')
-    for z in range(788,792):old[-658,132,z]=('stone_bricks','','bibliothek')
-    for z in (789,790):old[-658,133,z]=('stone_bricks','','bibliothek')
-    for y in range(106,133):
-        for x in range(-688,-685):
-            for z in range(789,792):old[x,y,z]=('glass','','service_schacht')
-        old[-687,y,790]=('ladder','facing=west,waterlogged=false','service_schacht')
-    for floor in (105,113,121,129):
-        for dy,half in ((1,'lower'),(2,'upper')):
-            old[-688,floor+dy,790]=('dark_oak_door',f'facing=west,half={half},hinge=left,open=false,powered=false','service_schacht')
-    for x in range(-697,-665):
-        pos=(x,130,790)
-        if baseline.get(pos,('',))[0]=='red_carpet' and not -688<=x<=-686:old[pos]=('yellow_carpet','','wegfuehrung')
+    enhancements=enhance(d,old)
     additions={pos:(baseline.get(pos),old.get(pos)) for pos in baseline.keys()|old.keys() if baseline.get(pos)!=old.get(pos)}
     group_names=d['groups']
-    group_names.extend(g for g in ('service_schacht','wegfuehrung') if g not in group_names)
+    group_names.extend(g for g in sorted({v[2] for v in old.values()}) if g not in group_names)
     group_index={g:i for i,g in enumerate(group_names)}
     reg=list(d['reg']); reg_index={tuple(v):i for i,v in enumerate(reg)}
     indexed={}
@@ -118,19 +101,20 @@ def main():
     d['reg']=reg;d['runs']=runs;d['meta']['version']=VERSION;d['meta']['total']=len(indexed)
     d['meta']['bbox']=[min(p[0] for p in indexed),max(p[0] for p in indexed),min(p[1] for p in indexed),max(p[1] for p in indexed),min(p[2] for p in indexed),max(p[2] for p in indexed)]
     d['meta']['fingerprint']=hashlib.sha256(json.dumps(sequence,separators=(',',':')).encode()).hexdigest()
-    d['progress_compat']={'revision':'5.16','fingerprint':old_fingerprint,'changed_positions':[','.join(map(str,p)) for p in additions],'changed_groups':sorted({v[2] for pair in additions.values() for v in pair if v})}
+    d['progress_compat']={'revision':VERSION_PREVIOUS,'fingerprint':old_fingerprint,'changed_positions':[','.join(map(str,p)) for p in additions],'changed_groups':sorted({v[2] for pair in additions.values() for v in pair if v})}
     d['counts']=dict(counts)
     d['gcounts']={g:dict(c) for g,c in gcounts.items()}
     d['gstats']={}
     for g,points in coords.items():
         if points:d['gstats'][g]={'n':len(points),'x':[min(p[0] for p in points),max(p[0] for p in points)],'y':[min(p[1] for p in points),max(p[1] for p in points)],'z':[min(p[2] for p in points),max(p[2] for p in points)]}
-    d['validation'].update(version=VERSION,base='5.16',blocks=len(indexed),fingerprint=d['meta']['fingerprint'])
+    d['validation'].update(version=VERSION,base=VERSION_PREVIOUS,blocks=len(indexed),fingerprint=d['meta']['fingerprint'])
     modules=import_litematics()
     d['lighting']['fixtures']=[f for f in d['lighting']['fixtures'] if old.get((f['x'],f['y'],f['z']),('',))[0] in ('lantern','soul_lantern')]
     d['lighting']['total']=sum(1 for b,_,_ in old.values() if b in ('lantern','soul_lantern'))
     d['lighting']['light_simulated']=False
     d['checks']['historical_note']='Licht-, Erreichbarkeits- und Erdarbeitswerte stammen aus früheren Revisionen; keine aktuelle Simulation.'
     d['structure']=build_structure_metadata(d)
+    d['structure']['enhancements']=enhancements
     d['structure']['maintenance_shaft']={'bounds':[-688,-686,106,132,789,791],'access_floors':[105,113,121,129],'type':'Leiterwartungsschacht','automatic_items':False}
     d['structure_export']=export_structure(d,ROOT/f'blackthorn_estate_{VERSION}.nbt')
     (ROOT/'blueprint.json').write_text(json.dumps(d,ensure_ascii=False,separators=(',',':'))+'\n')
@@ -143,7 +127,7 @@ def main():
     write_project_docs(d,modules)
     from web import build
     build(d)
-    for oldfile in ('blackthorn_estate_5.16.nbt','manifest_5.16.json','aenderungen_5.15_zu_5.16.csv'):
+    for oldfile in ('blackthorn_estate_5.17.nbt','manifest_5.17.json','aenderungen_5.16_zu_5.17.csv'):
         p=ROOT/oldfile
         if p.exists():p.unlink()
     write_manifest()
@@ -196,39 +180,36 @@ def write_manifest():
     (ROOT/f'manifest_{VERSION}.json').write_text(json.dumps({'revision':VERSION,'files':files},ensure_ascii=False,indent=2)+'\n')
 
 def update_progress():
-    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.16'/'progress.js').read_text()
-    s=s.replace('5.16','5.17').replace('5.15','5.16')
+    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.17'/'progress.js').read_text()
+    s=s.replace('5.17','5.18').replace('5.16','5.17')
     p.write_text(s)
 
 def write_project_docs(d,modules):
     clearance=d['structure']['stair_clearance']
     vault=d['structure']['service_shaft']
+    enhancements=d['structure']['enhancements']
     report=f"""# Blackthorn Estate · Revision {VERSION}
 
-Der neue Leiter-Wartungsschacht liegt bei X −688…−686, Z 789…791 und Y 106…132 in der vorgesehenen Servicelücke. Die Geschossblöcke an der Mittelachse Y 113, 120, 121, 128, 129 sowie der Teppich Y 130 sind ersetzt. Der Boden Y 105 bleibt als sicherer Abschluss erhalten. Vier geschlossene Holztüren geben Zugang von Westen auf K3, K2, K1 und EG. Eine Glasverkleidung sichert die übrigen Seiten. Drei Laternen und ihre Ketten im Schachtbereich entfallen.
+{enhancements['title']}
 
-Die Pool-Doppeltür bei X −658, Z 789/790 hat korrigierte äußere Anschläge und einen geschlossenen Rahmen mit Tiefenschieferpfosten und Steinziegelsturz. Der Boden Y 129 und der Durchgang Y 130–132 sind vor und hinter der Tür frei von Stufen bzw. Hindernissen.
+{chr(10).join('- '+f['name']+': '+f['description'] for f in enhancements['features'])}
 
-Goldene Teppichsegmente kennzeichnen vorhandene Teppichflächen auf Z 790 zwischen Kellerzugang und Haupttreppe. Der Schacht ist zu umgehen; ein durchgängiger Laufweg ist im Spiel zu prüfen.
+Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die neue Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der tiefere Technikstollen und automatische Itemlift stehen aus.
 
-Die Modul-Grube bei Y 80–103 liegt unter K3. Unterer Schachtausbau, automatische Itemförderung und Ein-/Ausgänge stehen aus. Die Original-Litematics bleiben separat.
+{enhancements['limits']}
 
-Die Licht- und Erreichbarkeitszahlen unter `checks` sind historische Daten, keine aktuelle Simulation. Die Terrainangaben betreffen den bisherigen Oberflächen-/Kellerplan; der tiefere Modulstollen ist darin nicht vollständig erfasst. Guard-Post-Zahlen sind kein Nachweis für 54 eigenständige Gebäude.
+Die Website zeigt die neuen Bauteile unter Bauatlas → Hausstruktur mit direktem 3D-Zugriff. Blockliste, Materialbedarf, Änderungsdatei und NBT-Export werden aus demselben Modell erzeugt. Alte Modellhäkchen werden nur für unveränderte Positionen übernommen.
 
-Steinsäger: geeignete Steintreppen ergeben eine Treppe je Vollblock, gegenüber vier Treppen aus sechs Vollblöcken an der Werkbank. Holztreppen gehören nicht zu diesen Rezepten. Steinplatten liefern bei beiden Verfahren zwei Stück je Vollblock.
+Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. Aktuelle Ingame-Abnahme, Lichtsimulation und der Anschluss der Bogenfüße an den Fels stehen aus.
 
-Die Website gliedert ihre 14 Ansichten in fünf Bereichscontainer. Haupt- und Untertabs unterstützen ARIA-Rollen, eindeutige Beschriftungen und Pfeiltasten, Home und End. Daten liegen in blueprint-data.js; die Originaldaten bleiben in blueprint.json. model-data.js wird erst beim Start des Textur-Viewers geladen. Beide Skripte funktionieren ohne lokalen Webserver. Zum Weitergeben müssen HTML und Begleitdateien zusammenbleiben. Historische Archivkopien, ursprüngliche Weltdateien und ältere ungenutzte Seeds bleiben lokal und werden über .gitignore von Git ausgeschlossen. Frühere Revisionen sind über die Git-Historie verfügbar.
-
-Geprüft sind IDs, ARIA-Verweise, Überschriftenfolge, Datenidentität, Tastaturfunktionen und JavaScript-Syntax. Ein Browsertest konnte wegen der Betriebssystembeschränkung beim Chromium-Start nicht durchgeführt werden.
-
-Ingame-Lauftest, Türen-/Leitertest und aktuelle Lichtsimulation sind offen.
+Die Daten bleiben in externen JavaScript-Dateien, damit der Atlas lokal ohne Webserver geöffnet werden kann. Historische Archive und Rohwelten bleiben lokal über .gitignore ausgeschlossen.
 """
     (ROOT/'analysebericht.md').write_text(report)
     (ROOT/'README.md').write_text(report+f"\nAtlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v{VERSION}`.\n")
-    protocol={'revision':'5.17','status':'Leiter-Wartungsschacht K3–EG und Teppichführung gebaut; automatische Itemförderung offen.',
-        'base_revision':'5.16','geometry_changed':True,
+    protocol={'revision':VERSION,'status':'Poolfassade, begehbarer Balkon, Stützbögen und drei Dachkamine modelliert.',
+        'base_revision':VERSION_PREVIOUS,'geometry_changed':True,
         'stair_clearance':clearance,'stair_separation':d['structure']['stair_separation'],
-        'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],
+        'enhancements':enhancements,'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],
         'litematics':[{'file':m['source'],'sha256':m['sha256'],'blocks':m['total_blocks'],'metadata_blocks_match':True} for m in modules['modules']],
         'website_checks':{'aria_references':True,'heading_order':True,'keyboard_logic':True,'data_identity':True,'browser_status':'Chromium-Start durch Betriebssystembeschränkung blockiert'},
         'browser_render_verified':False,'in_game_walk_test':False,'in_game_redstone_verified':False}
