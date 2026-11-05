@@ -94,6 +94,10 @@ def build():
         ('Golem MIS Dustless Filter.litematic',[-685,82,770],'dustless_filter'),
     ]
     modules=[]
+    if not all((ROOT/'litematics'/f).exists() for f,_,_ in specs) and (ROOT/'lagertechnik_module.json').exists():
+        # Litematic-Dateien liegen nicht vor (z. B. in einem ZIP ohne Unterordner litematics/):
+        # bereits ausgelesene Moduldaten weiterverwenden.
+        return json.loads((ROOT/'lagertechnik_module.json').read_text())
     for filename,anchor,key in specs:
         model=read_litematic(ROOT/'litematics'/filename)
         model['key']=key; model['proposed_world_anchor']=anchor

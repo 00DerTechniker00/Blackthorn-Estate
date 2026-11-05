@@ -1,7 +1,12 @@
-# Blackthorn Estate · Revision 5.22
+# Blackthorn Estate · Revision 5.23
 
-Südweinberg, Steglicht und Liefergong
+Lebendige Nord- und Südfassade
 
+- Offene Fensterläden: 176 offene Falltüren rahmen die Fenster: dunkle Eiche im Erdgeschoss, Fichte im Obergeschoss. Die Fensterflächen bleiben frei.
+- Sohlbänke und Stürze: 140 Steinziegel-Platten und umgedrehte Treppen betonen jedes Fenster der Nord- und Südfassade mit Bank und Sturz.
+- Zahnschnitt-Gesims: 36 umgedrehte Treppen im Zwei-Block-Takt unter dem Traufgesims geben den langen Wänden Rhythmus und Schatten.
+- Efeu an den Wänden: 100 Rankenblöcke in unregelmäßigen Bahnen an fensterfreien Wandstreifen; auf der Bauseite beliebig verschiebbar.
+- Verwitterte Mauersteine: 83 bemooste und 29 rissige Steinziegel ersetzen einzelne Mauersteine, vor allem am Sockel und neben dem Efeu.
 - Terrassierter Südweinberg: Drei begrünte Stufen auf Y 125, 124 und 123 mit Fichtenspalieren, Laubreben und einem eigenen seitlichen Treppenweg.
 - Seelenlaternen am Bootssteg: Zwei fest verankerte Fichtenhalter außerhalb der östlichen Wasserzufahrt; freie Bootsbucht bleibt erhalten.
 - Ausgestattete Remisen-Nischen: Zwei reservierte Plätze für Leder- und Diamantrüstung. Rüstungsständer werden mit remise_bibliothek_5.22.mcfunction im Spiel erzeugt und ausgestattet.
@@ -32,18 +37,20 @@ Südweinberg, Steglicht und Liefergong
 - Materiallift mit Inhaltsanzeige: Komparator hinter der EG-Ausgabe, direkt angeschlossene Redstone-Lampe in gewachster Kupfereinfassung. Leuchtet, solange die Ausgabekiste Items enthält.
 - Geheimtür mit Buchseitenwahl: Auswertung des vorhandenen Pults. Signalstärke 15 schaltet die Kolben ab; der Wartungshebel kann die Tür geschlossen halten. Buch im Spiel einsetzen.
 
-Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.21.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
+Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.23.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
 
 Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der geheime Zugang führt nun bis Y 80; die beiden Litematic-Module bleiben separate Dateien. Der Materiallift ist neben der Wartungsleiter modelliert; seine Inbetriebnahme steht aus.
 
-Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.
+Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.
 
 Die Website zeigt die neuen Bauteile unter Bauatlas → Hausstruktur mit direktem 3D-Zugriff. Blockliste, Materialbedarf, Änderungsdatei und NBT-Export werden aus demselben Modell erzeugt. Alte Modellhäkchen werden nur für unveränderte Positionen übernommen.
 
-Neu sind drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
+Neu in 5.23: offene Fensterläden, Sohlbänke und Stürze, Zahnschnitt-Gesims, Efeu und verwitterte Mauersteine an der Nord- und Südfassade (Zahlen in der Änderungsdatei aenderungen_5.22_zu_5.23.csv). Die Fassade lässt sich unabhängig vom Rest bauen und ist rein gestalterisch.
+
+Aus 5.22: drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
 
 Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. Aktuelle Ingame-Abnahme, Lichtsimulation und der Anschluss der Bogenfüße an den Fels stehen aus.
 
 Die Daten bleiben in externen JavaScript-Dateien, damit der Atlas lokal ohne Webserver geöffnet werden kann. Historische Archive und Rohwelten bleiben lokal über .gitignore ausgeschlossen. Nicht mehr verwendete Werkzeuge aus der 5.11-Reihe und zwei ungenutzte Vorschaubilder liegen lokal unter archive/repository-cleanup-5.22/. Der aktuelle Build benötigt sie nicht.
 
-Atlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v5.22`.
+Atlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v5.23`.

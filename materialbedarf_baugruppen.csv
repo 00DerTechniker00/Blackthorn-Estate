@@ -1,5 +1,5 @@
 ﻿Baugruppe;Material;Anzahl
-res4;stone_bricks;914
+res4;stone_bricks;894
 res4;spruce_planks;635
 res4;dark_oak_planks;482
 res4;polished_deepslate;186
@@ -18,7 +18,7 @@ res4;furnace;1
 res4;lectern;1
 res4;purple_bed;1
 res6;spruce_planks;635
-res6;stone_bricks;574
+res6;stone_bricks;564
 res6;dark_oak_planks;485
 res6;polished_deepslate;184
 res6;deepslate_bricks;104
@@ -36,7 +36,7 @@ res6;cyan_bed;1
 res6;furnace;1
 res6;lectern;1
 res3;spruce_planks;635
-res3;stone_bricks;574
+res3;stone_bricks;554
 res3;dark_oak_planks;485
 res3;polished_deepslate;184
 res3;deepslate_bricks;104
@@ -53,7 +53,7 @@ res3;crafting_table;2
 res3;furnace;1
 res3;green_bed;1
 res3;lectern;1
-res2;stone_bricks;708
+res2;stone_bricks;686
 res2;spruce_planks;621
 res2;dark_oak_planks;475
 res2;polished_deepslate;90
@@ -71,7 +71,7 @@ res2;crafting_table;2
 res2;blue_bed;1
 res2;furnace;1
 res2;lectern;1
-res5;stone_bricks;708
+res5;stone_bricks;691
 res5;spruce_planks;621
 res5;dark_oak_planks;475
 res5;polished_deepslate;90
@@ -91,7 +91,7 @@ res5;lectern;1
 res5;orange_bed;1
 fundament;deepslate_bricks;859
 fundament;stone_bricks;757
-res1;stone_bricks;912
+res1;stone_bricks;889
 res1;spruce_planks;635
 res1;dark_oak_planks;482
 res1;polished_deepslate;186
@@ -507,3 +507,11 @@ weinberg;oak_leaves;66
 weinberg;mossy_cobblestone;42
 weinberg;spruce_fence;24
 weinberg;cobblestone_stairs;6
+fassade_alterung;mossy_stone_bricks;83
+fassade_alterung;cracked_stone_bricks;29
+fassade_efeu;vine;100
+fassade_fenster;stone_brick_stairs;92
+fassade_fenster;stone_brick_slab;48
+fassade_laeden;dark_oak_trapdoor;88
+fassade_laeden;spruce_trapdoor;88
+fassade_zahnschnitt;stone_brick_stairs;36

@@ -20,7 +20,7 @@ for (let i = 0; i < N; i++) grid[gidx(X[i], Y[i], Z[i])] = i + 1;
 const at = (x, y, z) => (x < GX0 || y < GY0 || z < GZ0 || x >= GX0 + NX || y >= GY0 + NY || z >= GZ0 + NZ) ? -1 : grid[gidx(x, y, z)] - 1;
 
 /* ---------- Namen & Farben ---------- */
-const BASE_DE = {grass_block:'Grasblock',dirt:'Erde',gravel:'Kies',oak_leaves:'Eichenlaub',allium:'Sternlauch',oxeye_daisy:'Margerite',cornflower:'Kornblume',iron_chain:'Eisenkette',shulker_box:'Shulkerkiste',waxed_copper_chest:'Gewachste Kupfertruhe',
+const BASE_DE = {grass_block:'Grasblock',dirt:'Erde',gravel:'Kies',oak_leaves:'Eichenlaub',allium:'Sternlauch',oxeye_daisy:'Margerite',cornflower:'Kornblume',vine:'Ranken',dark_oak_trapdoor:'Dunkeleichen-Falltür',spruce_trapdoor:'Fichten-Falltür',mossy_stone_bricks:'Bemooste Steinziegel',cracked_stone_bricks:'Rissige Steinziegel',iron_chain:'Eisenkette',shulker_box:'Shulkerkiste',waxed_copper_chest:'Gewachste Kupfertruhe',
   stone_bricks: 'Steinziegel', cracked_stone_bricks: 'Rissige Steinziegel', mossy_stone_bricks: 'Bemooste Steinziegel',
   deepslate_bricks: 'Tiefenschieferziegel', cracked_deepslate_bricks: 'Rissige Tiefenschieferziegel',
   deepslate_tiles: 'Tiefenschieferfliesen', polished_deepslate: 'Polierter Tiefenschiefer',
@@ -61,7 +61,7 @@ function colorOf(id) {
   if (COLORS[id]) return COLORS[id];
   const m = id.match(/^(.*)_(stairs|slab|wall)$/);
   if (m) { const b = m[1]; return COLORS[b] || COLORS[b + 's'] || COLORS[b + '_planks'] || '#999999'; }
-  if(/oxidized_copper/.test(id))return '#669b85';
+  if(id==='vine')return '#3f6b34'; if(/oxidized_copper/.test(id))return '#669b85';
   if(/copper/.test(id))return '#b77a55';
   if(/cherry/.test(id))return /leaves/.test(id)?'#9a6677':'#b77b76';
   if(/deepslate|blackstone|basalt/.test(id))return '#55545a';
@@ -86,7 +86,7 @@ const CUSTOM = {campfire:[[0,0,0,16,7,16]],
 };
 function kindOf(id) {if(['allium','oxeye_daisy','cornflower'].includes(id))return 'flower';
   if ((id === 'water' || id === 'bubble_column')) return 'water'; if ((id === 'glass' || id.endsWith('_stained_glass'))) return 'glass';
-  if (id.endsWith('_stairs')) return 'stairs'; if (id.endsWith('_slab')) return 'slab'; if (id.endsWith('_door')) return 'door';
+  if (id.endsWith('_trapdoor')) return 'trapdoor'; if (id === 'vine') return 'vine'; if (id.endsWith('_stairs')) return 'stairs'; if (id.endsWith('_slab')) return 'slab'; if (id.endsWith('_door')) return 'door';
   if (id === 'glass_pane' || id.endsWith('_stained_glass_pane') || id === 'iron_bars') return 'pane'; if (id.endsWith('_fence')) return 'fence';
   if (id.endsWith('_wall')) return 'wall'; if (id.endsWith('_carpet')) return 'carpet'; if (id.endsWith('_bed')) return 'bed';
   if (id === 'lantern' || id === 'soul_lantern') return 'lantern'; if ((id === 'chain' || id === 'iron_chain')) return 'chain';
@@ -118,7 +118,7 @@ const PHASES = [
   { id: 'p7', name: '7 · Terrasse & Pool', text: 'Außenanlagen mit Panorama nach Osten; niedrige Erkerhauben sind Teil des Daches.', groups: ['terrasse', 'pool', 'observatorium'] },
   { id: 'p8', name: '8 · Zusatzbeleuchtung', text: 'Gezielte Deckenleuchten mit kurzen Ketten. Bestehende Kronleuchter und Sockelleuchten bleiben erhalten; Lichtwirkung im Spiel prüfen.', groups: ['beleuchtung'] }
 ];
-GROUP_DE.weinberg='Südweinberg';GROUP_DE.steglicht='Stegbeleuchtung';GROUP_DE.ruestungsnischen='Rüstungsnischen';GROUP_DE.bibliothek_details='Bibliotheksregale';GROUP_DE.liefergong='Liefergong';PHASES.push({id:'p14',name:'14 · Weinberg und Liefergong',text:'Regale und Rüstungsständer nach dem Import einrichten; den Gong im Spiel prüfen.',groups:['weinberg','steglicht','ruestungsnischen','bibliothek_details','liefergong']});GROUP_DE.stall_remise='Stall und Remise';GROUP_DE.orangerie='Orangerie';GROUP_DE.gartenlicht='Gartenlicht';GROUP_DE.hallen_prunk='Hallenkronleuchter';GROUP_DE.wohn_details='Suiten und Kamine';GROUP_DE.liftanzeige='Liftanzeige';GROUP_DE.buchsteuerung='Buchsteuerung';PHASES.push({id:'p13',name:'13 · Hofleben und Innenräume',text:'Nebengebäude und Inneneinrichtung ergänzen; Technik danach im Spiel prüfen.',groups:['stall_remise','orangerie','gartenlicht','hallen_prunk','wohn_details','liftanzeige','buchsteuerung']});GROUP_DE.geheimtechnik='Geheimtür';GROUP_DE.fluchtgang='Geheimgang';GROUP_DE.materiallift='Materiallift';GROUP_DE.poollicht='Poollicht';GROUP_DE.klippenpfad='Klippenpfad';GROUP_DE.bootshaus='Bootshaus';GROUP_DE.klippenvegetation='Klippenvegetation';PHASES.push({id:'p12',name:'12 · Uferweg & Technik',text:'Freiräume vorab ausheben, Redstone und Wasser erst danach in Betrieb nehmen.',groups:['geheimtechnik','fluchtgang','materiallift','poollicht','klippenpfad','bootshaus','klippenvegetation']});GROUP_DE.prunkportal='Westportal';GROUP_DE.aussichtsturm='Aussichtsturm';GROUP_DE.gartentreppe='Gartentreppe';GROUP_DE.klippenfuesse='Klippenfüße';GROUP_DE.kaskaden='Kaskaden';GROUP_DE.fassadenlicht='Portallicht';PHASES.push({id:'p11',name:'11 · Portal, Turm & Garten',text:'Zusätzliche Erdarbeiten beachten; Wasser zuletzt einsetzen.',groups:['prunkportal','aussichtsturm','gartentreppe','klippenfuesse','kaskaden','fassadenlicht']});GROUP_DE.poolfassade='Poolfassade';GROUP_DE.panoramabalkon='Panoramabalkon';GROUP_DE.poolboegen='Pool-Stützbögen';GROUP_DE.dach_kamine='Dachkamine';PHASES.push({id:'p10',name:'10 · Architektur & Klippenbögen',text:'Bogenfüße vor Ort mit Fels abgleichen, anschließend Fassade und Balkon bauen.',groups:['poolfassade','panoramabalkon','poolboegen','dach_kamine']});GROUP_DE.gartendeko='Garten & Außendekoration';PHASES.push({id:'p9',name:'9 · Garten & Außendekoration',text:'Begrünte Böschungen zuerst; danach Hecken, Blütenbeete, Bänke und Gartenpavillon.',groups:['gartendeko']});
+GROUP_DE.fassade_laeden='Fensterläden';GROUP_DE.fassade_fenster='Sohlbänke & Stürze';GROUP_DE.fassade_zahnschnitt='Zahnschnitt-Gesims';GROUP_DE.fassade_efeu='Efeu';GROUP_DE.fassade_alterung='Verwitterte Mauer';PHASES.push({id:'p15',name:'15 · Fassadenschmuck',text:'Zuletzt bauen: Läden, Bänke und Stürze, dann Zahnschnitt; Efeu und Verwitterung nach Geschmack.',groups:['fassade_fenster','fassade_laeden','fassade_zahnschnitt','fassade_efeu','fassade_alterung']});GROUP_DE.weinberg='Südweinberg';GROUP_DE.steglicht='Stegbeleuchtung';GROUP_DE.ruestungsnischen='Rüstungsnischen';GROUP_DE.bibliothek_details='Bibliotheksregale';GROUP_DE.liefergong='Liefergong';PHASES.push({id:'p14',name:'14 · Weinberg und Liefergong',text:'Regale und Rüstungsständer nach dem Import einrichten; den Gong im Spiel prüfen.',groups:['weinberg','steglicht','ruestungsnischen','bibliothek_details','liefergong']});GROUP_DE.stall_remise='Stall und Remise';GROUP_DE.orangerie='Orangerie';GROUP_DE.gartenlicht='Gartenlicht';GROUP_DE.hallen_prunk='Hallenkronleuchter';GROUP_DE.wohn_details='Suiten und Kamine';GROUP_DE.liftanzeige='Liftanzeige';GROUP_DE.buchsteuerung='Buchsteuerung';PHASES.push({id:'p13',name:'13 · Hofleben und Innenräume',text:'Nebengebäude und Inneneinrichtung ergänzen; Technik danach im Spiel prüfen.',groups:['stall_remise','orangerie','gartenlicht','hallen_prunk','wohn_details','liftanzeige','buchsteuerung']});GROUP_DE.geheimtechnik='Geheimtür';GROUP_DE.fluchtgang='Geheimgang';GROUP_DE.materiallift='Materiallift';GROUP_DE.poollicht='Poollicht';GROUP_DE.klippenpfad='Klippenpfad';GROUP_DE.bootshaus='Bootshaus';GROUP_DE.klippenvegetation='Klippenvegetation';PHASES.push({id:'p12',name:'12 · Uferweg & Technik',text:'Freiräume vorab ausheben, Redstone und Wasser erst danach in Betrieb nehmen.',groups:['geheimtechnik','fluchtgang','materiallift','poollicht','klippenpfad','bootshaus','klippenvegetation']});GROUP_DE.prunkportal='Westportal';GROUP_DE.aussichtsturm='Aussichtsturm';GROUP_DE.gartentreppe='Gartentreppe';GROUP_DE.klippenfuesse='Klippenfüße';GROUP_DE.kaskaden='Kaskaden';GROUP_DE.fassadenlicht='Portallicht';PHASES.push({id:'p11',name:'11 · Portal, Turm & Garten',text:'Zusätzliche Erdarbeiten beachten; Wasser zuletzt einsetzen.',groups:['prunkportal','aussichtsturm','gartentreppe','klippenfuesse','kaskaden','fassadenlicht']});GROUP_DE.poolfassade='Poolfassade';GROUP_DE.panoramabalkon='Panoramabalkon';GROUP_DE.poolboegen='Pool-Stützbögen';GROUP_DE.dach_kamine='Dachkamine';PHASES.push({id:'p10',name:'10 · Architektur & Klippenbögen',text:'Bogenfüße vor Ort mit Fels abgleichen, anschließend Fassade und Balkon bauen.',groups:['poolfassade','panoramabalkon','poolboegen','dach_kamine']});GROUP_DE.gartendeko='Garten & Außendekoration';PHASES.push({id:'p9',name:'9 · Garten & Außendekoration',text:'Begrünte Böschungen zuerst; danach Hecken, Blütenbeete, Bänke und Gartenpavillon.',groups:['gartendeko']});
 const gname = g => GROUP_DE[g] || g;
 
 /* ---------- Räume ---------- */
@@ -255,7 +255,9 @@ function shapeBoxes(r, x, y, z, vis) {
   if(r.kind==='lantern')return lanternParts(r).map(p=>p.box);
       if(r.id==='hopper'){const spout={down:[6,0,6,10,6,10],north:[6,4,0,10,8,6],south:[6,4,10,10,8,16],east:[10,4,6,16,8,10],west:[0,4,6,6,8,10]}[r.p.facing||'down'];return [[0,10,0,16,16,16],[4,5,4,12,10,12],spout];}
   const k = r.kind, p = r.p;
-  switch (k) {case 'flower': return [[7,0,7,9,9,9],[4,8,4,12,11,12]];
+  switch (k) {case 'trapdoor': {const f = p.facing || 'north'; if (p.open === 'true') return [{ east: [0, 0, 0, 3, 16, 16], west: [13, 0, 0, 16, 16, 16], south: [0, 0, 0, 16, 16, 3], north: [0, 0, 13, 16, 16, 16] }[f]]; return [p.half === 'top' ? [0, 13, 0, 16, 16, 16] : [0, 0, 0, 16, 3, 16]];}
+    case 'vine': return [p.south === 'true' ? [0, 0, 15, 16, 16, 16] : p.north === 'true' ? [0, 0, 0, 16, 16, 1] : p.east === 'true' ? [15, 0, 0, 16, 16, 16] : [0, 0, 0, 1, 16, 16]];
+    case 'flower': return [[7,0,7,9,9,9],[4,8,4,12,11,12]];
     case 'slab': return p.type === 'top' ? [[0, 8, 0, 16, 16, 16]] : p.type === 'double' ? [[0, 0, 0, 16, 16, 16]] : [[0, 0, 0, 16, 8, 16]];
     case 'stairs': {
       const f = p.facing || 'east', top = p.half === 'top';
@@ -550,7 +552,9 @@ function planCenter(x, z) {
 function shapeRects(r, mode) {
   const p = r.p, k = r.kind, sec = mode !== 'y';
   const F = [[0, 0, 1, 1]];
-  switch (k) {case 'flower': return [[7,0,7,9,9,9],[4,8,4,12,11,12]];
+  switch (k) {case 'trapdoor': {const f = p.facing || 'north'; if (p.open === 'true') return [{ east: [0, 0, 0, 3, 16, 16], west: [13, 0, 0, 16, 16, 16], south: [0, 0, 0, 16, 16, 3], north: [0, 0, 13, 16, 16, 16] }[f]]; return [p.half === 'top' ? [0, 13, 0, 16, 16, 16] : [0, 0, 0, 16, 3, 16]];}
+    case 'vine': return [p.south === 'true' ? [0, 0, 15, 16, 16, 16] : p.north === 'true' ? [0, 0, 0, 16, 16, 1] : p.east === 'true' ? [15, 0, 0, 16, 16, 16] : [0, 0, 0, 1, 16, 16]];
+    case 'flower': return [[7,0,7,9,9,9],[4,8,4,12,11,12]];
     case 'stairs': {
       if (!sec) return F;
       const f = p.facing, top = p.half === 'top', along = mode === 'z' ? ['east', 'west'] : ['south', 'north'];

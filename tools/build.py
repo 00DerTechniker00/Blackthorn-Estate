@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Revision 5.22 with static access checks and an explicit service-shaft plan."""
+"""Build Revision 5.23: lebendige Nord- und Südfassade auf Basis von Revision 5.22."""
 import csv
 import hashlib
 import json
@@ -10,9 +10,9 @@ from structure_export import export as export_structure
 from litematic_import import build as import_litematics
 
 ROOT=Path(__file__).resolve().parent.parent
-SEED=ROOT/'tools'/'seeds'/'revision-5.21'/'blueprint.json'
-VERSION='5.22'
-VERSION_PREVIOUS='5.21'
+SEED=ROOT/'tools'/'seeds'/'revision-5.22'/'blueprint.json'
+VERSION='5.23'
+VERSION_PREVIOUS='5.22'
 
 def build_structure_metadata(d):
     levels=[
@@ -20,8 +20,8 @@ def build_structure_metadata(d):
         ('keller_3','Keller 3',105,112,['keller_3','trading_hall','geheimraum','geheimgang','privatlager']),
         ('keller_2','Keller 2',113,120,['keller_2','lager_regale','bulk_lager','keller_treppe']),
         ('keller_1','Keller 1',121,128,['keller_1','golem_lager','lager_technik','shulker_technik','keller_treppe']),
-        ('erdgeschoss','Erdgeschoss',129,136,['halle','halle_treppe','kueche','speisesaal','vestibuel','portikus','bibliothek','res1','res2','res3','res4','res5','res6']),
-        ('obergeschoss','Obergeschoss & Galerie',137,144,['halle','halle_treppe','galerie','bibliothek','res1','res2','res3','res4','res5','res6','dach_ostfluegel']),
+        ('erdgeschoss','Erdgeschoss',129,136,['halle','halle_treppe','kueche','speisesaal','vestibuel','portikus','bibliothek','res1','res2','res3','res4','res5','res6','fassade_fenster','fassade_laeden','fassade_zahnschnitt','fassade_efeu','fassade_alterung']),
+        ('obergeschoss','Obergeschoss & Galerie',137,144,['halle','halle_treppe','galerie','bibliothek','res1','res2','res3','res4','res5','res6','dach_ostfluegel','fassade_fenster','fassade_laeden','fassade_zahnschnitt','fassade_efeu','fassade_alterung']),
         ('dach','Dach & Türme',145,171,['dach_halle','dach_res','dach_bibliothek','fassade','dach_schmuck','aussichtsturm'])]
     output=[]
     for key,label,low,high,groups in levels:
@@ -140,7 +140,7 @@ def main():
     write_blocklist(sequence)
     write_materials(counts,gcounts,group_names)
     write_diff(additions)
-    with (ROOT/'freiraeume_5.22.csv').open('w',encoding='utf-8-sig',newline='') as f:
+    with (ROOT/f'freiraeume_{VERSION}.csv').open('w',encoding='utf-8-sig',newline='') as f:
         writer=csv.writer(f,delimiter=';');writer.writerow(['X','Y','Z','Aktion'])
         writer.writerows([*p,'Luft freihalten / Bestand ausheben'] for p in clearance_air)
     with (ROOT/'klippenpfad.csv').open('w',encoding='utf-8-sig',newline='') as f:
@@ -161,7 +161,7 @@ def main():
     build_elevation(d,ROOT)
     from web import build
     build(d)
-    for oldfile in ('blackthorn_estate_5.21.nbt','manifest_5.21.json','aenderungen_5.20_zu_5.21.csv','freiraeume_5.21.csv'):
+    for oldfile in ('blackthorn_estate_5.22.nbt','manifest_5.22.json','aenderungen_5.21_zu_5.22.csv','freiraeume_5.22.csv'):
         p=ROOT/oldfile
         if p.exists():p.unlink()
     write_manifest()
@@ -214,8 +214,8 @@ def write_manifest():
     (ROOT/f'manifest_{VERSION}.json').write_text(json.dumps({'revision':VERSION,'files':files},ensure_ascii=False,indent=2)+'\n')
 
 def update_progress():
-    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.21'/'progress.js').read_text()
-    s=s.replace('5.21','5.22').replace('5.20','5.21')
+    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.22'/'progress.js').read_text()
+    s=s.replace('5.22','5.23').replace('5.21','5.22')
     p.write_text(s)
 
 def write_project_docs(d,modules):
@@ -228,7 +228,7 @@ def write_project_docs(d,modules):
 
 {chr(10).join('- '+f['name']+': '+f['description'] for f in enhancements['features'])}
 
-Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.21.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
+Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.23.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
 
 Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der geheime Zugang führt nun bis Y 80; die beiden Litematic-Module bleiben separate Dateien. Der Materiallift ist neben der Wartungsleiter modelliert; seine Inbetriebnahme steht aus.
 
@@ -236,7 +236,7 @@ Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt
 
 Die Website zeigt die neuen Bauteile unter Bauatlas → Hausstruktur mit direktem 3D-Zugriff. Blockliste, Materialbedarf, Änderungsdatei und NBT-Export werden aus demselben Modell erzeugt. Alte Modellhäkchen werden nur für unveränderte Positionen übernommen.
 
-Neu sind drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
+Neu in 5.23: offene Fensterläden, Sohlbänke und Stürze, Zahnschnitt-Gesims, Efeu und verwitterte Mauersteine an der Nord- und Südfassade (Zahlen in der Änderungsdatei aenderungen_5.22_zu_5.23.csv). Die Fassade lässt sich unabhängig vom Rest bauen und ist rein gestalterisch.\n\nAus 5.22: drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
 
 Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. Aktuelle Ingame-Abnahme, Lichtsimulation und der Anschluss der Bogenfüße an den Fels stehen aus.
 
@@ -328,10 +328,10 @@ Quellen: [Mojang: gemeißelte Bücherregale](https://www.minecraft.net/es-es/art
 """)
     (ROOT/'analysebericht.md').write_text(report)
     (ROOT/'README.md').write_text(report+f"\nAtlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v{VERSION}`.\n")
-    protocol={'revision':VERSION,'status':'Weinberg, Stegleuchten, Regale, Einrichtungsbefehle und Liefergong vorbereitet; Ingame-Abnahme offen.',
+    protocol={'revision':VERSION,'status':'Fassadenschmuck der Nord- und Südfassade ergänzt (Läden, Bänke, Stürze, Zahnschnitt, Efeu, Verwitterung); Ingame-Abnahme offen.',
         'base_revision':VERSION_PREVIOUS,'geometry_changed':True,
         'stair_clearance':clearance,'stair_separation':d['structure']['stair_separation'],
-        'revision_522_checks':{'vineyard_path':True,'shore_entry_clear':True,'lantern_anchors':True,'gong_topology':True,'setup_commands_prepared':True,'setup_commands_executed':False,'gong_in_game_verified':False},
+        'revision_523_checks':{'windows_preserved':True,'no_overlap_with_required_air':True,'facade_stats':enhancements.get('facade_stats'),'in_game_checked':False},'revision_522_checks':{'vineyard_path':True,'shore_entry_clear':True,'lantern_anchors':True,'gong_topology':True,'setup_commands_prepared':True,'setup_commands_executed':False,'gong_in_game_verified':False},
         'fitout_checks':{'six_beds_accessible':True,'stable_and_orangery_access':True,'hollow_flue_outlets':True,'lamp_anchors_current':True,'book_control_topology':True,'indicator_topology':True},
         'geometry_checks':{'path_continuity':True,'path_headroom':True,'piston_travel':True,'lift_topology':True,'explicit_air_nbt':True,'existing_ladder_preserved':True},
         'enhancements':enhancements,'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],

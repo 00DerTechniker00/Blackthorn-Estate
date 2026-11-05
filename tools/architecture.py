@@ -1,81 +1,80 @@
-"""Revision 5.22: vineyard terraces, shore lights and an edge-triggered delivery gong."""
+"""Revision 5.23: lebendigere Nord- und Südfassade.
+
+Fensterbänke, Stürze, offene Fensterläden, Zahnschnitt-Gesims, Efeu und verwitterte Mauersteine.
+Alle neuen Blöcke werden nur auf freie Positionen gesetzt; bestehende Fenster, Pfeiler und Freiräume bleiben unberührt.
+Einzige Ersetzungen: einzelne Mauersteine der Nord- und Südwand (stone_bricks -> mossy/cracked).
+"""
+import hashlib
+
+WINDOWS=((-705,-704),(-699,-698),(-687,-686),(-681,-680),(-669,-668),(-663,-662))
+FLOORS=((131,134),(139,142))        # Fensterhöhen Erdgeschoss / Obergeschoss
+FACADES=((751,-1,'north'),(829,1,'south'))   # Wandebene, Richtung nach außen, Blickrichtung
+WALL_X=(-714,-656)
+WEATHER_Y=(130,143)
+GROUPS=('fassade_fenster','fassade_laeden','fassade_zahnschnitt','fassade_efeu','fassade_alterung')
+
+def noise(x,y,z,salt):
+    return int(hashlib.md5(f'{salt}:{x},{y},{z}'.encode()).hexdigest()[:8],16)/0xffffffff
 
 def enhance(d,b):
     previous=d['structure']['enhancements'];air=set(map(tuple,d.get('required_air',[])))
-    def put(x,y,z,block,state='',group='weinberg'):b[x,y,z]=(block,state,group);air.discard((x,y,z))
-    def clear(x,y,z):b.pop((x,y,z),None);air.add((x,y,z))
-    t=d['terrain'];tx,_,tz,_=t['bounds']
-    # Three planted terraces, with a separate unobstructed stair along their west edge.
-    for z0,y in ((853,125),(858,124),(863,123)):
-        for x in range(-710,-696):
-            for z in range(z0,z0+4):
-                ground=t['target_heights'][z-tz][x-tx]
-                for yy in range(min(y,ground+1),y):put(x,yy,z,'cobblestone')
-                put(x,y,z,'mossy_cobblestone' if z==z0+3 else 'grass_block')
-                for yy in (y+1,y+2,y+3):clear(x,yy,z)
-            for z in (z0+1,z0+2):
-                if (x+710)%4==0:put(x,y+1,z,'spruce_fence','north=true,south=true,east=true,west=true,waterlogged=false')
-                if (x+710)%4!=3:put(x,y+2,z,'oak_leaves','persistent=true,distance=1,waterlogged=false')
-        # Walk aisle across the lower edge of each terrace stays open.
-    for z in range(850,868):
-        y=126 if z<853 else 125 if z<858 else 124 if z<863 else 123
-        for x in (-712,-711):
-            ground=t['target_heights'][z-tz][x-tx]
-            for yy in range(min(y,ground+1),y):put(x,yy,z,'cobblestone')
-            put(x,y,z,'cobblestone_stairs' if z in (852,857,862) else 'cobblestone',
-                'facing=north,half=bottom,shape=straight,waterlogged=false' if z in (852,857,862) else '')
-            for yy in (y+1,y+2,y+3):clear(x,yy,z)
-    # Link the vineyard stair to the existing south garden/orangery walkway at Y 126.
-    for z in (848,849):
-        for x in (-712,-711):
-            put(x,126,z,'cobblestone')
-            for y in (127,128,129):clear(x,y,z)
-    # Two shore lantern brackets outside the boat entry and water berth.
-    for z in (750,758):
-        for y in (64,65,66):put(-572,y,z,'spruce_fence',f'north=false,south=false,east={str(y==66).lower()},west=false,waterlogged=false','steglicht')
-        put(-571,66,z,'spruce_fence','north=false,south=false,east=false,west=true,waterlogged=false','steglicht')
-        put(-571,65,z,'soul_lantern','hanging=true,waterlogged=false','steglicht')
-        put(-571,63,z,'oak_planks',group='steglicht')
-        put(-572,63,z,'oak_planks',group='steglicht')
-    # Real shelf blocks remain empty until the supplied setup commands fill their slots.
-    shelves=[]
-    for x,z,amount in ((-694,778,1),(-691,778,2),(-688,778,4),(-691,781,6)):
-        state='facing=south,'+','.join(f'slot_{i}_occupied=false' for i in range(6))
-        put(x,106,z,'chiseled_bookshelf',state,'bibliothek_details')
-        shelves.append({'position':[x,106,z],'books':amount})
-    # Display alcoves: only the setup function creates and equips the actual entities.
-    stands=[]
-    for x,material in ((-744,'leather'),(-742,'diamond')):
-        put(x,125,764,'polished_blackstone_bricks',group='ruestungsnischen')
-        stands.append({'position':[x+.5,126,764.5],'armor':material,'tag':'blackthorn_display_'+material})
-    # Rising-edge monoflop from the strongly powered inventory indicator lamp.
-    # Main input is immediate; a delayed, boosted side input suppresses sustained power.
-    for x,z in ((-683,795),(-683,796),(-683,797),(-683,798),(-684,796),(-685,796),(-686,796),(-686,797),(-685,797),(-684,797)):
-        put(x,130,z,'polished_deepslate',group='liefergong')
-    put(-683,131,795,'repeater','facing=south,delay=1,locked=false,powered=false','liefergong')
-    put(-683,131,797,'comparator','facing=south,mode=subtract,powered=false','liefergong')
-    put(-685,131,796,'repeater','facing=west,delay=4,locked=false,powered=false','liefergong')
-    put(-684,131,797,'repeater','facing=east,delay=1,locked=false,powered=false','liefergong')
-    wires=[(-683,796),(-683,798),(-684,796),(-686,796),(-686,797),(-685,797)]
-    for x,z in wires:put(x,131,z,'redstone_wire','north=side,south=side,east=side,west=side,power=0','liefergong')
-    put(-683,130,799,'gold_block',group='liefergong')
-    put(-683,131,799,'note_block','instrument=bell,note=12,powered=false','liefergong')
-    clear(-683,132,799)
-    # Cabinet trim stays off the note block's open sound space and off the old stair run.
-    put(-682,131,799,'waxed_cut_copper',group='liefergong')
-    for x,z in wires:
-        parts=[]
-        for name,dx,dz in (('north',0,-1),('south',0,1),('east',1,0),('west',-1,0)):
-            component=b.get((x+dx,131,z+dz),('',))[0]
-            parts.append(name+'='+('side' if component in ('redstone_wire','repeater','comparator','note_block') else 'none'))
-        put(x,131,z,'redstone_wire',','.join(parts)+',power=0','liefergong')
+    glass_before={p for p,v in b.items() if v[0]=='glass_pane'}
+    stats={g:0 for g in GROUPS};stats['moss']=0;stats['cracked']=0
+    def put(x,y,z,block,state,group):
+        p=(x,y,z)
+        if p in b or p in air:return False
+        b[p]=(block,state,group);stats[group]+=1;return True
+    window_cols={x for x0,x1 in WINDOWS for x in range(x0-1,x1+2)}
+    for wall_z,out,facing in FACADES:
+        oz=wall_z+out
+        for x0,x1 in WINDOWS:
+            for lo,hi in FLOORS:
+                for x in range(x0,x1+1):
+                    put(x,lo-1,oz,'stone_brick_slab','type=top,waterlogged=false','fassade_fenster')
+                for x in range(x0-1,x1+2):
+                    put(x,hi+1,oz,'stone_brick_stairs',f'facing={facing},half=top,shape=straight,waterlogged=false','fassade_fenster')
+                wood='dark_oak_trapdoor' if lo<135 else 'spruce_trapdoor'
+                for x in (x0-1,x1+1):
+                    for y in range(lo,hi+1):
+                        put(x,y,oz,wood,f'facing={facing},half=bottom,open=true,powered=false,waterlogged=false','fassade_laeden')
+        # Zahnschnitt: umgekehrte Treppen im Zwei-Block-Takt unter dem Gesims.
+        for x in range(WALL_X[0],WALL_X[1]+1):
+            if x%2==0 and x not in window_cols:
+                put(x,143,oz,'stone_brick_stairs',f'facing={facing},half=top,shape=straight,waterlogged=false','fassade_zahnschnitt')
+        # Efeu: unregelmäßige Bahnen an fensterfreien Wandstreifen.
+        vine_side='south' if out<0 else 'north'
+        ivy_cols=[]
+        for x in range(WALL_X[0],WALL_X[1]+1):
+            if x in window_cols or (x,136,oz) in b:continue
+            if noise(x,0,wall_z,'ivy')<0.40:
+                length=4+int(noise(x,1,wall_z,'len')*8)
+                state=','.join(f'{s}={"true" if s==vine_side else "false"}' for s in ('east','north','south','up','west'))
+                placed=False
+                for y in range(142,142-length,-1):
+                    wall=b.get((x,y,wall_z),('',))[0]
+                    if wall in ('','glass_pane'):break
+                    placed|=put(x,y,oz,'vine',state,'fassade_efeu')
+                if placed:ivy_cols.append(x)
+        # Verwitterung: Moos am Sockel und um Efeubahnen, vereinzelt rissige Steine.
+        for x in range(WALL_X[0],WALL_X[1]+1):
+            for y in range(WEATHER_Y[0],WEATHER_Y[1]+1):
+                block=b.get((x,y,wall_z))
+                if not block or block[0]!='stone_bricks':continue
+                r=noise(x,y,wall_z,'weather')
+                moss=0.10 if y<=134 else 0.03
+                if any(abs(x-c)<=1 for c in ivy_cols):moss+=0.15
+                if r<moss:b[(x,y,wall_z)]=('mossy_stone_bricks',block[1],'fassade_alterung');stats['moss']+=1;stats['fassade_alterung']+=1
+                elif r>0.955:b[(x,y,wall_z)]=('cracked_stone_bricks',block[1],'fassade_alterung');stats['cracked']+=1;stats['fassade_alterung']+=1
+    # Prüfung: kein Fenster geht verloren, nichts steht auf Freiraum-Positionen.
+    glass_after={p for p,v in b.items() if v[0]=='glass_pane'}
+    if glass_before-glass_after:raise ValueError('Fassadenschmuck hat Fenster entfernt')
+    if any(p in air for p,v in b.items() if v[2] in GROUPS):raise ValueError('Fassadenschmuck liegt auf Freiraum')
     d['_clearance_air']=[list(p) for p in sorted(air)]
-    d['decoration_setup']={'armor_stands':stands,'bookshelves':shelves,'entities_in_structure':False,'shelves_prefilled_in_structure':False}
     features=[
-        {'group':'weinberg','name':'Terrassierter Südweinberg','description':'Drei begrünte Stufen auf Y 125, 124 und 123 mit Fichtenspalieren, Laubreben und einem eigenen seitlichen Treppenweg.'},
-        {'group':'steglicht','name':'Seelenlaternen am Bootssteg','description':'Zwei fest verankerte Fichtenhalter außerhalb der östlichen Wasserzufahrt; freie Bootsbucht bleibt erhalten.'},
-        {'group':'ruestungsnischen','name':'Ausgestattete Remisen-Nischen','description':'Zwei reservierte Plätze für Leder- und Diamantrüstung. Rüstungsständer werden mit remise_bibliothek_5.22.mcfunction im Spiel erzeugt und ausgestattet.'},
-        {'group':'bibliothek_details','name':'Lebendige Bibliotheksregale','description':'Vier gemeißelte Regale; Einrichtungsbefehle bestücken sie mit 1, 2, 4 und 6 Büchern. Der Struktur-Export enthält die leeren Regale.'},
-        {'group':'liefergong','name':'Einmaliger Liefergong','description':'Subtraktions-Monoflop am Inhaltsanzeiger: ein Ton bei leer → gefüllt. Beim Leeren kein zweiter Ton; keine Erkennung bestimmter Itemtypen.'}]+previous['features']
-    return {**previous,'title':'Südweinberg, Steglicht und Liefergong','features':features,
-        'limits':'Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.'}
+        {'group':'fassade_laeden','name':'Offene Fensterläden','description':f'{stats["fassade_laeden"]} offene Falltüren rahmen die Fenster: dunkle Eiche im Erdgeschoss, Fichte im Obergeschoss. Die Fensterflächen bleiben frei.'},
+        {'group':'fassade_fenster','name':'Sohlbänke und Stürze','description':f'{stats["fassade_fenster"]} Steinziegel-Platten und umgedrehte Treppen betonen jedes Fenster der Nord- und Südfassade mit Bank und Sturz.'},
+        {'group':'fassade_zahnschnitt','name':'Zahnschnitt-Gesims','description':f'{stats["fassade_zahnschnitt"]} umgedrehte Treppen im Zwei-Block-Takt unter dem Traufgesims geben den langen Wänden Rhythmus und Schatten.'},
+        {'group':'fassade_efeu','name':'Efeu an den Wänden','description':f'{stats["fassade_efeu"]} Rankenblöcke in unregelmäßigen Bahnen an fensterfreien Wandstreifen; auf der Bauseite beliebig verschiebbar.'},
+        {'group':'fassade_alterung','name':'Verwitterte Mauersteine','description':f'{stats["moss"]} bemooste und {stats["cracked"]} rissige Steinziegel ersetzen einzelne Mauersteine, vor allem am Sockel und neben dem Efeu.'}]+previous['features']
+    return {**previous,'title':'Lebendige Nord- und Südfassade','features':features,'facade_stats':stats,
+        'limits':'Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. '+previous['limits']}

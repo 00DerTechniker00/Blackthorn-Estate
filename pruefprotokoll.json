@@ -1,7 +1,7 @@
 {
-  "revision": "5.22",
-  "status": "Weinberg, Stegleuchten, Regale, Einrichtungsbefehle und Liefergong vorbereitet; Ingame-Abnahme offen.",
-  "base_revision": "5.21",
+  "revision": "5.23",
+  "status": "Fassadenschmuck der Nord- und Südfassade ergänzt (Läden, Bänke, Stürze, Zahnschnitt, Efeu, Verwitterung); Ingame-Abnahme offen.",
+  "base_revision": "5.22",
   "geometry_changed": true,
   "stair_clearance": [
     {
@@ -31,6 +31,20 @@
     "minimum_x_gap": 22,
     "basement_to_main_route": "Bibliothek → Große Halle"
   },
+  "revision_523_checks": {
+    "windows_preserved": true,
+    "no_overlap_with_required_air": true,
+    "facade_stats": {
+      "fassade_fenster": 140,
+      "fassade_laeden": 176,
+      "fassade_zahnschnitt": 36,
+      "fassade_efeu": 100,
+      "fassade_alterung": 112,
+      "moss": 83,
+      "cracked": 29
+    },
+    "in_game_checked": false
+  },
   "revision_522_checks": {
     "vineyard_path": true,
     "shore_entry_clear": true,
@@ -57,8 +71,33 @@
     "existing_ladder_preserved": true
   },
   "enhancements": {
-    "title": "Südweinberg, Steglicht und Liefergong",
+    "title": "Lebendige Nord- und Südfassade",
     "features": [
+      {
+        "group": "fassade_laeden",
+        "name": "Offene Fensterläden",
+        "description": "176 offene Falltüren rahmen die Fenster: dunkle Eiche im Erdgeschoss, Fichte im Obergeschoss. Die Fensterflächen bleiben frei."
+      },
+      {
+        "group": "fassade_fenster",
+        "name": "Sohlbänke und Stürze",
+        "description": "140 Steinziegel-Platten und umgedrehte Treppen betonen jedes Fenster der Nord- und Südfassade mit Bank und Sturz."
+      },
+      {
+        "group": "fassade_zahnschnitt",
+        "name": "Zahnschnitt-Gesims",
+        "description": "36 umgedrehte Treppen im Zwei-Block-Takt unter dem Traufgesims geben den langen Wänden Rhythmus und Schatten."
+      },
+      {
+        "group": "fassade_efeu",
+        "name": "Efeu an den Wänden",
+        "description": "100 Rankenblöcke in unregelmäßigen Bahnen an fensterfreien Wandstreifen; auf der Bauseite beliebig verschiebbar."
+      },
+      {
+        "group": "fassade_alterung",
+        "name": "Verwitterte Mauersteine",
+        "description": "83 bemooste und 29 rissige Steinziegel ersetzen einzelne Mauersteine, vor allem am Sockel und neben dem Efeu."
+      },
       {
         "group": "weinberg",
         "name": "Terrassierter Südweinberg",
@@ -627,7 +666,7 @@
         754
       ]
     ],
-    "limits": "Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.",
+    "limits": "Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.",
     "bedrooms": [
       {
         "room": "res6",
@@ -774,7 +813,16 @@
           850
         ]
       }
-    ]
+    ],
+    "facade_stats": {
+      "fassade_fenster": 140,
+      "fassade_laeden": 176,
+      "fassade_zahnschnitt": 36,
+      "fassade_efeu": 100,
+      "fassade_alterung": 112,
+      "moss": 83,
+      "cracked": 29
+    }
   },
   "service_shaft": {
     "position": [
