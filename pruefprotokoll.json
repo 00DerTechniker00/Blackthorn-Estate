@@ -1,7 +1,7 @@
 {
-  "revision": "5.21",
-  "status": "Stall, Orangerie, Suiten, Inhaltsanzeige und Buchseitensteuerung modelliert; Ingame-Abnahme offen.",
-  "base_revision": "5.20",
+  "revision": "5.22",
+  "status": "Weinberg, Stegleuchten, Regale, Einrichtungsbefehle und Liefergong vorbereitet; Ingame-Abnahme offen.",
+  "base_revision": "5.21",
   "geometry_changed": true,
   "stair_clearance": [
     {
@@ -31,6 +31,15 @@
     "minimum_x_gap": 22,
     "basement_to_main_route": "Bibliothek → Große Halle"
   },
+  "revision_522_checks": {
+    "vineyard_path": true,
+    "shore_entry_clear": true,
+    "lantern_anchors": true,
+    "gong_topology": true,
+    "setup_commands_prepared": true,
+    "setup_commands_executed": false,
+    "gong_in_game_verified": false
+  },
   "fitout_checks": {
     "six_beds_accessible": true,
     "stable_and_orangery_access": true,
@@ -48,8 +57,33 @@
     "existing_ladder_preserved": true
   },
   "enhancements": {
-    "title": "Orangerie, Stall, Suiten und Buchsteuerung",
+    "title": "Südweinberg, Steglicht und Liefergong",
     "features": [
+      {
+        "group": "weinberg",
+        "name": "Terrassierter Südweinberg",
+        "description": "Drei begrünte Stufen auf Y 125, 124 und 123 mit Fichtenspalieren, Laubreben und einem eigenen seitlichen Treppenweg."
+      },
+      {
+        "group": "steglicht",
+        "name": "Seelenlaternen am Bootssteg",
+        "description": "Zwei fest verankerte Fichtenhalter außerhalb der östlichen Wasserzufahrt; freie Bootsbucht bleibt erhalten."
+      },
+      {
+        "group": "ruestungsnischen",
+        "name": "Ausgestattete Remisen-Nischen",
+        "description": "Zwei reservierte Plätze für Leder- und Diamantrüstung. Rüstungsständer werden mit remise_bibliothek_5.22.mcfunction im Spiel erzeugt und ausgestattet."
+      },
+      {
+        "group": "bibliothek_details",
+        "name": "Lebendige Bibliotheksregale",
+        "description": "Vier gemeißelte Regale; Einrichtungsbefehle bestücken sie mit 1, 2, 4 und 6 Büchern. Der Struktur-Export enthält die leeren Regale."
+      },
+      {
+        "group": "liefergong",
+        "name": "Einmaliger Liefergong",
+        "description": "Subtraktions-Monoflop am Inhaltsanzeiger: ein Ton bei leer → gefüllt. Beim Leeren kein zweiter Ton; keine Erkennung bestimmter Itemtypen."
+      },
       {
         "group": "poolfassade",
         "name": "Gestaffelte Poolfassade",
@@ -593,7 +627,7 @@
         754
       ]
     ],
-    "limits": "Buch, Tiere und Einrichtungsbestände werden im Spiel ergänzt. Pferderüstungen gehören ins Lager; normale Rüstungsständer zeigen sie nicht an. Die Inhaltsanzeige zeigt aktuelle Items, sie speichert keine Ankunftsmeldung. Redstone, Kaminrauch und Spawn-Sicherheit sind im Spiel abzunehmen. Zusätzliche Aushubdaten und explizite Luftpositionen sind im Export enthalten.",
+    "limits": "Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.",
     "bedrooms": [
       {
         "room": "res6",

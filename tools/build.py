@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Revision 5.21 with static access checks and an explicit service-shaft plan."""
+"""Build Revision 5.22 with static access checks and an explicit service-shaft plan."""
 import csv
 import hashlib
 import json
@@ -10,9 +10,9 @@ from structure_export import export as export_structure
 from litematic_import import build as import_litematics
 
 ROOT=Path(__file__).resolve().parent.parent
-SEED=ROOT/'tools'/'seeds'/'revision-5.20'/'blueprint.json'
-VERSION='5.21'
-VERSION_PREVIOUS='5.20'
+SEED=ROOT/'tools'/'seeds'/'revision-5.21'/'blueprint.json'
+VERSION='5.22'
+VERSION_PREVIOUS='5.21'
 
 def build_structure_metadata(d):
     levels=[
@@ -121,7 +121,7 @@ def main():
         if bid not in ('lantern','soul_lantern') or (x,y,z) in known:continue
         anchor=old.get((x,y+1,z))
         if not anchor:raise ValueError('New hanging lamp has no anchor')
-        d['lighting']['fixtures'].append({'id':f'N521-{len(known)+1}','x':x,'y':y,'z':z,'block':bid,'group':g,'level':'OG / Halle','hanging':True,'chain':0,'anchor':[x,y+1,z],'anchor_block':anchor[0],'kind':'Kronleuchterarm','source':'Revision 5.21 · Schwarzsteinarm','checked':True})
+        d['lighting']['fixtures'].append({'id':f'N522-{len(known)+1}','x':x,'y':y,'z':z,'block':bid,'group':g,'level':'Bootshaus / Ufer','hanging':True,'chain':0,'anchor':[x,y+1,z],'anchor_block':anchor[0],'kind':'Steg-Hängeleuchte','source':'Revision 5.22 · Fichtenhalter','checked':True})
         known.add((x,y,z))
     with (ROOT/'laternen_pruefung.csv').open('w',encoding='utf-8-sig',newline='') as f:
         writer=csv.writer(f,delimiter=';');writer.writerow(['ID','X','Y','Z','Block','Montage','Kettenbloecke','Anker-X','Anker-Y','Anker-Z','Ankerblock','Bereich','Planung'])
@@ -140,7 +140,7 @@ def main():
     write_blocklist(sequence)
     write_materials(counts,gcounts,group_names)
     write_diff(additions)
-    with (ROOT/'freiraeume_5.21.csv').open('w',encoding='utf-8-sig',newline='') as f:
+    with (ROOT/'freiraeume_5.22.csv').open('w',encoding='utf-8-sig',newline='') as f:
         writer=csv.writer(f,delimiter=';');writer.writerow(['X','Y','Z','Aktion'])
         writer.writerows([*p,'Luft freihalten / Bestand ausheben'] for p in clearance_air)
     with (ROOT/'klippenpfad.csv').open('w',encoding='utf-8-sig',newline='') as f:
@@ -151,7 +151,7 @@ def main():
     with (ROOT/'architektur_erdarbeiten.csv').open('w',encoding='utf-8-sig',newline='') as f:
         writer=csv.writer(f,delimiter=';');writer.writerow(['X','Y','Z','Aktion','Baugruppe','Hinweis'])
         for (x,y,z),(prior,value) in sorted(additions.items()):
-            if value and value[2] in ('fluchtgang','geheimtechnik','materiallift','poollicht','klippenpfad','bootshaus','stall_remise','orangerie','wohn_details','buchsteuerung') and y<=terrain['target_heights'][z-tz][x-tx]:
+            if value and value[2] in ('fluchtgang','geheimtechnik','materiallift','poollicht','klippenpfad','bootshaus','stall_remise','orangerie','wohn_details','buchsteuerung','weinberg') and y<=terrain['target_heights'][z-tz][x-tx]:
                 writer.writerow([x,y,z,'Gelaende ersetzen',value[2],'Zusaetzlich zum bisherigen Terraformingplan; mit Bestandswelt abgleichen'])
 
     write_placement(modules)
@@ -161,7 +161,7 @@ def main():
     build_elevation(d,ROOT)
     from web import build
     build(d)
-    for oldfile in ('blackthorn_estate_5.20.nbt','manifest_5.20.json','aenderungen_5.19_zu_5.20.csv','freiraeume_5.20.csv'):
+    for oldfile in ('blackthorn_estate_5.21.nbt','manifest_5.21.json','aenderungen_5.20_zu_5.21.csv','freiraeume_5.21.csv'):
         p=ROOT/oldfile
         if p.exists():p.unlink()
     write_manifest()
@@ -214,8 +214,8 @@ def write_manifest():
     (ROOT/f'manifest_{VERSION}.json').write_text(json.dumps({'revision':VERSION,'files':files},ensure_ascii=False,indent=2)+'\n')
 
 def update_progress():
-    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.20'/'progress.js').read_text()
-    s=s.replace('5.20','5.21').replace('5.19','5.20')
+    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.21'/'progress.js').read_text()
+    s=s.replace('5.21','5.22').replace('5.20','5.21')
     p.write_text(s)
 
 def write_project_docs(d,modules):
@@ -236,7 +236,7 @@ Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt
 
 Die Website zeigt die neuen Bauteile unter Bauatlas → Hausstruktur mit direktem 3D-Zugriff. Blockliste, Materialbedarf, Änderungsdatei und NBT-Export werden aus demselben Modell erzeugt. Alte Modellhäkchen werden nur für unveränderte Positionen übernommen.
 
-Die zusätzlichen Einbauten umfassen Stall, Orangerie, sieben verdeckte Gartenleuchten, zwei neu gefasste Kronleuchter, vier Bannerplätze, sechs Himmelbetten und sechs eigene Kaminabzüge. Betten, Gebäudezugänge, Leuchtenanschlüsse und vorhandene Kerntechnik wurden statisch geprüft.
+Neu sind drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
 
 Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. Aktuelle Ingame-Abnahme, Lichtsimulation und der Anschluss der Bogenfüße an den Fels stehen aus.
 
@@ -288,11 +288,50 @@ Alle sechs Betten bleiben zugänglich. Jeder Kamin erhält einen eigenen hohlen 
 
 [Mojang: Redstone-Komparator](https://www.minecraft.net/en-us/article/taking-inventory--redstone-comparator) beschreibt die Buchseiten-Auswertung. [Mojang: Kupferbirne](https://www.minecraft.net/da-dk/article/minecraft-snapshot-23w43a) beschreibt deren Umschaltverhalten; für die Inhaltsanzeige ist eine normale Redstone-Lampe in Kupfereinfassung modelliert.
 """)
+    setup=d['decoration_setup'];commands=['# In der richtigen Dimension ausführen; Koordinaten beziehen sich auf das Anwesen.','# Erzeugt nur fehlende, eindeutig markierte Rüstungsständer. Erneutes Ausführen setzt ihre Ausrüstung zurück.']
+    for stand in setup['armor_stands']:
+        x,y,z=stand['position'];tag=stand['tag'];material=stand['armor']
+        selector=f'@e[type=minecraft:armor_stand,tag={tag},limit=1]'
+        commands.append(f'execute unless entity {selector} run summon minecraft:armor_stand {x} {y} {z} {{Tags:["{tag}"],ShowArms:1b,NoGravity:1b,Rotation:[180f,0f]}}')
+        for slot,piece in (('head','helmet'),('chest','chestplate'),('legs','leggings'),('feet','boots')):
+            commands.append(f'item replace entity {selector} armor.{slot} with minecraft:{material}_{piece}')
+    commands.append('# Regale nach dem Strukturimport bestücken; setzt die sechs vorgesehenen Fächer neu.')
+    for shelf in setup['bookshelves']:
+        x,y,z=shelf['position']
+        for slot in range(6):commands.append(f'item replace block {x} {y} {z} container.{slot} with minecraft:{"book" if slot<shelf["books"] else "air"}')
+    with (ROOT/'einrichtung_5.22.csv').open('w',encoding='utf-8-sig',newline='') as f:
+        writer=csv.writer(f,delimiter=';');writer.writerow(['Material','Anzahl','Verwendung'])
+        writer.writerow(['armor_stand',2,'Remisen-Nischen; nicht im Blockmaterialbedarf'])
+        for material in ('leather','diamond'):
+            for piece in ('helmet','chestplate','leggings','boots'):writer.writerow([material+'_'+piece,1,'Ruestungsstaender'])
+        writer.writerow(['book',sum(shelf['books'] for shelf in setup['bookshelves']),'Vier gemeisselte Bibliotheksregale'])
+    (ROOT/'remise_bibliothek_5.22.mcfunction').write_text('\n'.join(commands)+'\n')
+    (ROOT/'technik_5.22.md').write_text("""# Einrichtung und Liefergong · 5.22
+
+## Dekoration im Spiel ergänzen
+
+Der NBT-Export enthält weiterhin keine Entitäten und keine vorbefüllten Bücherregale. remise_bibliothek_5.22.mcfunction ergänzt in der Dimension des Anwesens zwei Rüstungsständer mit vollständiger Leder- bzw. Diamantrüstung und bestückt vier Bibliotheksregale mit 1, 2, 4 und 6 Büchern. Die Datei kann in eine vorhandene Java-Datapack-Funktion übernommen oder ihre Befehle einzeln ausgeführt werden. Es wurde nichts auf dem Server ausgeführt. Wiederholung erzeugt keine zusätzlichen markierten Ständer, setzt aber deren Ausrüstung und die vier Regalbestände auf den Plan zurück. Vor dem Aufruf müssen die zugehörigen Chunks geladen sein.
+
+Rüstungsständer: X -743.5 / Y 126 / Z 764.5 sowie X -741.5 / Y 126 / Z 764.5. Regale: X -694, -691, -688 bei Y 106 / Z 778 sowie X -691 / Y 106 / Z 781. Sie ersetzen ausschließlich Dekorregale; Kolbenregale und Buchsteuerung bleiben unverändert. Die mcfunction ist eine Einrichtungsdatei, kein bereits installiertes Datapack.
+
+## Gong testen
+
+Die vorhandene Redstone-Lampe bei X -683 / Y 131 / Z 794 speist einen Repeater und einen Subtraktionskomparator. Ein verzögerter, auf 15 verstärkter Seitenzweig beendet den Ausgangsimpuls. Der Notenblock bei X -683 / Y 131 / Z 799 steht auf Gold; der Block darüber muss frei bleiben.
+
+Mit leerer Kiste starten, ein Testitem einwerfen: einmaliger Ton. Weitere Items bei nichtleerer Kiste: kein neuer Ton. Kiste leeren: kein Ton. Nach dem Rücksetzen erneut ein Item einwerfen: neuer Ton. Danach eine gefüllte Shulkerbox bei zuvor leerer Kiste testen. Der Gong kann anhand dieser Inhaltsanzeige keine Shulkerbox von anderen Items unterscheiden. Funktion und Verzögerungen sind im Spiel zu prüfen.
+
+## Außenanlagen
+
+Drei Weinbergterrassen auf Y 125, 124 und 123. Seitlicher Treppenweg bleibt frei von Spalieren. Zwei Steglaternen liegen außerhalb der Wasserbucht. Bootsdurchfahrt und Spawn-Sicherheit bleiben vor Ort zu prüfen.
+
+Quellen: [Mojang: gemeißelte Bücherregale](https://www.minecraft.net/es-es/article/chiseled-bookshelf) und [Mojang: Redstone-Komparator](https://www.minecraft.net/en-us/article/taking-inventory--redstone-comparator). Keine Abnahme unserer konkreten Schaltung.
+""")
     (ROOT/'analysebericht.md').write_text(report)
     (ROOT/'README.md').write_text(report+f"\nAtlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v{VERSION}`.\n")
-    protocol={'revision':VERSION,'status':'Stall, Orangerie, Suiten, Inhaltsanzeige und Buchseitensteuerung modelliert; Ingame-Abnahme offen.',
+    protocol={'revision':VERSION,'status':'Weinberg, Stegleuchten, Regale, Einrichtungsbefehle und Liefergong vorbereitet; Ingame-Abnahme offen.',
         'base_revision':VERSION_PREVIOUS,'geometry_changed':True,
         'stair_clearance':clearance,'stair_separation':d['structure']['stair_separation'],
+        'revision_522_checks':{'vineyard_path':True,'shore_entry_clear':True,'lantern_anchors':True,'gong_topology':True,'setup_commands_prepared':True,'setup_commands_executed':False,'gong_in_game_verified':False},
         'fitout_checks':{'six_beds_accessible':True,'stable_and_orangery_access':True,'hollow_flue_outlets':True,'lamp_anchors_current':True,'book_control_topology':True,'indicator_topology':True},
         'geometry_checks':{'path_continuity':True,'path_headroom':True,'piston_travel':True,'lift_topology':True,'explicit_air_nbt':True,'existing_ladder_preserved':True},
         'enhancements':enhancements,'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],

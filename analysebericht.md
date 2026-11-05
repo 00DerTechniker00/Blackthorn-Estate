@@ -1,7 +1,12 @@
-# Blackthorn Estate · Revision 5.21
+# Blackthorn Estate · Revision 5.22
 
-Orangerie, Stall, Suiten und Buchsteuerung
+Südweinberg, Steglicht und Liefergong
 
+- Terrassierter Südweinberg: Drei begrünte Stufen auf Y 125, 124 und 123 mit Fichtenspalieren, Laubreben und einem eigenen seitlichen Treppenweg.
+- Seelenlaternen am Bootssteg: Zwei fest verankerte Fichtenhalter außerhalb der östlichen Wasserzufahrt; freie Bootsbucht bleibt erhalten.
+- Ausgestattete Remisen-Nischen: Zwei reservierte Plätze für Leder- und Diamantrüstung. Rüstungsständer werden mit remise_bibliothek_5.22.mcfunction im Spiel erzeugt und ausgestattet.
+- Lebendige Bibliotheksregale: Vier gemeißelte Regale; Einrichtungsbefehle bestücken sie mit 1, 2, 4 und 6 Büchern. Der Struktur-Export enthält die leeren Regale.
+- Einmaliger Liefergong: Subtraktions-Monoflop am Inhaltsanzeiger: ein Ton bei leer → gefüllt. Beim Leeren kein zweiter Ton; keine Erkennung bestimmter Itemtypen.
 - Gestaffelte Poolfassade: Zwei hohe graue Glasfelder mit vorgezogenen Basaltpfeilern, dunklen Sohlbänken und steinernen Abschlüssen.
 - Begehbarer Panoramabalkon: Boden Y 137, drei Blöcke Ausladung und acht Blöcke Breite; neue OG-Doppeltür mit äußeren Anschlägen und Eisengeländer.
 - Drei Stützbögen unter dem Pool: Je zwei Blöcke tiefe Querbögen bei Z 780, 790 und 800; Tiefenschiefer und einzelne Moossteine, Pfeiler bis Y 115, bei tieferem vermessenem Gelände bis zur Oberfläche verlängert.
@@ -31,11 +36,11 @@ Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss un
 
 Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der geheime Zugang führt nun bis Y 80; die beiden Litematic-Module bleiben separate Dateien. Der Materiallift ist neben der Wartungsleiter modelliert; seine Inbetriebnahme steht aus.
 
-Buch, Tiere und Einrichtungsbestände werden im Spiel ergänzt. Pferderüstungen gehören ins Lager; normale Rüstungsständer zeigen sie nicht an. Die Inhaltsanzeige zeigt aktuelle Items, sie speichert keine Ankunftsmeldung. Redstone, Kaminrauch und Spawn-Sicherheit sind im Spiel abzunehmen. Zusätzliche Aushubdaten und explizite Luftpositionen sind im Export enthalten.
+Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.
 
 Die Website zeigt die neuen Bauteile unter Bauatlas → Hausstruktur mit direktem 3D-Zugriff. Blockliste, Materialbedarf, Änderungsdatei und NBT-Export werden aus demselben Modell erzeugt. Alte Modellhäkchen werden nur für unveränderte Positionen übernommen.
 
-Die zusätzlichen Einbauten umfassen Stall, Orangerie, sieben verdeckte Gartenleuchten, zwei neu gefasste Kronleuchter, vier Bannerplätze, sechs Himmelbetten und sechs eigene Kaminabzüge. Betten, Gebäudezugänge, Leuchtenanschlüsse und vorhandene Kerntechnik wurden statisch geprüft.
+Neu sind drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
 
 Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. Aktuelle Ingame-Abnahme, Lichtsimulation und der Anschluss der Bogenfüße an den Fels stehen aus.
 
