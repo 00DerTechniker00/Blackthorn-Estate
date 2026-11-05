@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Revision 5.19 with static access checks and an explicit service-shaft plan."""
+"""Build Revision 5.20 with static access checks and an explicit service-shaft plan."""
 import csv
 import hashlib
 import json
@@ -10,12 +10,13 @@ from structure_export import export as export_structure
 from litematic_import import build as import_litematics
 
 ROOT=Path(__file__).resolve().parent.parent
-SEED=ROOT/'tools'/'seeds'/'revision-5.18'/'blueprint.json'
-VERSION='5.19'
-VERSION_PREVIOUS='5.18'
+SEED=ROOT/'tools'/'seeds'/'revision-5.19'/'blueprint.json'
+VERSION='5.20'
+VERSION_PREVIOUS='5.19'
 
 def build_structure_metadata(d):
     levels=[
+        ('technikzugang','Unterer Technikzugang',80,104,['fluchtgang']),
         ('keller_3','Keller 3',105,112,['keller_3','trading_hall','geheimraum','geheimgang','privatlager']),
         ('keller_2','Keller 2',113,120,['keller_2','lager_regale','bulk_lager','keller_treppe']),
         ('keller_1','Keller 1',121,128,['keller_1','golem_lager','lager_technik','shulker_technik','keller_treppe']),
@@ -96,7 +97,7 @@ def main():
             bid,state,gi=reg[ri];group=group_names[gi]
             sequence.append([len(sequence)+1,x,y,z,'minecraft:'+bid,state,group])
             coords[group].append((x,y,z))
-            if not (bid=='water' or bid.endswith('_door') and 'half=upper' in state or bid.endswith('_bed') and 'part=head' in state):
+            if not (bid in ('water','bubble_column','piston_head') or bid.endswith('_door') and 'half=upper' in state or bid.endswith('_bed') and 'part=head' in state):
                 counts[bid]+=1;gcounts[group][bid]+=1
     d['reg']=reg;d['runs']=runs;d['meta']['version']=VERSION;d['meta']['total']=len(indexed)
     d['meta']['bbox']=[min(p[0] for p in indexed),max(p[0] for p in indexed),min(p[1] for p in indexed),max(p[1] for p in indexed),min(p[2] for p in indexed),max(p[2] for p in indexed)]
@@ -113,6 +114,8 @@ def main():
     d['lighting']['total']=sum(1 for b,_,_ in old.values() if b in ('lantern','soul_lantern'))
     d['lighting']['light_simulated']=False
     d['checks']['historical_note']='Licht-, Erreichbarkeits- und Erdarbeitswerte stammen aus früheren Revisionen; keine aktuelle Simulation.'
+    clearance_air=d.pop('_clearance_air',[])
+    d['required_air']=clearance_air
     d['structure']=build_structure_metadata(d)
     d['structure']['enhancements']=enhancements
     d['structure']['maintenance_shaft']={'bounds':[-688,-686,106,132,789,791],'access_floors':[105,113,121,129],'type':'Leiterwartungsschacht','automatic_items':False}
@@ -122,11 +125,18 @@ def main():
     write_blocklist(sequence)
     write_materials(counts,gcounts,group_names)
     write_diff(additions)
+    with (ROOT/'freiraeume_5.20.csv').open('w',encoding='utf-8-sig',newline='') as f:
+        writer=csv.writer(f,delimiter=';');writer.writerow(['X','Y','Z','Aktion'])
+        writer.writerows([*p,'Luft freihalten / Bestand ausheben'] for p in clearance_air)
+    with (ROOT/'klippenpfad.csv').open('w',encoding='utf-8-sig',newline='') as f:
+        writer=csv.writer(f,delimiter=';');writer.writerow(['Schritt','X','Boden_Y','Z'])
+        writer.writerows([i,*p] for i,p in enumerate(enhancements['path'],1))
+
     terrain=d['terrain'];tx,_,tz,_=terrain['bounds']
     with (ROOT/'architektur_erdarbeiten.csv').open('w',encoding='utf-8-sig',newline='') as f:
         writer=csv.writer(f,delimiter=';');writer.writerow(['X','Y','Z','Aktion','Baugruppe','Hinweis'])
         for (x,y,z),(prior,value) in sorted(additions.items()):
-            if value and value[2] in ('gartentreppe','kaskaden','klippenfuesse') and y<=terrain['target_heights'][z-tz][x-tx]:
+            if value and value[2] in ('fluchtgang','geheimtechnik','materiallift','poollicht','klippenpfad','bootshaus') and y<=terrain['target_heights'][z-tz][x-tx]:
                 writer.writerow([x,y,z,'Gelaende ersetzen',value[2],'Zusaetzlich zum bisherigen Terraformingplan; mit Bestandswelt abgleichen'])
 
     write_placement(modules)
@@ -136,7 +146,7 @@ def main():
     build_elevation(d,ROOT)
     from web import build
     build(d)
-    for oldfile in ('blackthorn_estate_5.18.nbt','manifest_5.18.json','aenderungen_5.17_zu_5.18.csv'):
+    for oldfile in ('blackthorn_estate_5.19.nbt','manifest_5.19.json','aenderungen_5.18_zu_5.19.csv'):
         p=ROOT/oldfile
         if p.exists():p.unlink()
     write_manifest()
@@ -189,8 +199,8 @@ def write_manifest():
     (ROOT/f'manifest_{VERSION}.json').write_text(json.dumps({'revision':VERSION,'files':files},ensure_ascii=False,indent=2)+'\n')
 
 def update_progress():
-    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.18'/'progress.js').read_text()
-    s=s.replace('5.18','5.19').replace('5.17','5.18')
+    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.19'/'progress.js').read_text()
+    s=s.replace('5.19','5.20').replace('5.18','5.19')
     p.write_text(s)
 
 def write_project_docs(d,modules):
@@ -203,9 +213,9 @@ def write_project_docs(d,modules):
 
 {chr(10).join('- '+f['name']+': '+f['description'] for f in enhancements['features'])}
 
-Statisch geprüft: freie Portalachse, Turmzugang und Leiter, beide Gartenläufe, Pooltüren, unverändertes Schwimmbecken und Treppen-Kopfraum. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
+Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.20.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
 
-Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die neue Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der tiefere Technikstollen und automatische Itemlift stehen aus.
+Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der geheime Zugang führt nun bis Y 80; die beiden Litematic-Module bleiben separate Dateien. Der Materiallift ist neben der Wartungsleiter modelliert; seine Inbetriebnahme steht aus.
 
 {enhancements['limits']}
 
@@ -215,11 +225,38 @@ Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. A
 
 Die Daten bleiben in externen JavaScript-Dateien, damit der Atlas lokal ohne Webserver geöffnet werden kann. Historische Archive und Rohwelten bleiben lokal über .gitignore ausgeschlossen.
 """
+    (ROOT/'technik_5.20.md').write_text("""# Technik und Inbetriebnahme · 5.20
+
+Diese Module sind geometrisch modelliert. Eine Abnahme im laufenden Server ist noch offen.
+
+## Bücherregal und Fluchtgang
+
+Bodenhebel: X -696 / Y 106 / Z 775. Zwei klebrige Kolben und getrennte Repeater bewegen die beiden Bücherregalblöcke. Der Export zeigt den geschlossenen Zustand. Zum Test den Hebel ausschalten: Beide Regale müssen je einen Block nach Westen zurückfahren. Im freien Türfeld nach Süden zur Leiter abbiegen, bis zur Passage auf Boden Y 100 absteigen; weiter nördlich führt eine zweite Leiter bis zur unteren Zugangsebene Y 80. Der untere Gang endet in der drei Blöcke breiten Litematic-Servicelücke. Die Litematics selbst sind separat einzusetzen.
+
+## Materiallift
+
+Einwurfkiste: X -685 / Y 108 / Z 789. Ein Hopper speist den Dropper. Ein Subtraktionskomparator mit verstärkter Rückkopplung und Repeater taktet ihn, solange Items enthalten sind. Die Blasensäule liegt bei X -685 / Z 790 auf Seelensand Y 105. Der obere Wasserkanal führt über zwei Hopper zur Ausgabekiste X -683 / Y 131 / Z 792. Die bisherige trockene Wartungsleiter bleibt erhalten.
+
+Zuerst Wasser und Seelensand prüfen, danach ein einzelnes Testitem einwerfen. Es muss im EG ankommen und der Taktgeber anschließend stehen bleiben. Danach mehrere Stacks und eine gefüllte Shulkerbox testen. Gefüllte Shulkerboxen werden als Item transportiert; die Anlage packt sie nicht aus. Bei voller Ausgabe läuft der Lift weiter; vor längerem Betrieb müssen Rückstauabschaltung und Anschluss an das Hauptlager ergänzt werden. Der Lift verbindet K3 und EG; automatische Abzweige auf K1/K2 sind noch nicht eingebaut.
+
+## Poollicht
+
+Hebel: X -657 / Y 130 / Z 787, neben dem Poolausgang. Er versorgt über den massiven Sockel die Leitung darunter. Zwei trockene Leitungszweige mit Repeatern steuern sechs Lampen in der Nord- und Südwand des Beckens. Der Export zeigt AUS. Alle sechs Lampen auf EIN und AUS prüfen; anschließend die trockenen Leitungskanäle und das unveränderte Schwimmbecken kontrollieren.
+
+## Uferweg und Bau-Reihenfolge
+
+Der 84 Positionen lange Weg endet an der vermessenen nordöstlichen Wasserfläche. Zuerst Geländeersatz und freiraeume_5.20.csv prüfen, dann Weg und Bootshaus errichten. Der NBT-Export enthält die ausgewiesenen Luftpositionen bereits. Vor dem ersten Lauf jeden Übergang und das Geländer vor Ort prüfen.
+
+## Technische Quellen
+
+[Mojang: Redstone Lamp](https://www.minecraft.net/en-us/article/block-week-redstone-lamp) beschreibt die Versorgung der Lampen durch Redstone und Repeater. [Mojang: Update Aquatic](https://feedback.minecraft.net/hc/en-us/articles/360007323492-Minecraft-Java-Edition-1-13-Update-Aquatic) dokumentiert Blasensäulen mit Seelensand bzw. Magmablöcken. Diese Grundlagen ersetzen keine Prüfung unserer konkreten Schaltungen.
+""")
     (ROOT/'analysebericht.md').write_text(report)
     (ROOT/'README.md').write_text(report+f"\nAtlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v{VERSION}`.\n")
-    protocol={'revision':VERSION,'status':'Westportal, Aussichtsturm, Gartentreppe und Klippenkaskaden modelliert.',
+    protocol={'revision':VERSION,'status':'Geheimzugang, Materiallift, Poolbeleuchtung und vermessener Uferweg modelliert; Ingame-Technikprüfung offen.',
         'base_revision':VERSION_PREVIOUS,'geometry_changed':True,
         'stair_clearance':clearance,'stair_separation':d['structure']['stair_separation'],
+        'geometry_checks':{'path_continuity':True,'path_headroom':True,'piston_travel':True,'lift_topology':True,'explicit_air_nbt':True,'existing_ladder_preserved':True},
         'enhancements':enhancements,'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],
         'litematics':[{'file':m['source'],'sha256':m['sha256'],'blocks':m['total_blocks'],'metadata_blocks_match':True} for m in modules['modules']],
         'website_checks':{'aria_references':True,'heading_order':True,'keyboard_logic':True,'data_identity':True,'browser_status':'Chromium-Start durch Betriebssystembeschränkung blockiert'},

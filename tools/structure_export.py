@@ -20,6 +20,8 @@ def export(d,path):
         bid,state,_=d['reg'][i]
         props=tuple(sorted(tuple(part.split('=',1)) for part in state.split(',') if '=' in part))
         for xx in range(x,x+n):blocks.append((xx,y,z,bid,props))
+    build_blocks=len(blocks)
+    blocks.extend((x,y,z,'air',()) for x,y,z in d.get('required_air',[]))
     coords=[(x,y,z) for x,y,z,_,_ in blocks]
     minimum=[min(p[i] for p in coords) for i in range(3)]
     maximum=[max(p[i] for p in coords) for i in range(3)]
@@ -41,6 +43,6 @@ def export(d,path):
     content=gzip.compress(root,compresslevel=9,mtime=0)
     path.write_bytes(content)
     return {'file':path.name,'format':'Minecraft structure NBT (.nbt, gzip)','data_version':5023,
-        'blocks':len(blocks),'palette_entries':len(palette),'origin':minimum,
+        'blocks':len(blocks),'build_blocks':build_blocks,'explicit_air_blocks':len(blocks)-build_blocks,'palette_entries':len(palette),'origin':minimum,
         'size':[maximum[i]-minimum[i]+1 for i in range(3)],'sha256':hashlib.sha256(content).hexdigest(),
         'inventory_nbt':'not represented in the build list; see the separate logistics plan'}

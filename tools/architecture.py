@@ -1,123 +1,152 @@
-"""Revision 5.19: west portal, accessible lookout, garden stair and cliff details."""
+"""Revision 5.20: secret passage, item lift, pool lighting and a surveyed shore route."""
+from cliff_path import route
 
 def enhance(d,b):
     previous=d['structure'].get('enhancements',{})
-    def put(x,y,z,block,state='',group='prunkportal'):b[x,y,z]=(block,state,group)
-    def clear(x,y,z):b.pop((x,y,z),None)
-    # Two solid 2x2 front columns, with full support on the existing portico floor.
-    for z0 in (784,795):
-        for x in (-743,-742):
-            for z in (z0,z0+1):
-                for y in range(130,137):put(x,y,z,'smooth_basalt')
-                for y,half in ((130,'bottom'),(136,'top')):
-                    put(x,y,z,'polished_blackstone_stairs',f'facing=west,half={half},shape=straight,waterlogged=false')
-    # Two-layer triangular pediment. Its center stays well above the entrance path.
-    for x in (-744,-743):
-        for z in range(783,798):
-            top=138+(7-abs(z-790))//2
-            for y in range(138,top+1):
-                put(x,y,z,'polished_blackstone_bricks' if y==top or y==138 else 'chiseled_stone_bricks')
-    for z in (789,790,791):put(-745,140,z,'waxed_cut_copper')
-    put(-745,141,790,'gold_block')
-    put(-745,139,790,'waxed_cut_copper')
-    # Octagonal lookout with a real route from the upper west wing.
-    cx,cz=-728,775
-    footprint=[(x,z) for x in range(cx-3,cx+4) for z in range(cz-3,cz+4) if not(abs(x-cx)==3 and abs(z-cz)==3)]
-    def inside(x,z):return (x,z) in footprint
-    for x,z in footprint:
-        for y in range(138,163):
-            wall=not all(inside(x+dx,z+dz) for dx,dz in ((1,0),(-1,0),(0,1),(0,-1)))
-            if wall:put(x,y,z,'stone_bricks' if y<155 else 'chiseled_stone_bricks',group='aussichtsturm')
-            else:clear(x,y,z)
-    # West entry on OG; preserve the existing floor, remove the low slab just inside.
-    for y,half in ((138,'lower'),(139,'upper')):
-        put(cx-3,y,cz,'dark_oak_door',f'facing=west,half={half},hinge=left,open=false,powered=false','aussichtsturm')
-        for x in range(cx-2,cx):clear(x,y,cz)
-        clear(cx-4,y,cz)
-    for y in range(138,165):
-        put(cx+1,y,cz,'smooth_basalt',group='aussichtsturm')
-        put(cx,y,cz,'ladder','facing=west,waterlogged=false','aussichtsturm')
-    # Observation deck with a full perimeter; the ladder opening remains climbable.
-    for x in range(cx-4,cx+5):
-        for z in range(cz-4,cz+5):
-            if (x,z)==(cx,cz):continue
-            put(x,163,z,'polished_blackstone_bricks',group='aussichtsturm')
-            if abs(x-cx)==4 or abs(z-cz)==4:
-                put(x,164,z,'stone_brick_wall','up=true,north=low,south=low,east=low,west=low,waterlogged=false','aussichtsturm')
-    # Oxidized copper roof held by four posts above the deck, without blocking its route.
-    for dx in (-2,2):
-        for dz in (-2,2):
-            for y in (164,165):put(cx+dx,y,cz+dz,'smooth_basalt',group='aussichtsturm')
-    for y,radius in ((166,3),(167,3),(168,2),(169,1),(170,0)):
-        for x in range(cx-radius,cx+radius+1):
-            for z in range(cz-radius,cz+radius+1):
-                block='waxed_oxidized_cut_copper';state=''
-                if radius and (abs(x-cx)==radius or abs(z-cz)==radius):
-                    facing=('east' if x<cx else 'west') if abs(x-cx)==radius else ('south' if z<cz else 'north')
-                    block='waxed_oxidized_cut_copper_stairs';state=f'facing={facing},half=bottom,shape=straight,waterlogged=false'
-                put(x,y,z,block,state,group='aussichtsturm')
-    put(cx,171,cz,'lightning_rod','facing=up,powered=false,waterlogged=false','aussichtsturm')
-    # Tall slit windows, kept clear of the central ladder support.
-    for y in range(150,160):
-        for z in (cz-3,cz+3):put(cx,y,z,'gray_stained_glass','', 'aussichtsturm')
-    # Twin garden stair: central landing, outward flights, joined lower garden court.
-    for x in range(-708,-701):
-        for z in range(832,837):put(x,129,z,'stone_bricks',group='gartentreppe')
-    for x,hinge in ((-706,'right'),(-705,'left')):
-        for y,half in ((130,'lower'),(131,'upper')):
-            put(x,y,831,'dark_oak_door',f'facing=south,half={half},hinge={hinge},open=false,powered=false','gartentreppe')
-        for z in (830,832):
-            for y in (130,131):clear(x,y,z)
-    for side in (-1,1):
-        for step in range(3):
-            x=(-709-step) if side==-1 else (-701+step);y=129-step
-            for z in range(834,837):put(x,y,z,'stone_brick_stairs',f'facing={"east" if side==-1 else "west"},half=bottom,shape=straight,waterlogged=false','gartentreppe')
-            for z in (833,837):put(x,y+1,z,'stone_brick_wall','up=true,north=low,south=low,east=low,west=low,waterlogged=false','gartentreppe')
-    for x in list(range(-714,-711))+list(range(-698,-695)):
-        for z in range(834,840):put(x,126,z,'stone_bricks',group='gartentreppe')
-    for x in range(-714,-695):put(x,126,839,'stone_bricks',group='gartentreppe')
-    for x in range(-708,-701):put(x,130,837,'stone_brick_wall','up=true,north=low,south=low,east=low,west=low,waterlogged=false','gartentreppe')
-    for x in range(-698,-695):
-        put(x,126,840,'stone_brick_stairs','facing=north,half=bottom,shape=straight,waterlogged=false','gartentreppe')
-        put(x,125,841,'stone_bricks',group='gartentreppe')
-    # Foundation beneath every landing and stair, respecting existing basement work.
-    T=d['terrain'];x0,_,z0,_=T['bounds']
-    for (x,y,z),(bid,state,g) in list(b.items()):
-        if g=='gartentreppe' and (bid=='stone_bricks' or bid.endswith('_stairs')):
-            ground=T['target_heights'][z-z0][x-x0]
-            for yy in range(ground+1,y):
-                if (x,yy,z) not in b:put(x,yy,z,'deepslate_bricks',group='gartentreppe')
-    # Flared feet only on the exposed low northeastern cliff; avoid burying waterfalls.
-    for z in (780,790,800):
-        for x in (-652,-636):
-            for dx in range(-1,2):
-                for zz in range(z-1,z+3):
-                    ground=T['heights'][zz-z0][x+dx-x0]
-                    for y in range(ground+1,117):
-                        if (x+dx,y,zz) not in b:put(x+dx,y,zz,'deepslate_tiles' if y<115 else 'cobbled_deepslate',group='klippenfuesse')
-    # Two bounded spillway channels; their water is independent of the swimming pool.
-    for z in (780,783):
-        for x in range(-635,-632):
-            put(x,124,z,'prismarine_bricks',group='kaskaden')
-            put(x,125,z,'water','level=0' if x==-635 else 'level=1','kaskaden')
-            for zz in (z-1,z+1):put(x,125,zz,'deepslate_bricks',group='kaskaden')
-        x=-632;ground=T['heights'][z-z0][x-x0]
-        for y in range(ground+1,126):put(x,y,z,'water','level=8','kaskaden')
-        # Catch basin raised above the surveyed surface, its wall contains lower spreading.
-        for xx in range(x-1,x+2):
-            for zz in range(z-1,z+2):
-                put(xx,ground,zz,'prismarine_bricks',group='kaskaden')
-                if (xx,zz)!=(x,z):put(xx,ground+1,zz,'deepslate_bricks',group='kaskaden')
-    # Recessed, survival-buildable light panels; no claim of directional Minecraft light.
-    for z in (783,797):
-        put(-742,130,z,'sea_lantern',group='fassadenlicht')
-        put(-743,130,z,'spruce_trapdoor','facing=west,half=bottom,open=true,powered=false,waterlogged=false','fassadenlicht')
+    air=set()
+    def put(x,y,z,block,state='',group='materiallift'):
+        b[x,y,z]=(block,state,group);air.discard((x,y,z))
+    def clear(x,y,z):b.pop((x,y,z),None);air.add((x,y,z))
+    def floor(x,y,z,group):put(x,y,z,'polished_deepslate',group=group)
+    # Keep the ladder shaft; add a fully enclosed bubble tube alongside its east face.
+    for y in range(106,134):
+        for x in range(-686,-683):
+            for z in range(789,792):
+                if x==-686:continue # shared existing shaft wall
+                put(x,y,z,'glass')
+        put(-685,y,790,'bubble_column','drag=false')
+    put(-685,105,790,'soul_sand')
+    # Floor-106 automatic dropper, with subtract-comparator feedback clock.
+    put(-685,106,789,'dropper','facing=south,triggered=false')
+    put(-685,107,789,'hopper','facing=down,enabled=true')
+    put(-685,108,789,'chest','facing=north,type=single,waterlogged=false')
+    put(-685,106,788,'comparator','facing=north,mode=subtract,powered=false')
+    put(-685,106,786,'repeater','facing=north,delay=2,locked=false,powered=false')
+    wires=[(-685,787),(-685,785),(-684,785),(-683,785),(-683,786),(-683,787),(-684,787),(-684,788),(-683,789),(-684,789)]
+    for x,z in wires:
+        floor(x,105,z,'materiallift');put(x,106,z,'redstone_wire','north=side,south=side,east=side,west=side,power=0')
+    for x,z in ((-685,788),(-685,786)):floor(x,105,z,'materiallift')
+    floor(-683,105,788,'materiallift')
+    put(-683,106,788,'redstone_wire','north=side,south=none,east=none,west=side,power=0')
+    put(-684,106,788,'repeater','facing=west,delay=1,locked=false,powered=false')
+    # Top overflow over a hopper into a chest, with a roof against item escape.
+    for x in (-684,-683):
+        put(x,132,790,'water','level=1' if x==-684 else 'level=2')
+        put(x,133,790,'glass')
+        for z in (789,791):put(x,132,z,'glass')
+    put(-685,133,790,'glass')
+    put(-683,131,790,'hopper','facing=south,enabled=true')
+    put(-683,131,791,'hopper','facing=south,enabled=true')
+    put(-684,131,790,'glass')
+    put(-683,131,792,'chest','facing=south,type=single,waterlogged=false')
+    put(-682,132,790,'glass')
+    # Two-high piston bookshelf, initially closed. The retracting panels slide west.
+    for y in (106,107):
+        put(-699,y,778,'sticky_piston','facing=east,extended=true','geheimtechnik')
+        put(-698,y,778,'piston_head','facing=east,type=sticky,short=false','geheimtechnik')
+        put(-697,y,778,'bookshelf',group='geheimtechnik')
+    # A side turn behind the sliding panel leads to a short descending ladder.
+    for y in (106,107):clear(-697,y,779)
+    # Lever branches to a lower repeater and a separately supported upper repeater.
+    wire_positions=[(-696,106,776),(-697,106,776),(-698,106,776),(-699,106,776),(-700,106,776),(-701,106,776),(-701,106,777),(-701,107,778)]
+    for x,y,z in wire_positions:
+        floor(x,y-1,z,'geheimtechnik');put(x,y,z,'redstone_wire','north=side,south=side,east=side,west=side,power=15','geheimtechnik')
+    for x,y,z,facing in ((-699,106,777,'south'),(-700,107,778,'east')):
+        floor(x,y-1,z,'geheimtechnik');put(x,y,z,'repeater',f'facing={facing},delay=1,locked=false,powered=true','geheimtechnik')
+    floor(-696,105,775,'geheimtechnik')
+    put(-696,106,775,'lever','face=floor,facing=south,powered=true','geheimtechnik')
+    # Shaft descends outside the module bounding box; lower corridor enters the service gap.
+    for y in range(81,104):
+        put(-698,y,768,'deepslate_bricks',group='fluchtgang')
+        put(-697,y,768,'ladder','facing=east,waterlogged=false','fluchtgang')
+    for x in range(-697,-686):
+        floor(x,80,768,'fluchtgang')
+        for y in (81,82,83):
+            if x!=-697:clear(x,y,768)
+        for z in (767,769):put(x,81,z,'deepslate_bricks',group='fluchtgang')
+    for z in (769,770):
+        floor(-687,80,z,'fluchtgang')
+        for y in (81,82,83):clear(-687,y,z)
+    # Low passage passes beneath the piston wiring and joins the lower shaft.
+    for y in range(101,107):
+        put(-698,y,779,'deepslate_bricks',group='fluchtgang')
+        put(-697,y,779,'ladder','facing=east,waterlogged=false','fluchtgang')
+    for z in range(769,780):
+        floor(-697,100,z,'fluchtgang')
+        for y in (101,102,103):
+            if z!=779:clear(-697,y,z)
+    for y in (104,105):put(-697,y,768,'deepslate_bricks',group='fluchtgang')
+    # Separate dry lighting conduits below the terrace; six lamps face into the pool.
+    for z in range(777,804):
+        floor(-657,127,z,'poollicht')
+        put(-657,128,z,'redstone_wire','north=side,south=side,east=none,west=none,power=0','poollicht')
+    for z,facing in ((781,'north'),(795,'south')):
+        put(-657,128,z,'repeater',f'facing={facing},delay=1,locked=false,powered=false','poollicht')
+    for bus,repeat_z,lamp_z,facing in ((777,778,779,'south'),(803,802,801,'north')):
+        for x in range(-657,-637):
+            floor(x,127,bus,'poollicht')
+            put(x,128,bus,'redstone_wire','north=none,south=none,east=side,west=side,power=0','poollicht')
+        for x in (-653,-645):put(x,128,bus,'repeater','facing=east,delay=1,locked=false,powered=false','poollicht')
+        for x in (-650,-644,-638):
+            floor(x,127,repeat_z,'poollicht')
+            put(x,128,repeat_z,'repeater',f'facing={facing},delay=1,locked=false,powered=false','poollicht')
+            put(x,128,lamp_z,'redstone_lamp','lit=false','poollicht')
+    put(-657,129,787,'polished_deepslate',group='poollicht')
+    put(-657,130,787,'lever','face=floor,facing=south,powered=false','poollicht')
+    # Shore route is generated against the supplied natural surface, not an assumed ocean.
+    path=route(d['terrain']);walk={(x,z):y for x,y,z in path}
+    for i,(x,y,z) in enumerate(path):
+        if i+1<len(path) and path[i+1][1]<y:
+            nx,_,nz=path[i+1];facing='west' if nx>x else 'east' if nx<x else 'north' if nz>z else 'south'
+            put(x,y,z,'cobblestone_stairs',f'facing={facing},half=bottom,shape=straight,waterlogged=false','klippenpfad')
+        else:put(x,y,z,'tuff',group='klippenpfad')
+        for yy in range(y+1,y+4):clear(x,yy,z)
+    # Side walkways widen level sections; fences never occupy the reserved path columns.
+    for x,y,z in path:
+        for dx,dz in ((1,0),(-1,0),(0,1),(0,-1)):
+            q=x+dx,z+dz
+            if q not in walk:
+                ground=d['terrain']['heights'][q[1]-d['terrain']['bounds'][2]][q[0]-d['terrain']['bounds'][0]]
+                if abs(ground-y)<=1:
+                    put(q[0],y,q[1],'cobblestone',group='klippenpfad')
+                    put(q[0],y+1,q[1],'spruce_fence','north=true,south=true,east=true,west=true,waterlogged=false','klippenpfad')
+    # Boat house: west door on the path, east water opening and an interior water berth.
+    for x in range(-580,-571):
+        for z in range(750,759):
+            rim=x<=-578 or z in (750,751,757,758)
+            if rim:put(x,63,z,'oak_planks',group='bootshaus')
+            else:
+                put(x,62,z,'water','level=0','bootshaus')
+                for y in (63,64,65):clear(x,y,z)
+            for y in (64,65,66):
+                if x==-580 or z in (750,758):put(x,y,z,'oak_planks',group='bootshaus')
+            roof=67+min(z-750,758-z)//2
+            put(x,roof,z,'nether_brick_stairs',f'facing={"south" if z<754 else "north"},half=bottom,shape=straight,waterlogged=false','bootshaus')
+    for y,half in ((64,'lower'),(65,'upper')):put(-580,y,754,'oak_door',f'facing=west,half={half},hinge=left,open=false,powered=false','bootshaus')
+    # Moist, planted footing accents kept off all walking routes.
+    for x,z in ((-637,779),(-635,782)):
+        ground=d['terrain']['heights'][z-d['terrain']['bounds'][2]][x-d['terrain']['bounds'][0]]
+        put(x,ground,z,'moss_block',group='klippenvegetation')
+    # Explicit wire shapes reflect their modeled neighbours, including the raised branch.
+    components={'redstone_wire','repeater','comparator','lever','dropper'}
+    for (x,y,z),(block,state,g) in list(b.items()):
+        if block!='redstone_wire' or g not in ('poollicht','materiallift','geheimtechnik'):continue
+        parts=[]
+        for direction,dx,dz in (('north',0,-1),('south',0,1),('east',1,0),('west',-1,0)):
+            value='none'
+            if b.get((x+dx,y,z+dz),('',))[0] in components:value='side'
+            elif b.get((x+dx,y+1,z+dz),('',))[0]=='redstone_wire':value='up'
+            elif b.get((x+dx,y-1,z+dz),('',))[0]=='redstone_wire':value='side'
+            parts.append(direction+'='+value)
+        put(x,y,z,block,','.join(parts)+(',power=15' if g=='geheimtechnik' else ',power=0'),g)
+    d['_clearance_air']=[list(p) for p in sorted(air)]
     features=previous.get('features',[])+[
-        {'group':'prunkportal','name':'Monumentales Westportal','description':'Zwei 2×2-Säulen, Schwarzstein-Kapitelle, zweilagiger Dreiecksgiebel und Kupfer-Gold-Wappen über dem freien Ankunftsweg.'},
-        {'group':'aussichtsturm','name':'Begehbarer Aussichtsturm','description':'OG-Zugang bei X −731 / Z 775, Leiter bis zur Galerie Y 163, steinerne Balustrade und gewachste oxidierte Kupferkrone bis Y 171.'},
-        {'group':'gartentreppe','name':'Zweiflügelige Südgartentreppe','description':'Neue Doppeltür bei Z 831; obere Terrasse Y 129, zwei seitliche Läufe und gemeinsamer Gartenweg auf Y 126 bis zum Anschluss auf Y 125.'},
-        {'group':'klippenfuesse','name':'Verbreiterte Bogenfüße','description':'Nach unten ausgestellte Sockel aus Tiefenschiefer-Fliesen und Bruchtiefenschiefer an den freiliegenden Pfeilerfüßen.'},
-        {'group':'kaskaden','name':'Zwei Klippenkaskaden','description':'Separate, eingefasste Speier bei Z 780 und 783 mit Fallwasser und Auffangmulden; unabhängig vom Schwimmbecken.'},
-        {'group':'fassadenlicht','name':'Verdeckte Portalbeleuchtung','description':'Zwei Meereslaternen hinter Fichtenblenden seitlich der Frontsäulen.'}]
-    return {'title':'Herrschaftliches Westportal, Aussichtsturm und Gartentreppe','features':features,
-        'limits':'Wasserfluss, Lichtwirkung und Laufwege sind im Spiel abzunehmen. Lichtquellen strahlen in Minecraft nicht gerichtet nach oben. Der Turm ist per Leiter erreichbar; ein Uhrenmechanismus ist nicht eingebaut. Zusätzliche Aushubpositionen für Garten und Kaskaden stehen in architektur_erdarbeiten.csv.'}
+        {'group':'geheimtechnik','name':'Kolben-Bücherregal','description':'Zwei bewegliche Regalblöcke bei X −697 / Z 778. Bodenhebel X −696 / Y 106 / Z 775, getrennte Repeater für beide Kolben; geschlossen modelliert.'},
+        {'group':'fluchtgang','name':'Geheimer Technikzugang','description':'Verdeckte Leiter und Unterquerung der Schaltung auf Y 100; weiter bis Y 81 bei X −697 / Z 768. Der untere Gang liegt nördlich der Litematic-Module und endet an deren Servicelücke X −687.'},
+        {'group':'materiallift','name':'Automatischer Material-Aufstieg','description':'Separate Blasensäule neben der Wartungsleiter. Einwurf X −685 / Y 108 / Z 789; Hopper, Dropper und Komparator-Taktgeber. Ausgabe im EG X −683 / Y 131 / Z 792.'},
+        {'group':'poollicht','name':'Schaltbare Poolbeleuchtung','description':'Sechs Lampen in den Beckenwänden. Hebel neben dem Poolausgang bei X −657 / Y 130 / Z 787; trockene Leitungen mit Repeatern unter der Terrasse.'},
+        {'group':'klippenpfad','name':'Vermessener Klippenabstieg','description':f'{len(path)} Wegpositionen vom nordöstlichen Terrassenrand Y 129 bis zum Ufer auf Y 63; maximal ein Block Höhenunterschied je Schritt.'},
+        {'group':'bootshaus','name':'Viktorianischer Bootsschuppen','description':'Eichenbau mit Netherziegeldach, Westzugang und offener Wasserbucht im Osten bei X −580…−572 / Z 750…758.'},
+        {'group':'klippenvegetation','name':'Moos an den Bogenfüßen','description':'Zwei kleine Moosakzente an den feuchten Sockeln; ohne Bewuchs auf den Gehwegen.'}]
+    return {'title':'Geheimgang, Materiallift, Poollicht und Uferweg','features':features,'path':[list(p) for p in path],
+        'limits':'Redstone, Kolbentür und Wassertransport sind konstruktiv modelliert, aber nicht im Spiel getestet. Der NBT-Export enthält explizite Luftpositionen für die neuen Durchgänge. Beim manuellen Bauen die Luft-/Aushubliste vorab abarbeiten. Der Lift transportiert Item-Entitäten, auch gefüllte Shulkerboxen; er ist kein Shulker-Unloader. Der Bootsschuppen liegt an der vermessenen nordöstlichen Wasserfläche, nicht an der trockenen Südklippe.'}

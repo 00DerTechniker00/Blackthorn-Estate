@@ -1,7 +1,7 @@
 {
-  "revision": "5.19",
-  "status": "Westportal, Aussichtsturm, Gartentreppe und Klippenkaskaden modelliert.",
-  "base_revision": "5.18",
+  "revision": "5.20",
+  "status": "Geheimzugang, Materiallift, Poolbeleuchtung und vermessener Uferweg modelliert; Ingame-Technikprüfung offen.",
+  "base_revision": "5.19",
   "geometry_changed": true,
   "stair_clearance": [
     {
@@ -31,8 +31,16 @@
     "minimum_x_gap": 22,
     "basement_to_main_route": "Bibliothek → Große Halle"
   },
+  "geometry_checks": {
+    "path_continuity": true,
+    "path_headroom": true,
+    "piston_travel": true,
+    "lift_topology": true,
+    "explicit_air_nbt": true,
+    "existing_ladder_preserved": true
+  },
   "enhancements": {
-    "title": "Herrschaftliches Westportal, Aussichtsturm und Gartentreppe",
+    "title": "Geheimgang, Materiallift, Poollicht und Uferweg",
     "features": [
       {
         "group": "poolfassade",
@@ -83,9 +91,466 @@
         "group": "fassadenlicht",
         "name": "Verdeckte Portalbeleuchtung",
         "description": "Zwei Meereslaternen hinter Fichtenblenden seitlich der Frontsäulen."
+      },
+      {
+        "group": "geheimtechnik",
+        "name": "Kolben-Bücherregal",
+        "description": "Zwei bewegliche Regalblöcke bei X −697 / Z 778. Bodenhebel X −696 / Y 106 / Z 775, getrennte Repeater für beide Kolben; geschlossen modelliert."
+      },
+      {
+        "group": "fluchtgang",
+        "name": "Geheimer Technikzugang",
+        "description": "Verdeckte Leiter und Unterquerung der Schaltung auf Y 100; weiter bis Y 81 bei X −697 / Z 768. Der untere Gang liegt nördlich der Litematic-Module und endet an deren Servicelücke X −687."
+      },
+      {
+        "group": "materiallift",
+        "name": "Automatischer Material-Aufstieg",
+        "description": "Separate Blasensäule neben der Wartungsleiter. Einwurf X −685 / Y 108 / Z 789; Hopper, Dropper und Komparator-Taktgeber. Ausgabe im EG X −683 / Y 131 / Z 792."
+      },
+      {
+        "group": "poollicht",
+        "name": "Schaltbare Poolbeleuchtung",
+        "description": "Sechs Lampen in den Beckenwänden. Hebel neben dem Poolausgang bei X −657 / Y 130 / Z 787; trockene Leitungen mit Repeatern unter der Terrasse."
+      },
+      {
+        "group": "klippenpfad",
+        "name": "Vermessener Klippenabstieg",
+        "description": "84 Wegpositionen vom nordöstlichen Terrassenrand Y 129 bis zum Ufer auf Y 63; maximal ein Block Höhenunterschied je Schritt."
+      },
+      {
+        "group": "bootshaus",
+        "name": "Viktorianischer Bootsschuppen",
+        "description": "Eichenbau mit Netherziegeldach, Westzugang und offener Wasserbucht im Osten bei X −580…−572 / Z 750…758."
+      },
+      {
+        "group": "klippenvegetation",
+        "name": "Moos an den Bogenfüßen",
+        "description": "Zwei kleine Moosakzente an den feuchten Sockeln; ohne Bewuchs auf den Gehwegen."
       }
     ],
-    "limits": "Wasserfluss, Lichtwirkung und Laufwege sind im Spiel abzunehmen. Lichtquellen strahlen in Minecraft nicht gerichtet nach oben. Der Turm ist per Leiter erreichbar; ein Uhrenmechanismus ist nicht eingebaut. Zusätzliche Aushubpositionen für Garten und Kaskaden stehen in architektur_erdarbeiten.csv."
+    "path": [
+      [
+        -640,
+        129,
+        772
+      ],
+      [
+        -639,
+        128,
+        772
+      ],
+      [
+        -638,
+        127,
+        772
+      ],
+      [
+        -637,
+        126,
+        772
+      ],
+      [
+        -636,
+        125,
+        772
+      ],
+      [
+        -635,
+        124,
+        772
+      ],
+      [
+        -635,
+        123,
+        773
+      ],
+      [
+        -634,
+        122,
+        773
+      ],
+      [
+        -634,
+        121,
+        772
+      ],
+      [
+        -633,
+        120,
+        772
+      ],
+      [
+        -633,
+        119,
+        771
+      ],
+      [
+        -632,
+        118,
+        771
+      ],
+      [
+        -631,
+        117,
+        771
+      ],
+      [
+        -630,
+        116,
+        771
+      ],
+      [
+        -630,
+        115,
+        772
+      ],
+      [
+        -629,
+        114,
+        772
+      ],
+      [
+        -629,
+        113,
+        771
+      ],
+      [
+        -629,
+        112,
+        770
+      ],
+      [
+        -628,
+        111,
+        770
+      ],
+      [
+        -628,
+        110,
+        771
+      ],
+      [
+        -627,
+        109,
+        771
+      ],
+      [
+        -627,
+        108,
+        770
+      ],
+      [
+        -627,
+        107,
+        769
+      ],
+      [
+        -627,
+        106,
+        768
+      ],
+      [
+        -627,
+        105,
+        767
+      ],
+      [
+        -627,
+        104,
+        766
+      ],
+      [
+        -627,
+        103,
+        765
+      ],
+      [
+        -627,
+        102,
+        764
+      ],
+      [
+        -627,
+        101,
+        763
+      ],
+      [
+        -627,
+        100,
+        762
+      ],
+      [
+        -627,
+        99,
+        761
+      ],
+      [
+        -627,
+        98,
+        760
+      ],
+      [
+        -627,
+        97,
+        759
+      ],
+      [
+        -627,
+        96,
+        758
+      ],
+      [
+        -627,
+        95,
+        757
+      ],
+      [
+        -626,
+        94,
+        757
+      ],
+      [
+        -625,
+        93,
+        757
+      ],
+      [
+        -624,
+        92,
+        757
+      ],
+      [
+        -623,
+        91,
+        757
+      ],
+      [
+        -623,
+        90,
+        756
+      ],
+      [
+        -622,
+        89,
+        756
+      ],
+      [
+        -621,
+        88,
+        756
+      ],
+      [
+        -620,
+        87,
+        756
+      ],
+      [
+        -619,
+        86,
+        756
+      ],
+      [
+        -618,
+        85,
+        756
+      ],
+      [
+        -618,
+        84,
+        755
+      ],
+      [
+        -618,
+        83,
+        754
+      ],
+      [
+        -617,
+        82,
+        754
+      ],
+      [
+        -616,
+        82,
+        754
+      ],
+      [
+        -615,
+        81,
+        754
+      ],
+      [
+        -614,
+        80,
+        754
+      ],
+      [
+        -613,
+        79,
+        754
+      ],
+      [
+        -612,
+        78,
+        754
+      ],
+      [
+        -611,
+        78,
+        754
+      ],
+      [
+        -610,
+        77,
+        754
+      ],
+      [
+        -609,
+        77,
+        754
+      ],
+      [
+        -608,
+        76,
+        754
+      ],
+      [
+        -607,
+        76,
+        754
+      ],
+      [
+        -606,
+        76,
+        754
+      ],
+      [
+        -605,
+        75,
+        754
+      ],
+      [
+        -604,
+        75,
+        754
+      ],
+      [
+        -603,
+        74,
+        754
+      ],
+      [
+        -602,
+        73,
+        754
+      ],
+      [
+        -601,
+        72,
+        754
+      ],
+      [
+        -600,
+        71,
+        754
+      ],
+      [
+        -599,
+        70,
+        754
+      ],
+      [
+        -598,
+        70,
+        754
+      ],
+      [
+        -597,
+        70,
+        754
+      ],
+      [
+        -596,
+        70,
+        754
+      ],
+      [
+        -595,
+        69,
+        754
+      ],
+      [
+        -594,
+        69,
+        754
+      ],
+      [
+        -593,
+        68,
+        754
+      ],
+      [
+        -592,
+        68,
+        754
+      ],
+      [
+        -591,
+        68,
+        754
+      ],
+      [
+        -590,
+        67,
+        754
+      ],
+      [
+        -589,
+        67,
+        754
+      ],
+      [
+        -588,
+        66,
+        754
+      ],
+      [
+        -587,
+        66,
+        754
+      ],
+      [
+        -586,
+        65,
+        754
+      ],
+      [
+        -585,
+        65,
+        754
+      ],
+      [
+        -584,
+        65,
+        754
+      ],
+      [
+        -583,
+        64,
+        754
+      ],
+      [
+        -582,
+        64,
+        754
+      ],
+      [
+        -581,
+        63,
+        754
+      ]
+    ],
+    "limits": "Redstone, Kolbentür und Wassertransport sind konstruktiv modelliert, aber nicht im Spiel getestet. Der NBT-Export enthält explizite Luftpositionen für die neuen Durchgänge. Beim manuellen Bauen die Luft-/Aushubliste vorab abarbeiten. Der Lift transportiert Item-Entitäten, auch gefüllte Shulkerboxen; er ist kein Shulker-Unloader. Der Bootsschuppen liegt an der vermessenen nordöstlichen Wasserfläche, nicht an der trockenen Südklippe."
   },
   "service_shaft": {
     "position": [
