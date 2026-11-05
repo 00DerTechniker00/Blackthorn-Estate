@@ -240,7 +240,7 @@ Neu sind drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Be
 
 Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. Aktuelle Ingame-Abnahme, Lichtsimulation und der Anschluss der Bogenfüße an den Fels stehen aus.
 
-Die Daten bleiben in externen JavaScript-Dateien, damit der Atlas lokal ohne Webserver geöffnet werden kann. Historische Archive und Rohwelten bleiben lokal über .gitignore ausgeschlossen.
+Die Daten bleiben in externen JavaScript-Dateien, damit der Atlas lokal ohne Webserver geöffnet werden kann. Historische Archive und Rohwelten bleiben lokal über .gitignore ausgeschlossen. Nicht mehr verwendete Werkzeuge aus der 5.11-Reihe und zwei ungenutzte Vorschaubilder liegen lokal unter archive/repository-cleanup-5.22/. Der aktuelle Build benötigt sie nicht.
 """
     (ROOT/'technik_5.20.md').write_text("""# Technik und Inbetriebnahme · 5.20
 
