@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-"""Build Revision 5.24: obere Giebelfenster der Großen Halle."""
+"""Build Revision 5.25: geprüfte Türanschlüsse und nachvollziehbarer Materialbedarf."""
 import csv
 import hashlib
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
 from architecture import enhance
+from materials import items_for_block, stack_size, scopes
+from build_audit import audit
 from structure_export import export as export_structure
 from litematic_import import build as import_litematics
 
 ROOT=Path(__file__).resolve().parent.parent
-SEED=ROOT/'tools'/'seeds'/'revision-5.23'/'blueprint.json'
-VERSION='5.24'
-VERSION_PREVIOUS='5.23'
+SEED=ROOT/'tools'/'seeds'/'revision-5.24'/'blueprint.json'
+VERSION='5.25'
+VERSION_PREVIOUS='5.24'
 
 def build_structure_metadata(d):
     levels=[
@@ -97,15 +99,18 @@ def main():
             bid,state,gi=reg[ri];group=group_names[gi]
             sequence.append([len(sequence)+1,x,y,z,'minecraft:'+bid,state,group])
             coords[group].append((x,y,z))
-            if not (bid in ('water','bubble_column','piston_head') or bid.endswith('_door') and 'half=upper' in state or bid.endswith('_bed') and 'part=head' in state):
-                materials=['flower_pot',bid.removeprefix('potted_')] if bid.startswith('potted_') else [{'water_cauldron':'cauldron','redstone_wall_torch':'redstone_torch'}.get(bid,bid.replace('_wall_banner','_banner'))]
-                for material in materials:counts[material]+=1;gcounts[group][material]+=1
+            for material,amount in items_for_block(bid,state):
+                counts[material]+=amount;gcounts[group][material]+=amount
     d['reg']=reg;d['runs']=runs;d['meta']['version']=VERSION;d['meta']['total']=len(indexed)
     d['meta']['bbox']=[min(p[0] for p in indexed),max(p[0] for p in indexed),min(p[1] for p in indexed),max(p[1] for p in indexed),min(p[2] for p in indexed),max(p[2] for p in indexed)]
     d['meta']['fingerprint']=hashlib.sha256(json.dumps(sequence,separators=(',',':')).encode()).hexdigest()
     d['progress_compat']={'revision':VERSION_PREVIOUS,'fingerprint':old_fingerprint,'changed_positions':[','.join(map(str,p)) for p in additions],'changed_groups':sorted({v[2] for pair in additions.values() for v in pair if v})}
     d['counts']=dict(counts)
+    d['meta']['water_positions']=sum(v[0]=='water' for v in old.values())
+    d['meta']['bubble_column_positions']=sum(v[0]=='bubble_column' for v in old.values())
     d['gcounts']={g:dict(c) for g,c in gcounts.items()}
+    d['material_scopes']=scopes(d['gcounts'])
+    d['material_stack_sizes']={item:stack_size(item) for item in counts}
     d['gstats']={}
     for g,points in coords.items():
         if points:d['gstats'][g]={'n':len(points),'x':[min(p[0] for p in points),max(p[0] for p in points)],'y':[min(p[1] for p in points),max(p[1] for p in points)],'z':[min(p[2] for p in points),max(p[2] for p in points)]}
@@ -128,6 +133,7 @@ def main():
         writer.writerows([r['id'],r['x'],r['y'],r['z'],r['block'],r['kind'],r['chain'],*r['anchor'],r['anchor_block'],r['group'],r['source']] for r in d['lighting']['fixtures'])
     d['lighting']['total']=sum(1 for b,_,_ in old.values() if b in ('lantern','soul_lantern'))
     d['lighting']['light_simulated']=False
+    d['checks'].update(doors=sum(b.endswith('_door') and 'half=lower' in state for b,state,g in old.values()),stairs=sum(b.endswith('_stairs') for b,state,g in old.values()),panes=sum(b=='glass_pane' or b.endswith('_stained_glass_pane') for b,state,g in old.values()))
     d['checks']['historical_note']='Licht-, Erreichbarkeits- und Erdarbeitswerte stammen aus früheren Revisionen; keine aktuelle Simulation.'
     clearance_air=d.pop('_clearance_air',[])
     d['required_air']=clearance_air
@@ -139,6 +145,11 @@ def main():
     (ROOT/'check_report.json').write_text(json.dumps(d['validation'],ensure_ascii=False,indent=2)+'\n')
     write_blocklist(sequence)
     write_materials(counts,gcounts,group_names)
+    for key,scope in d['material_scopes'].items():write_material_csv(ROOT/('materialbedarf_'+{'house':'haus','outdoor':'aussenanlagen','terrain':'gelaende'}[key]+'.csv'),scope['counts'])
+    d['material_audit']=audit(d,ROOT)
+    d['validation'].update(material_audit_passed=not d['material_audit']['errors'],doors_checked=d['material_audit']['doors_checked'],material_items=sum(counts.values()))
+    (ROOT/'check_report.json').write_text(json.dumps(d['validation'],ensure_ascii=False,indent=2)+'\n')
+    (ROOT/'blueprint.json').write_text(json.dumps(d,ensure_ascii=False,separators=(',',':'))+'\n')
     write_diff(additions)
     with (ROOT/f'freiraeume_{VERSION}.csv').open('w',encoding='utf-8-sig',newline='') as f:
         writer=csv.writer(f,delimiter=';');writer.writerow(['X','Y','Z','Aktion'])
@@ -158,12 +169,12 @@ def main():
     update_progress()
     write_project_docs(d,modules)
     from hall_window_elevation import build as build_window_elevation
-    build_window_elevation(json.loads(SEED.read_text()),d,ROOT)
+    if any(v and v[2]=='halle_giebelfenster' for pair in additions.values() for v in pair):build_window_elevation(json.loads(SEED.read_text()),d,ROOT)
     from elevation import build as build_elevation
     build_elevation(d,ROOT)
     from web import build
     build(d)
-    for oldfile in ('blackthorn_estate_5.23.nbt','manifest_5.23.json','aenderungen_5.22_zu_5.23.csv','freiraeume_5.23.csv'):
+    for oldfile in ('blackthorn_estate_5.24.nbt','manifest_5.24.json','aenderungen_5.23_zu_5.24.csv','freiraeume_5.24.csv'):
         p=ROOT/oldfile
         if p.exists():p.unlink()
     write_manifest()
@@ -174,14 +185,15 @@ def write_blocklist(sequence):
     with (ROOT/'blockliste.csv').open('w',encoding='utf-8-sig',newline='') as f:
         w=csv.writer(f,delimiter=';');w.writerow(['Nummer','X','Y','Z','Minecraft-Block','Blockstate','Baugruppe']);w.writerows(sequence)
 
-def stack_size(block):return 1 if block=='water_bucket' or block.endswith('_bed') or block.endswith('shulker_box') else 16 if block.endswith('_sign') else 64
+def write_material_csv(path,counts):
+    with path.open('w',encoding='utf-8-sig',newline='') as f:
+        w=csv.writer(f,delimiter=';');w.writerow(['Material','Anzahl','Stackgroesse','volle_Stacks','Rest','volle_Shulkers','Rest_nach_Shulkern','Rest_Stacks_nach_Shulkern','Einzeln_nach_Stacks'])
+        for block,count in sorted(counts.items(),key=lambda p:(-p[1],p[0])):
+            size=stack_size(block);per=size*27;sh,remain=divmod(count,per);stacks,loose=divmod(remain,size)
+            w.writerow([block,count,size,count//size,count%size,sh,remain,stacks,loose])
 
 def write_materials(counts,gcounts,groups):
-    with (ROOT/'materialbedarf.csv').open('w',encoding='utf-8-sig',newline='') as f:
-        w=csv.writer(f,delimiter=';');w.writerow(['Material','Anzahl','Stackgroesse','volle_Stacks','Rest','volle_Shulkers','Rest_nach_Shulkern'])
-        for block,count in sorted(counts.items(),key=lambda p:(-p[1],p[0])):
-            size=stack_size(block);per=size*27;sh,remain=divmod(count,per);stacks,rest=divmod(remain,size)
-            w.writerow([block,count,size,count//size,count%size,sh,rest])
+    write_material_csv(ROOT/'materialbedarf.csv',counts)
     with (ROOT/'materialbedarf_baugruppen.csv').open('w',encoding='utf-8-sig',newline='') as f:
         w=csv.writer(f,delimiter=';');w.writerow(['Baugruppe','Material','Anzahl'])
         for group in groups:
@@ -216,8 +228,8 @@ def write_manifest():
     (ROOT/f'manifest_{VERSION}.json').write_text(json.dumps({'revision':VERSION,'files':files},ensure_ascii=False,indent=2)+'\n')
 
 def update_progress():
-    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.23'/'progress.js').read_text()
-    s=s.replace('5.23','5.24').replace('5.22','5.23')
+    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.24'/'progress.js').read_text()
+    s=s.replace('5.24','5.25').replace('5.23','5.24')
     p.write_text(s)
 
 def write_project_docs(d,modules):
@@ -230,7 +242,7 @@ def write_project_docs(d,modules):
 
 {chr(10).join('- '+f['name']+': '+f['description'] for f in enhancements['features'])}
 
-Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.24.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
+Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.25.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
 
 Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der geheime Zugang führt nun bis Y 80; die beiden Litematic-Module bleiben separate Dateien. Der Materiallift ist neben der Wartungsleiter modelliert; seine Inbetriebnahme steht aus.
 
@@ -238,7 +250,7 @@ Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt
 
 Die Website zeigt die neuen Bauteile unter Bauatlas → Hausstruktur mit direktem 3D-Zugriff. Blockliste, Materialbedarf, Änderungsdatei und NBT-Export werden aus demselben Modell erzeugt. Alte Modellhäkchen werden nur für unveränderte Positionen übernommen.
 
-Neu in 5.24: die beiden oberen Giebelfenster der Großen Halle. Pro Fenster 29 helle Glasscheiben und acht schlanke Sprossenpositionen im gestuften Steinbogen. Die Änderungsliste steht in aenderungen_5.23_zu_5.24.csv. Fassadendetails aus 5.23 bleiben erhalten.\n\nAus 5.22: drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
+Neu in 5.25: korrigierte Türanschlüsse und unabhängig nachgezählte Materialien. Prüfbericht: materialpruefung.md. Die Materialansicht startet mit Haus und Keller; Gelände und Außenanlagen sind separat auswählbar. Gesamtmengen bleiben vollständig erhalten. Shulker-Restmengen und Banner-Stackgrößen wurden korrigiert. Die Hallenfenster aus 5.24 bleiben erhalten.\n\nAus 5.22: drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
 
 Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. Aktuelle Ingame-Abnahme, Lichtsimulation und der Anschluss der Bogenfüße an den Fels stehen aus.
 
@@ -330,10 +342,10 @@ Quellen: [Mojang: gemeißelte Bücherregale](https://www.minecraft.net/es-es/art
 """)
     (ROOT/'analysebericht.md').write_text(report)
     (ROOT/'README.md').write_text(report+f"\nAtlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v{VERSION}`.\n")
-    protocol={'revision':VERSION,'status':'Obere Giebelfenster der Großen Halle neu gegliedert; Ingame-Ansicht offen.',
+    protocol={'revision':VERSION,'status':'Türanschlüsse korrigiert, Mengen unabhängig geprüft; Materialansicht nach Haus, Außenanlagen und Gelände gegliedert.',
         'base_revision':VERSION_PREVIOUS,'geometry_changed':True,
         'stair_clearance':clearance,'stair_separation':d['structure']['stair_separation'],
-        'hall_gable_windows':enhancements.get('hall_gable_windows'),'revision_524_checks':{'symmetry':True,'other_build_positions_preserved':True,'roof_outline_preserved':True,'stair_clearance_preserved':True,'in_game_viewed':False},'revision_523_checks':{'windows_preserved':True,'no_overlap_with_required_air':True,'facade_stats':enhancements.get('facade_stats'),'in_game_checked':False},'revision_522_checks':{'vineyard_path':True,'shore_entry_clear':True,'lantern_anchors':True,'gong_topology':True,'setup_commands_prepared':True,'setup_commands_executed':False,'gong_in_game_verified':False},
+        'material_audit':d.get('material_audit'),'hall_gable_windows':enhancements.get('hall_gable_windows'),'revision_524_checks':{'symmetry':True,'other_build_positions_preserved':True,'roof_outline_preserved':True,'stair_clearance_preserved':True,'in_game_viewed':False},'revision_523_checks':{'windows_preserved':True,'no_overlap_with_required_air':True,'facade_stats':enhancements.get('facade_stats'),'in_game_checked':False},'revision_522_checks':{'vineyard_path':True,'shore_entry_clear':True,'lantern_anchors':True,'gong_topology':True,'setup_commands_prepared':True,'setup_commands_executed':False,'gong_in_game_verified':False},
         'fitout_checks':{'six_beds_accessible':True,'stable_and_orangery_access':True,'hollow_flue_outlets':True,'lamp_anchors_current':True,'book_control_topology':True,'indicator_topology':True},
         'geometry_checks':{'path_continuity':True,'path_headroom':True,'piston_travel':True,'lift_topology':True,'explicit_air_nbt':True,'existing_ladder_preserved':True},
         'enhancements':enhancements,'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],

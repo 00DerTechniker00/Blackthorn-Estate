@@ -38,9 +38,9 @@ res6;lectern;1
 res3;spruce_planks;635
 res3;stone_bricks;554
 res3;dark_oak_planks;485
-res3;polished_deepslate;184
+res3;polished_deepslate;180
 res3;deepslate_bricks;104
-res3;glass_pane;92
+res3;glass_pane;90
 res3;gray_carpet;42
 res3;bookshelf;35
 res3;spruce_stairs;26
@@ -184,8 +184,8 @@ keller_2;lantern;3
 keller_2;dark_oak_door;2
 keller_2;enchanting_table;1
 keller_1;deepslate_tiles;1856
-keller_1;stone_bricks;1640
-keller_1;deepslate_bricks;1555
+keller_1;stone_bricks;1631
+keller_1;deepslate_bricks;1549
 keller_1;polished_deepslate;823
 keller_1;cracked_deepslate_bricks;100
 keller_1;dark_oak_door;6
@@ -391,7 +391,6 @@ gartentreppe;deepslate_bricks;110
 gartentreppe;stone_bricks;87
 gartentreppe;stone_brick_stairs;21
 gartentreppe;stone_brick_wall;19
-gartentreppe;dark_oak_door;2
 kaskaden;deepslate_bricks;28
 kaskaden;prismarine_bricks;24
 klippenfuesse;cobbled_deepslate;8
@@ -510,9 +509,9 @@ fassade_alterung;mossy_stone_bricks;83
 fassade_alterung;cracked_stone_bricks;29
 fassade_efeu;vine;100
 fassade_fenster;stone_brick_stairs;92
-fassade_fenster;stone_brick_slab;48
-fassade_laeden;dark_oak_trapdoor;88
+fassade_fenster;stone_brick_slab;47
 fassade_laeden;spruce_trapdoor;88
+fassade_laeden;dark_oak_trapdoor;86
 fassade_zahnschnitt;stone_brick_stairs;36
 halle_giebelfenster;light_gray_stained_glass_pane;58
 halle_giebelfenster;stone_bricks;40
@@ -522,3 +521,5 @@ halle_giebelfenster;iron_bars;16
 halle_giebelfenster;stone_brick_wall;16
 halle_giebelfenster;stone_brick_stairs;12
 halle_giebelfenster;chiseled_stone_bricks;4
+anschluss_korrekturen;stone_bricks;6
+anschluss_korrekturen;dark_oak_door;2

@@ -1,7 +1,7 @@
 {
-  "revision": "5.24",
-  "status": "Obere Giebelfenster der Großen Halle neu gegliedert; Ingame-Ansicht offen.",
-  "base_revision": "5.23",
+  "revision": "5.25",
+  "status": "Türanschlüsse korrigiert, Mengen unabhängig geprüft; Materialansicht nach Haus, Außenanlagen und Gelände gegliedert.",
+  "base_revision": "5.24",
   "geometry_changed": true,
   "stair_clearance": [
     {
@@ -30,6 +30,86 @@
     "center_x": 29,
     "minimum_x_gap": 22,
     "basement_to_main_route": "Bibliothek → Große Halle"
+  },
+  "material_audit": {
+    "revision": "5.25",
+    "positions": 137462,
+    "items": 136750,
+    "duplicates": [],
+    "material_counts_match": true,
+    "packing_errors": [],
+    "doors_checked": 50,
+    "door_obstacles": [],
+    "unpaired_doors": [],
+    "unsupported_doors": [],
+    "unsupported_gravity_blocks": [],
+    "gravity_not_checked_against_snapshot": [],
+    "snapshot": {
+      "available": true,
+      "note": "Originaler mitgelieferter Snapshot, kein aktueller Serverstand. Gleicher Blocktyp bedeutet nicht zwingend gleicher Blockstate.",
+      "file": "source-data/world-regions/from-mca-import/r.-2.1.mca",
+      "sha256": "e0f4c700a52f8f91ea067fa0eaea19cd118656793a11c5388014c589831f352b",
+      "materials": {
+        "dirt": {
+          "planned": 38148,
+          "same_type_in_snapshot": 2051,
+          "different_type": 36097,
+          "unknown_positions": 0
+        },
+        "cobblestone": {
+          "planned": 14089,
+          "same_type_in_snapshot": 0,
+          "different_type": 14089,
+          "unknown_positions": 0
+        },
+        "grass_block": {
+          "planned": 7931,
+          "same_type_in_snapshot": 772,
+          "different_type": 7159,
+          "unknown_positions": 0
+        },
+        "stone": {
+          "planned": 2389,
+          "same_type_in_snapshot": 0,
+          "different_type": 2389,
+          "unknown_positions": 0
+        }
+      }
+    },
+    "scopes": {
+      "house": {
+        "label": "Haus und Keller",
+        "items": 68739,
+        "focus": {
+          "dirt": 0,
+          "cobblestone": 0,
+          "grass_block": 0,
+          "stone": 0
+        }
+      },
+      "outdoor": {
+        "label": "Außenanlagen und Nebengebäude",
+        "items": 5826,
+        "focus": {
+          "dirt": 0,
+          "cobblestone": 817,
+          "grass_block": 126,
+          "stone": 0
+        }
+      },
+      "terrain": {
+        "label": "Gelände und Auffüllung",
+        "items": 62185,
+        "focus": {
+          "dirt": 38148,
+          "cobblestone": 13272,
+          "grass_block": 7805,
+          "stone": 2389
+        }
+      }
+    },
+    "errors": [],
+    "limits": "Statische Blockprüfung, kein vollständiger Ingame-Lauftest. Redstone, Wasser und Spawn-Sicherheit nicht simuliert. Neue Füllung und Grabungslisten nicht als bereits erledigt voraussetzen."
   },
   "hall_gable_windows": [
     {
@@ -110,8 +190,13 @@
     "existing_ladder_preserved": true
   },
   "enhancements": {
-    "title": "Neue obere Giebelfenster an der Großen Halle",
+    "title": "Hausanschlüsse und Materialprüfung",
     "features": [
+      {
+        "group": "anschluss_korrekturen",
+        "name": "Geprüfte Türanschlüsse",
+        "description": "Fünf K1-Zugänge durch die zweite Wandlage geöffnet. Gartentür sitzt in der echten Außenwand und hat einen durchgehenden Boden zur Freitreppe. Hauptportal mit äußeren Türanschlägen."
+      },
       {
         "group": "halle_giebelfenster",
         "name": "Obere Bogenfenster der Großen Halle",
@@ -710,7 +795,7 @@
         754
       ]
     ],
-    "limits": "Die beiden oberen Hallenfenster wurden innerhalb ihrer Giebel überarbeitet; die Dachsilhouette und die unteren Durchgänge bleiben erhalten. Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.",
+    "limits": "Gesamtmengen sind Zielmengen inklusive Gelände und keine Einkaufsliste zusätzlich zu den Erdarbeitslisten. Die unabhängige Prüfung und Grenzen stehen in materialpruefung.md. Die beiden oberen Hallenfenster wurden innerhalb ihrer Giebel überarbeitet; die Dachsilhouette und die unteren Durchgänge bleiben erhalten. Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.",
     "bedrooms": [
       {
         "room": "res6",
@@ -897,6 +982,64 @@
         ],
         "glass_positions": 29,
         "mullion_positions": 8
+      }
+    ],
+    "connection_repairs": [
+      {
+        "kind": "K1 wall opening",
+        "position": [
+          -703,
+          122,
+          786
+        ]
+      },
+      {
+        "kind": "K1 wall opening",
+        "position": [
+          -691,
+          122,
+          786
+        ]
+      },
+      {
+        "kind": "K1 wall opening",
+        "position": [
+          -679,
+          122,
+          786
+        ]
+      },
+      {
+        "kind": "K1 wall opening",
+        "position": [
+          -681,
+          122,
+          787
+        ]
+      },
+      {
+        "kind": "K1 wall opening",
+        "position": [
+          -680,
+          122,
+          787
+        ]
+      },
+      {
+        "kind": "South garden door moved into exterior wall, bridge added",
+        "position": [
+          -706,
+          130,
+          829
+        ]
+      },
+      {
+        "kind": "West main entrance outer hinges",
+        "position": [
+          -734,
+          130,
+          790
+        ]
       }
     ]
   },
