@@ -1,7 +1,7 @@
 {
-  "revision": "5.23",
-  "status": "Fassadenschmuck der Nord- und Südfassade ergänzt (Läden, Bänke, Stürze, Zahnschnitt, Efeu, Verwitterung); Ingame-Abnahme offen.",
-  "base_revision": "5.22",
+  "revision": "5.24",
+  "status": "Obere Giebelfenster der Großen Halle neu gegliedert; Ingame-Ansicht offen.",
+  "base_revision": "5.23",
   "geometry_changed": true,
   "stair_clearance": [
     {
@@ -30,6 +30,45 @@
     "center_x": 29,
     "minimum_x_gap": 22,
     "basement_to_main_route": "Bibliothek → Große Halle"
+  },
+  "hall_gable_windows": [
+    {
+      "side": "West",
+      "wall_x": -714,
+      "outer_x": -715,
+      "z": [
+        786,
+        794
+      ],
+      "y": [
+        147,
+        155
+      ],
+      "glass_positions": 29,
+      "mullion_positions": 8
+    },
+    {
+      "side": "Ost",
+      "wall_x": -676,
+      "outer_x": -675,
+      "z": [
+        786,
+        794
+      ],
+      "y": [
+        147,
+        155
+      ],
+      "glass_positions": 29,
+      "mullion_positions": 8
+    }
+  ],
+  "revision_524_checks": {
+    "symmetry": true,
+    "other_build_positions_preserved": true,
+    "roof_outline_preserved": true,
+    "stair_clearance_preserved": true,
+    "in_game_viewed": false
   },
   "revision_523_checks": {
     "windows_preserved": true,
@@ -71,8 +110,13 @@
     "existing_ladder_preserved": true
   },
   "enhancements": {
-    "title": "Lebendige Nord- und Südfassade",
+    "title": "Neue obere Giebelfenster an der Großen Halle",
     "features": [
+      {
+        "group": "halle_giebelfenster",
+        "name": "Obere Bogenfenster der Großen Halle",
+        "description": "West- und Ostgiebel: dreigeteilte, helle Verglasung mit zwei schlanken Metallsprossen, dunkler Sohlbank, seitlichen Steinpfeilern und gestuftem Bogen mit Schlussstein. Die Glasfläche sitzt hinter dem vorgezogenen Rahmen."
+      },
       {
         "group": "fassade_laeden",
         "name": "Offene Fensterläden",
@@ -666,7 +710,7 @@
         754
       ]
     ],
-    "limits": "Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.",
+    "limits": "Die beiden oberen Hallenfenster wurden innerhalb ihrer Giebel überarbeitet; die Dachsilhouette und die unteren Durchgänge bleiben erhalten. Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.",
     "bedrooms": [
       {
         "room": "res6",
@@ -822,7 +866,39 @@
       "fassade_alterung": 112,
       "moss": 83,
       "cracked": 29
-    }
+    },
+    "hall_gable_windows": [
+      {
+        "side": "West",
+        "wall_x": -714,
+        "outer_x": -715,
+        "z": [
+          786,
+          794
+        ],
+        "y": [
+          147,
+          155
+        ],
+        "glass_positions": 29,
+        "mullion_positions": 8
+      },
+      {
+        "side": "Ost",
+        "wall_x": -676,
+        "outer_x": -675,
+        "z": [
+          786,
+          794
+        ],
+        "y": [
+          147,
+          155
+        ],
+        "glass_positions": 29,
+        "mullion_positions": 8
+      }
+    ]
   },
   "service_shaft": {
     "position": [

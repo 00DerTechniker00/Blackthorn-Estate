@@ -200,11 +200,10 @@ keller_1;cartography_table;1
 keller_1;fletching_table;1
 keller_1;iron_chain;1
 keller_1;loom;1
-dach_halle;deepslate_tiles;1351
+dach_halle;deepslate_tiles;1343
 dach_halle;deepslate_tile_stairs;1304
 dach_halle;spruce_slab;1209
-dach_halle;stone_bricks;258
-dach_halle;glass;84
+dach_halle;stone_bricks;216
 dach_halle;deepslate_tile_slab;2
 dach_res;deepslate_tiles;2864
 dach_res;deepslate_tile_stairs;2696
@@ -515,3 +514,11 @@ fassade_fenster;stone_brick_slab;48
 fassade_laeden;dark_oak_trapdoor;88
 fassade_laeden;spruce_trapdoor;88
 fassade_zahnschnitt;stone_brick_stairs;36
+halle_giebelfenster;light_gray_stained_glass_pane;58
+halle_giebelfenster;stone_bricks;40
+halle_giebelfenster;polished_blackstone_bricks;18
+halle_giebelfenster;stone_brick_slab;18
+halle_giebelfenster;iron_bars;16
+halle_giebelfenster;stone_brick_wall;16
+halle_giebelfenster;stone_brick_stairs;12
+halle_giebelfenster;chiseled_stone_bricks;4

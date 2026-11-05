@@ -27,7 +27,7 @@ renderStorage();
 let shown=250;
 const currentHeight=()=>+$('#stepHeight').value;
 function renderStep(){const y=currentHeight(),list=byY.get(y)||[],q=$('#stepSearch').value.trim().toLowerCase();const filtered=q?list.filter(b=>(`${b.x} ${b.y} ${b.z} ${reg[b.ri][0]} ${d.groups[reg[b.ri][2]]}`).toLowerCase().includes(q)):list;
-$('#stepLabel').textContent='Y = '+y;$('#stepSummary').textContent=fmt(filtered.length)+' Blockpositionen auf dieser Höhe'+(q?' (gefiltert)':'')+' · '+fmt(filtered.filter(b=>done[b.key]).length)+' abgehakt · Status wird nach XYZ gespeichert, Nummern gelten für Revision 5.23';
+$('#stepLabel').textContent='Y = '+y;$('#stepSummary').textContent=fmt(filtered.length)+' Blockpositionen auf dieser Höhe'+(q?' (gefiltert)':'')+' · '+fmt(filtered.filter(b=>done[b.key]).length)+' abgehakt · Status wird nach XYZ gespeichert, Nummern gelten für Revision 5.24';
 $('#stepRows').innerHTML=filtered.slice(0,shown).map(b=>`<tr title="Block #${b.n} bei X=${b.x}, Y=${b.y}, Z=${b.z}"><td>#${b.n}</td><td>${b.x}</td><td>${b.y}</td><td>${b.z}</td><td>minecraft:${safe(reg[b.ri][0])}${reg[b.ri][1]?' ['+safe(reg[b.ri][1])+']':''}</td><td>${safe(d.groups[reg[b.ri][2]])}</td><td><input type="checkbox" data-done="${b.key}" ${done[b.key]?'checked':''}></td></tr>`).join('');$('#stepMore').hidden=filtered.length<=shown;}
 $('#stepHeight').oninput=()=>{shown=250;renderStep()};$('#stepSearch').oninput=()=>{shown=250;renderStep()};
 $('#stepPrev').onclick=()=>{$('#stepHeight').value=Math.max(105,currentHeight()-1);shown=250;renderStep()};$('#stepNext').onclick=()=>{$('#stepHeight').value=Math.min(157,currentHeight()+1);shown=250;renderStep()};

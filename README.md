@@ -1,7 +1,8 @@
-# Blackthorn Estate · Revision 5.23
+# Blackthorn Estate · Revision 5.24
 
-Lebendige Nord- und Südfassade
+Neue obere Giebelfenster an der Großen Halle
 
+- Obere Bogenfenster der Großen Halle: West- und Ostgiebel: dreigeteilte, helle Verglasung mit zwei schlanken Metallsprossen, dunkler Sohlbank, seitlichen Steinpfeilern und gestuftem Bogen mit Schlussstein. Die Glasfläche sitzt hinter dem vorgezogenen Rahmen.
 - Offene Fensterläden: 176 offene Falltüren rahmen die Fenster: dunkle Eiche im Erdgeschoss, Fichte im Obergeschoss. Die Fensterflächen bleiben frei.
 - Sohlbänke und Stürze: 140 Steinziegel-Platten und umgedrehte Treppen betonen jedes Fenster der Nord- und Südfassade mit Bank und Sturz.
 - Zahnschnitt-Gesims: 36 umgedrehte Treppen im Zwei-Block-Takt unter dem Traufgesims geben den langen Wänden Rhythmus und Schatten.
@@ -37,15 +38,15 @@ Lebendige Nord- und Südfassade
 - Materiallift mit Inhaltsanzeige: Komparator hinter der EG-Ausgabe, direkt angeschlossene Redstone-Lampe in gewachster Kupfereinfassung. Leuchtet, solange die Ausgabekiste Items enthält.
 - Geheimtür mit Buchseitenwahl: Auswertung des vorhandenen Pults. Signalstärke 15 schaltet die Kolben ab; der Wartungshebel kann die Tür geschlossen halten. Buch im Spiel einsetzen.
 
-Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.23.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
+Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.24.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
 
 Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der geheime Zugang führt nun bis Y 80; die beiden Litematic-Module bleiben separate Dateien. Der Materiallift ist neben der Wartungsleiter modelliert; seine Inbetriebnahme steht aus.
 
-Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.
+Die beiden oberen Hallenfenster wurden innerhalb ihrer Giebel überarbeitet; die Dachsilhouette und die unteren Durchgänge bleiben erhalten. Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.
 
 Die Website zeigt die neuen Bauteile unter Bauatlas → Hausstruktur mit direktem 3D-Zugriff. Blockliste, Materialbedarf, Änderungsdatei und NBT-Export werden aus demselben Modell erzeugt. Alte Modellhäkchen werden nur für unveränderte Positionen übernommen.
 
-Neu in 5.23: offene Fensterläden, Sohlbänke und Stürze, Zahnschnitt-Gesims, Efeu und verwitterte Mauersteine an der Nord- und Südfassade (Zahlen in der Änderungsdatei aenderungen_5.22_zu_5.23.csv). Die Fassade lässt sich unabhängig vom Rest bauen und ist rein gestalterisch.
+Neu in 5.24: die beiden oberen Giebelfenster der Großen Halle. Pro Fenster 29 helle Glasscheiben und acht schlanke Sprossenpositionen im gestuften Steinbogen. Die Änderungsliste steht in aenderungen_5.23_zu_5.24.csv. Fassadendetails aus 5.23 bleiben erhalten.
 
 Aus 5.22: drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
 
@@ -53,4 +54,4 @@ Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. A
 
 Die Daten bleiben in externen JavaScript-Dateien, damit der Atlas lokal ohne Webserver geöffnet werden kann. Historische Archive und Rohwelten bleiben lokal über .gitignore ausgeschlossen. Nicht mehr verwendete Werkzeuge aus der 5.11-Reihe und zwei ungenutzte Vorschaubilder liegen lokal unter archive/repository-cleanup-5.22/. Der aktuelle Build benötigt sie nicht.
 
-Atlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v5.23`.
+Atlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v5.24`.
