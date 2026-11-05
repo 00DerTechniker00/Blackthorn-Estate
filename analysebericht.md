@@ -1,6 +1,6 @@
-# Blackthorn Estate · Revision 5.20
+# Blackthorn Estate · Revision 5.21
 
-Geheimgang, Materiallift, Poollicht und Uferweg
+Orangerie, Stall, Suiten und Buchsteuerung
 
 - Gestaffelte Poolfassade: Zwei hohe graue Glasfelder mit vorgezogenen Basaltpfeilern, dunklen Sohlbänken und steinernen Abschlüssen.
 - Begehbarer Panoramabalkon: Boden Y 137, drei Blöcke Ausladung und acht Blöcke Breite; neue OG-Doppeltür mit äußeren Anschlägen und Eisengeländer.
@@ -19,14 +19,23 @@ Geheimgang, Materiallift, Poollicht und Uferweg
 - Vermessener Klippenabstieg: 84 Wegpositionen vom nordöstlichen Terrassenrand Y 129 bis zum Ufer auf Y 63; maximal ein Block Höhenunterschied je Schritt.
 - Viktorianischer Bootsschuppen: Eichenbau mit Netherziegeldach, Westzugang und offener Wasserbucht im Osten bei X −580…−572 / Z 750…758.
 - Moos an den Bogenfüßen: Zwei kleine Moosakzente an den feuchten Sockeln; ohne Bewuchs auf den Gehwegen.
+- Pferdestall und Remise: 12 × 8 Blöcke nördlich des Ankunftsgartens. Eichentragwerk, Bruchsteinsockel, Netherziegeldach, zwei Tränken, Heu und breite Kutschenöffnung.
+- Viktorianische Orangerie: Schwarzsteinrahmen und Weißglas im Südgarten, bepflanzte Arbeitstische und Hängeblüten. Ein breiter Weg verbindet sie mit dem Garten.
+- Leuchtende Hecken: 7 Meereslaternen unter bestehenden Hecken; kein Ersatz für eine aktuelle Spawn-Prüfung.
+- Zwei neue Hallenkronleuchter: Vorhandene Leuchten neu gefasst: Schwarzstein, aufliegende Ambosse und je vier Seelenlaternen. Aufhängung mit je zwei Kettenblöcken; vier austauschbare Bannerplätze an der Westwand.
+- Sechs eingerichtete Suiten: Himmelbetten mit farbigen Bannervorhängen und sechs Wandkamine mit eigenen, durchgehend hohlen Abzügen und Dachöffnungen.
+- Materiallift mit Inhaltsanzeige: Komparator hinter der EG-Ausgabe, direkt angeschlossene Redstone-Lampe in gewachster Kupfereinfassung. Leuchtet, solange die Ausgabekiste Items enthält.
+- Geheimtür mit Buchseitenwahl: Auswertung des vorhandenen Pults. Signalstärke 15 schaltet die Kolben ab; der Wartungshebel kann die Tür geschlossen halten. Buch im Spiel einsetzen.
 
-Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.20.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
+Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.21.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
 
 Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der geheime Zugang führt nun bis Y 80; die beiden Litematic-Module bleiben separate Dateien. Der Materiallift ist neben der Wartungsleiter modelliert; seine Inbetriebnahme steht aus.
 
-Redstone, Kolbentür und Wassertransport sind konstruktiv modelliert, aber nicht im Spiel getestet. Der NBT-Export enthält explizite Luftpositionen für die neuen Durchgänge. Beim manuellen Bauen die Luft-/Aushubliste vorab abarbeiten. Der Lift transportiert Item-Entitäten, auch gefüllte Shulkerboxen; er ist kein Shulker-Unloader. Der Bootsschuppen liegt an der vermessenen nordöstlichen Wasserfläche, nicht an der trockenen Südklippe.
+Buch, Tiere und Einrichtungsbestände werden im Spiel ergänzt. Pferderüstungen gehören ins Lager; normale Rüstungsständer zeigen sie nicht an. Die Inhaltsanzeige zeigt aktuelle Items, sie speichert keine Ankunftsmeldung. Redstone, Kaminrauch und Spawn-Sicherheit sind im Spiel abzunehmen. Zusätzliche Aushubdaten und explizite Luftpositionen sind im Export enthalten.
 
 Die Website zeigt die neuen Bauteile unter Bauatlas → Hausstruktur mit direktem 3D-Zugriff. Blockliste, Materialbedarf, Änderungsdatei und NBT-Export werden aus demselben Modell erzeugt. Alte Modellhäkchen werden nur für unveränderte Positionen übernommen.
+
+Die zusätzlichen Einbauten umfassen Stall, Orangerie, sieben verdeckte Gartenleuchten, zwei neu gefasste Kronleuchter, vier Bannerplätze, sechs Himmelbetten und sechs eigene Kaminabzüge. Betten, Gebäudezugänge, Leuchtenanschlüsse und vorhandene Kerntechnik wurden statisch geprüft.
 
 Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. Aktuelle Ingame-Abnahme, Lichtsimulation und der Anschluss der Bogenfüße an den Fels stehen aus.
 

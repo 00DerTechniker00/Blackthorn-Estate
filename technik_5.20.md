@@ -18,7 +18,7 @@ Hebel: X -657 / Y 130 / Z 787, neben dem Poolausgang. Er versorgt über den mass
 
 ## Uferweg und Bau-Reihenfolge
 
-Der 84 Positionen lange Weg endet an der vermessenen nordöstlichen Wasserfläche. Zuerst Geländeersatz und freiraeume_5.20.csv prüfen, dann Weg und Bootshaus errichten. Der NBT-Export enthält die ausgewiesenen Luftpositionen bereits. Vor dem ersten Lauf jeden Übergang und das Geländer vor Ort prüfen.
+Der 84 Positionen lange Weg endet an der vermessenen nordöstlichen Wasserfläche. Zuerst Geländeersatz und freiraeume_5.21.csv prüfen, dann Weg und Bootshaus errichten. Der NBT-Export enthält die ausgewiesenen Luftpositionen bereits. Vor dem ersten Lauf jeden Übergang und das Geländer vor Ort prüfen.
 
 ## Technische Quellen
 

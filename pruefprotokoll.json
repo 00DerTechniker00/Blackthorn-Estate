@@ -1,7 +1,7 @@
 {
-  "revision": "5.20",
-  "status": "Geheimzugang, Materiallift, Poolbeleuchtung und vermessener Uferweg modelliert; Ingame-Technikprüfung offen.",
-  "base_revision": "5.19",
+  "revision": "5.21",
+  "status": "Stall, Orangerie, Suiten, Inhaltsanzeige und Buchseitensteuerung modelliert; Ingame-Abnahme offen.",
+  "base_revision": "5.20",
   "geometry_changed": true,
   "stair_clearance": [
     {
@@ -31,6 +31,14 @@
     "minimum_x_gap": 22,
     "basement_to_main_route": "Bibliothek → Große Halle"
   },
+  "fitout_checks": {
+    "six_beds_accessible": true,
+    "stable_and_orangery_access": true,
+    "hollow_flue_outlets": true,
+    "lamp_anchors_current": true,
+    "book_control_topology": true,
+    "indicator_topology": true
+  },
   "geometry_checks": {
     "path_continuity": true,
     "path_headroom": true,
@@ -40,7 +48,7 @@
     "existing_ladder_preserved": true
   },
   "enhancements": {
-    "title": "Geheimgang, Materiallift, Poollicht und Uferweg",
+    "title": "Orangerie, Stall, Suiten und Buchsteuerung",
     "features": [
       {
         "group": "poolfassade",
@@ -126,6 +134,41 @@
         "group": "klippenvegetation",
         "name": "Moos an den Bogenfüßen",
         "description": "Zwei kleine Moosakzente an den feuchten Sockeln; ohne Bewuchs auf den Gehwegen."
+      },
+      {
+        "group": "stall_remise",
+        "name": "Pferdestall und Remise",
+        "description": "12 × 8 Blöcke nördlich des Ankunftsgartens. Eichentragwerk, Bruchsteinsockel, Netherziegeldach, zwei Tränken, Heu und breite Kutschenöffnung."
+      },
+      {
+        "group": "orangerie",
+        "name": "Viktorianische Orangerie",
+        "description": "Schwarzsteinrahmen und Weißglas im Südgarten, bepflanzte Arbeitstische und Hängeblüten. Ein breiter Weg verbindet sie mit dem Garten."
+      },
+      {
+        "group": "gartenlicht",
+        "name": "Leuchtende Hecken",
+        "description": "7 Meereslaternen unter bestehenden Hecken; kein Ersatz für eine aktuelle Spawn-Prüfung."
+      },
+      {
+        "group": "hallen_prunk",
+        "name": "Zwei neue Hallenkronleuchter",
+        "description": "Vorhandene Leuchten neu gefasst: Schwarzstein, aufliegende Ambosse und je vier Seelenlaternen. Aufhängung mit je zwei Kettenblöcken; vier austauschbare Bannerplätze an der Westwand."
+      },
+      {
+        "group": "wohn_details",
+        "name": "Sechs eingerichtete Suiten",
+        "description": "Himmelbetten mit farbigen Bannervorhängen und sechs Wandkamine mit eigenen, durchgehend hohlen Abzügen und Dachöffnungen."
+      },
+      {
+        "group": "liftanzeige",
+        "name": "Materiallift mit Inhaltsanzeige",
+        "description": "Komparator hinter der EG-Ausgabe, direkt angeschlossene Redstone-Lampe in gewachster Kupfereinfassung. Leuchtet, solange die Ausgabekiste Items enthält."
+      },
+      {
+        "group": "buchsteuerung",
+        "name": "Geheimtür mit Buchseitenwahl",
+        "description": "Auswertung des vorhandenen Pults. Signalstärke 15 schaltet die Kolben ab; der Wartungshebel kann die Tür geschlossen halten. Buch im Spiel einsetzen."
       }
     ],
     "path": [
@@ -550,7 +593,154 @@
         754
       ]
     ],
-    "limits": "Redstone, Kolbentür und Wassertransport sind konstruktiv modelliert, aber nicht im Spiel getestet. Der NBT-Export enthält explizite Luftpositionen für die neuen Durchgänge. Beim manuellen Bauen die Luft-/Aushubliste vorab abarbeiten. Der Lift transportiert Item-Entitäten, auch gefüllte Shulkerboxen; er ist kein Shulker-Unloader. Der Bootsschuppen liegt an der vermessenen nordöstlichen Wasserfläche, nicht an der trockenen Südklippe."
+    "limits": "Buch, Tiere und Einrichtungsbestände werden im Spiel ergänzt. Pferderüstungen gehören ins Lager; normale Rüstungsständer zeigen sie nicht an. Die Inhaltsanzeige zeigt aktuelle Items, sie speichert keine Ankunftsmeldung. Redstone, Kaminrauch und Spawn-Sicherheit sind im Spiel abzunehmen. Zusätzliche Aushubdaten und explizite Luftpositionen sind im Export enthalten.",
+    "bedrooms": [
+      {
+        "room": "res6",
+        "bed": [
+          -710,
+          138,
+          762
+        ],
+        "fireplace": [
+          -706,
+          138,
+          767
+        ],
+        "flue_top": 153
+      },
+      {
+        "room": "res5",
+        "bed": [
+          -692,
+          138,
+          762
+        ],
+        "fireplace": [
+          -688,
+          138,
+          767
+        ],
+        "flue_top": 154
+      },
+      {
+        "room": "res4",
+        "bed": [
+          -674,
+          138,
+          762
+        ],
+        "fireplace": [
+          -670,
+          138,
+          767
+        ],
+        "flue_top": 155
+      },
+      {
+        "room": "res3",
+        "bed": [
+          -710,
+          138,
+          818
+        ],
+        "fireplace": [
+          -706,
+          138,
+          813
+        ],
+        "flue_top": 153
+      },
+      {
+        "room": "res2",
+        "bed": [
+          -692,
+          138,
+          818
+        ],
+        "fireplace": [
+          -688,
+          138,
+          813
+        ],
+        "flue_top": 154
+      },
+      {
+        "room": "res1",
+        "bed": [
+          -674,
+          138,
+          818
+        ],
+        "fireplace": [
+          -670,
+          138,
+          813
+        ],
+        "flue_top": 155
+      }
+    ],
+    "hidden_garden_lights": [
+      [
+        -700,
+        125,
+        840
+      ],
+      [
+        -695,
+        125,
+        840
+      ],
+      [
+        -685,
+        125,
+        840
+      ],
+      [
+        -680,
+        125,
+        840
+      ],
+      [
+        -696,
+        125,
+        846
+      ],
+      [
+        -686,
+        125,
+        846
+      ],
+      [
+        -681,
+        125,
+        846
+      ]
+    ],
+    "sites": [
+      {
+        "name": "Stall und Remise",
+        "bounds": [
+          -752,
+          -741,
+          125,
+          133,
+          763,
+          770
+        ]
+      },
+      {
+        "name": "Orangerie",
+        "bounds": [
+          -724,
+          -713,
+          126,
+          135,
+          843,
+          850
+        ]
+      }
+    ]
   },
   "service_shaft": {
     "position": [

@@ -2,7 +2,7 @@
 /archive/
 /source-data/
 
-# Superseded build seeds (current generator uses 5.19 and UI templates from 5.9)
+# Superseded build seeds (current generator uses 5.20 and UI templates from 5.9)
 /tools/seeds/revision-5.12/
 /tools/seeds/revision-5.13/
 /tools/seeds/revision-5.14/
@@ -10,6 +10,7 @@
 /tools/seeds/revision-5.16/
 /tools/seeds/revision-5.17/
 /tools/seeds/revision-5.18/
+/tools/seeds/revision-5.19/
 
 # Superseded change exports and generated local inventories
 /aenderungen_5.10_zu_5.11.csv
