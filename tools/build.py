@@ -217,7 +217,7 @@ Die Licht- und Erreichbarkeitszahlen unter `checks` sind historische Daten, kein
 
 Steinsäger: geeignete Steintreppen ergeben eine Treppe je Vollblock, gegenüber vier Treppen aus sechs Vollblöcken an der Werkbank. Holztreppen gehören nicht zu diesen Rezepten. Steinplatten liefern bei beiden Verfahren zwei Stück je Vollblock.
 
-Die Website gliedert ihre 14 Ansichten in fünf Bereichscontainer. Haupt- und Untertabs unterstützen ARIA-Rollen, eindeutige Beschriftungen und Pfeiltasten, Home und End. Daten liegen in blueprint-data.js; die Originaldaten bleiben in blueprint.json. model-data.js wird erst beim Start des Textur-Viewers geladen. Beide Skripte funktionieren ohne lokalen Webserver. Zum Weitergeben müssen HTML und Begleitdateien zusammenbleiben.
+Die Website gliedert ihre 14 Ansichten in fünf Bereichscontainer. Haupt- und Untertabs unterstützen ARIA-Rollen, eindeutige Beschriftungen und Pfeiltasten, Home und End. Daten liegen in blueprint-data.js; die Originaldaten bleiben in blueprint.json. model-data.js wird erst beim Start des Textur-Viewers geladen. Beide Skripte funktionieren ohne lokalen Webserver. Zum Weitergeben müssen HTML und Begleitdateien zusammenbleiben. Historische Archivkopien, ursprüngliche Weltdateien und ältere ungenutzte Seeds bleiben lokal und werden über .gitignore von Git ausgeschlossen. Frühere Revisionen sind über die Git-Historie verfügbar.
 
 Geprüft sind IDs, ARIA-Verweise, Überschriftenfolge, Datenidentität, Tastaturfunktionen und JavaScript-Syntax. Ein Browsertest konnte wegen der Betriebssystembeschränkung beim Chromium-Start nicht durchgeführt werden.
 

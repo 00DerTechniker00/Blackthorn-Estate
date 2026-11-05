@@ -1,0 +1,22 @@
+# Local historical copies and original world/reference data
+/archive/
+/source-data/
+
+# Superseded build seeds (current generator uses 5.16 and UI templates from 5.9)
+/tools/seeds/revision-5.12/
+/tools/seeds/revision-5.13/
+/tools/seeds/revision-5.14/
+/tools/seeds/revision-5.15/
+
+# Superseded change exports and generated local inventories
+/aenderungen_5.10_zu_5.11.csv
+/aenderungen_5.11_zu_5.12.csv
+/manifest_*.json
+
+# Runtime, editor and temporary files
+__pycache__/
+*.py[cod]
+.DS_Store
+*~
+*.swp
+.atlas-smoke.html
