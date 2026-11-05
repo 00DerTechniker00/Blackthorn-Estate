@@ -1,14 +1,14 @@
 ﻿Material;Anzahl;Stackgroesse;volle_Stacks;Rest;volle_Shulkers;Rest_nach_Shulkern
 dirt;38196;64;596;52;22;52
 cobblestone;13272;64;207;24;7;24
-stone_bricks;13031;64;203;39;7;39
+stone_bricks;13037;64;203;45;7;45
 deepslate_tiles;12475;64;194;59;7;59
 deepslate_bricks;11123;64;173;51;6;51
 grass_block;7913;64;123;41;4;41
 deepslate_tile_stairs;5873;64;91;49;3;49
 dark_oak_planks;5186;64;81;2;3;2
 spruce_slab;5177;64;80;57;2;57
-polished_deepslate;5051;64;78;59;2;59
+polished_deepslate;5055;64;78;63;2;63
 spruce_planks;4658;64;72;50;2;50
 stone;2389;64;37;21;1;21
 gravel;963;64;15;3;0;3

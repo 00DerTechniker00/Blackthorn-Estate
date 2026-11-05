@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 1791,
-      "sha256": "dc62f1f68d55e880cd04f0f7f0a500f0fa3124568d6f7434641e027d5c3cc095"
+      "bytes": 1869,
+      "sha256": "68e5a742b60fc9002b6a938225f7c45cc1c637df1199f999ca453ed095176038"
     },
     {
       "path": "aenderungen_5.10_zu_5.11.csv",
@@ -18,13 +18,13 @@
     },
     {
       "path": "aenderungen_5.16_zu_5.17.csv",
-      "bytes": 17298,
-      "sha256": "fc40b4cb349b7d9af2ff9f8feab5b82a93f0d79b2b82104d7d2248cc39b00b76"
+      "bytes": 17842,
+      "sha256": "2ef7754eebfdecdbf3cb9b0d5db5f5e55267938050660ea50b8ff8fda616a8f7"
     },
     {
       "path": "analysebericht.md",
-      "bytes": 1698,
-      "sha256": "fc07e8e264e2d148b88c085d2f943046e80017d433c3c1a1f7064b21af28e7e0"
+      "bytes": 1776,
+      "sha256": "7e7861bb75ab0e09b241a6c2154626766304a1bea6ae193e816b7891bb0f3b3c"
     },
     {
       "path": "app.js",
@@ -1623,23 +1623,23 @@
     },
     {
       "path": "blackthorn_estate_5.17.nbt",
-      "bytes": 391107,
-      "sha256": "ff32c36e824794c59abcce5ace423c6a4ea5fc4ff6d9a5f1081a062f378e6677"
+      "bytes": 391145,
+      "sha256": "ad8f0e8cd5bb9e562ac0275b542895991eed6e4479ab3d0acafbd7e409d46407"
     },
     {
       "path": "blockliste.csv",
-      "bytes": 8245875,
-      "sha256": "c2669ac3bc3dfa35e80042fd20744ca72471821928da7c0b5ee87704a0013af0"
+      "bytes": 8246459,
+      "sha256": "7af8664f972c57a32cdd5ffc11443260a96e572d03f5943594de911a2dffdef8"
     },
     {
       "path": "blueprint.json",
-      "bytes": 4879516,
-      "sha256": "26358b9c3456a74bd987239d99479e34d1646299be16885315b83025c3906376"
+      "bytes": 4879876,
+      "sha256": "68bcb4be017bc915232286c213216af8467bd32a472fb4f757128a21d17f7035"
     },
     {
       "path": "check_report.json",
       "bytes": 1249,
-      "sha256": "359444a05f2e05083b345c8eddd46d3555329a20bc262e8d448c652dfe623807"
+      "sha256": "e8748340c0c0170ab460eaa87db371c3e4cf6c32b7f6ef029dd716903680756e"
     },
     {
       "path": "gelaende_oberflaeche.csv",
@@ -1648,8 +1648,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5526373,
-      "sha256": "f3db3d39c1aec795d15986fd1364369aae9a62630d0d0a36e87a18fe6c957916"
+      "bytes": 5526785,
+      "sha256": "38ede58062f1ab927b87ccd371d80fe2aaba34f6ea736cd0519fc8643a60954c"
     },
     {
       "path": "lager_kategorien.csv",
@@ -1694,12 +1694,12 @@
     {
       "path": "materialbedarf.csv",
       "bytes": 2623,
-      "sha256": "fd7ad3776930aed22f0a858bc722e24865b8db82cd198904b044efd9861ab21f"
+      "sha256": "0474069ec1aa6bb10422cecc644efe88f1e94d5b34c888ead483d414c7b2d96e"
     },
     {
       "path": "materialbedarf_baugruppen.csv",
       "bytes": 9505,
-      "sha256": "48b3f095108fb40c16c12373a89ab2f5a75828a3ae4b2da4fca1869e07bd7930"
+      "sha256": "e17989b4e83276f018cd7f2a6a13ed842bb551599471c012078908e1cde13681"
     },
     {
       "path": "minecraft_viewer.js",
@@ -1893,8 +1893,8 @@
     },
     {
       "path": "tools/build.py",
-      "bytes": 16173,
-      "sha256": "a095a61399800e3643a174f67d0ccc73efa62cb64c86d09fb17ac093208c6890"
+      "bytes": 16570,
+      "sha256": "a24157cc012a711d6bc400df2f5979f356004c72ebd30826a3cd2f35de193993"
     },
     {
       "path": "tools/export_preview.mjs",

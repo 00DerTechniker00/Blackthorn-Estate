@@ -73,6 +73,11 @@ def main():
     for z,hinge in ((789,'left'),(790,'right')):
         for y,half in ((130,'lower'),(131,'upper')):
             old[-658,y,z]=('dark_oak_door',f'facing=east,half={half},hinge={hinge},open=false,powered=false','bibliothek')
+    # Frame the two-wide pool door with solid jambs and a lintel.
+    for z in (788,791):
+        for y in (130,131):old[-658,y,z]=('polished_deepslate','','bibliothek')
+    for z in range(788,792):old[-658,132,z]=('stone_bricks','','bibliothek')
+    for z in (789,790):old[-658,133,z]=('stone_bricks','','bibliothek')
     for y in range(106,133):
         for x in range(-688,-685):
             for z in range(789,792):old[x,y,z]=('glass','','service_schacht')
@@ -202,7 +207,7 @@ def write_project_docs(d,modules):
 
 Der neue Leiter-Wartungsschacht liegt bei X −688…−686, Z 789…791 und Y 106…132 in der vorgesehenen Servicelücke. Die Geschossblöcke an der Mittelachse Y 113, 120, 121, 128, 129 sowie der Teppich Y 130 sind ersetzt. Der Boden Y 105 bleibt als sicherer Abschluss erhalten. Vier geschlossene Holztüren geben Zugang von Westen auf K3, K2, K1 und EG. Eine Glasverkleidung sichert die übrigen Seiten. Drei Laternen und ihre Ketten im Schachtbereich entfallen.
 
-Die Pool-Doppeltür bei X −658, Z 789/790 hat korrigierte äußere Anschläge. Der Boden Y 129 und der Durchgang Y 130–132 sind vor und hinter der Tür frei von Stufen bzw. Hindernissen.
+Die Pool-Doppeltür bei X −658, Z 789/790 hat korrigierte äußere Anschläge und einen geschlossenen Rahmen mit Tiefenschieferpfosten und Steinziegelsturz. Der Boden Y 129 und der Durchgang Y 130–132 sind vor und hinter der Tür frei von Stufen bzw. Hindernissen.
 
 Goldene Teppichsegmente kennzeichnen vorhandene Teppichflächen auf Z 790 zwischen Kellerzugang und Haupttreppe. Der Schacht ist zu umgehen; ein durchgängiger Laufweg ist im Spiel zu prüfen.
 

@@ -215,6 +215,7 @@
 -688;129;791;minecraft:deepslate_tiles;;halle;minecraft:glass;;service_schacht
 -687;129;791;minecraft:polished_deepslate;;halle;minecraft:glass;;service_schacht
 -686;129;791;minecraft:deepslate_tiles;;halle;minecraft:glass;;service_schacht
+-658;130;788;;;;minecraft:polished_deepslate;;bibliothek
 -688;130;789;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
 -687;130;789;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
 -686;130;789;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
@@ -239,6 +240,8 @@
 -688;130;791;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
 -687;130;791;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
 -686;130;791;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
+-658;130;791;;;;minecraft:polished_deepslate;;bibliothek
+-658;131;788;;;;minecraft:polished_deepslate;;bibliothek
 -688;131;789;;;;minecraft:glass;;service_schacht
 -687;131;789;;;;minecraft:glass;;service_schacht
 -686;131;789;;;;minecraft:glass;;service_schacht
@@ -250,12 +253,19 @@
 -688;131;791;;;;minecraft:glass;;service_schacht
 -687;131;791;;;;minecraft:glass;;service_schacht
 -686;131;791;;;;minecraft:glass;;service_schacht
+-658;131;791;;;;minecraft:polished_deepslate;;bibliothek
+-658;132;788;;;;minecraft:stone_bricks;;bibliothek
 -688;132;789;;;;minecraft:glass;;service_schacht
 -687;132;789;;;;minecraft:glass;;service_schacht
 -686;132;789;;;;minecraft:glass;;service_schacht
+-658;132;789;;;;minecraft:stone_bricks;;bibliothek
 -688;132;790;;;;minecraft:glass;;service_schacht
 -687;132;790;;;;minecraft:ladder;facing=west,waterlogged=false;service_schacht
 -686;132;790;;;;minecraft:glass;;service_schacht
+-658;132;790;;;;minecraft:stone_bricks;;bibliothek
 -688;132;791;;;;minecraft:glass;;service_schacht
 -687;132;791;;;;minecraft:glass;;service_schacht
 -686;132;791;;;;minecraft:glass;;service_schacht
+-658;132;791;;;;minecraft:stone_bricks;;bibliothek
+-658;133;789;;;;minecraft:stone_bricks;;bibliothek
+-658;133;790;;;;minecraft:stone_bricks;;bibliothek
