@@ -69,6 +69,10 @@ def main():
         bid,state,gi=d['reg'][ri]
         for dx in range(n): old[(x+dx,y,z)]=(bid,state,d['groups'][gi])
     baseline=old.copy()
+    # East-facing double door: north leaf hinges north, south leaf south.
+    for z,hinge in ((789,'left'),(790,'right')):
+        for y,half in ((130,'lower'),(131,'upper')):
+            old[-658,y,z]=('dark_oak_door',f'facing=east,half={half},hinge={hinge},open=false,powered=false','bibliothek')
     for y in range(106,133):
         for x in range(-688,-685):
             for z in range(789,792):old[x,y,z]=('glass','','service_schacht')
@@ -197,6 +201,8 @@ def write_project_docs(d,modules):
     report=f"""# Blackthorn Estate · Revision {VERSION}
 
 Der neue Leiter-Wartungsschacht liegt bei X −688…−686, Z 789…791 und Y 106…132 in der vorgesehenen Servicelücke. Die Geschossblöcke an der Mittelachse Y 113, 120, 121, 128, 129 sowie der Teppich Y 130 sind ersetzt. Der Boden Y 105 bleibt als sicherer Abschluss erhalten. Vier geschlossene Holztüren geben Zugang von Westen auf K3, K2, K1 und EG. Eine Glasverkleidung sichert die übrigen Seiten. Drei Laternen und ihre Ketten im Schachtbereich entfallen.
+
+Die Pool-Doppeltür bei X −658, Z 789/790 hat korrigierte äußere Anschläge. Der Boden Y 129 und der Durchgang Y 130–132 sind vor und hinter der Tür frei von Stufen bzw. Hindernissen.
 
 Goldene Teppichsegmente kennzeichnen vorhandene Teppichflächen auf Z 790 zwischen Kellerzugang und Haupttreppe. Der Schacht ist zu umgehen; ein durchgängiger Laufweg ist im Spiel zu prüfen.
 

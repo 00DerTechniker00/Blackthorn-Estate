@@ -2,6 +2,8 @@
 
 Der neue Leiter-Wartungsschacht liegt bei X −688…−686, Z 789…791 und Y 106…132 in der vorgesehenen Servicelücke. Die Geschossblöcke an der Mittelachse Y 113, 120, 121, 128, 129 sowie der Teppich Y 130 sind ersetzt. Der Boden Y 105 bleibt als sicherer Abschluss erhalten. Vier geschlossene Holztüren geben Zugang von Westen auf K3, K2, K1 und EG. Eine Glasverkleidung sichert die übrigen Seiten. Drei Laternen und ihre Ketten im Schachtbereich entfallen.
 
+Die Pool-Doppeltür bei X −658, Z 789/790 hat korrigierte äußere Anschläge. Der Boden Y 129 und der Durchgang Y 130–132 sind vor und hinter der Tür frei von Stufen bzw. Hindernissen.
+
 Goldene Teppichsegmente kennzeichnen vorhandene Teppichflächen auf Z 790 zwischen Kellerzugang und Haupttreppe. Der Schacht ist zu umgehen; ein durchgängiger Laufweg ist im Spiel zu prüfen.
 
 Die Modul-Grube bei Y 80–103 liegt unter K3. Unterer Schachtausbau, automatische Itemförderung und Ein-/Ausgänge stehen aus. Die Original-Litematics bleiben separat.

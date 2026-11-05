@@ -218,6 +218,7 @@
 -688;130;789;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
 -687;130;789;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
 -686;130;789;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
+-658;130;789;minecraft:dark_oak_door;facing=east,half=lower,hinge=right,open=false,powered=false;bibliothek;minecraft:dark_oak_door;facing=east,half=lower,hinge=left,open=false,powered=false;bibliothek
 -695;130;790;minecraft:red_carpet;;halle;minecraft:yellow_carpet;;wegfuehrung
 -691;130;790;minecraft:red_carpet;;halle;minecraft:yellow_carpet;;wegfuehrung
 -690;130;790;minecraft:red_carpet;;halle;minecraft:yellow_carpet;;wegfuehrung
@@ -234,15 +235,18 @@
 -679;130;790;minecraft:red_carpet;;halle;minecraft:yellow_carpet;;wegfuehrung
 -678;130;790;minecraft:red_carpet;;halle;minecraft:yellow_carpet;;wegfuehrung
 -677;130;790;minecraft:red_carpet;;halle;minecraft:yellow_carpet;;wegfuehrung
+-658;130;790;minecraft:dark_oak_door;facing=east,half=lower,hinge=left,open=false,powered=false;bibliothek;minecraft:dark_oak_door;facing=east,half=lower,hinge=right,open=false,powered=false;bibliothek
 -688;130;791;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
 -687;130;791;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
 -686;130;791;minecraft:red_carpet;;halle;minecraft:glass;;service_schacht
 -688;131;789;;;;minecraft:glass;;service_schacht
 -687;131;789;;;;minecraft:glass;;service_schacht
 -686;131;789;;;;minecraft:glass;;service_schacht
+-658;131;789;minecraft:dark_oak_door;facing=east,half=upper,hinge=right,open=false,powered=false;bibliothek;minecraft:dark_oak_door;facing=east,half=upper,hinge=left,open=false,powered=false;bibliothek
 -688;131;790;;;;minecraft:dark_oak_door;facing=west,half=upper,hinge=left,open=false,powered=false;service_schacht
 -687;131;790;;;;minecraft:ladder;facing=west,waterlogged=false;service_schacht
 -686;131;790;;;;minecraft:glass;;service_schacht
+-658;131;790;minecraft:dark_oak_door;facing=east,half=upper,hinge=left,open=false,powered=false;bibliothek;minecraft:dark_oak_door;facing=east,half=upper,hinge=right,open=false,powered=false;bibliothek
 -688;131;791;;;;minecraft:glass;;service_schacht
 -687;131;791;;;;minecraft:glass;;service_schacht
 -686;131;791;;;;minecraft:glass;;service_schacht

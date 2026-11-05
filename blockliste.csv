@@ -96150,7 +96150,7 @@
 96149;-678;130;789;minecraft:red_carpet;;halle
 96150;-677;130;789;minecraft:red_carpet;;halle
 96151;-676;130;789;minecraft:dark_oak_door;facing=west,half=lower,hinge=right,open=false;halle
-96152;-658;130;789;minecraft:dark_oak_door;facing=east,half=lower,hinge=right,open=false,powered=false;bibliothek
+96152;-658;130;789;minecraft:dark_oak_door;facing=east,half=lower,hinge=left,open=false,powered=false;bibliothek
 96153;-640;130;789;minecraft:glass;;pool
 96154;-638;130;789;minecraft:stone_brick_wall;;terrasse
 96155;-631;130;789;minecraft:dark_oak_fence;;terrasse
@@ -96212,7 +96212,7 @@
 96211;-678;130;790;minecraft:yellow_carpet;;wegfuehrung
 96212;-677;130;790;minecraft:yellow_carpet;;wegfuehrung
 96213;-676;130;790;minecraft:dark_oak_door;facing=west,half=lower,hinge=left,open=false;halle
-96214;-658;130;790;minecraft:dark_oak_door;facing=east,half=lower,hinge=left,open=false,powered=false;bibliothek
+96214;-658;130;790;minecraft:dark_oak_door;facing=east,half=lower,hinge=right,open=false,powered=false;bibliothek
 96215;-640;130;790;minecraft:glass;;pool
 96216;-638;130;790;minecraft:stone_brick_wall;;terrasse
 96217;-634;130;790;minecraft:glass_pane;;pool
@@ -97592,7 +97592,7 @@
 97591;-687;131;789;minecraft:glass;;service_schacht
 97592;-686;131;789;minecraft:glass;;service_schacht
 97593;-676;131;789;minecraft:dark_oak_door;facing=west,half=upper,hinge=right,open=false;halle
-97594;-658;131;789;minecraft:dark_oak_door;facing=east,half=upper,hinge=right,open=false,powered=false;bibliothek
+97594;-658;131;789;minecraft:dark_oak_door;facing=east,half=upper,hinge=left,open=false,powered=false;bibliothek
 97595;-734;131;790;minecraft:dark_oak_door;facing=east,half=upper,hinge=right,open=false;portikus
 97596;-699;131;790;minecraft:dark_oak_fence;;halle_treppe
 97597;-695;131;790;minecraft:dark_oak_fence;;halle_treppe
@@ -97601,7 +97601,7 @@
 97600;-687;131;790;minecraft:ladder;facing=west,waterlogged=false;service_schacht
 97601;-686;131;790;minecraft:glass;;service_schacht
 97602;-676;131;790;minecraft:dark_oak_door;facing=west,half=upper,hinge=left,open=false;halle
-97603;-658;131;790;minecraft:dark_oak_door;facing=east,half=upper,hinge=left,open=false,powered=false;bibliothek
+97603;-658;131;790;minecraft:dark_oak_door;facing=east,half=upper,hinge=right,open=false,powered=false;bibliothek
 97604;-638;131;790;minecraft:lantern;hanging=false;terrasse
 97605;-734;131;791;minecraft:dark_oak_door;facing=east,half=upper,hinge=left,open=false;portikus
 97606;-688;131;791;minecraft:glass;;service_schacht
