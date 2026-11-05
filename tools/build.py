@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Revision 5.16 with static access checks and an explicit service-shaft plan."""
+"""Build Revision 5.17 with static access checks and an explicit service-shaft plan."""
 import csv
 import hashlib
 import json
@@ -9,9 +9,9 @@ from structure_export import export as export_structure
 from litematic_import import build as import_litematics
 
 ROOT=Path(__file__).resolve().parent.parent
-SEED=ROOT/'tools'/'seeds'/'revision-5.15'/'blueprint.json'
-VERSION='5.16'
-VERSION_PREVIOUS='5.15'
+SEED=ROOT/'tools'/'seeds'/'revision-5.16'/'blueprint.json'
+VERSION='5.17'
+VERSION_PREVIOUS='5.16'
 
 def build_structure_metadata(d):
     levels=[
@@ -57,7 +57,7 @@ def build_structure_metadata(d):
         'stair_separation':{'center_x':29,'minimum_x_gap':22,'basement_to_main_route':'Bibliothek → Große Halle'},
         'service_shaft':{'position':vault['shaft_target'],'vault_bounds':vault['bounds'],'vault_size':[vault['width'],vault['height'],vault['depth']],
                          'service_gap_x':vault['service_gap_x'],'vertical_floor_blocks':shaft_blockers,
-                         'note':'Nur Koordinatenvorschlag; Geschossöffnungen, Aufzugschaltung und Einwurf noch nicht umgesetzt.'},
+                         'note':'Leiter-Wartungsschacht Y 106–132 mit Zugangstüren K3 bis EG gebaut. Verlängerung Y 80–104 und automatische Itemförderung offen.'},
         'logistics':[{'label':'Regallager','y':[114,119]},{'label':'Bulk-Lager','y':[114,125]},
                      {'label':'Kupfergolem-Lager','y':[121,123]},{'label':'Einwurfstation','y':[122,126]}]}
 
@@ -68,8 +68,20 @@ def main():
     for y,z,x,n,ri in d['runs']:
         bid,state,gi=d['reg'][ri]
         for dx in range(n): old[(x+dx,y,z)]=(bid,state,d['groups'][gi])
-    additions={}
+    baseline=old.copy()
+    for y in range(106,133):
+        for x in range(-688,-685):
+            for z in range(789,792):old[x,y,z]=('glass','','service_schacht')
+        old[-687,y,790]=('ladder','facing=west,waterlogged=false','service_schacht')
+    for floor in (105,113,121,129):
+        for dy,half in ((1,'lower'),(2,'upper')):
+            old[-688,floor+dy,790]=('dark_oak_door',f'facing=west,half={half},hinge=left,open=false,powered=false','service_schacht')
+    for x in range(-697,-665):
+        pos=(x,130,790)
+        if baseline.get(pos,('',))[0]=='red_carpet' and not -688<=x<=-686:old[pos]=('yellow_carpet','','wegfuehrung')
+    additions={pos:(baseline.get(pos),old.get(pos)) for pos in baseline.keys()|old.keys() if baseline.get(pos)!=old.get(pos)}
     group_names=d['groups']
+    group_names.extend(g for g in ('service_schacht','wegfuehrung') if g not in group_names)
     group_index={g:i for i,g in enumerate(group_names)}
     reg=list(d['reg']); reg_index={tuple(v):i for i,v in enumerate(reg)}
     indexed={}
@@ -97,15 +109,20 @@ def main():
     d['reg']=reg;d['runs']=runs;d['meta']['version']=VERSION;d['meta']['total']=len(indexed)
     d['meta']['bbox']=[min(p[0] for p in indexed),max(p[0] for p in indexed),min(p[1] for p in indexed),max(p[1] for p in indexed),min(p[2] for p in indexed),max(p[2] for p in indexed)]
     d['meta']['fingerprint']=hashlib.sha256(json.dumps(sequence,separators=(',',':')).encode()).hexdigest()
-    d['progress_compat']={'revision':'5.15','fingerprint':old_fingerprint,'changed_positions':[],'changed_groups':[]}
+    d['progress_compat']={'revision':'5.16','fingerprint':old_fingerprint,'changed_positions':[','.join(map(str,p)) for p in additions],'changed_groups':sorted({v[2] for pair in additions.values() for v in pair if v})}
     d['counts']=dict(counts)
     d['gcounts']={g:dict(c) for g,c in gcounts.items()}
     d['gstats']={}
     for g,points in coords.items():
         if points:d['gstats'][g]={'n':len(points),'x':[min(p[0] for p in points),max(p[0] for p in points)],'y':[min(p[1] for p in points),max(p[1] for p in points)],'z':[min(p[2] for p in points),max(p[2] for p in points)]}
-    d['validation'].update(version=VERSION,base='5.15',blocks=len(indexed),fingerprint=d['meta']['fingerprint'])
+    d['validation'].update(version=VERSION,base='5.16',blocks=len(indexed),fingerprint=d['meta']['fingerprint'])
     modules=import_litematics()
+    d['lighting']['fixtures']=[f for f in d['lighting']['fixtures'] if old.get((f['x'],f['y'],f['z']),('',))[0] in ('lantern','soul_lantern')]
+    d['lighting']['total']=sum(1 for b,_,_ in old.values() if b in ('lantern','soul_lantern'))
+    d['lighting']['light_simulated']=False
+    d['checks']['historical_note']='Licht-, Erreichbarkeits- und Erdarbeitswerte stammen aus früheren Revisionen; keine aktuelle Simulation.'
     d['structure']=build_structure_metadata(d)
+    d['structure']['maintenance_shaft']={'bounds':[-688,-686,106,132,789,791],'access_floors':[105,113,121,129],'type':'Leiterwartungsschacht','automatic_items':False}
     d['structure_export']=export_structure(d,ROOT/f'blackthorn_estate_{VERSION}.nbt')
     (ROOT/'blueprint.json').write_text(json.dumps(d,ensure_ascii=False,separators=(',',':'))+'\n')
     (ROOT/'check_report.json').write_text(json.dumps(d['validation'],ensure_ascii=False,indent=2)+'\n')
@@ -117,7 +134,7 @@ def main():
     write_project_docs(d,modules)
     from web import build
     build(d)
-    for oldfile in ('blackthorn_estate_5.15.nbt','manifest_5.15.json','aenderungen_5.14_zu_5.15.csv'):
+    for oldfile in ('blackthorn_estate_5.16.nbt','manifest_5.16.json','aenderungen_5.15_zu_5.16.csv'):
         p=ROOT/oldfile
         if p.exists():p.unlink()
     write_manifest()
@@ -159,7 +176,7 @@ def write_placement(data):
         v=data['vault'];x0,x1,y0,y1,z0,z1=v['bounds']
         w.writerow(['Gesamttechnikstollen','Kombinierte Platzierung',x0,y0,z0,'0°',v['width'],v['height'],v['depth'],sum(m['total_blocks'] for m in data['modules']),sum(m['entity_total'] for m in data['modules']),f'Bounds X {x0}…{x1}; Y {y0}…{y1}; Z {z0}…{z1}; Wartungsspalt X {v["service_gap_x"][0]}…{v["service_gap_x"][1]}'])
         sx,sy,sz=v['shaft_target']
-        w.writerow(['Schachtachse · Vorschlag','Nicht gebaut',sx,80,sz,'—',1,57,1,0,0,f'Achse X {sx} / Z {sz}; Y 80…136; Geschossöffnungen erforderlich'])
+        w.writerow(['Wartungsschacht','Hausblockplan',sx-1,106,sz-1,'—',3,27,3,0,0,'Leiter und Türen K3 bis EG gebaut; Verlängerung Y 80…104 und Itemlift offen'])
 
 def write_manifest():
     files=[]
@@ -170,65 +187,33 @@ def write_manifest():
     (ROOT/f'manifest_{VERSION}.json').write_text(json.dumps({'revision':VERSION,'files':files},ensure_ascii=False,indent=2)+'\n')
 
 def update_progress():
-    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.15'/'progress.js').read_text()
-    s=s.replace('5.15','5.16').replace('5.14','5.15')
+    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.16'/'progress.js').read_text()
+    s=s.replace('5.16','5.17').replace('5.15','5.16')
     p.write_text(s)
 
 def write_project_docs(d,modules):
     clearance=d['structure']['stair_clearance']
     vault=d['structure']['service_shaft']
-    (ROOT/'README.md').write_text("""# Blackthorn Estate
+    report=f"""# Blackthorn Estate · Revision {VERSION}
 
-Aktueller Bauatlas: **Revision 5.16**. `index.html` lokal im Browser öffnen.
+Der neue Leiter-Wartungsschacht liegt bei X −688…−686, Z 789…791 und Y 106…132 in der vorgesehenen Servicelücke. Die Geschossblöcke an der Mittelachse Y 113, 120, 121, 128, 129 sowie der Teppich Y 130 sind ersetzt. Der Boden Y 105 bleibt als sicherer Abschluss erhalten. Vier geschlossene Holztüren geben Zugang von Westen auf K3, K2, K1 und EG. Eine Glasverkleidung sichert die übrigen Seiten. Drei Laternen und ihre Ketten im Schachtbereich entfallen.
 
-## Was ist neu?
+Goldene Teppichsegmente kennzeichnen vorhandene Teppichflächen auf Z 790 zwischen Kellerzugang und Haupttreppe. Der Schacht ist zu umgehen; ein durchgängiger Laufweg ist im Spiel zu prüfen.
 
-- Der Atlas dokumentiert den statischen 3-Block-Kopfraum über den Treppen sowie die Koordinatendifferenz zwischen Keller- und Haupttreppe.
-- Die Litematic-Technikhalle ist jetzt mit Gesamtmaßen, Servicelücke, Zugangskoordinate und den nötigen Geschossdurchbrüchen ausgewiesen.
-- Die Website kennzeichnet klar, dass Laufweg, Schacht und Redstone noch nicht im Spiel abgenommen sind.
+Die Modul-Grube bei Y 80–103 liegt unter K3. Unterer Schachtausbau, automatische Itemförderung und Ein-/Ausgänge stehen aus. Die Original-Litematics bleiben separat.
 
-Die Hausgeometrie bleibt gegenüber 5.15 unverändert. Das Itemlift-System und die Öffnungen in den Geschossdecken sind Planungsangaben, keine gebaute oder geprüfte Mechanik.
+Die Licht- und Erreichbarkeitszahlen unter `checks` sind historische Daten, keine aktuelle Simulation. Die Terrainangaben betreffen den bisherigen Oberflächen-/Kellerplan; der tiefere Modulstollen ist darin nicht vollständig erfasst. Guard-Post-Zahlen sind kein Nachweis für 54 eigenständige Gebäude.
 
-## Versionsverlauf
+Steinsäger: geeignete Steintreppen ergeben eine Treppe je Vollblock, gegenüber vier Treppen aus sechs Vollblöcken an der Werkbank. Holztreppen gehören nicht zu diesen Rezepten. Steinplatten liefern bei beiden Verfahren zwei Stück je Vollblock.
 
-`git log --oneline --decorate` zeigt die Revisionen. `v5.15` bleibt erhalten; der aktuelle Stand ist mit `v5.16` markiert.
-
-## Neu aufbauen
-
-```sh
-python tools/build.py
-```
-
-Der Build verwendet die gespeicherten Modelle unter `tools/seeds/` und die Litematics unter `litematics/`.
-""")
-    m1,m2=modules['modules']
-    (ROOT/'analysebericht.md').write_text(f"""# Revision 5.16 · Zugang und Technikschacht
-
-## Treppen und Laufweg
-
-Die Keller- und Haupttreppe sind im X-Mittelpunkt 29 Blöcke voneinander entfernt; zwischen ihren nächsten X-Kanten liegen 22 Blöcke. Die Kellertreppe kommt an der Bibliotheksseite auf EG-Höhe an. Von dort führt der Weg über Bibliothek/Halle zur Haupttreppe.
-
-Die Blockbelegung über jeder Treppenstufe wurde statisch für drei Y-Ebenen geprüft:
-
-{chr(10).join(f"- `{entry['group']}`: {entry['stair_blocks']} Treppenblöcke, {entry['obstructed_positions']} belegte Kopfraumpositionen in den drei Ebenen darüber." for entry in clearance)}
-
-Das belegt freie Blockzellen im Modell, aber keinen Lauf- oder Türtest im Spiel. Der Ingame-Test bleibt offen.
-
-## Technikstollen und Aufzugsvorschlag
-
-Die zwei Vorlagen umfassen zusammen eine geplante Grundfläche von 57 × 27 und 24 Blöcke Höhe: X −715…−659, Y 80…103, Z 770…796. Der 3 Blöcke breite Wartungsspalt liegt bei X −688…−686. Als vertikale Serviceachse ist X {vault['position'][0]}, Z {vault['position'][2]} vorgesehen.
-
-An dieser Achse liegen derzeit Geschossblöcke bei Y {', '.join(str(p['y']) for p in vault['vertical_floor_blocks'])}. Diese Durchbrüche, die Verbindung zur Einwurfstation und die Aufzugsschaltung sind noch nicht in den Hausblockplan übernommen. Die Achse ist ein Platzierungsvorschlag, kein fertiger Dropper- oder Wasserlift.
-
-- **{m1['name']}**: {m1['bounds_size'][0]} × {m1['bounds_size'][1]} × {m1['bounds_size'][2]} Blöcke; Anker X −715 / Y 80 / Z 770.
-- **{m2['name']}**: {m2['bounds_size'][0]} × {m2['bounds_size'][1]} × {m2['bounds_size'][2]} Blöcke; Anker X −685 / Y 82 / Z 770.
-
-Die Original-Litematics bleiben separat, damit Entities und Blockentity-Daten erhalten bleiben. Die Technikhalle ist nicht in der Oberflächen-Terraformingliste enthalten.
-""")
-    protocol={'revision':'5.16','status':'Statischer Treppen-Kopfraum und Technikschacht-Koordinaten dokumentiert; Ingame-Lauftest und Lift nicht umgesetzt.',
-        'base_revision':'5.15','geometry_changed':False,
+Ingame-Lauftest, Türen-/Leitertest und aktuelle Lichtsimulation sind offen.
+"""
+    (ROOT/'analysebericht.md').write_text(report)
+    (ROOT/'README.md').write_text(report+f"\nAtlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v{VERSION}`.\n")
+    protocol={'revision':'5.17','status':'Leiter-Wartungsschacht K3–EG und Teppichführung gebaut; automatische Itemförderung offen.',
+        'base_revision':'5.16','geometry_changed':True,
         'stair_clearance':clearance,'stair_separation':d['structure']['stair_separation'],
-        'service_shaft':vault,
+        'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],
         'litematics':[{'file':m['source'],'sha256':m['sha256'],'blocks':m['total_blocks'],'metadata_blocks_match':True} for m in modules['modules']],
         'browser_render_verified':False,'in_game_walk_test':False,'in_game_redstone_verified':False}
     (ROOT/'pruefprotokoll.json').write_text(json.dumps(protocol,ensure_ascii=False,indent=2)+'\n')

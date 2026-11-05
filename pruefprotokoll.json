@@ -1,8 +1,8 @@
 {
-  "revision": "5.16",
-  "status": "Statischer Treppen-Kopfraum und Technikschacht-Koordinaten dokumentiert; Ingame-Lauftest und Lift nicht umgesetzt.",
-  "base_revision": "5.15",
-  "geometry_changed": false,
+  "revision": "5.17",
+  "status": "Leiter-Wartungsschacht K3–EG und Teppichführung gebaut; automatische Itemförderung offen.",
+  "base_revision": "5.16",
+  "geometry_changed": true,
   "stair_clearance": [
     {
       "group": "keller_treppe",
@@ -61,37 +61,160 @@
         "group": "keller_3"
       },
       {
+        "y": 106,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 107,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 108,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 109,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 110,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 111,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 112,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
         "y": 113,
-        "block": "polished_deepslate",
-        "group": "keller_2"
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 114,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 115,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 116,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 117,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 118,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 119,
+        "block": "ladder",
+        "group": "service_schacht"
       },
       {
         "y": 120,
-        "block": "stone_bricks",
-        "group": "keller_2"
+        "block": "ladder",
+        "group": "service_schacht"
       },
       {
         "y": 121,
-        "block": "deepslate_tiles",
-        "group": "keller_1"
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 122,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 123,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 124,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 125,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 126,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 127,
+        "block": "ladder",
+        "group": "service_schacht"
       },
       {
         "y": 128,
-        "block": "stone_bricks",
-        "group": "keller_1"
+        "block": "ladder",
+        "group": "service_schacht"
       },
       {
         "y": 129,
-        "block": "deepslate_tiles",
-        "group": "halle"
+        "block": "ladder",
+        "group": "service_schacht"
       },
       {
         "y": 130,
-        "block": "red_carpet",
-        "group": "halle"
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 131,
+        "block": "ladder",
+        "group": "service_schacht"
+      },
+      {
+        "y": 132,
+        "block": "ladder",
+        "group": "service_schacht"
       }
     ],
-    "note": "Nur Koordinatenvorschlag; Geschossöffnungen, Aufzugschaltung und Einwurf noch nicht umgesetzt."
+    "note": "Leiter-Wartungsschacht Y 106–132 mit Zugangstüren K3 bis EG gebaut. Verlängerung Y 80–104 und automatische Itemförderung offen."
+  },
+  "maintenance_shaft": {
+    "bounds": [
+      -688,
+      -686,
+      106,
+      132,
+      789,
+      791
+    ],
+    "access_floors": [
+      105,
+      113,
+      121,
+      129
+    ],
+    "type": "Leiterwartungsschacht",
+    "automatic_items": false
   },
   "litematics": [
     {

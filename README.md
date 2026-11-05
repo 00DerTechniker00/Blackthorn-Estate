@@ -1,23 +1,15 @@
-# Blackthorn Estate
+# Blackthorn Estate · Revision 5.17
 
-Aktueller Bauatlas: **Revision 5.16**. `index.html` lokal im Browser öffnen.
+Der neue Leiter-Wartungsschacht liegt bei X −688…−686, Z 789…791 und Y 106…132 in der vorgesehenen Servicelücke. Die Geschossblöcke an der Mittelachse Y 113, 120, 121, 128, 129 sowie der Teppich Y 130 sind ersetzt. Der Boden Y 105 bleibt als sicherer Abschluss erhalten. Vier geschlossene Holztüren geben Zugang von Westen auf K3, K2, K1 und EG. Eine Glasverkleidung sichert die übrigen Seiten. Drei Laternen und ihre Ketten im Schachtbereich entfallen.
 
-## Was ist neu?
+Goldene Teppichsegmente kennzeichnen vorhandene Teppichflächen auf Z 790 zwischen Kellerzugang und Haupttreppe. Der Schacht ist zu umgehen; ein durchgängiger Laufweg ist im Spiel zu prüfen.
 
-- Der Atlas dokumentiert den statischen 3-Block-Kopfraum über den Treppen sowie die Koordinatendifferenz zwischen Keller- und Haupttreppe.
-- Die Litematic-Technikhalle ist jetzt mit Gesamtmaßen, Servicelücke, Zugangskoordinate und den nötigen Geschossdurchbrüchen ausgewiesen.
-- Die Website kennzeichnet klar, dass Laufweg, Schacht und Redstone noch nicht im Spiel abgenommen sind.
+Die Modul-Grube bei Y 80–103 liegt unter K3. Unterer Schachtausbau, automatische Itemförderung und Ein-/Ausgänge stehen aus. Die Original-Litematics bleiben separat.
 
-Die Hausgeometrie bleibt gegenüber 5.15 unverändert. Das Itemlift-System und die Öffnungen in den Geschossdecken sind Planungsangaben, keine gebaute oder geprüfte Mechanik.
+Die Licht- und Erreichbarkeitszahlen unter `checks` sind historische Daten, keine aktuelle Simulation. Die Terrainangaben betreffen den bisherigen Oberflächen-/Kellerplan; der tiefere Modulstollen ist darin nicht vollständig erfasst. Guard-Post-Zahlen sind kein Nachweis für 54 eigenständige Gebäude.
 
-## Versionsverlauf
+Steinsäger: geeignete Steintreppen ergeben eine Treppe je Vollblock, gegenüber vier Treppen aus sechs Vollblöcken an der Werkbank. Holztreppen gehören nicht zu diesen Rezepten. Steinplatten liefern bei beiden Verfahren zwei Stück je Vollblock.
 
-`git log --oneline --decorate` zeigt die Revisionen. `v5.15` bleibt erhalten; der aktuelle Stand ist mit `v5.16` markiert.
+Ingame-Lauftest, Türen-/Leitertest und aktuelle Lichtsimulation sind offen.
 
-## Neu aufbauen
-
-```sh
-python tools/build.py
-```
-
-Der Build verwendet die gespeicherten Modelle unter `tools/seeds/` und die Litematics unter `litematics/`.
+Atlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v5.17`.

@@ -1,10 +1,10 @@
 {
-  "revision": "5.16",
+  "revision": "5.17",
   "files": [
     {
       "path": "README.md",
-      "bytes": 984,
-      "sha256": "ac98f3e9dfe29c711cf577de5f885e6acd11ac527b84176c1bce4a9b7a763568"
+      "bytes": 1599,
+      "sha256": "3cdb1659d0d2765cd246c3a40cdc4399408a690aa52174ae68f14724bc610403"
     },
     {
       "path": "aenderungen_5.10_zu_5.11.csv",
@@ -17,14 +17,14 @@
       "sha256": "b502f2d50dd831020bd05f6f4a1a8c240020a980f6769092321071f2e1f0cd15"
     },
     {
-      "path": "aenderungen_5.15_zu_5.16.csv",
-      "bytes": 72,
-      "sha256": "b502f2d50dd831020bd05f6f4a1a8c240020a980f6769092321071f2e1f0cd15"
+      "path": "aenderungen_5.16_zu_5.17.csv",
+      "bytes": 16486,
+      "sha256": "c90c9d9b671e4c52eb1eaae8ef556c7d4177799b8f6a63b0b7359f5ff3d8020c"
     },
     {
       "path": "analysebericht.md",
-      "bytes": 1768,
-      "sha256": "a0c202798a4e630a27568045e08976cff9d5ff680d2a4dbcddad810ab28c1da2"
+      "bytes": 1506,
+      "sha256": "fcee99db016e98a69b30751043dec9ac30948a42f60383349e40bce0e325372f"
     },
     {
       "path": "app.js",
@@ -1622,24 +1622,24 @@
       "sha256": "c858c1ef8dcf48a1c27386ef8511902d41ea4aada3d412e9df175ae8733ec788"
     },
     {
-      "path": "blackthorn_estate_5.16.nbt",
-      "bytes": 390387,
-      "sha256": "05a5f1a60b084aab86d5e18179324fdd5fe8aa984da227deb03745c807ce3bd3"
+      "path": "blackthorn_estate_5.17.nbt",
+      "bytes": 391110,
+      "sha256": "7462b29605aaf026fad748905a6fa42a5e4a436c5da519da4eeb9ad53070a638"
     },
     {
       "path": "blockliste.csv",
-      "bytes": 8234565,
-      "sha256": "82937b8b660a010e7e8104f54502aacdde74b1aa95535f3a903456e01e4e9b3d"
+      "bytes": 8245875,
+      "sha256": "5e20e3eacd468fc018229e274f341c692fb941b92643a81b1b9a4ead5f9ff038"
     },
     {
       "path": "blueprint.json",
-      "bytes": 4871564,
-      "sha256": "4b3bb37f708a1bfb7a31f60c863ee524db4e1087742b5ce1a83a2ca66aa280d9"
+      "bytes": 4879443,
+      "sha256": "05a2458cbd3464a7d38c424e5e4657232d60b7242aaf70d07d18d6969ab015de"
     },
     {
       "path": "check_report.json",
       "bytes": 1249,
-      "sha256": "26fcec93e5938287b777b9a7fbe85b4bc32463913978efafa1bc238186b52946"
+      "sha256": "ccf63adb5bbe787907224200cce5b3821f2971b0acd8bf5dba515cf2913249d1"
     },
     {
       "path": "gelaende_oberflaeche.csv",
@@ -1648,8 +1648,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5516838,
-      "sha256": "49873010353a3284e45c7ecdd3af1e5e4f147ac17bc7a3ea9e7e4d8ec2dbdad6"
+      "bytes": 5526304,
+      "sha256": "c99d53d6222f9c510b0692295ab25572db00db219c7e02d9c67e416d684e83f2"
     },
     {
       "path": "lager_kategorien.csv",
@@ -1668,8 +1668,8 @@
     },
     {
       "path": "lagertechnik_platzierung.csv",
-      "bytes": 717,
-      "sha256": "a7da32aaff53d0e1383d739f286cd3dd2d07f3306310435ea14c3827a04b0627"
+      "bytes": 723,
+      "sha256": "301e34f2254bf6c8be23818c94b9ff9ac96137afdaf9525a71a5ba7ce6c5b9a0"
     },
     {
       "path": "laternen_pruefung.csv",
@@ -1693,13 +1693,13 @@
     },
     {
       "path": "materialbedarf.csv",
-      "bytes": 2562,
-      "sha256": "7536a3d5ac5427e9685892e4f6adef9dcbd18168fd8bf6513d9d88f6a412dd4e"
+      "bytes": 2623,
+      "sha256": "fd7ad3776930aed22f0a858bc722e24865b8db82cd198904b044efd9861ab21f"
     },
     {
       "path": "materialbedarf_baugruppen.csv",
-      "bytes": 9388,
-      "sha256": "090f3d506cea87b46737e8801bd6defba9ce75603a7b98f2d853573bc25373ee"
+      "bytes": 9505,
+      "sha256": "48b3f095108fb40c16c12373a89ab2f5a75828a3ae4b2da4fca1869e07bd7930"
     },
     {
       "path": "minecraft_viewer.js",
@@ -1709,12 +1709,12 @@
     {
       "path": "progress.js",
       "bytes": 5199,
-      "sha256": "22823a7739f11920783aefca3cf2469edca195eac4259fa163d86ea8451b761a"
+      "sha256": "ec42cf54766239ae4693bb9f3e86b3bda13000b5c8ecac15bc12ca6b235b21c8"
     },
     {
       "path": "pruefprotokoll.json",
-      "bytes": 2481,
-      "sha256": "6cfeb486a67fb904b691b9c58668a8f7c310fe3e8f4f03ac90535ca4293987b9"
+      "bytes": 4796,
+      "sha256": "d72ff8dc76a3919bdd6600f9e0d80f7bba71e8e4a2ef07fecde5d8193a8e273f"
     },
     {
       "path": "source-data/README.md",
@@ -1849,7 +1849,7 @@
     {
       "path": "steps.js",
       "bytes": 4825,
-      "sha256": "5405290279a0a521eb991269f68b7d3a596d827eede5b30232d9ec8f729896f1"
+      "sha256": "7fad03674c3668d5a6a8fd445898c5d34a93c3b7921d43c8d7e80307f8858255"
     },
     {
       "path": "styles.css",
@@ -1893,8 +1893,8 @@
     },
     {
       "path": "tools/build.py",
-      "bytes": 15285,
-      "sha256": "4ddf98aa7ea7be16e990d8b6d0c896a88f74e5d459cb866865ef85cc8e406e4d"
+      "bytes": 15682,
+      "sha256": "c99372362a5daa6d4e566f9dbe9c60ba66a886787fe13887e9ba4826ee2106c3"
     },
     {
       "path": "tools/export_preview.mjs",
@@ -1972,6 +1972,16 @@
       "sha256": "565a833cbf08f7b8a1cfd4cd41d5430775711eb484e986f6749c856f3c49649e"
     },
     {
+      "path": "tools/seeds/revision-5.16/blueprint.json",
+      "bytes": 4871564,
+      "sha256": "4b3bb37f708a1bfb7a31f60c863ee524db4e1087742b5ce1a83a2ca66aa280d9"
+    },
+    {
+      "path": "tools/seeds/revision-5.16/progress.js",
+      "bytes": 5199,
+      "sha256": "22823a7739f11920783aefca3cf2469edca195eac4259fa163d86ea8451b761a"
+    },
+    {
       "path": "tools/seeds/revision-5.9/app.js",
       "bytes": 57553,
       "sha256": "0c6f972b4dfaff9b0dbb87b46cb2878e96589f0f8f6655834e6efca45de8e84d"
@@ -2018,8 +2028,8 @@
     },
     {
       "path": "tools/web.py",
-      "bytes": 34891,
-      "sha256": "397f7715c0134f76cf1c365ac01496353dfba350b45fe587d222e53ba3c32ec7"
+      "bytes": 35531,
+      "sha256": "5af6e86759c1c47b8c307c43b560b8dfa42bca0576afff3c7f6c0613b0bd5c8e"
     },
     {
       "path": "ui.js",

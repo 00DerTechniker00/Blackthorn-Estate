@@ -1,24 +1,13 @@
-# Revision 5.16 · Zugang und Technikschacht
+# Blackthorn Estate · Revision 5.17
 
-## Treppen und Laufweg
+Der neue Leiter-Wartungsschacht liegt bei X −688…−686, Z 789…791 und Y 106…132 in der vorgesehenen Servicelücke. Die Geschossblöcke an der Mittelachse Y 113, 120, 121, 128, 129 sowie der Teppich Y 130 sind ersetzt. Der Boden Y 105 bleibt als sicherer Abschluss erhalten. Vier geschlossene Holztüren geben Zugang von Westen auf K3, K2, K1 und EG. Eine Glasverkleidung sichert die übrigen Seiten. Drei Laternen und ihre Ketten im Schachtbereich entfallen.
 
-Die Keller- und Haupttreppe sind im X-Mittelpunkt 29 Blöcke voneinander entfernt; zwischen ihren nächsten X-Kanten liegen 22 Blöcke. Die Kellertreppe kommt an der Bibliotheksseite auf EG-Höhe an. Von dort führt der Weg über Bibliothek/Halle zur Haupttreppe.
+Goldene Teppichsegmente kennzeichnen vorhandene Teppichflächen auf Z 790 zwischen Kellerzugang und Haupttreppe. Der Schacht ist zu umgehen; ein durchgängiger Laufweg ist im Spiel zu prüfen.
 
-Die Blockbelegung über jeder Treppenstufe wurde statisch für drei Y-Ebenen geprüft:
+Die Modul-Grube bei Y 80–103 liegt unter K3. Unterer Schachtausbau, automatische Itemförderung und Ein-/Ausgänge stehen aus. Die Original-Litematics bleiben separat.
 
-- `keller_treppe`: 48 Treppenblöcke, 0 belegte Kopfraumpositionen in den drei Ebenen darüber.
-- `halle_treppe`: 42 Treppenblöcke, 0 belegte Kopfraumpositionen in den drei Ebenen darüber.
-- `galerie`: 48 Treppenblöcke, 0 belegte Kopfraumpositionen in den drei Ebenen darüber.
+Die Licht- und Erreichbarkeitszahlen unter `checks` sind historische Daten, keine aktuelle Simulation. Die Terrainangaben betreffen den bisherigen Oberflächen-/Kellerplan; der tiefere Modulstollen ist darin nicht vollständig erfasst. Guard-Post-Zahlen sind kein Nachweis für 54 eigenständige Gebäude.
 
-Das belegt freie Blockzellen im Modell, aber keinen Lauf- oder Türtest im Spiel. Der Ingame-Test bleibt offen.
+Steinsäger: geeignete Steintreppen ergeben eine Treppe je Vollblock, gegenüber vier Treppen aus sechs Vollblöcken an der Werkbank. Holztreppen gehören nicht zu diesen Rezepten. Steinplatten liefern bei beiden Verfahren zwei Stück je Vollblock.
 
-## Technikstollen und Aufzugsvorschlag
-
-Die zwei Vorlagen umfassen zusammen eine geplante Grundfläche von 57 × 27 und 24 Blöcke Höhe: X −715…−659, Y 80…103, Z 770…796. Der 3 Blöcke breite Wartungsspalt liegt bei X −688…−686. Als vertikale Serviceachse ist X -687, Z 790 vorgesehen.
-
-An dieser Achse liegen derzeit Geschossblöcke bei Y 105, 113, 120, 121, 128, 129, 130. Diese Durchbrüche, die Verbindung zur Einwurfstation und die Aufzugsschaltung sind noch nicht in den Hausblockplan übernommen. Die Achse ist ein Platzierungsvorschlag, kein fertiger Dropper- oder Wasserlift.
-
-- **Copper Golem MIS Cherry**: 27 × 24 × 27 Blöcke; Anker X −715 / Y 80 / Z 770.
-- **Golem MIS Dustless Filter**: 27 × 22 × 27 Blöcke; Anker X −685 / Y 82 / Z 770.
-
-Die Original-Litematics bleiben separat, damit Entities und Blockentity-Daten erhalten bleiben. Die Technikhalle ist nicht in der Oberflächen-Terraformingliste enthalten.
+Ingame-Lauftest, Türen-/Leitertest und aktuelle Lichtsimulation sind offen.
