@@ -1,18 +1,24 @@
-# Revision 5.15 · Hausstruktur im Bauatlas
+# Revision 5.16 · Zugang und Technikschacht
 
-Die Große Halle erhält eine zweiläufige, 7 Stufen hohe Haupttreppe mit Handläufen und Galeriebrücke zur bestehenden Nordgalerie. Der neue Bereich **Bauatlas → Hausstruktur** zeigt Etagen, Gebäudeachsen und Treppenpositionen aus dem Revisionsmodell.
+## Treppen und Laufweg
 
-## Abgleich der vorgelegten Analyse
+Die Keller- und Haupttreppe sind im X-Mittelpunkt 29 Blöcke voneinander entfernt; zwischen ihren nächsten X-Kanten liegen 22 Blöcke. Die Kellertreppe kommt an der Bibliotheksseite auf EG-Höhe an. Von dort führt der Weg über Bibliothek/Halle zur Haupttreppe.
 
-- Keller 3, Keller 2 und Keller 1 umfassen jeweils acht Y-Ebenen: 105–112, 113–120 und 121–128.
-- Erdgeschoss 129–136 und Obergeschoss 137–144 sind ebenfalls jeweils acht Ebenen hoch. Eine zusätzliche Erhöhung der EG-Raumhöhe ist im aktuellen Modell daher nicht nötig.
-- Die genannten Raumzahlen sind gesetzte Blöcke, keine Grundfläche. Das Vestibül reicht über X −733…−713 und Z 787…793 (21 × 7 Grundfläche); die Küche über 21 × 12.
-- Die Kellertreppe verläuft von Y 105 bis 130 und die zwei Galerierand-Läufe von Y 130 bis 137. Die neue zweiläufige Haupttreppe sitzt zentral in der Großen Halle und führt auf die Nordgalerie. Der Übergang von der Kellertreppe aus der Bibliotheksseite zur neuen Haupttreppe muss im Spiel noch auf freien Durchgang geprüft werden.
-- Die Lagertechnik ist über Keller 1 und 2 verteilt. Der Atlas weist diese Höhen jetzt gesammelt aus. Die Verlegung in einen Technikstollen erfordert noch einen eigenen Grundriss und Geländeabgleich.
+Die Blockbelegung über jeder Treppenstufe wurde statisch für drei Y-Ebenen geprüft:
 
-## Lagertechnik-Vorlagen
+- `keller_treppe`: 48 Treppenblöcke, 0 belegte Kopfraumpositionen in den drei Ebenen darüber.
+- `halle_treppe`: 42 Treppenblöcke, 0 belegte Kopfraumpositionen in den drei Ebenen darüber.
+- `galerie`: 48 Treppenblöcke, 0 belegte Kopfraumpositionen in den drei Ebenen darüber.
 
-- **Copper Golem MIS Cherry**: 4,919 Blöcke, 56 Entities und 1104 Blockentities.
-- **Golem MIS Dustless Filter**: 4,543 Blöcke, 60 Entities und 1092 Blockentities.
+Das belegt freie Blockzellen im Modell, aber keinen Lauf- oder Türtest im Spiel. Der Ingame-Test bleibt offen.
 
-Die Litematics bleiben originalgetreu und separat vom Hausblockplan. Ihre Aushub- und Anschlussplanung ist noch nicht im Spiel geprüft.
+## Technikstollen und Aufzugsvorschlag
+
+Die zwei Vorlagen umfassen zusammen eine geplante Grundfläche von 57 × 27 und 24 Blöcke Höhe: X −715…−659, Y 80…103, Z 770…796. Der 3 Blöcke breite Wartungsspalt liegt bei X −688…−686. Als vertikale Serviceachse ist X -687, Z 790 vorgesehen.
+
+An dieser Achse liegen derzeit Geschossblöcke bei Y 105, 113, 120, 121, 128, 129, 130. Diese Durchbrüche, die Verbindung zur Einwurfstation und die Aufzugsschaltung sind noch nicht in den Hausblockplan übernommen. Die Achse ist ein Platzierungsvorschlag, kein fertiger Dropper- oder Wasserlift.
+
+- **Copper Golem MIS Cherry**: 27 × 24 × 27 Blöcke; Anker X −715 / Y 80 / Z 770.
+- **Golem MIS Dustless Filter**: 27 × 22 × 27 Blöcke; Anker X −685 / Y 82 / Z 770.
+
+Die Original-Litematics bleiben separat, damit Entities und Blockentity-Daten erhalten bleiben. Die Technikhalle ist nicht in der Oberflächen-Terraformingliste enthalten.

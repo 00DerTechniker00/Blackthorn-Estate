@@ -1,9 +1,98 @@
 {
-  "revision": "5.15",
-  "status": "Zweiläufige Haupttreppe in die Große Halle eingefügt; Ingame-Wegeprüfung ausstehend.",
-  "base_revision": "5.14",
-  "geometry_changed": true,
-  "changed_positions": 135,
+  "revision": "5.16",
+  "status": "Statischer Treppen-Kopfraum und Technikschacht-Koordinaten dokumentiert; Ingame-Lauftest und Lift nicht umgesetzt.",
+  "base_revision": "5.15",
+  "geometry_changed": false,
+  "stair_clearance": [
+    {
+      "group": "keller_treppe",
+      "stair_blocks": 48,
+      "clearance_blocks": 3,
+      "obstructed_positions": 0,
+      "examples": []
+    },
+    {
+      "group": "halle_treppe",
+      "stair_blocks": 42,
+      "clearance_blocks": 3,
+      "obstructed_positions": 0,
+      "examples": []
+    },
+    {
+      "group": "galerie",
+      "stair_blocks": 48,
+      "clearance_blocks": 3,
+      "obstructed_positions": 0,
+      "examples": []
+    }
+  ],
+  "stair_separation": {
+    "center_x": 29,
+    "minimum_x_gap": 22,
+    "basement_to_main_route": "Bibliothek → Große Halle"
+  },
+  "service_shaft": {
+    "position": [
+      -687,
+      105,
+      790
+    ],
+    "vault_bounds": [
+      -715,
+      -659,
+      80,
+      103,
+      770,
+      796
+    ],
+    "vault_size": [
+      57,
+      24,
+      27
+    ],
+    "service_gap_x": [
+      -688,
+      -686
+    ],
+    "vertical_floor_blocks": [
+      {
+        "y": 105,
+        "block": "deepslate_tiles",
+        "group": "keller_3"
+      },
+      {
+        "y": 113,
+        "block": "polished_deepslate",
+        "group": "keller_2"
+      },
+      {
+        "y": 120,
+        "block": "stone_bricks",
+        "group": "keller_2"
+      },
+      {
+        "y": 121,
+        "block": "deepslate_tiles",
+        "group": "keller_1"
+      },
+      {
+        "y": 128,
+        "block": "stone_bricks",
+        "group": "keller_1"
+      },
+      {
+        "y": 129,
+        "block": "deepslate_tiles",
+        "group": "halle"
+      },
+      {
+        "y": 130,
+        "block": "red_carpet",
+        "group": "halle"
+      }
+    ],
+    "note": "Nur Koordinatenvorschlag; Geschossöffnungen, Aufzugschaltung und Einwurf noch nicht umgesetzt."
+  },
   "litematics": [
     {
       "file": "Copper Golem MIS Cherry.litematic",
@@ -19,5 +108,6 @@
     }
   ],
   "browser_render_verified": false,
+  "in_game_walk_test": false,
   "in_game_redstone_verified": false
 }
