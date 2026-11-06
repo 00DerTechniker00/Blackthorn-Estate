@@ -1,0 +1,22 @@
+{
+  "revision": "5.26",
+  "floating_components": 40,
+  "floating_stair_flights_edge_contact": 30,
+  "floating_decor_with_chain_or_pane_contact": 10,
+  "floating_other": [],
+  "unsupported_attachments": [],
+  "reachability": {
+    "start": [
+      -745,
+      130,
+      790
+    ],
+    "rooms": 39,
+    "unreachable_rooms": [],
+    "lowest_coverage": {
+      "room": "Keller 1: Lager",
+      "cells": 241,
+      "reached": 209
+    }
+  }
+}

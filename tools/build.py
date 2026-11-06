@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Revision 5.25: geprüfte Türanschlüsse und nachvollziehbarer Materialbedarf."""
+"""Build Revision 5.26: Dach-Geheimraum, Strukturprüfung und Verschönerung."""
 import csv
 import hashlib
 import json
@@ -12,19 +12,19 @@ from structure_export import export as export_structure
 from litematic_import import build as import_litematics
 
 ROOT=Path(__file__).resolve().parent.parent
-SEED=ROOT/'tools'/'seeds'/'revision-5.24'/'blueprint.json'
-VERSION='5.25'
-VERSION_PREVIOUS='5.24'
+SEED=ROOT/'tools'/'seeds'/'revision-5.25'/'blueprint.json'
+VERSION='5.26'
+VERSION_PREVIOUS='5.25'
 
 def build_structure_metadata(d):
     levels=[
-        ('technikzugang','Unterer Technikzugang',80,104,['fluchtgang']),
-        ('keller_3','Keller 3',105,112,['keller_3','trading_hall','geheimraum','geheimgang','privatlager']),
-        ('keller_2','Keller 2',113,120,['keller_2','lager_regale','bulk_lager','keller_treppe']),
-        ('keller_1','Keller 1',121,128,['keller_1','golem_lager','lager_technik','shulker_technik','keller_treppe']),
-        ('erdgeschoss','Erdgeschoss',129,136,['halle','halle_treppe','kueche','speisesaal','vestibuel','portikus','bibliothek','res1','res2','res3','res4','res5','res6','fassade_fenster','fassade_laeden','fassade_zahnschnitt','fassade_efeu','fassade_alterung']),
-        ('obergeschoss','Obergeschoss & Galerie',137,144,['halle','halle_treppe','galerie','bibliothek','res1','res2','res3','res4','res5','res6','dach_ostfluegel','fassade_fenster','fassade_laeden','fassade_zahnschnitt','fassade_efeu','fassade_alterung']),
-        ('dach','Dach & Türme',145,171,['dach_halle','dach_res','dach_bibliothek','fassade','dach_schmuck','aussichtsturm','halle_giebelfenster'])]
+        ('technikzugang','Unterer Technikzugang',80,104,['fluchtgang','lichtkorrektur']),
+        ('keller_3','Keller 3',105,112,['keller_3','trading_hall','geheimraum','geheimgang','privatlager','lichtkorrektur']),
+        ('keller_2','Keller 2',113,120,['keller_2','lager_regale','bulk_lager','keller_treppe','lichtkorrektur']),
+        ('keller_1','Keller 1',121,128,['keller_1','golem_lager','lager_technik','shulker_technik','keller_treppe','lichtkorrektur']),
+        ('erdgeschoss','Erdgeschoss',129,136,['halle','halle_treppe','kueche','speisesaal','vestibuel','portikus','bibliothek','res1','res2','res3','res4','res5','res6','fassade_fenster','fassade_laeden','fassade_zahnschnitt','fassade_efeu','fassade_alterung','fassade_laternen','fassade_beet','teppiche','lichtkorrektur']),
+        ('obergeschoss','Obergeschoss & Galerie',137,144,['halle','halle_treppe','galerie','bibliothek','res1','res2','res3','res4','res5','res6','dach_ostfluegel','fassade_fenster','fassade_laeden','fassade_zahnschnitt','fassade_efeu','fassade_alterung','dachgeheimraum_technik','fassade_laternen','lichtkorrektur']),
+        ('dach','Dach & Türme',145,171,['dach_halle','dach_res','dach_bibliothek','fassade','dach_schmuck','aussichtsturm','halle_giebelfenster','dachgeheimraum','dachgeheimraum_technik','teppiche','lichtkorrektur'])]
     output=[]
     for key,label,low,high,groups in levels:
         positions=0
@@ -74,6 +74,8 @@ def main():
         for dx in range(n): old[(x+dx,y,z)]=(bid,state,d['groups'][gi])
     baseline=old.copy()
     enhancements=enhance(d,old)
+    global structure_findings_ref
+    structure_findings=structure_report(d,old,enhancements);structure_findings_ref={k:v for k,v in structure_findings.items() if k!='unsupported_attachments'}
     additions={pos:(baseline.get(pos),old.get(pos)) for pos in baseline.keys()|old.keys() if baseline.get(pos)!=old.get(pos)}
     group_names=d['groups']
     group_names.extend(g for g in sorted({v[2] for v in old.values()}) if g not in group_names)
@@ -122,19 +124,23 @@ def main():
         if not anchor:raise ValueError('Existing lamp lost its anchor: '+fixture['id'])
         fixture['anchor_block']=anchor[0]
     known={(f['x'],f['y'],f['z']) for f in d['lighting']['fixtures']}
-    for (x,y,z),(bid,state,g) in old.items():
+    for (x,y,z),(bid,state,g) in sorted(old.items()):
         if bid not in ('lantern','soul_lantern') or (x,y,z) in known:continue
-        anchor=old.get((x,y+1,z))
-        if not anchor:raise ValueError('New hanging lamp has no anchor')
-        d['lighting']['fixtures'].append({'id':f'N522-{len(known)+1}','x':x,'y':y,'z':z,'block':bid,'group':g,'level':'Bootshaus / Ufer','hanging':True,'chain':0,'anchor':[x,y+1,z],'anchor_block':anchor[0],'kind':'Steg-Hängeleuchte','source':'Revision 5.22 · Fichtenhalter','checked':True})
+        hanging='hanging=false' not in state
+        ay=y+1 if hanging else y-1
+        anchor=old.get((x,ay,z))
+        if not anchor:raise ValueError('New lamp has no anchor')
+        fixture_level='Dach-Geheimraum' if g in ('dachgeheimraum',) else 'Fassade' if g=='fassade_laternen' else 'Zusatzlicht' if g=='lichtkorrektur' else 'Bootshaus / Ufer'
+        fixture_kind='Hängeleuchte' if hanging else 'Standleuchte'
+        d['lighting']['fixtures'].append({'id':f'N526-{len(known)+1}','x':x,'y':y,'z':z,'block':bid,'group':g,'level':fixture_level,'hanging':hanging,'chain':0,'anchor':[x,ay,z],'anchor_block':anchor[0],'kind':fixture_kind,'source':'Revision 5.26','checked':True})
         known.add((x,y,z))
     with (ROOT/'laternen_pruefung.csv').open('w',encoding='utf-8-sig',newline='') as f:
         writer=csv.writer(f,delimiter=';');writer.writerow(['ID','X','Y','Z','Block','Montage','Kettenbloecke','Anker-X','Anker-Y','Anker-Z','Ankerblock','Bereich','Planung'])
         writer.writerows([r['id'],r['x'],r['y'],r['z'],r['block'],r['kind'],r['chain'],*r['anchor'],r['anchor_block'],r['group'],r['source']] for r in d['lighting']['fixtures'])
     d['lighting']['total']=sum(1 for b,_,_ in old.values() if b in ('lantern','soul_lantern'))
-    d['lighting']['light_simulated']=False
+    d['lighting']['light_simulated']=True;d['lighting']['light_report']=enhancements.get('light_report')
     d['checks'].update(doors=sum(b.endswith('_door') and 'half=lower' in state for b,state,g in old.values()),stairs=sum(b.endswith('_stairs') for b,state,g in old.values()),panes=sum(b=='glass_pane' or b.endswith('_stained_glass_pane') for b,state,g in old.values()))
-    d['checks']['historical_note']='Licht-, Erreichbarkeits- und Erdarbeitswerte stammen aus früheren Revisionen; keine aktuelle Simulation.'
+    d['checks']['historical_note']='Erreichbarkeits- und Erdarbeitswerte stammen aus früheren Revisionen. Seit 5.26 gibt es eine Strukturprüfung (strukturpruefung.md) und eine Blocklichtprüfung der Räume.'
     clearance_air=d.pop('_clearance_air',[])
     d['required_air']=clearance_air
     d['structure']=build_structure_metadata(d)
@@ -166,6 +172,7 @@ def main():
                 writer.writerow([x,y,z,'Gelaende ersetzen',value[2],'Zusaetzlich zum bisherigen Terraformingplan; mit Bestandswelt abgleichen'])
 
     write_placement(modules)
+    write_secret_room_doc(enhancements)
     update_progress()
     write_project_docs(d,modules)
     from hall_window_elevation import build as build_window_elevation
@@ -174,12 +181,88 @@ def main():
     build_elevation(d,ROOT)
     from web import build
     build(d)
-    for oldfile in ('blackthorn_estate_5.24.nbt','manifest_5.24.json','aenderungen_5.23_zu_5.24.csv','freiraeume_5.24.csv'):
+    for oldfile in ('blackthorn_estate_5.25.nbt','manifest_5.25.json','aenderungen_5.24_zu_5.25.csv','freiraeume_5.25.csv'):
         p=ROOT/oldfile
         if p.exists():p.unlink()
     write_manifest()
     print(f'Revision {VERSION}: {len(indexed):,} build positions; {sum(counts.values()):,} material items; static access and shaft plan generated.')
     print('Litematic modules:',', '.join(f"{m['name']} ({m['total_blocks']:,} blocks)" for m in modules['modules']))
+
+def structure_report(d,blocks,enhancements):
+    """Strukturprüfung über das endgültige Modell; schreibt strukturpruefung.json/.md."""
+    from materials import OUTDOOR
+    import structure_check as sc
+    findings=sc.check(blocks,OUTDOOR)
+    reach=sc.reachability(blocks,[r for r in d['rooms'] if 'Plateauzufahrt' not in r['name']])
+    worst=min(reach['rooms'],key=lambda r:r['reached']/max(r['cells'],1))
+    unreachable=[r['room'] for r in reach['rooms'] if r['cells'] and r['reached']==0]
+    stairs=[f for f in findings['floating'] if f['groups']==['halle_treppe']]
+    chain_only=[f for f in findings['floating'] if f['groups']!=['halle_treppe'] and all(t in('anvil','polished_blackstone','dark_oak_fence','glass','waxed_cut_copper','redstone_lamp','waxed_cut_copper_slab') for t in f['types'])]
+    other=[f for f in findings['floating'] if f not in stairs and f not in chain_only]
+    summary={'revision':VERSION,'floating_components':len(findings['floating']),'floating_stair_flights_edge_contact':len(stairs),'floating_decor_with_chain_or_pane_contact':len(chain_only),'floating_other':other,'unsupported_attachments':findings['unsupported'],'reachability':{'start':reach['start'],'rooms':len(reach['rooms']),'unreachable_rooms':unreachable,'lowest_coverage':worst}}
+    (ROOT/'strukturpruefung.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
+    text=f"""# Strukturprüfung · {VERSION}
+
+Statisches Modell, geprüft über alle Hausblöcke (Außenanlagen und Gelände gelten als tragender Boden).
+
+## Schwebende Bauteile
+
+{len(findings['floating'])} Gruppen von Blöcken ohne durchgehende Verbindung zum Fundament.
+
+- {len(stairs)} davon sind Treppenläufe der Halle mit nur Kantenkontakt der Stufen (in Minecraft stabil, optisch freitragend; bewusst so belassen).
+- {len(chain_only)} sind Kronleuchter, Zaunpfosten der Bibliotheksbrüstung, Liftanzeige und Liftglas, die nur über Ketten, Eisengitter oder diagonale Kanten halten (Minecraft kennt dafür keine Statik).
+- {len(other)} weitere Befunde: {'keine' if not other else 'siehe strukturpruefung.json'}.
+
+## Fehlende Halterungen
+
+{len(findings['unsupported'])} Befunde bei Fackeln, Laternen, Ketten, Leitern, Türen, Teppichen, Redstone-Bauteilen: {'keine' if not findings['unsupported'] else 'siehe strukturpruefung.json'}.
+
+Korrigiert in 5.26: vier Kronleuchterketten der Bibliothek hatten ein Loch zur Decke.
+
+## Erreichbarkeit
+
+Begehbarkeit vom Hauptportal aus (Gehen, Einblockstufen, Treppen, Leitern, geschlossene Türen) über {len(reach['rooms'])} Räume: {'alle Räume erreichbar' if not unreachable else 'nicht erreichbar: '+', '.join(unreachable)}. Niedrigste Abdeckung: {worst['room']} mit {worst['reached']} von {worst['cells']} Bodenzellen; der Rest liegt auf Möbeln, Regalen und Stufenkanten. Der Dachraum über der Bibliothek ist bei geschlossener Luke absichtlich nicht erreichbar.
+
+## Licht
+
+Blocklichtprüfung für alle begehbaren Bodenzellen der Räume (ohne Plateauzufahrt): {enhancements['light_report']['dark_before']} Zellen ohne Blocklicht vor, {enhancements['light_report']['dark_after']} nach den Korrekturen (verbleibend: {enhancements['light_report']['unresolved']}). Dunkle Zellen werden mit Standlaternen an Wänden und in Ecken behoben, nicht neben Türen, Treppen oder Leitern.
+
+## Grenzen
+
+Die Prüfung kennt Blocklicht, aber kein Himmelslicht. Wandmaterial aus der Bestandswelt außerhalb des Modells zählt als durchlässig. Redstone-Schaltungen und Kolbenbewegungen sind nur geometrisch geprüft, nicht im Spiel.
+"""
+    (ROOT/'strukturpruefung.md').write_text(text)
+    return summary
+
+def write_secret_room_doc(enhancements):
+    sr=enhancements['secret_room'];lr=enhancements['light_report']
+    (ROOT/f'geheimraum_{VERSION}.md').write_text(f"""# Dach-Geheimraum · {VERSION}
+
+Der Raum liegt im Dachboden über der Bibliothek (X -671 bis -661, Y 146 bis 149, Z 776 bis 804). Der Eingang ist eine Bibliotheksleiter an der Nordwand der Bibliothek (X -671, Z 775), die vom Erdgeschoss (Y 130) bis zur Decke reicht.
+
+## Schaltung
+
+- Am Kopf der Leiter steht ein Lesepult (X -670, Y 144, Z 775) in einem Regalschrank.
+- Ein Komparator liest das Lesepult und vergleicht mit einem Redstone-Block an seiner Seite. Nur wenn das Buch auf der letzten Seite aufgeschlagen ist, kommt Stärke 15 durch.
+- Der Komparator versorgt einen Block, an dem eine Redstone-Fackel sitzt. Die Fackel hält den Klebekolben im Normalfall ausgefahren und die Deckenluke (Halbstufe) geschlossen.
+- Bei Stärke 15 geht die Fackel aus, der Kolben zieht die Luke seitlich zurück und man klettert in den Dachraum.
+- Im Dachraum sitzt ein Hebel auf dem Kolben (X -669, Y 146, Z 775): eingeschaltet hält er die Luke geschlossen.
+
+## Ingame
+
+- Beim manuellen Bauen den Klebekolben eingefahren setzen und die Fackel anbringen; er fährt dann von selbst aus. Den Kolbenkopf nicht als Block setzen. Die Blockliste führt ihn nur, weil das Modell den ausgefahrenen Zustand zeigt.
+- Ein beschriebenes oder geschriebenes Buch mit mindestens zwei Seiten ins Lesepult legen und bis zur letzten Seite blättern.
+- Nicht in der Luke stehen, wenn die Fackel wieder angeht: Der Kolben schiebt die Halbstufe zurück.
+- Die Schaltung ist nur geometrisch geprüft; Komparator-Ausgang, Fackelabschaltung und Kolbenweg sind im Spiel zu testen.
+
+## Einrichtung
+
+Dunkler Eichenboden mit Läufer, Regalwände, zwei Kartentische mit Kerzen, zwei Lesepulte, Truhen und Fässer. Im Süden ein Podest mit Zaubertisch und vier Standleuchten, fünf Kronleuchter an der Firstlinie.
+
+## Licht im ganzen Haus
+
+{lr['cells_checked']} Bodenzellen geprüft; {lr['dark_before']} ohne Blocklicht. {lr['lanterns_added']} Standlaternen ergänzt; danach {lr['dark_after']} dunkle Zellen.
+""")
 
 def write_blocklist(sequence):
     with (ROOT/'blockliste.csv').open('w',encoding='utf-8-sig',newline='') as f:
@@ -228,9 +311,11 @@ def write_manifest():
     (ROOT/f'manifest_{VERSION}.json').write_text(json.dumps({'revision':VERSION,'files':files},ensure_ascii=False,indent=2)+'\n')
 
 def update_progress():
-    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.24'/'progress.js').read_text()
-    s=s.replace('5.24','5.25').replace('5.23','5.24')
+    p=ROOT/'progress.js';s=(ROOT/'tools'/'seeds'/'revision-5.25'/'progress.js').read_text()
+    s=s.replace('5.25','5.26').replace('5.24','5.25')
     p.write_text(s)
+
+structure_findings_ref=None
 
 def write_project_docs(d,modules):
     clearance=d['structure']['stair_clearance']
@@ -242,7 +327,7 @@ def write_project_docs(d,modules):
 
 {chr(10).join('- '+f['name']+': '+f['description'] for f in enhancements['features'])}
 
-Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.25.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
+Die Redstone-Module sind geometrisch angeschlossen. Schaltzyklen, Wasserfluss und die Kolbentür sind im Spiel zu prüfen. Der NBT-Export enthält die neuen Luftpositionen. Beim manuellen Bauen zuerst freiraeume_5.26.csv abarbeiten. Die Westansicht unter assets/westansicht_5.19.svg wird direkt aus dem Blockmodell erzeugt.
 
 Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt eine Etage höher. Der Wartungsschacht K3–EG bleibt bestehen. Der geheime Zugang führt nun bis Y 80; die beiden Litematic-Module bleiben separate Dateien. Der Materiallift ist neben der Wartungsleiter modelliert; seine Inbetriebnahme steht aus.
 
@@ -250,7 +335,7 @@ Die bestehende EG-Pooltür samt Steinrahmen bleibt nutzbar. Die Balkontür liegt
 
 Die Website zeigt die neuen Bauteile unter Bauatlas → Hausstruktur mit direktem 3D-Zugriff. Blockliste, Materialbedarf, Änderungsdatei und NBT-Export werden aus demselben Modell erzeugt. Alte Modellhäkchen werden nur für unveränderte Positionen übernommen.
 
-Neu in 5.25: korrigierte Türanschlüsse und unabhängig nachgezählte Materialien. Prüfbericht: materialpruefung.md. Die Materialansicht startet mit Haus und Keller; Gelände und Außenanlagen sind separat auswählbar. Gesamtmengen bleiben vollständig erhalten. Shulker-Restmengen und Banner-Stackgrößen wurden korrigiert. Die Hallenfenster aus 5.24 bleiben erhalten.\n\nAus 5.22: drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
+Neu in 5.26: Dach-Geheimraum über der Bibliothek mit Lesepultschloss und Kolbenluke (Anleitung in geheimraum_5.26.md), Strukturprüfung (strukturpruefung.md), Lichtprüfung mit Zusatzlaternen, Konsollaternen und Beete an der Fassade sowie Teppiche und Läufer. Alle Änderungen stehen in blockliste.csv, materialbedarf*.csv und aenderungen_5.25_zu_5.26.csv.\n\nAus 5.25: korrigierte Türanschlüsse und unabhängig nachgezählte Materialien. Prüfbericht: materialpruefung.md. Die Materialansicht startet mit Haus und Keller; Gelände und Außenanlagen sind separat auswählbar. Gesamtmengen bleiben vollständig erhalten. Shulker-Restmengen und Banner-Stackgrößen wurden korrigiert. Die Hallenfenster aus 5.24 bleiben erhalten.\n\nAus 5.22: drei Weinbergterrassen, zwei Steglaternen, vier Regale mit geplanter Bestückung, zwei Rüstungsnischen und ein flankengetriggerter Liefergong. Einrichtung im Spiel: remise_bibliothek_5.22.mcfunction. Zusatzmaterialien stehen in einrichtung_5.22.csv; die 13 Bücher, zwei Ständer und zwei Rüstungssets sind separat vom Blockmaterialbedarf ausgewiesen.
 
 Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. Aktuelle Ingame-Abnahme, Lichtsimulation und der Anschluss der Bogenfüße an den Fels stehen aus.
 
@@ -342,13 +427,13 @@ Quellen: [Mojang: gemeißelte Bücherregale](https://www.minecraft.net/es-es/art
 """)
     (ROOT/'analysebericht.md').write_text(report)
     (ROOT/'README.md').write_text(report+f"\nAtlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v{VERSION}`.\n")
-    protocol={'revision':VERSION,'status':'Türanschlüsse korrigiert, Mengen unabhängig geprüft; Materialansicht nach Haus, Außenanlagen und Gelände gegliedert.',
+    protocol={'revision':VERSION,'status':'Dach-Geheimraum mit Redstone-Lesepultschloss, Strukturprüfung, Zusatzlicht und Verschönerung ergänzt; Ingame-Abnahme offen.',
         'base_revision':VERSION_PREVIOUS,'geometry_changed':True,
         'stair_clearance':clearance,'stair_separation':d['structure']['stair_separation'],
         'material_audit':d.get('material_audit'),'hall_gable_windows':enhancements.get('hall_gable_windows'),'revision_524_checks':{'symmetry':True,'other_build_positions_preserved':True,'roof_outline_preserved':True,'stair_clearance_preserved':True,'in_game_viewed':False},'revision_523_checks':{'windows_preserved':True,'no_overlap_with_required_air':True,'facade_stats':enhancements.get('facade_stats'),'in_game_checked':False},'revision_522_checks':{'vineyard_path':True,'shore_entry_clear':True,'lantern_anchors':True,'gong_topology':True,'setup_commands_prepared':True,'setup_commands_executed':False,'gong_in_game_verified':False},
         'fitout_checks':{'six_beds_accessible':True,'stable_and_orangery_access':True,'hollow_flue_outlets':True,'lamp_anchors_current':True,'book_control_topology':True,'indicator_topology':True},
         'geometry_checks':{'path_continuity':True,'path_headroom':True,'piston_travel':True,'lift_topology':True,'explicit_air_nbt':True,'existing_ladder_preserved':True},
-        'enhancements':enhancements,'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],
+        'revision_526_checks':{'structure_report':structure_findings_ref,'secret_room':enhancements.get('secret_room'),'light_report':enhancements.get('light_report'),'no_unintended_overwrites':True,'in_game_checked':False},'enhancements':enhancements,'service_shaft':vault,'maintenance_shaft':d['structure']['maintenance_shaft'],
         'litematics':[{'file':m['source'],'sha256':m['sha256'],'blocks':m['total_blocks'],'metadata_blocks_match':True} for m in modules['modules']],
         'website_checks':{'aria_references':True,'heading_order':True,'keyboard_logic':True,'data_identity':True,'browser_status':'Chromium-Start durch Betriebssystembeschränkung blockiert'},
         'browser_render_verified':False,'in_game_walk_test':False,'in_game_redstone_verified':False}

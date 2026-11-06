@@ -1,7 +1,7 @@
 {
-  "revision": "5.25",
-  "status": "Türanschlüsse korrigiert, Mengen unabhängig geprüft; Materialansicht nach Haus, Außenanlagen und Gelände gegliedert.",
-  "base_revision": "5.24",
+  "revision": "5.26",
+  "status": "Dach-Geheimraum mit Redstone-Lesepultschloss, Strukturprüfung, Zusatzlicht und Verschönerung ergänzt; Ingame-Abnahme offen.",
+  "base_revision": "5.25",
   "geometry_changed": true,
   "stair_clearance": [
     {
@@ -32,9 +32,9 @@
     "basement_to_main_route": "Bibliothek → Große Halle"
   },
   "material_audit": {
-    "revision": "5.25",
-    "positions": 137462,
-    "items": 136750,
+    "revision": "5.26",
+    "positions": 138506,
+    "items": 137793,
     "duplicates": [],
     "material_counts_match": true,
     "packing_errors": [],
@@ -79,7 +79,7 @@
     "scopes": {
       "house": {
         "label": "Haus und Keller",
-        "items": 68739,
+        "items": 69782,
         "focus": {
           "dirt": 0,
           "cobblestone": 0,
@@ -189,9 +189,139 @@
     "explicit_air_nbt": true,
     "existing_ladder_preserved": true
   },
+  "revision_526_checks": {
+    "structure_report": {
+      "revision": "5.26",
+      "floating_components": 40,
+      "floating_stair_flights_edge_contact": 30,
+      "floating_decor_with_chain_or_pane_contact": 10,
+      "floating_other": [],
+      "reachability": {
+        "start": [
+          -745,
+          130,
+          790
+        ],
+        "rooms": 39,
+        "unreachable_rooms": [],
+        "lowest_coverage": {
+          "room": "Keller 1: Lager",
+          "cells": 241,
+          "reached": 209
+        }
+      }
+    },
+    "secret_room": {
+      "entry": [
+        -671,
+        130,
+        776
+      ],
+      "hatch": [
+        -671,
+        145,
+        775
+      ],
+      "lectern": [
+        -670,
+        144,
+        775
+      ],
+      "piston": [
+        -669,
+        145,
+        775
+      ],
+      "torch": [
+        -668,
+        145,
+        775
+      ],
+      "lever": [
+        -669,
+        146,
+        775
+      ],
+      "room": {
+        "x": [
+          -671,
+          -661
+        ],
+        "y": [
+          146,
+          149
+        ],
+        "z": [
+          776,
+          804
+        ]
+      }
+    },
+    "light_report": {
+      "cells_checked": 12998,
+      "dark_before": 1327,
+      "dark_after": 3,
+      "lanterns_added": 200,
+      "unresolved": [
+        [
+          -695,
+          131,
+          770
+        ],
+        [
+          -693,
+          131,
+          775
+        ],
+        [
+          -692,
+          131,
+          775
+        ]
+      ],
+      "skipped_facade_lanterns": 2
+    },
+    "no_unintended_overwrites": true,
+    "in_game_checked": false
+  },
   "enhancements": {
-    "title": "Hausanschlüsse und Materialprüfung",
+    "title": "Dach-Geheimraum, Strukturprüfung und Verschönerung",
     "features": [
+      {
+        "group": "dachgeheimraum_technik",
+        "name": "Dach-Geheimraum mit Lesepultschloss",
+        "description": "Bibliotheksleiter und Regalschrank an der Nordwand der Bibliothek, vom Erdgeschossboden bis zur Decke. Am Leiterkopf liegt ein Lesepult: Ein Buch auf die letzte Seite blättern, dann gibt der Komparator Stärke 15 und die Fackel schaltet ab. Der Kolben zieht die Deckenluke zurück. Der Hebel im Dachraum riegelt wieder zu."
+      },
+      {
+        "group": "dachgeheimraum",
+        "name": "Dachraum: Kartenkammer und Sternwarte",
+        "description": "Dunkler Eichenboden, Läufer, Regalwände, Kartentische, Lesepulte, Truhen und Fässer, Podest mit Zaubertisch, Kerzen und fünf Kronleuchter an der Firstlinie."
+      },
+      {
+        "group": "fassade_laternen",
+        "name": "Konsollaternen an Nord- und Südfassade",
+        "description": "10 Fichtenzaun-Konsolen mit hängenden Laternen zwischen den Fensterpaaren, beide Geschosse."
+      },
+      {
+        "group": "fassade_beet",
+        "name": "Beete vor der Fassade",
+        "description": "55 Blumen und Azaleenbüsche in Beeten vor der Nord- und Südfassade."
+      },
+      {
+        "group": "teppiche",
+        "name": "Teppiche und Läufer",
+        "description": "453 Teppiche: zwei gemusterte Teppiche in der Großen Halle, Läufer in der Bibliothek und im Dachraum."
+      },
+      {
+        "group": "lichtkorrektur",
+        "name": "Zusatzlicht gegen Monsterspawn",
+        "description": "Lichtprüfung über 12998 begehbare Bodenzellen in den Räumen: 1327 Zellen ohne Blocklicht. 200 Standlaternen an Wänden und in Ecken beheben das; danach 3 dunkle Zellen."
+      },
+      {
+        "group": "bibliothek",
+        "name": "Kronleuchterketten bis zur Decke",
+        "description": "4 Ketten in der Bibliothek hatten ein Loch zur Decke; jetzt durchgehend."
+      },
       {
         "group": "anschluss_korrekturen",
         "name": "Geprüfte Türanschlüsse",
@@ -795,7 +925,7 @@
         754
       ]
     ],
-    "limits": "Gesamtmengen sind Zielmengen inklusive Gelände und keine Einkaufsliste zusätzlich zu den Erdarbeitslisten. Die unabhängige Prüfung und Grenzen stehen in materialpruefung.md. Die beiden oberen Hallenfenster wurden innerhalb ihrer Giebel überarbeitet; die Dachsilhouette und die unteren Durchgänge bleiben erhalten. Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.",
+    "limits": "Das Lesepultschloss und die Kolbenluke sind nur geometrisch geprüft, nicht im Spiel. Das Buch (mindestens zwei Seiten) legt man selbst ins Lesepult. Das Licht rechnet nur Blocklicht und lässt Wandmaterial aus der Bestandswelt außer Acht. Gesamtmengen sind Zielmengen inklusive Gelände und keine Einkaufsliste zusätzlich zu den Erdarbeitslisten. Die unabhängige Prüfung und Grenzen stehen in materialpruefung.md. Die beiden oberen Hallenfenster wurden innerhalb ihrer Giebel überarbeitet; die Dachsilhouette und die unteren Durchgänge bleiben erhalten. Fensterläden, Efeu und Verwitterung sind gestalterisch; Position und Dichte lassen sich beim Bauen nach Geschmack anpassen. Alle Fassadenteile stehen auf bislang freien Positionen, nur einzelne Mauersteine werden ersetzt. Rüstungsständer und Bücherbestände brauchen die mitgelieferte Einrichtung im Spiel. Der Gong signalisiert nur leer → gefüllt; weitere Lieferungen in eine bereits gefüllte Kiste bleiben ohne Ton. Schaltung und Bootsdurchfahrt sind im Spiel abzunehmen.",
     "bedrooms": [
       {
         "room": "res6",
@@ -1041,7 +1171,87 @@
           790
         ]
       }
-    ]
+    ],
+    "secret_room": {
+      "entry": [
+        -671,
+        130,
+        776
+      ],
+      "hatch": [
+        -671,
+        145,
+        775
+      ],
+      "lectern": [
+        -670,
+        144,
+        775
+      ],
+      "piston": [
+        -669,
+        145,
+        775
+      ],
+      "torch": [
+        -668,
+        145,
+        775
+      ],
+      "lever": [
+        -669,
+        146,
+        775
+      ],
+      "room": {
+        "x": [
+          -671,
+          -661
+        ],
+        "y": [
+          146,
+          149
+        ],
+        "z": [
+          776,
+          804
+        ]
+      }
+    },
+    "light_report": {
+      "cells_checked": 12998,
+      "dark_before": 1327,
+      "dark_after": 3,
+      "lanterns_added": 200,
+      "unresolved": [
+        [
+          -695,
+          131,
+          770
+        ],
+        [
+          -693,
+          131,
+          775
+        ],
+        [
+          -692,
+          131,
+          775
+        ]
+      ],
+      "skipped_facade_lanterns": 2
+    },
+    "enhance_stats": {
+      "dachgeheimraum": 472,
+      "dachgeheimraum_technik": 169,
+      "fassade_laternen": 20,
+      "fassade_beet": 55,
+      "teppiche": 453,
+      "lichtkorrektur": 200,
+      "replaced": 329,
+      "chains_fixed": 4
+    }
   },
   "service_shaft": {
     "position": [
