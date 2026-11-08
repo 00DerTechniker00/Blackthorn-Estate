@@ -20,7 +20,7 @@ Unter **Hausstruktur → Pool und Garten** führen zwei Buttons direkt zu den ne
 
 Blockliste, Haus-NBT und Materiallisten enthalten die neuen Blöcke. Die neuen Gruppen `v6_pool` und `v6_garten` werden den Außenanlagen zugerechnet. Die Keller-Zusatzmaterialliste bezieht sich weiterhin ausschließlich auf den vermessenen Keller.
 
-Für Live-Baufortschritt muss nach Veröffentlichung das neue Plugin **1.2.0** mit dem aktualisierten Bauplan installiert werden. Bestehende Konfiguration kann weiterverwendet werden. Unveränderte lokale Bauhäkchen werden übernommen.
+Für Live-Baufortschritt muss nach Veröffentlichung das neue Plugin **1.3.0** mit dem aktualisierten Bauplan installiert werden. Bestehende Konfiguration kann weiterverwendet werden. Unveränderte lokale Bauhäkchen werden übernommen.
 
 Die Korrektur an der Bodenhöhe der Geländeansicht verhindert, dass eine flache Geländehaut die modellierten Eingangsstufen überdeckt. Die alte globale Erdarbeitskarte ist weiterhin keine vollständige neue Vermessung eurer Welt; die modellierten zusätzlichen Erd- und Oberflächenblöcke sind in den aktuellen Außenmaterialmengen enthalten.
 

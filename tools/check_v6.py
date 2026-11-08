@@ -20,7 +20,7 @@ def check():
    for z in (766,814):assert b[x,y,z][0]=='deepslate_bricks'
   for z in range(767,814):
    for x in (-710,-658):
-    if x==-710 and 96<=y<=98 and 775<=z<=777:continue
+    if x==-710 and 96<=y<=98 and (775<=z<=777 or 781<=z<=782):continue
     assert b[x,y,z][0]=='deepslate_bricks'
  for x in range(-709,-658):
   for z in range(767,781):

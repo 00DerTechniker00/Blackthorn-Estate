@@ -144,6 +144,8 @@ def main():
             for y in range(81,84):
                 if (x,z) not in ((-713,776),(-712,776)):clear(x,y,z)
             if x>-711:put(x,84,z,'deepslate_bricks',group='v6_geheimabstieg')
+    from access_v6 import enhance as build_water_access
+    water_access=build_water_access(b,air)
     # Restore every one of the 2397 original floor blocks including their exact properties.
     for y,z,x,n,ri in survey['runs']:
         if y!=95:continue
@@ -189,6 +191,7 @@ def main():
     room('Porter-Galerie · gesamte Nordwand','v6_keller',[-709,-659],[125,128],[767,780],'51 × 14 freie Bodenpositionen; gesamte Nordseite bleibt ohne Möbel. Eigene Porter chunkweise einsetzen.')
     room('Poolterrasse und flacher Einstieg','v6_pool',[-657,-634],[130,130],[770,810],'Ruhiger Steinbelag, Holzbänke und beleuchtetes Becken; mittlerer Hauszugang bleibt frei.')
     room('Rosenterrasse mit Pergola','v6_garten',[-736,-728],[126,126],[841,849],'Über den nördlichen Kiesweg erreichbar; offene Mitte und Sitzbank im Süden.')
+    room('Geheimsalon am tiefen Gang','v6_geheimsalon',[-684,-670],[81,87],[770,783],'15 × 14 freie Innenabmessung vor Möbeln, sieben Blöcke hoch; Auf- und Abfahrt in der westlichen Nische.')
     d['storage_zones']=[];d['storage_bays']=[]
     for i,x in enumerate(range(-708,-699,2),1):
         id=f'V6-H{i:02d}';d['storage_zones'].append(dict(id=id,name=f'Reserve {i}',contents='1 Fass · 27 Plätze',room='Unteres Handlager',group='v6_handlager',x=[x,x],y=[96,96],z=[812,812]))
@@ -200,14 +203,14 @@ def main():
     d['checks'].update(doors=sum(v[0].endswith('_door') and 'half=lower' in v[1] for v in b.values()),stairs=sum(v[0].endswith('_stairs') for v in b.values()),panes=sum(v[0]=='glass_pane' or v[0].endswith('_stained_glass_pane') for v in b.values()))
     d['lighting']['total']=sum(v[0] in ('lantern','soul_lantern') for v in b.values())
     d['lighting']['light_simulated']=False;d['lighting']['light_report']=None
-    levels=[('v6_unten','Geheim- und Nebenräume',95,101),('v6_lager','Großlager · 22 Ebenen',102,123),('v6_porter','Porter-Galerie · Nordwand frei',124,128),('erdgeschoss','Erdgeschoss',129,136),('obergeschoss','Obergeschoss & Galerie',137,144),('dach','Dach & Türme',145,171)]
+    levels=[('v6_salon','Tiefer Geheimsalon',80,88),('v6_unten','Geheim- und Nebenräume',95,101),('v6_lager','Großlager · 22 Ebenen',102,123),('v6_porter','Porter-Galerie · Nordwand frei',124,128),('erdgeschoss','Erdgeschoss',129,136),('obergeschoss','Obergeschoss & Galerie',137,144),('dach','Dach & Türme',145,171)]
     d['structure']['levels']=[dict(id=k,label=label,y=[lo,hi],height=hi-lo+1,groups=sorted({v[2] for p,v in b.items() if lo<=p[1]<=hi}),positions=sum(lo<=p[1]<=hi for p in b),rooms=[r['name'] for r in d['rooms'] if lo<=r['y'][0]<=hi]) for k,label,lo,hi in levels]
     d['structure']['stair_runs']=[];d['structure']['stair_clearance']=[]
     d['structure']['service_shaft']={'position':[-661,95,803],'vault_bounds':[-701,-675,102,123,771,797],'vault_size':[27,22,27],'service_gap_x':[-674,-659],'vertical_floor_blocks':[],'note':'Durchgehende Leiter Y96–131 mit Austritten auf Y95, 102, 124 und 129.'}
     d['structure']['logistics']=[{'label':'Dustless-Großlager','y':[102,123]},{'label':'Porter-Galerie · Nordwand frei','y':[124,128]}]
     d['structure']['enhancements']['title']='Version 6 · Keller nach eurem gebauten Bestand'
     d['structure']['enhancements']['features']=[dict(name='Gebauter Keller bleibt erhalten',description='Boden Y95 und Außenwände bilden die Grundlage.',group='v6_bestand'),dict(name='Großlager integriert',description='Dustless-Litematic in voller Höhe, keine gestauchten Schaltungen.',group='v6_grosslager'),dict(name='Nordwand vollständig frei',description='51 × 14 Bodenpositionen für eure vorhandenen Porter; Chunkraster im Plan beachten.',group='v6_keller')]
-    d['structure']['v6']={'north_reserve':[-709,-659,125,128,767,780],'storage_anchor':[-701,102,771],'source_sha256':survey['source_sha256'],'outdoors':outdoor_changes}
+    d['structure']['v6']={'north_reserve':[-709,-659,125,128,767,780],'storage_anchor':[-701,102,771],'source_sha256':survey['source_sha256'],'outdoors':outdoor_changes,'water_access':water_access}
     # Preserve original entity and inventory data in the derived Litematic. Main house NBT is block-only.
     modules=json.loads((ROOT/'lagertechnik_module.json').read_text())
     meta.update(key='dustless_filter',proposed_world_anchor=[-701,102,771],rotation='unverändert')
@@ -239,6 +242,8 @@ def main():
     check()
     from check_outdoors_v6 import check as check_outdoors
     check_outdoors()
+    from check_water_access import check as check_access
+    check_access()
     print('V6 built:',len(b),'positions;',len(storage),'storage blocks;',len(air),'explicit clearance positions.')
 
 def write_current_delta(survey,b,air):

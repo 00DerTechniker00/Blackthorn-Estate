@@ -78,5 +78,6 @@
   if(showCode)showCode.onclick=()=>{const input=$('#sharedCode'),show=input.type==='password';input.type=show?'text':'password';showCode.textContent=show?'Verbergen':'Anzeigen';showCode.setAttribute('aria-pressed',String(show));};
   document.querySelector('[data-cellar-floor]')?.addEventListener('click',()=>window.__showCellarFloor());
   document.querySelectorAll('[data-v6-outdoor]').forEach(button=>button.onclick=()=>window.__showOutdoorV6(button.dataset.v6Outdoor));
+  document.querySelectorAll('[data-v6-water]').forEach(button=>button.onclick=()=>window.__showWaterAccessV6(button.dataset.v6Water));
   saved();renderLights();paint();
 })();

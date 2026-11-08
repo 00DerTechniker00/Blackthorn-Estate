@@ -19,13 +19,13 @@ test('terrain-only target shows the actual surveyed Y95 floor through normal mod
  vm.runInNewContext(definition,context);assert(context.predNow()(0));assert(!context.predNow()(1));
  context.S3.terrainMode='original';assert(!context.predNow()(0));
 });
-test('all 212 boundary faces close the cellar and west shaft without a horizontal lid',()=>{
+test('all 214 boundary faces close the cellar and west shaft without a horizontal lid',()=>{
  const bounds=[-716,-655,764,816],width=62,height=53,faces=[];
  const grid=()=>Array.from({length:height},()=>Array(width).fill(128));
  const context={D:{structure:{v6:{}},terrain:{bounds,heights:grid(),target_heights:grid(),surface_blocks:grid().map(r=>r.map(()=> 'stone')),target_surface_blocks:grid().map(r=>r.map(()=> 'stone')),work:[]}},S3:{terrainMode:'target'},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>faces.push({dir,box})};
  vm.runInNewContext(source,context);context.buildTerrain();
  const boundary=faces.filter(f=>f.dir!=='up'&&[80,95].includes(f.box[1]));
- assert.equal(boundary.length,212);assert(boundary.every(f=>f.box[4]===129));
+ assert.equal(boundary.length,214);assert(boundary.every(f=>f.box[4]===129));
  assert(boundary.some(f=>f.dir==='north'));assert(boundary.some(f=>f.dir==='south'));assert(boundary.some(f=>f.dir==='east'));assert(boundary.some(f=>f.dir==='west'));
  assert(!faces.some(f=>f.dir==='up'&&f.box[0]===-684&&f.box[2]===790));
 });
