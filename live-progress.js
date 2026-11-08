@@ -38,7 +38,7 @@
    $('liveLogin').hidden=true;$('liveSession').hidden=false;environment=data.environment;
    try{sessionStorage.setItem('blackthorn:live:code',code);}catch{}
    snapshot=data.snapshot;$('liveWorkspace').hidden=!snapshot;
-   if(snapshot)render();else status('Noch kein Prüfstand empfangen. Paper-Plugin installieren und dessen Endpoint, Welt und Schreibtoken prüfen.');
+   if(snapshot)render();else status('Noch kein Prüfstand für Bauplan '+data.plan.revision+' ('+data.plan.positions.toLocaleString('de-DE')+' Positionen). Auf dem Server /blackthornlive status prüfen. Ab Plugin 1.4.0: /blackthornlive sync lädt den aktuellen Plan. Bei HTTP 401 den separaten Schreibtoken prüfen.');
   }catch(e){if(run!==generation)return;status(e.message+(snapshot?' Der letzte empfangene Stand bleibt sichtbar.':''),true);if(e.status===401){code='';snapshot=null;$('liveWorkspace').hidden=true;$('liveLogin').hidden=false;$('liveSession').hidden=true;try{sessionStorage.removeItem('blackthorn:live:code');}catch{}}}
   finally{busy=false;$('liveRefresh').disabled=false;$('liveLogin').querySelector('button').disabled=false;}
  }

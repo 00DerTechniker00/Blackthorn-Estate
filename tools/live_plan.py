@@ -14,7 +14,9 @@ def generate(root, data):
         block,states,group=data['reg'][ri]
         block='minecraft:'+block+('['+states+']' if states else '')
         for dx in range(n):rows.append(f'{x+dx}\t{y}\t{z}\t{block}')
-    dest.write_bytes(gzip.compress(('\n'.join(rows)+'\n').encode(),mtime=0))
+    packed=gzip.compress(('\n'.join(rows)+'\n').encode(),mtime=0)
+    dest.write_bytes(packed)
+    (root/'live-server-plan.tsv.gz').write_bytes(packed)
 
 if __name__=='__main__':
     root=Path(__file__).resolve().parent.parent

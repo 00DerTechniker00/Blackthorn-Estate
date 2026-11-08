@@ -26,7 +26,7 @@ export function createBuildHandler({plan,env=process.env,fetcher=fetch,now=Date.
    if(!write){const raw=await redis(['GET',key]);const snapshot=raw?JSON.parse(raw):null;if(snapshot){snapshot.states=gunzipSync(Buffer.from(snapshot.statesGzip,'base64'),{maxOutputLength:plan.positions+1}).toString('ascii');delete snapshot.statesGzip;}return send(200,{plan,environment:mode,snapshot});}
    if(!(req.headers['content-type']||'').startsWith('application/json'))return send(415,{error:'JSON erwartet.'});
    let body;try{body=typeof req.body==='string'?JSON.parse(req.body):req.body;}catch{return send(400,{error:'Ungültiges JSON.'});}
-   if(!body||body.fingerprint!==plan.fingerprint)return send(409,{error:'Plugin und Website verwenden unterschiedliche Baupläne. Plugin mit aktuellem Plan neu bauen.'});
+   if(!body||body.fingerprint!==plan.fingerprint)return send(409,{error:'Plugin und Website verwenden unterschiedliche Baupläne. Ab Plugin 1.4.0 den automatischen Abgleich abwarten oder /blackthornlive sync ausführen; ältere Plugins aktualisieren.'});
    if(body.statesGzip!==undefined){
     if(body.states!==undefined||typeof body.statesGzip!=='string'||body.statesGzip.length>2*plan.positions+4096||!/^[a-zA-Z0-9+/]+={0,2}$/.test(body.statesGzip))return send(400,{error:'Ungültiger komprimierter Prüfstand.'});
     try{body.states=gunzipSync(Buffer.from(body.statesGzip,'base64'),{maxOutputLength:plan.positions+1}).toString('utf8');}catch{return send(400,{error:'Ungültiger komprimierter Prüfstand.'});}

@@ -57,13 +57,16 @@ def check():
  for p,block in module_blocks.items():assert b[p]==block,p
  assert {(x//16,z//16) for x,y,z in module_blocks}=={(-44,48),(-44,49),(-43,48),(-43,49)}
  with zipfile.ZipFile(ROOT/'downloads/BlackthornLive.jar') as jar:
-  rows=gzip.decompress(jar.read('plan.tsv.gz')).decode().splitlines()
-  assert rows[0].split('\t')[0]==d['meta']['fingerprint']
+  embedded=gzip.decompress(jar.read('plan.tsv.gz')).decode().splitlines()
+  assert len(embedded)>1 and len(embedded[0].split('\t')[0])==64
   assert jar.read('plugin.yml')==(ROOT/'paper-plugin/src/main/resources/plugin.yml').read_bytes()
-  assert len(rows)==len(b)+1
-  i=1
-  for y,z,x,n,ri in d['runs']:
-   for xx in range(x,x+n):assert rows[i].split('\t')[:3]==list(map(str,(xx,y,z)));i+=1
+ # The hosted plan must match the atlas; an auto-sync JAR may retain an older fallback plan.
+ rows=gzip.decompress((ROOT/'live-server-plan.tsv.gz').read_bytes()).decode().splitlines()
+ assert rows[0].split('\t')[0]==d['meta']['fingerprint']
+ assert len(rows)==len(b)+1
+ i=1
+ for y,z,x,n,ri in d['runs']:
+  for xx in range(x,x+n):assert rows[i].split('\t')[:3]==list(map(str,(xx,y,z)));i+=1
  class HTML(HTMLParser):
   def __init__(self):super().__init__();self.ids=[];self.targets=[];self.links=[]
   def handle_starttag(self,t,a):
@@ -77,5 +80,5 @@ def check():
  for link in html.links:
   if urlsplit(link).scheme or link.startswith('#'):continue
   assert (ROOT/unquote(urlsplit(link).path)).exists(),link
- print(f'V6 passed: {len(b)} positions; existing walls; north clearance; ladder exits; 4543 source blocks; inventories/entities; plugin fingerprint; links/ARIA.')
+ print(f'V6 passed: {len(b)} positions; existing walls; north clearance; ladder exits; 4543 source blocks; inventories/entities; hosted plan fingerprint; links/ARIA.')
 if __name__=='__main__':check()

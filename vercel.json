@@ -12,6 +12,13 @@
     "api/build-progress.mjs": {
       "includeFiles": "live-plan.json",
       "maxDuration": 15
+    },
+    "api/build-plan.mjs": {
+      "includeFiles": [
+        "live-plan.json",
+        "live-server-plan.tsv.gz"
+      ],
+      "maxDuration": 15
     }
   },
   "headers": [

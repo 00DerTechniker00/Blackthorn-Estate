@@ -12,3 +12,6 @@ offset-z: 0
 positions-per-tick: 300
 max-scan-millis-per-tick: 2
 upload-seconds: 10
+
+# Automatically download newer website plans; no new JAR needed for blueprint revisions.
+sync-seconds: 60

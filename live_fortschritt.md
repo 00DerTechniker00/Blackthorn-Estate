@@ -45,7 +45,7 @@ Ein Übertragungsstand älter als 45 Sekunden wird als veraltet markiert. Bei Ab
 
 Die Prüfung umfasst die geplanten Baupositionen inklusive Geländeauffüllung. Bereits vorhandene passende Naturblöcke zählen als richtig. Zusätzliche Blöcke außerhalb dieser Positionen, Aushub, erforderliche Luftbereiche, Inventare, Entitäten, Beleuchtungswirkung und funktionierende Redstone-Schaltungen werden nicht geprüft. Dynamische Zustände im Bauplan können während des Betriebs zeitweise abweichen. Die Anzeige ist eine Bauplanprüfung und keine technische Ingame-Abnahme. Automatische Ergebnisse werden getrennt von manuellen Bauhäkchen und Materialbeständen gespeichert.
 
-Genau ein Plugin darf in dieselbe Atlas-Umgebung schreiben. Production, Preview und Development sowie unterschiedliche Bauplan-Fingerprints sind getrennt. Ein anderer Bauplan wird mit HTTP 409 abgelehnt; dann Plugin und Website aus derselben Revision bauen. HTTP 401 bedeutet falscher Schreibtoken, 503 fehlende Vercel-/Redis-Einrichtung oder Datenbankfehler, 400 ungültiger Prüfstand oder unpassende Serveruhr. Plugin-Logs enthalten keine Token.
+Genau ein Plugin darf in dieselbe Atlas-Umgebung schreiben. Production, Preview und Development sowie unterschiedliche Bauplan-Fingerprints sind getrennt. Ein anderer Bauplan wird mit HTTP 409 abgelehnt; ab Plugin 1.4.0 den automatischen Abgleich abwarten oder `/blackthornlive sync` ausführen. Bei älteren Plugins ist die passende JAR nötig. HTTP 401 bedeutet falscher Schreibtoken, 503 fehlende Vercel-/Redis-Einrichtung oder Datenbankfehler, 400 ungültiger Prüfstand oder unpassende Serveruhr. Plugin-Logs enthalten keine Token.
 
 ## Quellcode und Build
 
@@ -56,8 +56,24 @@ python tools/live_plan.py
 gradle -p paper-plugin clean jar
 ```
 
-Ergebnis: `paper-plugin/build/libs/BlackthornLive.jar`. Für die Website-Downloadfunktion diese Datei nach `downloads/BlackthornLive.jar` kopieren. `tools/build.py` erzeugt den Plugin-Bauplan bei Modelländerungen automatisch neu; danach muss das JAR neu gebaut werden. Die API verwendet den kleinsten hier benötigten 26.x-Stand (26.1.2), das Zielsystem ist euer Paper 26.3. Das mitgelieferte JAR ist für Java 25 kompiliert.
+Ergebnis: `paper-plugin/build/libs/BlackthornLive.jar`. Für die Website-Downloadfunktion diese Datei nach `downloads/BlackthornLive.jar` kopieren. `tools/build.py` erzeugt den Plugin-Bauplan bei Modelländerungen automatisch neu; ab Plugin 1.4.0 genügt bei reinen Bauplanänderungen das Veröffentlichen von Website und Server-Plandatei. Die API verwendet den kleinsten hier benötigten 26.x-Stand (26.1.2), das Zielsystem ist euer Paper 26.3. Das mitgelieferte JAR ist für Java 25 kompiliert.
 
 Das JAR wurde kompiliert und die Website-/API-Prüfungen lokal ausgeführt. Ein gemeinsamer Test mit eurem tatsächlichen Paper-Server und Vercel ist nach der Konfiguration noch erforderlich. Zum Abnehmen eine bekannte Position passend setzen, falsch ausrichten und entfernen und jeweils den Zustand im Atlas kontrollieren; anschließend einen Chunk entladen und den Übergang zu „ungeprüft“ abwarten.
 
 Grundlagen: [Paper-Projektaufbau](https://docs.papermc.io/paper/dev/project-setup/), [BlockData-Vergleich](https://jd.papermc.io/paper/26.1.2/org/bukkit/block/data/BlockData.html#matches(org.bukkit.block.data.BlockData)), [Scheduler](https://docs.papermc.io/paper/dev/scheduler/).
+
+## Ab Plugin 1.4.0: Baupläne automatisch übernehmen
+
+Einmalig Plugin **1.4.0** installieren und die neue Website einschließlich `api/build-plan.mjs` sowie `live-server-plan.tsv.gz` veröffentlichen. Die Vercel-Funktion benötigt weiterhin den vorhandenen `LIVE_BUILD_WRITE_TOKEN`; es gibt keinen zusätzlichen Schlüssel. Die bestehende Plugin-Konfiguration bleibt verwendbar.
+
+Danach wird **beim Start, ungefähr jede Minute und nach einem Bauplan-Konflikt** der aktuelle Plan beim gleichen Website-Host abgefragt. Ändert sich nur der Bauplan, ist keine neue JAR und kein Serverneustart mehr nötig. Die Download-Adresse wird automatisch aus dem vorhandenen Endpoint abgeleitet. Veröffentlichte Bauplanrevisionen müssen Website-Metadaten und die komprimierte Server-Plandatei gemeinsam enthalten; `python tools/build.py` erzeugt beides.
+
+Bei einem neuen Plan werden unveränderte Positionen mit ihren Prüfergebnissen übernommen. Neue oder geänderte Positionen werden neu geprüft. Die Website hält Prüfstände verschiedener Fingerprints weiterhin getrennt. Nach dem Wechsel dauert es bis zur nächsten Übertragung, bevor dort Werte erscheinen.
+
+Das Plugin speichert einen erfolgreich übernommenen Plan in `plugins/BlackthornLive/current-plan.tsv.gz`. Bei einem Neustart ist dieser Plan auch ohne Website verfügbar. Ist die lokale Datei ungültig, wird der eingebettete Plan verwendet. Fehlerhafte Downloads, fehlende neue Endpunkte oder unbekannte Blockzustände ersetzen keinen aktiven Plan. Größe, Koordinaten, Format, doppelte Positionen und Weltgrenzen werden geprüft. Netzwerkfehler haben Zeitlimits und werden erneut versucht. Downloads enthalten nur Blockdaten und keine auszuführenden Java-Dateien.
+
+Mit `/blackthornlive sync` lässt sich der Abgleich manuell starten; `/blackthornlive status` zeigt **Upload** und **Abgleich** getrennt. `sync-seconds: 60` ist der Standard; alte Konfigurationsdateien ohne diesen Eintrag verwenden ihn ebenfalls. HTTP 404 beim Planabgleich bedeutet meistens, dass die Website den neuen Endpunkt noch nicht enthält. HTTP 401 bedeutet weiterhin einen falschen Plugin-Schreibtoken. Ein blockierter Vercel-Zugang muss unabhängig davon freigegeben werden.
+
+Die automatische Anpassung gilt für Baupläne im unterstützten Schema 1, nicht für beliebige zukünftige Paper-/Minecraft-API-Änderungen. Neue, auf dem laufenden Server unbekannte Blocktypen oder ein geändertes Datenformat können ein Server- beziehungsweise Plugin-Update erfordern. Der Decoder unterstützt bis zu 500.000 Positionen und maximal 2 MiB komprimierte / 32 MiB entpackte Plandaten. Solche Fehler werden gemeldet, der bisherige Plan bleibt erhalten.
+
+Lokal geprüft: kompilierte JAR, Download-Authentifizierung, unveränderte Pläne (HTTP 304), Plan-/Metadatenkonsistenz, Versionswechsel im Decoder, beschädigte Dateien, doppelte Koordinaten und Downloadgrößenlimit. Die vollständige automatische Übernahme auf eurem laufenden Paper-Server muss nach Installation einmal geprüft werden.

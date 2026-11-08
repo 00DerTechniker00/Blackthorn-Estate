@@ -1,6 +1,8 @@
+**Live-Plugin 1.4.0:** übernimmt neue Website-Baupläne automatisch; bei künftigen Hausänderungen ist kein erneuter JAR-Austausch nötig. Einmalig die neue Website und JAR installieren. Details: [Automatischer Planabgleich](live_fortschritt.md).
+
 # Version 6.0 · Keller nach gebautem Bestand
 
-Aktueller Build: `python tools/build.py`. [Umbaufolge, Porterflächen und Lagerimport](umbau_v6.md). Der unten dokumentierte Stand 5.x ist Projektgeschichte; maßgeblich sind der V6-Atlas und die aktuellen Block- und Materiallisten. Nach dem Update das neue Live-Plugin 1.3.0 installieren.
+Aktueller Build: `python tools/build.py`. [Umbaufolge, Porterflächen und Lagerimport](umbau_v6.md). Der unten dokumentierte Stand 5.x ist Projektgeschichte; maßgeblich sind der V6-Atlas und die aktuellen Block- und Materiallisten. Nach dem Update das neue Live-Plugin 1.4.0 installieren.
 
 # Blackthorn Estate · Revision 5.26
 

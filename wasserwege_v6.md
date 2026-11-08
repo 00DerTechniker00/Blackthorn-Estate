@@ -37,6 +37,8 @@ Der dreiblöckige Gang mündet durch eine breite Öffnung in den Raum. Bücherre
 
 ## Aktualisierung
 
-Website, Materiallisten, Haus-NBT und Live-Bauplan sind gemeinsam aktualisiert. Neues Plugin **1.3.0** installieren, vorhandene Konfiguration beibehalten und Server neu starten. Unveränderte Bauhäkchen bleiben erhalten.
+Website, Materiallisten, Haus-NBT und Live-Bauplan sind gemeinsam aktualisiert. Neues Plugin **1.4.0** installieren, vorhandene Konfiguration beibehalten und Server neu starten. Unveränderte Bauhäkchen bleiben erhalten.
 
 Statisch geprüft werden Säulen und Quellen, freie Fallachsen, befestigte Wasserstopp-Schilder, Verbindungen und Raumabmessungen. Wasserphysik, Ausstieg bei Auftrieb und sicherer Fall sind keine vollständige Ingame-Simulation.
+
+Ab installierter Plugin-Version 1.4.0 wird der Bauplan automatisch von der Website aktualisiert. Der genannte JAR-Austausch ist für den einmaligen Wechsel von älteren Plugin-Versionen erforderlich, nicht bei jeder weiteren Bauplanänderung. Website und Server-Plandatei gemeinsam veröffentlichen; bei Bedarf `/blackthornlive sync` verwenden.
