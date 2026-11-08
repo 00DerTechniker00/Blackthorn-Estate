@@ -34,7 +34,17 @@
     });
     let result;
     try{result=await response.json();}catch{throw Object.assign(Error('Die gemeinsame Liste ist auf dieser Website noch nicht erreichbar. Bitte die Vercel-Einrichtung prüfen.'),{status:response.status});}
-    if(!response.ok)throw Object.assign(Error(result.error||'Die Anfrage ist fehlgeschlagen.'),{status:response.status,...result});
+    if(!response.ok){
+      let message=result.error||'Die Anfrage ist fehlgeschlagen.';
+      if(response.status===401){
+        const environment=({production:'Production',preview:'Preview',development:'Development'})[result.environment];
+        message='Anmeldung abgelehnt: Dein Teamcode stimmt nicht mit dem im aktiven Deployment hinterlegten Code überein.'+
+          (environment?' Diese Website verwendet die Vercel-Umgebung '+environment+'.':'')+
+          '\nGib den WERT von SHARED_LIST_TEAM_CODE ein – nicht den Variablennamen und nicht den Upstash-Token. Groß-/Kleinschreibung sowie Leerzeichen zählen.'+
+          '\nFalls der Wert in Vercel geändert wurde: für die passende Umgebung speichern, neu deployen und danach die Website neu laden. Die Website kann nicht erkennen, ob noch ein älteres Deployment geöffnet ist.';
+      }
+      throw Object.assign(Error(message),{status:response.status,...result});
+    }
     return result;
   }
   function setSession(on){
@@ -125,6 +135,7 @@
     event.preventDefault();if(offline)return;
     author=$('sharedName').value.trim();code=$('sharedCode').value||code;
     if(!author||!code){status('Bitte Name und Teamcode angeben.',true);return;}
+    if(code.trim()==='SHARED_LIST_TEAM_CODE'){status('Hier gehört dein selbst gewählter Zugangscode hinein. SHARED_LIST_TEAM_CODE ist nur der Variablenname in Vercel. Verwende den dort unter Value / Wert gespeicherten Code.',true);return;}
     $('sharedConnect').disabled=true;status('Gemeinsame Liste wird geöffnet …');generation++;
     try{
       const result=await request();rows=result.entries;planMismatch=result.fingerprint!==D.meta.fingerprint;

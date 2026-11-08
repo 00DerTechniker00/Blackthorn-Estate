@@ -39,6 +39,7 @@ function browser(server,{protocol='https:',session=new Map(),profile=new Map()}=
  }
  const names=['sharedConnection','sharedLogin','sharedName','sharedCode','sharedConnect','sharedSession','sharedIdentity','sharedRefresh','sharedLogout','sharedStatus','sharedWorkspace','sharedScope','sharedQuery','sharedOpenOnly','sharedExport','sharedSummary','sharedRows','tab-shared'];
  for(const name of names)nodes.set(name,new Element(name));nodes.get('sharedScope').value='house';
+ nodes.get('sharedWorkspace').hidden=true;nodes.get('sharedSession').hidden=true;
  doc={getElementById:id=>nodes.get(id),activeElement:null,hidden:false,addEventListener(){},createElement:()=>new Element()};
  const storage=data=>({getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)});
  const window={BLACKTHORN_DATA:plan,__materialName:k=>k,addEventListener(){}};
@@ -77,6 +78,24 @@ test('offline writes remain explicit unsaved drafts and survive reconnecting the
 test('local file mode does not claim a central connection or send requests',()=>{
  const backend=api(),view=browser(backend,{protocol:'file:'});
  assert.equal(view.nodes.get('sharedConnect').disabled,true);assert.equal(backend.calls.length,0);assert.match(view.nodes.get('sharedStatus').textContent,/veröffentlichten Website/);
+});
+test('authentication errors explain the value, deployment and environment even with an older API',async()=>{
+ for(const environment of [undefined,'preview','production']){
+  const view=browser({fetch:async()=>({ok:false,status:401,json:async()=>({code:'UNAUTHORIZED',error:'Der Teamcode ist ungültig.',environment})})});
+  await view.login();
+  const message=view.nodes.get('sharedStatus').textContent;
+  assert.match(message,/WERT von SHARED_LIST_TEAM_CODE/);assert.match(message,/neu deployen/);
+  assert.match(message,/älteres Deployment/);assert.equal(view.nodes.get('sharedWorkspace').hidden,true);
+  assert.notEqual(view.nodes.get('sharedIdentity').textContent,'Verbunden als Piet');
+  if(environment)assert(message.includes(environment==='preview'?'Preview':'Production'));
+ }
+});
+test('entering the environment variable name explains the mistake without sending it',async()=>{
+ const backend=api(),view=browser(backend);
+ view.nodes.get('sharedName').value='Piet';view.nodes.get('sharedCode').value='SHARED_LIST_TEAM_CODE';
+ await view.nodes.get('sharedLogin').onsubmit({preventDefault(){}});
+ assert.equal(backend.calls.length,0);assert.match(view.nodes.get('sharedStatus').textContent,/nur der Variablenname/);
+ assert.match(view.nodes.get('sharedStatus').textContent,/Value \/ Wert/);
 });
 test('names and notes are escaped in table markup',async()=>{
  const backend=api(),view=browser(backend);await view.login('<img src=x onerror=alert(1)>');

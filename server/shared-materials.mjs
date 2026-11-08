@@ -32,10 +32,15 @@ export function createHandler({plan, env = process.env, fetcher = fetch, now = (
     const secret = env.SHARED_LIST_TEAM_CODE || '';
     const url = env.UPSTASH_REDIS_REST_URL || env.KV_REST_API_URL || '';
     const token = env.UPSTASH_REDIS_REST_TOKEN || env.KV_REST_API_TOKEN || '';
-    if (secret.length < 16 || !/^https:\/\//.test(url) || !token) return send(503, {code:'SETUP_REQUIRED', error:'Die gemeinsame Liste ist noch nicht eingerichtet. Anleitung: gemeinsame_liste.md'});
+    const setupIssues = [];
+    if (!secret) setupIssues.push('SHARED_LIST_TEAM_CODE fehlt');
+    else if (secret.length < 16) setupIssues.push('der Wert von SHARED_LIST_TEAM_CODE hat weniger als 16 Zeichen');
+    if (!/^https:\/\//.test(url)) setupIssues.push('die Redis-REST-URL fehlt oder beginnt nicht mit https:// (KV_REST_API_URL oder UPSTASH_REDIS_REST_URL)');
+    if (!token) setupIssues.push('der Redis-Schreibtoken fehlt (KV_REST_API_TOKEN oder UPSTASH_REDIS_REST_TOKEN)');
+    if (setupIssues.length) return send(503, {code:'SETUP_REQUIRED', error:'Server-Einrichtung unvollständig: '+setupIssues.join('; ')+'. In Vercel unter Settings → Environment Variables für die verwendete Umgebung korrigieren, speichern und anschließend neu deployen.'});
     const authorization = req.headers.authorization || '';
     const supplied = typeof authorization==='string' && authorization.startsWith('Bearer ') ? authorization.slice(7) : '';
-    if (!supplied || supplied.length > 512 || !timingSafeEqual(hash(secret), hash(supplied))) return send(401, {code:'UNAUTHORIZED', error:'Der Teamcode ist ungültig.'});
+    if (!supplied || supplied.length > 512 || !timingSafeEqual(hash(secret), hash(supplied))) return send(401, {code:'UNAUTHORIZED', environment:env.VERCEL_ENV || 'development', error:'Anmeldung abgelehnt: Der eingegebene Teamcode stimmt nicht mit dem Wert von SHARED_LIST_TEAM_CODE in diesem Deployment überein.'});
     if (!['GET', 'PATCH'].includes(req.method)) {
       res.setHeader('Allow', 'GET, PATCH');
       return send(405, {error:'Methode nicht erlaubt.'});

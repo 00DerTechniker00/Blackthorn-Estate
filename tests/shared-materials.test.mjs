@@ -37,6 +37,23 @@ test('team authentication is required before any database request',async()=>{
   }
   assert.equal(db.calls.length,0);
 });
+test('setup diagnostics identify missing fields and authentication names the active environment without secrets',async()=>{
+ const db=store();
+ for(const [field,value,expected] of [
+  ['SHARED_LIST_TEAM_CODE','',/SHARED_LIST_TEAM_CODE fehlt/],
+  ['SHARED_LIST_TEAM_CODE','short',/weniger als 16 Zeichen/],
+  ['UPSTASH_REDIS_REST_URL','redis:\/\/invalid',/Redis-REST-URL/],
+  ['UPSTASH_REDIS_REST_TOKEN','',/Redis-Schreibtoken fehlt/]
+ ]){
+  const result=await call(handlerFor(db,{...environment,[field]:value}));
+  assert.equal(result.statusCode,503);assert.match(result.body.error,expected);
+  assert.match(result.body.error,/neu deployen/);
+  assert(!JSON.stringify(result.body).includes(environment.SHARED_LIST_TEAM_CODE));
+  assert(!JSON.stringify(result.body).includes(environment.UPSTASH_REDIS_REST_TOKEN));
+ }
+ const result=await call(handlerFor(db,{...environment,VERCEL_ENV:'preview'}),{headers:{authorization:'Bearer wrong'}});
+ assert.equal(result.statusCode,401);assert.equal(result.body.environment,'preview');assert.equal(db.calls.length,0);
+});
 test('save, read on a second client, and clear a checkbox without losing stock',async()=>{
   const db=store(),handler=handlerFor(db);
   let result=await call(handler,{method:'PATCH',body:patch({changes:{amount:12,done:true,note:'Keller R01'}})});
