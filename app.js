@@ -313,7 +313,22 @@ function buildTerrain() {
     if(mode==='work'&&r)top=r[4]&&r[5]?[.65,.48,.73]:r[4]?[.90,.51,.23]:r[5]?[.21,.67,.64]:[.73,.68,.41];
     addFace(B,'up',[x,0,z,x+1,h,z+1],top,1);
     for(const dir of ['north','south','east','west']){
-      const v=DIRV[dir];if(cutout(x+v[0],z+v[2]))continue;
+      const v=DIRV[dir];
+      if(cutout(x+v[0],z+v[2])){
+        // Close the exposed soil edge, never the top of the cellar cavity.
+        // Move the face slightly into the soil so the actual masonry wins the depth test.
+        const base=(x+v[0]<-710)?80:95,box=[x,base,z,x+1,h,z+1],epsilon=.002;
+        if(dir==='east')box[3]-=epsilon;
+        if(dir==='west')box[0]+=epsilon;
+        if(dir==='south')box[5]-=epsilon;
+        if(dir==='north')box[2]+=epsilon;
+        if(h>base){
+          const soil=mat==='grass_block'||mat==='dirt';
+          const faceColor=(soil?rgb.dirt:rgb.stone).map(c=>c*variation);
+          addFace(B,dir,box,mode==='work'&&r?top:faceColor,1);
+        }
+        continue;
+      }
       const neighbour=height(x+v[0],z+v[2]);
       if(neighbour<h){
         const side=mode==='work'&&r?top:[.45*variation,.35*variation,.24*variation];
