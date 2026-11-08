@@ -65,3 +65,5 @@ Frühere Licht-, Erreichbarkeits- und Erdarbeitszahlen sind historische Daten. A
 Die Daten bleiben in externen JavaScript-Dateien, damit der Atlas lokal ohne Webserver geöffnet werden kann. Historische Archive und Rohwelten bleiben lokal über .gitignore ausgeschlossen. Nicht mehr verwendete Werkzeuge aus der 5.11-Reihe und zwei ungenutzte Vorschaubilder liegen lokal unter archive/repository-cleanup-5.22/. Der aktuelle Build benötigt sie nicht.
 
 Atlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v5.26`.
+
+Gemeinsame Materialliste: Organisation → Gemeinsame Liste. Server-Konfiguration und Vercel-Einrichtung stehen in [gemeinsame_liste.md](gemeinsame_liste.md). Benötigt Upstash und einen Teamcode; ohne diese Einstellungen bleibt die zentrale Liste deaktiviert. Der lokale Baufortschritt bleibt im Browser.

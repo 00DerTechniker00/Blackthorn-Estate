@@ -1,0 +1,6 @@
+{
+  "name": "blackthorn-estate-atlas",
+  "private": true,
+  "engines": {"node": "22.x"},
+  "scripts": {"test": "node --test tests/*.test.mjs"}
+}

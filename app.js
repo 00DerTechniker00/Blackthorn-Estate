@@ -164,7 +164,7 @@ function showTab(id) {
 }
 $$('[data-tab]').forEach(b => b.onclick = () => showTab(b.dataset.tab));
 window.addEventListener('hashchange',()=>{const id=location.hash.replace(/^#/, '');if($('#tab-'+id)&&!$('#tab-'+id).classList.contains('on'))showTab(id);});
-window.__groupName=gname;
+window.__groupName=gname;window.__materialName=deName;
 window.__showTab = showTab;
 window.__focusPlan=(x,y,z)=>{planSetMode('y');PL.val=y;$('#planRange').value=y;showTab('plan');planCenter(x,z);};
 

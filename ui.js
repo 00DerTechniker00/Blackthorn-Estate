@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],D=window.BLACKTHORN_DATA,safe=BT.escape;
-  const routes={overview:['start','Start'], '3d':['atlas','Bauatlas'],structure:['atlas','Hausstruktur'],plan:['atlas','Ebenenplan'],steps:['atlas','Baubegleitung'],rooms:['atlas','Raumbuch'],viewer:['atlas','Minecraft-Texturen'],lighting:['atlas','Leuchtenplan'],terrain:['terrain','Gelände & Erdarbeiten'],storage:['storage','Lagerbestände'],system:['storage','Sortierung & Technik'],build:['organize','Baufortschritt'],material:['organize','Materialbedarf'],downloads:['organize','Dateien & Berichte']};
+  const routes={overview:['start','Start'], '3d':['atlas','Bauatlas'],structure:['atlas','Hausstruktur'],plan:['atlas','Ebenenplan'],steps:['atlas','Baubegleitung'],rooms:['atlas','Raumbuch'],viewer:['atlas','Minecraft-Texturen'],lighting:['atlas','Leuchtenplan'],terrain:['terrain','Gelände & Erdarbeiten'],storage:['storage','Lagerbestände'],system:['storage','Sortierung & Technik'],build:['organize','Baufortschritt'],material:['organize','Materialbedarf'],shared:['organize','Gemeinsame Materialliste'],downloads:['organize','Dateien & Berichte']};
   const groupNames={start:'ÜBERSICHT',atlas:'BAUATLAS',terrain:'GELÄNDE',storage:'LAGER',organize:'ORGANISATION'};
   let menuOpen=false,keyboardRouting=false;
   function menu(open,focus=false){menuOpen=open;document.documentElement.classList.toggle('nav-open',open);$('#navScrim').hidden=!open;$('#menuButton').setAttribute('aria-expanded',String(open));$('#sidebar').inert=matchMedia('(max-width:760px)').matches&&!open;if(open)$('#tabs button').focus?.({preventScroll:true});if(!open&&focus)$('#menuButton').focus?.();}
@@ -16,7 +16,7 @@
     $$('#subtabs [data-subgroup]').forEach(row=>{row.hidden=row.dataset.subgroup!==group;});$('#subtabs').hidden=group==='start';
     $$('#subtabs button').forEach(b=>{const on=b.dataset.tab===id;b.classList.toggle('on',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1;});
     if(!keyboardRouting){const wasOpen=menuOpen;menu(false);if(wasOpen)$('#main').focus?.({preventScroll:true});}
-    if(id==='lighting')renderLights();if(id==='3d')syncFloor();
+    if(id==='lighting')renderLights();if(id==='3d')syncFloor();saved();
   }
   function keyboardTabs(list,vertical=false){
     list.addEventListener('keydown',e=>{
@@ -35,8 +35,8 @@
   keyboardTabs($('#tabs'),true);
   $$('#subtabs [role="tablist"]').forEach(list=>keyboardTabs(list));
   window.addEventListener('bt:tab',paint);
-  function saved(){const ok=BT.storageOK(),el=$('#globalSaveStatus');el.classList.toggle('error',!ok);
-    el.innerHTML='<span class="status-dot"></span>'+(ok?'Speichert lokal':'Backup erforderlich');
+  function saved(){const ok=BT.storageOK(),el=$('#globalSaveStatus');const shared=active()==='shared';el.classList.toggle('error',!ok&&!shared);
+    el.innerHTML='<span class="status-dot"></span>'+(shared?'Gemeinsame Materialliste':ok?'Speichert lokal':'Backup erforderlich');
     const done=Object.values(BT.state.groups).filter(Boolean).length,blocks=Object.keys(BT.state.blocks).length;
     $('#homeProgress').textContent=done+' Bauteile fertig · '+blocks.toLocaleString('de-DE')+' Blöcke abgehakt';
   }

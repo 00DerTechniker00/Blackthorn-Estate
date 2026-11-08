@@ -25,12 +25,13 @@ def build(d):
     nav=''.join(f'<button data-tab="{tab}" data-group="{g}" id="btn-area-{g}" role="tab" aria-selected="{str(g=='start').lower()}" tabindex="{0 if g=='start' else -1}" aria-controls="area-{g}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{icon}"/></svg><span>{name}</span></button>' for g,name,tab,icon in groups)
     subgroups={'atlas':[('3d','3D-Modell'),('structure','Hausstruktur'),('viewer','Minecraft-Texturen'),('plan','Ebenenplan'),('steps','Blockliste'),('rooms','Räume'),('lighting','Leuchten')],
         'terrain':[('terrain','Karte & Erdarbeiten')], 'storage':[('storage','Bestände'),('system','Sortierung & Technik')],
-        'organize':[('build','Fortschritt'),('material','Materialbedarf'),('downloads','Dateien & Berichte')]}
+        'organize':[('build','Fortschritt'),('material','Materialbedarf'),('shared','Gemeinsame Liste'),('downloads','Dateien & Berichte')]}
     subnav=''.join(f'<div data-subgroup="{g}" role="tablist" aria-label="Ansichten {g}" hidden>'+''.join(f'<button id="btn-view-{id}" role="tab" aria-selected="false" tabindex="-1" data-tab="{id}" aria-controls="tab-{id}">{label}</button>' for id,label in items)+'</div>' for g,items in subgroups.items())
     scope_data=d['material_scopes'];items=lambda key:sum(scope_data[key]['counts'].values())
     material_notice=f'<div class="notice"><p id="materialScopeNote" role="status">Haus und Keller ohne Gelände und Nebengebäude.</p><p><b>{count(items("house"))} Items Haus und Keller</b> · {count(items("outdoor"))} Außenanlagen und Nebengebäude · {count(items("terrain"))} Gelände. Die große Erd- und Bruchsteinmenge liegt in der Auffüllung.</p><p>Die Mengen beschreiben den Zielplan. Vorhandene Blöcke und wiederverwendbarer Aushub reduzieren den zusätzlich zu beschaffenden Bedarf. Erdarbeitslisten nicht nochmals zur Gesamtmaterialliste addieren.</p><a href="materialpruefung.md">Ausführlicher Prüfbericht</a> · <a href="materialbedarf_bestandsvergleich.csv" download>Vergleich mit altem Weltstand</a></div>'
     tabs['material']=tabs['material'].replace('  <div class="stats"',material_notice+'  <div class="stats"',1).replace('Gesamt als CSV','Auswahl als CSV').replace('Material nach Baugruppe','Materialbereich oder Baugruppe')
     tabs['material']=re.sub(r'<p class="muted">Zahlen sind Items, nicht Blöcke:.*?</p>', '<p class="muted">Türen und Betten zählen je einmal. Flüssigkeiten und bewegte Kolbenköpfe sind keine zusätzlichen Items. Ein doppelter Plattenblock benötigt zwei Platten. Geeignete Steintreppen: Steinsäge 1 zu 1, Werkbank 6 Vollblöcke zu 4 Treppen. Platten: jeweils 1 Vollblock zu 2 Platten. Einrichtung und originale Lager-Litematics haben separate Materiallisten.</p>',tabs['material'],flags=re.S)
+    tabs['material']=tabs['material'].replace('<div class="notice">','<div class="notice"><p><button type="button" class="btn primary" data-tab="shared">Gemeinsam sammeln und abhaken →</button></p>',1)
     oldstats=re.search(r'<div class="stats overview-stats">.*?</div>\s*<div class="facts" id="facts"></div>',tabs['overview'],re.S).group(0)
     material_items=sum(d['counts'].values())
     material_types=len(d['counts'])
@@ -100,7 +101,8 @@ def build(d):
         structure_section=structure_section.replace('</section>',f'<div class="section-heading"><h2>Architektur · Revision {version}</h2></div><a href="assets/westansicht_5.19.svg"><img src="assets/westansicht_5.19.svg" alt="Westansicht des aktuellen Blockmodells mit Portal und Aussichtsturm" loading="lazy" style="width:100%;max-height:560px;object-fit:contain"></a><div class="grid2">{cards}</div><p class="notice">{changes["limits"]} <a href="architektur_erdarbeiten.csv" download>Zusätzliche Erdarbeiten</a> · <a href="freiraeume_{version}.csv" download>Freiräume ausheben</a> · <a href="strukturpruefung.md" download>Strukturprüfung</a> · <a href="geheimraum_{version}.md" download>Geheimraum-Anleitung</a> · <a href="technik_5.22.md">Einrichtung &amp; Gong</a> · <a href="remise_bibliothek_5.22.mcfunction" download>Einrichtungsbefehle</a> · <a href="einrichtung_5.22.csv" download>Zusatzmaterial: 13 Bücher, 2 Ständer und Rüstungen</a> · <a href="klippenpfad.csv" download>Wegkoordinaten</a></p></section>')
     if changes and changes.get('hall_gable_windows'):
         structure_section=structure_section.replace('<div class="grid2">'+cards, '<a href="assets/hallenfenster_5.24.svg"><img src="assets/hallenfenster_5.24.svg" alt="Obere Hallenfenster vorher und nachher, aus dem Blockmodell berechnet" loading="lazy" style="width:100%;max-height:480px;object-fit:contain"></a><div class="grid2">'+cards)
-    all_tabs='\n'.join(tabs[id] for id in ['overview','3d','plan','steps','rooms','terrain','storage','system','build','material'])+structure_section+viewer+lighting+downloads
+    shared=(ROOT/'tools/shared_section.html').read_text()
+    all_tabs='\n'.join(tabs[id] for id in ['overview','3d','plan','steps','rooms','terrain','storage','system','build','material'])+structure_section+viewer+lighting+downloads+shared
     all_tabs=re.sub(r'<h1(.*?)>(.*?)</h1>',r'<h2\1>\2</h2>',all_tabs,flags=re.S)
     all_tabs=all_tabs.replace('value="157"','value="'+str(d['meta']['bbox'][3])+'"').replace('max="157"','max="'+str(d['meta']['bbox'][3])+'"')
     all_tabs=group_panels(all_tabs)
@@ -108,7 +110,7 @@ def build(d):
     for canvas,label in canvas_labels.items():
         all_tabs=all_tabs.replace(f'<canvas id="{canvas}"',f'<canvas role="img" aria-label="{label}" id="{canvas}"')
     all_tabs=all_tabs.replace('</canvas>','Diese Ansicht benötigt JavaScript und Canvas. Die CSV-Dateien enthalten die Baudaten als Text.</canvas>')
-    scripts='\n'.join(f'<script src="{n}.js"></script>' for n in ['blueprint-data','progress','logistics','app','steps','terrain','system','ui','minecraft_viewer'])
+    scripts='\n'.join(f'<script src="{n}.js"></script>' for n in ['blueprint-data','progress','logistics','app','steps','terrain','system','ui','minecraft_viewer','shared-list'])
     import base64
     viewer_payload=base64.b64encode((ROOT/d['structure_export']['file']).read_bytes()).decode('ascii')
     module_payloads={m['key']:base64.b64encode((ROOT/'litematics'/m['source']).read_bytes()).decode('ascii') for m in modules['modules']}
@@ -190,6 +192,7 @@ def build(d):
     app=app.replace('(Keller 3) … ${D.meta.bbox[3]} (First)', '(Uferbauten) … ${D.meta.bbox[3]} (Turmspitze)')
     app=app.replace('Dach 145–157</b>', 'Dach 145–157 · Turm bis 171</b>')
     app=app.replace('Halle Y 157 · Gauben Y 154', 'Halle Y 157 · Aussichtsturm Y 171')
+    app=app.replace('window.__groupName=gname;', 'window.__groupName=gname;window.__materialName=deName;')
     (ROOT/'app.js').write_text(app)
     steps=(BASE/'steps.js').read_text().replace('Revision 5.9',f'Revision {version}')
     a=steps.index('function renderStorage()');end=steps.index("\n$('#storageQuery')",a)

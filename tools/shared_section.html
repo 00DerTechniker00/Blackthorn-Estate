@@ -1,0 +1,18 @@
+<section class="tab" id="tab-shared">
+  <div class="page-intro"><span class="eyebrow">GEMEINSAM SAMMELN</span><h2>Unsere Materialliste</h2><p>Bestände, Häkchen und Notizen für das ganze Team. Haus, Außenanlagen und Gelände haben jeweils eigene Bestände.</p></div>
+  <div class="card" id="sharedConnection">
+    <form id="sharedLogin" class="shared-login">
+      <label>Dein Name<input id="sharedName" type="text" maxlength="60" autocomplete="nickname" required placeholder="Name im Team"></label>
+      <label>Teamcode<input id="sharedCode" type="password" maxlength="512" autocomplete="off" required placeholder="Gemeinsamer Zugangscode"></label>
+      <button class="btn primary" id="sharedConnect" type="submit">Gemeinsame Liste öffnen</button>
+    </form>
+    <div id="sharedSession" class="row" hidden><b id="sharedIdentity"></b><button class="mini" id="sharedRefresh" type="button">Aktualisieren</button><button class="mini" id="sharedLogout" type="button">Abmelden</button></div>
+    <p id="sharedStatus" class="shared-status" role="status" aria-live="polite">Zum Verbinden Name und Teamcode eingeben.</p>
+    <details><summary>Wie funktioniert die gemeinsame Liste?</summary><p>Alle mit demselben Teamcode können die Liste bearbeiten. „Vorhanden“ ist euer gemeinsamer Bestand im ausgewählten Bereich; „Abgehakt“ ist eine separate manuelle Fertigmeldung. Notizen können etwa den Lagerplatz nennen. Mengen und Notizen beim Verlassen des Felds speichern, Häkchen sofort.</p><p>Bei geöffneter Liste wird alle fünf Sekunden aktualisiert. Gleichzeitige Änderungen am selben Material müssen bestätigt werden. Der lokale Block- und Baugruppenfortschritt bleibt eine eigene Funktion. Der Teamcode wird nur für diesen Browser-Tab gespeichert und ist nicht im Listen-Backup enthalten.</p><a href="gemeinsame_liste.md">Einrichtung auf Vercel</a></details>
+  </div>
+  <div id="sharedWorkspace" hidden>
+    <div class="toolbar"><label>Bereich<select id="sharedScope"><option value="house">Haus und Keller</option><option value="outdoor">Außenanlagen und Nebengebäude</option><option value="terrain">Gelände und Auffüllung</option></select></label><input id="sharedQuery" type="search" aria-label="Gemeinsame Materialliste durchsuchen" placeholder="Material suchen …"><label class="chk"><input id="sharedOpenOnly" type="checkbox">Nur offene Materialien</label><button class="mini" id="sharedExport" type="button">Listen-Backup</button></div>
+    <p id="sharedSummary" role="status"></p><p class="muted">„Soll“ stammt aus eurem Bauplan. Die originalen Lager-Litematics und die Zusatzbestückung haben eigene Materiallisten.</p>
+    <div class="tw"><table class="shared-table"><thead><tr><th>Material</th><th>Soll</th><th>Vorhanden</th><th>Fehlt</th><th>Abgehakt</th><th>Notiz / Lagerplatz</th><th>Letzte Änderung</th></tr></thead><tbody id="sharedRows"></tbody></table></div>
+  </div>
+</section>

@@ -426,7 +426,7 @@ Drei Weinbergterrassen auf Y 125, 124 und 123. Seitlicher Treppenweg bleibt frei
 Quellen: [Mojang: gemeißelte Bücherregale](https://www.minecraft.net/es-es/article/chiseled-bookshelf) und [Mojang: Redstone-Komparator](https://www.minecraft.net/en-us/article/taking-inventory--redstone-comparator). Keine Abnahme unserer konkreten Schaltung.
 """)
     (ROOT/'analysebericht.md').write_text(report)
-    (ROOT/'README.md').write_text(report+f"\nAtlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v{VERSION}`.\n")
+    (ROOT/'README.md').write_text(report+f"\nAtlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v{VERSION}`.\n\nGemeinsame Materialliste: Organisation → Gemeinsame Liste. Server-Konfiguration und Vercel-Einrichtung stehen in [gemeinsame_liste.md](gemeinsame_liste.md). Benötigt Upstash und einen Teamcode; ohne diese Einstellungen bleibt die zentrale Liste deaktiviert. Der lokale Baufortschritt bleibt im Browser.\n")
     protocol={'revision':VERSION,'status':'Dach-Geheimraum mit Redstone-Lesepultschloss, Strukturprüfung, Zusatzlicht und Verschönerung ergänzt; Ingame-Abnahme offen.',
         'base_revision':VERSION_PREVIOUS,'geometry_changed':True,
         'stair_clearance':clearance,'stair_separation':d['structure']['stair_separation'],

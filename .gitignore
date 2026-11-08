@@ -29,3 +29,10 @@ __pycache__/
 *~
 *.swp
 .atlas-smoke.html
+
+# Server credentials and Vercel machine configuration
+.env
+.env.*
+!.env.example
+.vercel/
+node_modules/
