@@ -98,8 +98,8 @@ def main():
         put(x,96,812,'barrel','facing=north,open=false','v6_handlager')
     # Ceiling lights, no floor lanterns or obstructions in portals.
     for y in (101,129):
-        for x in range(-705,-660,8):
-            for z in (780,790,805):put(x,y,z,'sea_lantern',group='v6_licht')
+        for x in (-706,-698,-690,-682,-674,-666,-662):
+            for z in (770,778,784,790,798,806,812):put(x,y,z,'sea_lantern',group='v6_licht')
     # Generous unobstructed north strip across the whole interior width. Chunk boundaries remain visible in atlas.
     for x in range(-709,-658):
         for z in range(767,781):
@@ -117,6 +117,11 @@ def main():
         for z in (802,804):put(x,129,z,'dark_oak_planks',group='v6_zugang')
     for y in (95,102,124,129):
         for x in (-660,-659):put(x,y,803,'polished_deepslate',group='v6_zugang')
+    for y in (95,102,124,129):
+        for x in (-662,-661,-660):
+            for z in (802,803,804):
+                if (x,z)!=(-661,803):put(x,y,z,'polished_deepslate',group='v6_zugang')
+        for z in (802,804):put(-661,y+1,z,'polished_blackstone_wall',group='v6_zugang')
     # Lower secret access behind bookshelves: ladder down to a new 3-wide passage linking old Y80 route.
     for y in range(81,101):
         for x in (-707,-706,-705):
@@ -129,6 +134,10 @@ def main():
             for y in range(81,84):clear(x,y,z)
             put(x,84,z,'deepslate_bricks',group='v6_geheimabstieg')
     put(-705,95,776,'polished_deepslate',group='v6_geheimabstieg')
+    for x in (-707,-706,-705):
+        for z in (775,776,777):
+            if (x,z)!=(-706,776):put(x,95,z,'polished_deepslate',group='v6_geheimabstieg')
+    for z in (775,777):put(-706,96,z,'polished_blackstone_wall',group='v6_geheimabstieg')
     # No blocks and required-air positions may overlap.
     air.update(prior.keys()-b.keys())
     air.difference_update(b)
@@ -151,6 +160,10 @@ def main():
     d['material_scopes']=scopes(d['gcounts']);d['material_stack_sizes']={k:stack_size(k) for k in counts}
     changes={p:(prior.get(p),b.get(p)) for p in prior.keys()|b.keys() if prior.get(p)!=b.get(p)}
     d['progress_compat']={'revision':'5.26','fingerprint':json.loads(SEED.read_text())['meta']['fingerprint'],'changed_positions':[','.join(map(str,p)) for p in changes],'changed_groups':sorted({v[2] for pair in changes.values() for v in pair if v})}
+    migration_path=ROOT/'tools/seeds/revision-6.0/progress_compat.json'
+    if migration_path.exists():
+        migration=json.loads(migration_path.read_text())
+        if migration['target_fingerprint']==d['meta']['fingerprint']:d['progress_compat']['additional']=[migration]
     d['rooms']=[r for r in d['rooms'] if r['y'][0]>=129]
     def room(name,g,x,y,z,text):d['rooms'].append(dict(name=name,group=g,x=x,y=y,z=z,text=text,access='Zentraler Leiterzugang im Südosten, X −661 / Z 803.',stand=0,reach=0))
     room('Geheime Bibliothek','v6_geheimraeume',[-708,-687],[96,100],[768,786],'Bestehender Schachbrettboden; geheimer Leiterabstieg zum Y80-Gang.')
@@ -202,6 +215,8 @@ def main():
     render()
     from web import build
     build(d)
+    from check_cellar_routes import check
+    check()
     print('V6 built:',len(b),'positions;',len(storage),'storage blocks;',len(air),'explicit clearance positions.')
 
 def write_current_delta(survey,b,air):

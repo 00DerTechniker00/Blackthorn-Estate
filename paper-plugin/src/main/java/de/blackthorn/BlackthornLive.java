@@ -110,7 +110,7 @@ public final class BlackthornLive extends JavaPlugin implements Listener {
     @Override public boolean onCommand(CommandSender sender,Command command,String label,String[] args){
         if(!sender.hasPermission("blackthorn.live.admin")){sender.sendMessage("Keine Berechtigung.");return true;}
         if(args.length>0&&args[0].equalsIgnoreCase("rescan")){Arrays.fill(states,(byte)'0');cursor=0;dirty.clear();sender.sendMessage("Prüfung zurückgesetzt. Ungeladene Chunks bleiben ungeprüft.");}
-        else sender.sendMessage("Blackthorn Live: "+positions.size()+" Positionen, Scan bei "+cursor+", Upload: "+lastUpload);
+        else sender.sendMessage("Blackthorn Live: "+positions.size()+" Positionen, Plan "+fingerprint.substring(0,12)+", Scan bei "+cursor+", Upload: "+lastUpload);
         return true;
     }
     @Override public void onDisable(){if(network!=null)network.shutdownNow();}

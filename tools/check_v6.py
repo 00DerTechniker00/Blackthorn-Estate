@@ -44,7 +44,7 @@ def check():
  with zipfile.ZipFile(ROOT/'downloads/BlackthornLive.jar') as jar:
   rows=gzip.decompress(jar.read('plan.tsv.gz')).decode().splitlines()
   assert rows[0].split('\t')[0]==d['meta']['fingerprint']
-  assert 'version: 1.1.0' in jar.read('plugin.yml').decode()
+  assert jar.read('plugin.yml')==(ROOT/'paper-plugin/src/main/resources/plugin.yml').read_bytes()
   assert len(rows)==len(b)+1
   i=1
   for y,z,x,n,ri in d['runs']:

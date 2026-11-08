@@ -2,7 +2,7 @@
 
 ## Positionen
 
-138.225 eindeutige Baupositionen. 30 Türen auf Gegenhälfte, direkte Durchgänge und Boden geprüft. Befunde: 0 blockierte Nachbarzellen, 0 fehlende Türhälften, 0 Türen ohne Boden, 0 eindeutig frei hängende Schwerkraftblöcke. 0 Schwerkraftpositionen benötigen den lokalen Snapshot für eine vollständige Prüfung.
+138.261 eindeutige Baupositionen. 30 Türen auf Gegenhälfte, direkte Durchgänge und Boden geprüft. Befunde: 0 blockierte Nachbarzellen, 0 fehlende Türhälften, 0 Türen ohne Boden, 0 eindeutig frei hängende Schwerkraftblöcke. 0 Schwerkraftpositionen benötigen den lokalen Snapshot für eine vollständige Prüfung.
 
 Korrigiert: zweite Wandlagen vor fünf K1-Türen geöffnet; die Südgartentür in die tatsächliche Außenwand bei Z 829 versetzt und mit der Freitreppe verbunden. Störenden Fassadenschmuck im Durchgang entfernt. Anschläge des westlichen Hauptportals nach außen gesetzt. Im übrigen Haus bleiben die bestehenden Architekturentscheidungen bestehen.
 
@@ -10,7 +10,7 @@ Korrigiert: zweite Wandlagen vor fünf K1-Türen geöffnet; die Südgartentür i
 
 | Bereich | Items | Erde | Bruchstein |
 | --- | ---: | ---: | ---: |
-| Haus und Keller | 69.798 | 0 | 0 |
+| Haus und Keller | 69.834 | 0 | 0 |
 | Außenanlagen und Nebengebäude | 5.826 | 0 | 817 |
 | Gelände und Auffüllung | 61.910 | 38.148 | 13.132 |
 

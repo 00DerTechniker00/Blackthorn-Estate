@@ -1,0 +1,50 @@
+{
+  "revision": "6.0",
+  "fingerprint": "ad9dfa9cf1a78f9d08f63892d8cbd70cc7a59da18828402d4bb801f8fc201a28",
+  "route_model": "Static supported-cell traversal; no player collision or redstone simulation",
+  "rooms": [
+    {
+      "room": "Geheime Bibliothek",
+      "cells": 416,
+      "reached": 409
+    },
+    {
+      "room": "Werkstatt und Reserve",
+      "cells": 513,
+      "reached": 513
+    },
+    {
+      "room": "Handlager und Nebenräume",
+      "cells": 898,
+      "reached": 898
+    },
+    {
+      "room": "Dustless-Großlager",
+      "cells": 1337,
+      "reached": 1324
+    },
+    {
+      "room": "Porter-Galerie · gesamte Nordwand",
+      "cells": 714,
+      "reached": 714
+    }
+  ],
+  "block_light": {
+    "Untere Räume": {
+      "sampled_floor_cells": 2269,
+      "minimum_block_light": 2,
+      "zero_light_cells": 0
+    },
+    "Porterfläche": {
+      "sampled_floor_cells": 714,
+      "minimum_block_light": 3,
+      "zero_light_cells": 0
+    }
+  },
+  "limits": [
+    "Block opacity approximated for non-full blocks",
+    "No sky light, changing redstone states, entity collisions or real server test",
+    "Reachable furniture tops are counted as floor cells; partial room coverage is not a claim that every surface is walkable",
+    "Spawn rules of individual mobs are not simulated"
+  ]
+}

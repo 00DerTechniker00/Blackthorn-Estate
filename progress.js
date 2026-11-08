@@ -2,11 +2,12 @@
 (() => {
   'use strict';
   const data=window.BLACKTHORN_DATA,compat=data.progress_compat;
-  const KEY='blackthorn:'+data.meta.version+':progress',groups=new Set(data.groups),validBlocks=new Set(),changed=new Set(compat.changed_positions);
+  const KEY='blackthorn:'+data.meta.version+':progress',groups=new Set(data.groups),validBlocks=new Set();
   for(const [y,z,x,n] of data.runs)for(let i=0;i<n;i++)validBlocks.add(`${x+i},${y},${z}`);
   const empty=()=>({groups:{},people:{},blocks:{},inventory:{}}),state=empty();let storageOK=true,initialMigration=null;
   function validate(snapshot){
-    const migrate=snapshot?.blueprint===compat.fingerprint;
+    const migration=[compat,...(compat.additional||[])].find(candidate=>candidate.fingerprint===snapshot?.blueprint);
+    const migrate=!!migration,changedForMigration=new Set(migration?.changed_positions||[]);
     if(!snapshot||snapshot.format!=='blackthorn-progress'||snapshot.schema!==1||snapshot.blueprint!==data.meta.fingerprint&&!migrate)
       throw Error('Das Backup gehört nicht zu diesem Bauplan. Aktuellen Bauplan oder ein kompatibles Backup der Vorversion verwenden.');
     if(!snapshot.state||typeof snapshot.state!=='object')throw Error('Im Backup fehlt der Fortschritt.');
@@ -16,12 +17,12 @@
       for(const [key,value] of Object.entries(values)){
         if(kind==='blocks'){
           if(value!==true)throw Error('Ungültiger Blockstatus.');
-          if(migrate&&changed.has(key)){skipped++;continue;}
+          if(migrate&&changedForMigration.has(key)){skipped++;continue;}
           if(!validBlocks.has(key))throw Error('Unbekannte Blockkoordinate im Backup.');
         }else if(kind==='groups'){
           if(migrate&&!groups.has(key)){skipped++;continue;}
           if(!groups.has(key)||typeof value!=='boolean')throw Error('Ungültige Baugruppe.');
-          if(migrate&&compat.changed_groups.includes(key)){if(value)reset++;continue;}
+          if(migrate&&migration.changed_groups.includes(key)){if(value)reset++;continue;}
         }else if(kind==='people'){
           if(migrate&&!groups.has(key)){skipped++;continue;}
           if(!groups.has(key)||typeof value!=='string'||value.length>200)throw Error('Ungültige Zuständigkeit.');
@@ -41,7 +42,7 @@
   function assign(next){for(const kind of Object.keys(state)){for(const key of Object.keys(state[kind]))delete state[kind][key];Object.assign(state[kind],next[kind]);}}
   try{
     const saved=localStorage.getItem(KEY),old=!saved&&localStorage.getItem('blackthorn:'+compat.revision+':progress');
-    if(saved)assign(validate(JSON.parse(saved)));
+    if(saved){const next=validate(JSON.parse(saved));assign(next);initialMigration=next._migration;}
     else if(old){const next=validate(JSON.parse(old));assign(next);initialMigration=next._migration;}
   }catch(e){storageOK=false;message('Gespeicherter Stand konnte nicht geladen werden. Vorhandenes Backup prüfen.',true);}
   const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

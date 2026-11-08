@@ -1,7 +1,7 @@
 {
   "revision": "6.0",
-  "positions": 138225,
-  "items": 137534,
+  "positions": 138261,
+  "items": 137570,
   "duplicates": [],
   "material_counts_match": true,
   "packing_errors": [],
@@ -46,7 +46,7 @@
   "scopes": {
     "house": {
       "label": "Haus und Keller",
-      "items": 69798,
+      "items": 69834,
       "focus": {
         "dirt": 0,
         "cobblestone": 0,
