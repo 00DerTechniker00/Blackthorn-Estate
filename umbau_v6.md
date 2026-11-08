@@ -2,7 +2,7 @@
 
 ## Bestehender Keller als Grundlage
 
-Grundriss außen X −710…−658 / Z 766…814 (53 × 49), innen 51 × 47. Der aus eurer aktuellen Region ausgelesene Schachbrettboden auf Y 95 und die Außenwände bis Y 127 werden übernommen. Die obere Wandlage Y 128 wird bis zur Geschossdecke geschlossen. Kleine Bodendurchbrüche entstehen nur für die beiden Leiterzugänge. Die neue untere Decke auf Y 101 erweitert die bereits begonnene nördliche Teilfläche; lichte Höhe darunter Y 96…100, also fünf Blöcke.
+Grundriss außen X −710…−658 / Z 766…814 (53 × 49), innen 51 × 47. Der aus eurer aktuellen Region ausgelesene Schachbrettboden auf Y 95 und die Außenwände bis Y 127 werden übernommen. Die obere Wandlage Y 128 wird bis zur Geschossdecke geschlossen. Alle 2.397 vorhandenen Bodenblöcke auf Y 95 bleiben exakt erhalten. Der Hauptleiterzugang endet über diesem Boden; der geheime Abstieg wird in eine neue Nische außerhalb der westlichen Kellerwand verlegt. Nur dort wird ein Wanddurchgang geöffnet. Die neue untere Decke auf Y 101 erweitert die bereits begonnene nördliche Teilfläche; lichte Höhe darunter Y 96…100, also fünf Blöcke.
 
 | Zone | Höhen | Nutzung |
 | --- | --- | --- |
@@ -12,7 +12,7 @@ Grundriss außen X −710…−658 / Z 766…814 (53 × 49), innen 51 × 47. Der
 
 Die große Bühne des Lagers ist technisch mehrgeschossig. Sie wurde nicht auf eine gewöhnliche Geschosshöhe zusammengestaucht. Hauptzugang: durchgehende Leiter im Südosten bei X −661 / Z 803, vom EG zu den drei Ebenen. Zwei zusammenhängende freie Säulen neben der Leiter bieten Austrittsraum; die Deckendurchbrüche bleiben offen. Im Spiel gegen Absturz sichern. Es gibt hier keine als fertige Treppe ausgegebene Leiter.
 
-Hinter der unteren Bibliothek führt die zweite Leiter bei X −706 / Z 776 nach Y 81 auf den Gangboden Y 80. Ein drei Blöcke hoher, drei Blöcke breiter Verbindungsgang schließt dort in Richtung des bisherigen Technikzugangs an. Die Öffnung ist begehbar modelliert; ein neues automatisches Geheimtürschloss ist nicht vorgetäuscht.
+Außerhalb der Westwand führt die zweite Leiter bei X −712 / Z 776 nach Y 81 auf den Gangboden Y 80. Ein drei Blöcke hoher, drei Blöcke breiter Verbindungsgang schließt dort in Richtung des bisherigen Technikzugangs an. Die Öffnung ist begehbar modelliert; ein neues automatisches Geheimtürschloss ist nicht vorgetäuscht.
 
 ## Gesamte nördliche Wand für eure Porter
 
@@ -42,7 +42,7 @@ Die bisherige kleine Bulk-/Golem-Anlage, das 400-Fass-Regallager und die alte Ke
 
 1. Welt sichern und vorhandenen Boden / Außenwände mit den Bestandsplänen abgleichen.
 2. `keller_umbau_6.0.csv` verwenden: Sie vergleicht die Zielpositionen mit eurer gelieferten Region, einschließlich notwendiger Durchbrüche. Sie ist auf X −710…−658 / Z 766…814 / Y 94…129 begrenzt. Der tiefere Gang und seine Erdarbeiten stehen zusätzlich in der vollständigen Freiraumliste.
-3. Durchbrüche und den tiefen Zugang ausheben. Bestehende Böden nur dort öffnen, wo die Freiraumliste dies vorsieht.
+3. Durchbrüche und den tiefen Zugang ausheben. Den vorhandenen Schachbrettboden auf Y 95 vollständig erhalten. Der tiefe Abstieg liegt außerhalb der Westwand; nur obere Geschossdecken und der westliche Wanddurchgang werden dafür geöffnet.
 4. Untere Räume, Decke Y 101, seitliche Lagerzugänge sowie Leiterkerne setzen.
 5. Großlager in Originalhöhe nach der V6-Litematic bauen und bestücken. Binnenluft und Wartungszugänge erhalten.
 6. Galerieboden Y 124 und Deckenanschlüsse ergänzen, Nordstreifen frei halten. Vorhandene Porter chunkweise versetzen.
@@ -52,7 +52,7 @@ Die bisherige kleine Bulk-/Golem-Anlage, das 400-Fass-Regallager und die alte Ke
 
 ## Atlas und Live-Plugin
 
-Website und neuer Plugin-Bauplan verwenden denselben V6-Fingerprint. Nach Veröffentlichung das neue `downloads/BlackthornLive.jar` (Version 1.1.1) auf dem Server austauschen und neu starten. Bestehende Konfiguration und Schreibtoken bleiben verwendbar. Alte Plugin-Prüfstände werden nicht mit dem neuen Bauplan vermischt.
+Website und neuer Plugin-Bauplan verwenden denselben V6-Fingerprint. Nach Veröffentlichung das neue `downloads/BlackthornLive.jar` (Version 1.1.2) auf dem Server austauschen und neu starten. Bestehende Konfiguration und Schreibtoken bleiben verwendbar. Alte Plugin-Prüfstände werden nicht mit dem neuen Bauplan vermischt.
 
 Lokale Bauhäkchen aus 5.26 werden nur für unveränderte Positionen übernommen. Entfernte Lagerbuchten und geänderte Bauteil-Fertigmeldungen werden verworfen. Gemeinsame Materialbestände bleiben gespeichert; neue Sollmengen und Häkchen im Team gegenprüfen.
 
@@ -62,4 +62,8 @@ Statische Prüfung: eindeutige Positionen, Materialmengen, Türhälften, direkte
 
 ## Nachprüfung der Kellerwege
 
-Die Leiteröffnungen wurden bis auf die eigentliche Leitersäule mit Trittflächen geschlossen; seitliche Mauergeländer begrenzen die Öffnung. Östliche Austritte bleiben frei. Die Deckenleuchten sind dichter bis an die Raumränder verteilt. Der Modelltest erreicht alle neuen Raumgruppen und alle 714 Porterpositionen. In den untersuchten freien Bodenzellen der unteren Räume und der Porterfläche gibt es im vereinfachten Blocklichtmodell keine Zellen mit Lichtlevel 0. Details und Grenzen stehen in `keller_pruefung_v6.json`; ein Ingame-Test bleibt erforderlich. Das neue Plugin 1.1.1 enthält den aktualisierten Plan und zeigt dessen Kennung im Statusbefehl.
+Die Leiteröffnungen wurden bis auf die eigentliche Leitersäule mit Trittflächen geschlossen; seitliche Mauergeländer begrenzen die Öffnung. Östliche Austritte bleiben frei. Die Deckenleuchten sind dichter bis an die Raumränder verteilt. Der Modelltest erreicht alle neuen Raumgruppen und alle 714 Porterpositionen. In den untersuchten freien Bodenzellen der unteren Räume und der Porterfläche gibt es im vereinfachten Blocklichtmodell keine Zellen mit Lichtlevel 0. Details und Grenzen stehen in `keller_pruefung_v6.json`; ein Ingame-Test bleibt erforderlich. Das neue Plugin 1.1.2 enthält den aktualisierten Plan und zeigt dessen Kennung im Statusbefehl.
+
+## Endgültiger Bestandsboden
+
+Alle **2.397 Innenbodenpositionen auf Y 95** werden mit identischem Blocktyp und identischen Blockzuständen aus eurer gelieferten Region übernommen. Es gibt darin keine Leiterlöcher und keine ausgetauschten Trittplatten. Der geheime Schacht liegt nun außerhalb der Westwand bei X −712 / Z 776, mit Zugang durch die Wand auf Y 96…98. Der Hauptzugang im Südosten beginnt auf Y 96 über dem bestehenden Boden. Eine automatisierte Prüfung gleicht jede Bodenposition mit der Bestandsdatei ab.

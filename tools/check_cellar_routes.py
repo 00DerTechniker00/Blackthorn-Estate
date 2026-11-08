@@ -36,7 +36,7 @@ def check():
   checks[label]={'sampled_floor_cells':len(samples),'minimum_block_light':min(samples),'zero_light_cells':samples.count(0)}
   assert 0 not in samples,(label,checks[label])
  # Side guards must leave a walkable eastern landing, with the ladder column continuous.
- for floor in (95,102,124,129):
+ for floor in (102,124,129):
   for z in (802,804):assert b[-661,floor+1,z][0]=='polished_blackstone_wall'
   assert (-660,floor+1,803) not in b and (-660,floor+2,803) not in b
  result={'revision':d['meta']['version'],'fingerprint':d['meta']['fingerprint'],'route_model':'Static supported-cell traversal; no player collision or redstone simulation','rooms':rooms,'block_light':checks,'limits':['Block opacity approximated for non-full blocks','No sky light, changing redstone states, entity collisions or real server test','Reachable furniture tops are counted as floor cells; partial room coverage is not a claim that every surface is walkable','Spawn rules of individual mobs are not simulated']}

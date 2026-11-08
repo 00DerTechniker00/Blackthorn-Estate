@@ -2,7 +2,7 @@
   "version": "6.0",
   "base": "5.26",
   "style": "Ruhigeres viktorianisches Herrenhaus",
-  "blocks": 138261,
+  "blocks": 138582,
   "terrain_columns": 62101,
   "terrain_bounds": [
     -825,
@@ -41,8 +41,8 @@
     "soil_skin_layers": 3,
     "removed_redundant_guard_posts": 54
   },
-  "fingerprint": "ad9dfa9cf1a78f9d08f63892d8cbd70cc7a59da18828402d4bb801f8fc201a28",
+  "fingerprint": "ca0429a60f97299fa435c318b3f787df08572d82f1aa265e4451f1e502a4753e",
   "material_audit_passed": true,
   "doors_checked": 30,
-  "material_items": 137570
+  "material_items": 137891
 }

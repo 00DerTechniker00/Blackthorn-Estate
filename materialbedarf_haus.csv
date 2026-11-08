@@ -1,6 +1,6 @@
 ﻿Material;Anzahl;Stackgroesse;volle_Stacks;Rest;volle_Shulkers;Rest_nach_Shulkern;Rest_Stacks_nach_Shulkern;Einzeln_nach_Stacks
-deepslate_tiles;12759;64;199;23;7;663;10;23
-deepslate_bricks;11234;64;175;34;6;866;13;34
+deepslate_tiles;12788;64;199;52;7;692;10;52
+deepslate_bricks;11526;64;180;6;6;1158;18;6
 stone_bricks;9017;64;140;57;5;377;5;57
 deepslate_tile_stairs;5796;64;90;36;3;612;9;36
 polished_deepslate;5195;64;81;11;3;11;0;11
@@ -30,9 +30,9 @@ blue_carpet;144;64;2;16;0;144;2;16
 dark_oak_stairs;144;64;2;16;0;144;2;16
 vine;144;64;2;16;0;144;2;16
 stone_brick_stairs;140;64;2;12;0;140;2;12
+ladder;134;64;2;6;0;134;2;6
 light_gray_carpet;134;64;2;6;0;134;2;6
 redstone_wire;134;64;2;6;0;134;2;6
-ladder;132;64;2;4;0;132;2;4
 comparator;125;64;1;61;0;125;1;61
 dark_oak_fence;119;64;1;55;0;119;1;55
 black_carpet;104;64;1;40;0;104;1;40
@@ -73,7 +73,6 @@ allium;11;64;0;11;0;11;0;11
 yellow_carpet;11;64;0;11;0;11;0;11
 lectern;10;64;0;10;0;10;0;10
 polished_blackstone;10;64;0;10;0;10;0;10
-polished_blackstone_wall;10;64;0;10;0;10;0;10
 spruce_fence;10;64;0;10;0;10;0;10
 azalea;9;64;0;9;0;9;0;9
 azalea_leaves;9;64;0;9;0;9;0;9
@@ -82,6 +81,7 @@ furnace;9;64;0;9;0;9;0;9
 glowstone;9;64;0;9;0;9;0;9
 polished_deepslate_stairs;9;64;0;9;0;9;0;9
 anvil;8;64;0;8;0;8;0;8
+polished_blackstone_wall;8;64;0;8;0;8;0;8
 redstone_torch;8;64;0;8;0;8;0;8
 scaffolding;8;64;0;8;0;8;0;8
 soul_lantern;8;64;0;8;0;8;0;8

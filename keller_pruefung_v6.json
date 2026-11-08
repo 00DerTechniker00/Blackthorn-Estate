@@ -1,12 +1,12 @@
 {
   "revision": "6.0",
-  "fingerprint": "ad9dfa9cf1a78f9d08f63892d8cbd70cc7a59da18828402d4bb801f8fc201a28",
+  "fingerprint": "ca0429a60f97299fa435c318b3f787df08572d82f1aa265e4451f1e502a4753e",
   "route_model": "Static supported-cell traversal; no player collision or redstone simulation",
   "rooms": [
     {
       "room": "Geheime Bibliothek",
-      "cells": 416,
-      "reached": 409
+      "cells": 418,
+      "reached": 411
     },
     {
       "room": "Werkstatt und Reserve",
@@ -31,7 +31,7 @@
   ],
   "block_light": {
     "Untere Räume": {
-      "sampled_floor_cells": 2269,
+      "sampled_floor_cells": 2275,
       "minimum_block_light": 2,
       "zero_light_cells": 0
     },

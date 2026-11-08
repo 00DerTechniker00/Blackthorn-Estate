@@ -1,5 +1,5 @@
 name: BlackthornLive
-version: 1.1.1
+version: 1.1.2
 main: de.blackthorn.BlackthornLive
 api-version: '26.1'
 description: Read-only blueprint comparison and Atlas progress upload.

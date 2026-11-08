@@ -1,8 +1,8 @@
 ﻿Material;Anzahl;Stackgroesse;volle_Stacks;Rest;volle_Shulkers;Rest_nach_Shulkern;Rest_Stacks_nach_Shulkern;Einzeln_nach_Stacks
 deepslate_tiles;4938;64;77;10;2;1482;23;10
-polished_deepslate;2277;64;35;37;1;549;8;37
+polished_deepslate;2272;64;35;32;1;544;8;32
 gray_stained_glass;1884;64;29;28;1;156;2;28
-deepslate_bricks;746;64;11;42;0;746;11;42
+deepslate_bricks;747;64;11;43;0;747;11;43
 spruce_planks;697;64;10;57;0;697;10;57
 dark_oak_planks;516;64;8;4;0;516;8;4
 chest;488;64;7;40;0;488;7;40
@@ -17,7 +17,7 @@ observer;88;64;1;24;0;88;1;24
 waxed_copper_block;78;64;1;14;0;78;1;14
 redstone_wire;75;64;1;11;0;75;1;11
 waxed_copper_bulb;73;64;1;9;0;73;1;9
-ladder;63;64;0;63;0;63;0;63
+ladder;55;64;0;55;0;55;0;55
 dropper;46;64;0;46;0;46;0;46
 vine;44;64;0;44;0;44;0;44
 chiseled_stone_bricks;42;64;0;42;0;42;0;42
@@ -27,7 +27,6 @@ glass;18;64;0;18;0;18;0;18
 cobblestone_wall;16;64;0;16;0;16;0;16
 bookshelf;14;64;0;14;0;14;0;14
 glowstone;9;64;0;9;0;9;0;9
-polished_blackstone_wall;8;64;0;8;0;8;0;8
 repeater;8;64;0;8;0;8;0;8
 scaffolding;8;64;0;8;0;8;0;8
 stone_button;8;64;0;8;0;8;0;8
@@ -36,6 +35,7 @@ redstone_torch;7;64;0;7;0;7;0;7
 barrel;5;64;0;5;0;5;0;5
 dispenser;5;64;0;5;0;5;0;5
 note_block;4;64;0;4;0;4;0;4
+polished_blackstone_wall;4;64;0;4;0;4;0;4
 activator_rail;2;64;0;2;0;2;0;2
 composter;1;64;0;1;0;1;0;1
 honey_block;1;64;0;1;0;1;0;1

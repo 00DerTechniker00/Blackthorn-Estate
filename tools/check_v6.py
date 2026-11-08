@@ -19,14 +19,29 @@ def check():
   for x in range(-710,-657):
    for z in (766,814):assert b[x,y,z][0]=='deepslate_bricks'
   for z in range(767,814):
-   for x in (-710,-658):assert b[x,y,z][0]=='deepslate_bricks'
+   for x in (-710,-658):
+    if x==-710 and 96<=y<=98 and 775<=z<=777:continue
+    assert b[x,y,z][0]=='deepslate_bricks'
  for x in range(-709,-658):
   for z in range(767,781):
    for y in range(125,129):assert (x,y,z) not in b
- for y in range(95,132):assert b[-661,y,803][0]=='ladder'
- for floor in (95,102,124,129):
+ for y in range(96,132):assert b[-661,y,803][0]=='ladder'
+ for floor in (102,124,129):
   assert b[-660,floor,803][0]=='polished_deepslate'
   for dy in (1,2):assert (-660,floor+dy,803) not in b
+ survey=json.loads(gzip.decompress((ROOT/'bestandsaufnahme/keller_bestand.json.gz').read_bytes()))
+ checked=0
+ for y,z,x,n,i in survey['runs']:
+  if y!=95:continue
+  pal=survey['palette'][i]
+  for xx in range(x,x+n):
+   if -709<=xx<=-659 and 767<=z<=813:
+    assert b[xx,y,z][0]==pal['name']
+    assert dict(kv.split('=',1) for kv in b[xx,y,z][1].split(',') if '=' in kv)==pal['properties'];checked+=1
+ assert checked==2397
+ for y in range(81,100):
+  assert b[-712,y,776][0]=='ladder'
+  assert b[-713,y,776][0]=='deepslate_bricks'
  original=NBTReader(gzip.decompress((ROOT/'litematics/Golem MIS Dustless Filter.litematic').read_bytes())).root()
  derived=NBTReader(gzip.decompress((ROOT/'litematics/Blackthorn_V6_Dustless.litematic').read_bytes())).root()
  for key,region in original['Regions'].items():

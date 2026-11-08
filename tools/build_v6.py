@@ -107,7 +107,7 @@ def main():
     for x in (-704,-688,-672):
         for z in range(767,781):put(x,124,z,'chiseled_stone_bricks',group='v6_chunkraster')
     # Main vertical access in the southeast, entirely outside the storage envelope.
-    for y in range(95,132):
+    for y in range(96,132):
         for x in (-662,-661,-660):
             for z in (802,803,804):clear(x,y,z)
         put(-662,y,803,'polished_deepslate',group='v6_zugang')
@@ -115,29 +115,42 @@ def main():
     # EG landing connects to existing southeast residence, with headroom.
     for x in range(-661,-658):
         for z in (802,804):put(x,129,z,'dark_oak_planks',group='v6_zugang')
-    for y in (95,102,124,129):
+    for y in (102,124,129):
         for x in (-660,-659):put(x,y,803,'polished_deepslate',group='v6_zugang')
-    for y in (95,102,124,129):
+    for y in (102,124,129):
         for x in (-662,-661,-660):
             for z in (802,803,804):
                 if (x,z)!=(-661,803):put(x,y,z,'polished_deepslate',group='v6_zugang')
         for z in (802,804):put(-661,y+1,z,'polished_blackstone_wall',group='v6_zugang')
-    # Lower secret access behind bookshelves: ladder down to a new 3-wide passage linking old Y80 route.
-    for y in range(81,101):
-        for x in (-707,-706,-705):
-            for z in (775,776,777):clear(x,y,z)
-        put(-707,y,776,'deepslate_bricks',group='v6_geheimabstieg')
-        put(-706,y,776,'ladder','facing=east,waterlogged=false','v6_geheimabstieg')
-    for x in range(-706,-686):
+    # Secret descent is outside the west wall: the existing Y95 interior floor stays intact.
+    for y in range(81,100):
+        for x in range(-714,-709):
+            for z in range(774,779):
+                edge=x in (-714,-710) or z in (774,778)
+                if edge:put(x,y,z,'deepslate_bricks',group='v6_geheimabstieg')
+                else:clear(x,y,z)
+        put(-713,y,776,'deepslate_bricks',group='v6_geheimabstieg')
+        put(-712,y,776,'ladder','facing=east,waterlogged=false','v6_geheimabstieg')
+    for x in range(-714,-709):
+        for z in range(774,779):put(x,100,z,'deepslate_bricks',group='v6_geheimabstieg')
+    for x in (-711,-710):
+        for z in (775,776,777):
+            put(x,95,z,'polished_deepslate',group='v6_geheimabstieg')
+            for y in (96,97,98):clear(x,y,z)
+    for z in (775,777):put(-712,96,z,'polished_blackstone_wall',group='v6_geheimabstieg')
+    for x in range(-713,-686):
         for z in range(775,778):
             put(x,80,z,'deepslate_tiles',group='v6_geheimabstieg')
-            for y in range(81,84):clear(x,y,z)
-            put(x,84,z,'deepslate_bricks',group='v6_geheimabstieg')
-    put(-705,95,776,'polished_deepslate',group='v6_geheimabstieg')
-    for x in (-707,-706,-705):
-        for z in (775,776,777):
-            if (x,z)!=(-706,776):put(x,95,z,'polished_deepslate',group='v6_geheimabstieg')
-    for z in (775,777):put(-706,96,z,'polished_blackstone_wall',group='v6_geheimabstieg')
+            for y in range(81,84):
+                if (x,z) not in ((-713,776),(-712,776)):clear(x,y,z)
+            if x>-711:put(x,84,z,'deepslate_bricks',group='v6_geheimabstieg')
+    # Restore every one of the 2397 original floor blocks including their exact properties.
+    for y,z,x,n,ri in survey['runs']:
+        if y!=95:continue
+        pal=survey['palette'][ri]
+        for xx in range(x,x+n):
+            if -709<=xx<=-659 and 767<=z<=813:
+                put(xx,95,z,pal['name'],','.join(f'{k}={v}' for k,v in sorted(pal['properties'].items())),'v6_bestand')
     # No blocks and required-air positions may overlap.
     air.update(prior.keys()-b.keys())
     air.difference_update(b)
@@ -163,7 +176,8 @@ def main():
     migration_path=ROOT/'tools/seeds/revision-6.0/progress_compat.json'
     if migration_path.exists():
         migration=json.loads(migration_path.read_text())
-        if migration['target_fingerprint']==d['meta']['fingerprint']:d['progress_compat']['additional']=[migration]
+        candidates=migration if isinstance(migration,list) else [migration]
+        d['progress_compat']['additional']=[m for m in candidates if m['target_fingerprint']==d['meta']['fingerprint']]
     d['rooms']=[r for r in d['rooms'] if r['y'][0]>=129]
     def room(name,g,x,y,z,text):d['rooms'].append(dict(name=name,group=g,x=x,y=y,z=z,text=text,access='Zentraler Leiterzugang im Südosten, X −661 / Z 803.',stand=0,reach=0))
     room('Geheime Bibliothek','v6_geheimraeume',[-708,-687],[96,100],[768,786],'Bestehender Schachbrettboden; geheimer Leiterabstieg zum Y80-Gang.')
@@ -185,7 +199,7 @@ def main():
     levels=[('v6_unten','Geheim- und Nebenräume',95,101),('v6_lager','Großlager · 22 Ebenen',102,123),('v6_porter','Porter-Galerie · Nordwand frei',124,128),('erdgeschoss','Erdgeschoss',129,136),('obergeschoss','Obergeschoss & Galerie',137,144),('dach','Dach & Türme',145,171)]
     d['structure']['levels']=[dict(id=k,label=label,y=[lo,hi],height=hi-lo+1,groups=sorted({v[2] for p,v in b.items() if lo<=p[1]<=hi}),positions=sum(lo<=p[1]<=hi for p in b),rooms=[r['name'] for r in d['rooms'] if lo<=r['y'][0]<=hi]) for k,label,lo,hi in levels]
     d['structure']['stair_runs']=[];d['structure']['stair_clearance']=[]
-    d['structure']['service_shaft']={'position':[-661,95,803],'vault_bounds':[-701,-675,102,123,771,797],'vault_size':[27,22,27],'service_gap_x':[-674,-659],'vertical_floor_blocks':[],'note':'Durchgehende Leiter Y95–131 mit Austritten auf Y95, 102, 124 und 129.'}
+    d['structure']['service_shaft']={'position':[-661,95,803],'vault_bounds':[-701,-675,102,123,771,797],'vault_size':[27,22,27],'service_gap_x':[-674,-659],'vertical_floor_blocks':[],'note':'Durchgehende Leiter Y96–131 mit Austritten auf Y95, 102, 124 und 129.'}
     d['structure']['logistics']=[{'label':'Dustless-Großlager','y':[102,123]},{'label':'Porter-Galerie · Nordwand frei','y':[124,128]}]
     d['structure']['enhancements']['title']='Version 6 · Keller nach eurem gebauten Bestand'
     d['structure']['enhancements']['features']=[dict(name='Gebauter Keller bleibt erhalten',description='Boden Y95 und Außenwände bilden die Grundlage.',group='v6_bestand'),dict(name='Großlager integriert',description='Dustless-Litematic in voller Höhe, keine gestauchten Schaltungen.',group='v6_grosslager'),dict(name='Nordwand vollständig frei',description='51 × 14 Bodenpositionen für eure vorhandenen Porter; Chunkraster im Plan beachten.',group='v6_keller')]
