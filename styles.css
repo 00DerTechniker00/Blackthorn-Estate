@@ -44,3 +44,29 @@ main{padding:28px 38px 36px;max-width:1740px;min-height:calc(100dvh - 170px);mar
 /* Shared team inventory */
 .shared-status{white-space:pre-line}
 .shared-login{display:flex;flex-wrap:wrap;align-items:end;gap:12px}.shared-login label{display:grid;gap:6px;flex:1;min-width:180px}.shared-status{min-height:1.5em;margin:14px 0}.shared-status.error,.shared-row-error{color:var(--danger,#ae3d36)}.shared-table td{vertical-align:top}.shared-amount{width:115px!important}.shared-note{min-width:190px;max-width:300px}.shared-table input[type=checkbox]{width:21px;height:21px;accent-color:var(--accent,#557b60)}.shared-row-error{display:block;max-width:290px;margin:7px 0;font-size:12px;white-space:normal}.shared-row-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.shared-draft{box-shadow:inset 3px 0 var(--accent,#557b60)}#sharedWorkspace>.toolbar label{display:grid;gap:5px}#sharedWorkspace>.toolbar label.chk{display:flex;align-items:center;gap:7px}
+
+/* Consistent actions, keyboard access and narrow-screen layouts. */
+:where(button,a,input,select,textarea,summary):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+:where(button,.btn,.mini):disabled{opacity:.55;cursor:not-allowed}
+.btn,.mini{min-height:36px;max-width:100%;white-space:normal;text-align:center;line-height:1.4}
+.text-button{min-height:36px;text-align:left;white-space:normal}
+button,input,select,summary{touch-action:manipulation}
+input[type=password]{color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 11px;min-width:0;max-width:100%;font:inherit}
+.password-field{display:flex;gap:8px;align-items:stretch}.password-field input{width:100%;flex:1}.password-field .mini{flex-shrink:0}
+.shared-status.error{padding:14px 16px;border:1px solid currentColor;border-radius:8px;font-size:13px;line-height:1.7;overflow-wrap:anywhere}
+.shared-status:empty{display:none}.setup-help{margin-top:16px}.setup-help p{max-width:75ch}
+.camera-options{position:relative}.camera-options>div{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.light-actions{display:flex;gap:8px;flex-wrap:wrap}
+.shared-login>*{min-width:0}.shared-login label{min-width:min(100%,240px)}
+@media(max-width:760px){
+  .btn,.mini,.text-button,.menu-button,.subtabs button,summary{min-height:44px}
+  .btn,.mini,.button-group .mini,.file-list a{font-size:13px}
+  .toolbar>label{flex-wrap:wrap}.toolbar .button-group{width:100%}
+  .camera-options{width:100%}.camera-options>summary{display:flex;align-items:center}
+  .shared-login{display:grid;grid-template-columns:minmax(0,1fr);width:100%}
+  .shared-login>.btn{width:100%}.shared-login input{font-size:16px}
+  #sharedSession{gap:12px}#sharedIdentity{flex-basis:100%}
+  .shared-table input[type=number],.shared-table input[type=text]{font-size:16px;min-height:44px}
+  .save-indicator{font-size:10px;max-width:110px;line-height:1.4;gap:6px}
+  .save-indicator .status-dot{flex-shrink:0}
+}

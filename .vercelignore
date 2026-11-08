@@ -1,0 +1,11 @@
+.git
+.vercel
+node_modules
+.env*
+archive
+source-data
+input
+tools
+tests
+__pycache__
+*.pyc
