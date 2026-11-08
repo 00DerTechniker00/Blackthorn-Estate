@@ -1,0 +1,13 @@
+name: BlackthornLive
+version: 1.0.0
+main: de.blackthorn.BlackthornLive
+api-version: '26.1'
+description: Read-only blueprint comparison and Atlas progress upload.
+commands:
+  blackthornlive:
+    description: Shows scan status or resets the scan
+    usage: /blackthornlive [status|rescan]
+    permission: blackthorn.live.admin
+permissions:
+  blackthorn.live.admin:
+    default: op

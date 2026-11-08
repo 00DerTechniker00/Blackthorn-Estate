@@ -1,0 +1,14 @@
+# Restart the server after changes. No port forwarding is needed.
+world: world
+# Exact endpoint of your production Atlas; HTTPS only, no trailing slash.
+endpoint: https://YOUR-PROJECT.vercel.app/api/build-progress
+# Separate random token, at least 32 characters. Same as Vercel LIVE_BUILD_WRITE_TOKEN.
+write-token: ''
+# World position = blueprint position + offset. Leave zero at the planned location.
+offset-x: 0
+offset-y: 0
+offset-z: 0
+# Never loads chunks. Only already loaded chunks are inspected.
+positions-per-tick: 300
+max-scan-millis-per-tick: 2
+upload-seconds: 10

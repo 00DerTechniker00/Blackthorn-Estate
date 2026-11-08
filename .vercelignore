@@ -9,3 +9,4 @@ tools
 tests
 __pycache__
 *.pyc
+paper-plugin

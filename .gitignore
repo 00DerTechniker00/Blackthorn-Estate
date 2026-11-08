@@ -36,3 +36,7 @@ __pycache__/
 !.env.example
 .vercel/
 node_modules/
+
+# Paper plugin build output
+/paper-plugin/.gradle/
+/paper-plugin/build/

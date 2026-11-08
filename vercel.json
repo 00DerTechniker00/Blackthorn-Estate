@@ -8,12 +8,21 @@
     "api/materials.mjs": {
       "includeFiles": "shared-plan.json",
       "maxDuration": 15
+    },
+    "api/build-progress.mjs": {
+      "includeFiles": "live-plan.json",
+      "maxDuration": 15
     }
   },
   "headers": [
     {
       "source": "/api/(.*)",
-      "headers": [{"key": "Cache-Control", "value": "no-store"}]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
     }
   ]
 }

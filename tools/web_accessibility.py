@@ -7,9 +7,9 @@ AREAS={
     'atlas':('Bauatlas',['3d','structure','plan','steps','rooms','lighting','viewer']),
     'terrain':('Gelände',['terrain']),
     'storage':('Lager',['storage','system']),
-    'organize':('Organisation',['build','material','shared','downloads']),
+    'organize':('Organisation',['live','build','material','shared','downloads']),
 }
-LABELS={'shared':'Gemeinsame Materialliste','overview':'Start','3d':'3D-Modell','structure':'Hausstruktur','plan':'Ebenenplan','steps':'Blockliste','rooms':'Räume','lighting':'Leuchten','viewer':'Minecraft-Texturen','terrain':'Karte und Erdarbeiten','storage':'Lagerbestände','system':'Sortierung und Technik','build':'Baufortschritt','material':'Materialbedarf','downloads':'Dateien und Berichte'}
+LABELS={'live':'Live-Baufortschritt','shared':'Gemeinsame Materialliste','overview':'Start','3d':'3D-Modell','structure':'Hausstruktur','plan':'Ebenenplan','steps':'Blockliste','rooms':'Räume','lighting':'Leuchten','viewer':'Minecraft-Texturen','terrain':'Karte und Erdarbeiten','storage':'Lagerbestände','system':'Sortierung und Technik','build':'Baufortschritt','material':'Materialbedarf','downloads':'Dateien und Berichte'}
 
 def group_panels(source):
     groups=[]
@@ -39,6 +39,8 @@ def group_panels(source):
     return '\n'.join(groups)
 
 def externalize(root,data,payloads):
+    from live_plan import generate
+    generate(root,data)
     shared_plan={'meta':{'version':data['meta']['version'],'fingerprint':data['meta']['fingerprint']},'material_scopes':data['material_scopes']}
     (root/'shared-plan.json').write_text(json.dumps(shared_plan,ensure_ascii=False,separators=(',',':'))+'\n')
     (root/'blueprint-data.js').write_text('window.BLACKTHORN_DATA='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')

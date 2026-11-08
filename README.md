@@ -67,3 +67,7 @@ Die Daten bleiben in externen JavaScript-Dateien, damit der Atlas lokal ohne Web
 Atlas: `index.html` lokal öffnen. Neu aufbauen: `python tools/build.py`. Git-Tag: `v5.26`.
 
 Gemeinsame Materialliste: Organisation → Gemeinsame Liste. Server-Konfiguration und Vercel-Einrichtung stehen in [gemeinsame_liste.md](gemeinsame_liste.md). Benötigt Upstash und einen Teamcode; ohne diese Einstellungen bleibt die zentrale Liste deaktiviert. Der lokale Baufortschritt bleibt im Browser.
+
+## Automatischer Baufortschritt mit Paper
+
+Unter **Organisation → Live-Baufortschritt** kann der Atlas den tatsächlichen Weltstand mit dem Bauplan vergleichen. Das Plugin ist unter [downloads/BlackthornLive.jar](downloads/BlackthornLive.jar) enthalten; Quellcode liegt in `paper-plugin/`. [Installation, Vercel-Variablen und Prüfgrenzen](live_fortschritt.md) beschreiben die Einrichtung. Vor der Verwendung müssen der separate Schreibtoken, Endpoint und Weltname konfiguriert werden. Der automatische Prüfstand ist unabhängig von lokalen Bauhäkchen und gemeinsamen Materialbeständen.

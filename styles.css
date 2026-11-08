@@ -70,3 +70,5 @@ input[type=password]{color:var(--ink);background:var(--panel);border:1px solid v
   .save-indicator{font-size:10px;max-width:110px;line-height:1.4;gap:6px}
   .save-indicator .status-dot{flex-shrink:0}
 }
+
+.live-totals{grid-template-columns:repeat(5,minmax(0,1fr));margin:20px 0}#liveWorkspace>.card{margin:18px 0}.live-state-0{color:var(--muted)}.live-state-1{border-left:4px solid #4c9c74}.live-state-2{border-left:4px solid #ba7852}.live-state-3,.live-state-4{border-left:4px solid #bd6672}td[class^=live-state]{padding-left:14px}#liveStatus{white-space:pre-line;line-height:1.7}#liveStatus.error{border-left:4px solid #bd6672;padding-left:14px}#liveGroups progress{width:100px;accent-color:var(--accent)}@media(max-width:760px){.live-totals{grid-template-columns:repeat(2,minmax(0,1fr))}}

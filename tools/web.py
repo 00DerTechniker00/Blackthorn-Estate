@@ -25,7 +25,7 @@ def build(d):
     nav=''.join(f'<button data-tab="{tab}" data-group="{g}" id="btn-area-{g}" role="tab" aria-selected="{str(g=='start').lower()}" tabindex="{0 if g=='start' else -1}" aria-controls="area-{g}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{icon}"/></svg><span>{name}</span></button>' for g,name,tab,icon in groups)
     subgroups={'atlas':[('3d','3D-Modell'),('structure','Hausstruktur'),('viewer','Minecraft-Texturen'),('plan','Ebenenplan'),('steps','Bauen & Abhaken'),('rooms','Räume'),('lighting','Leuchten')],
         'terrain':[('terrain','Karte & Erdarbeiten')], 'storage':[('storage','Bestände'),('system','Sortierung & Technik')],
-        'organize':[('build','Fortschritt'),('material','Materialbedarf'),('shared','Gemeinsame Liste'),('downloads','Dateien & Berichte')]}
+        'organize':[('live','Live-Baufortschritt'),('build','Lokale Bauhäkchen'),('material','Materialbedarf'),('shared','Gemeinsame Liste'),('downloads','Dateien & Berichte')]}
     subnav=''.join(f'<div data-subgroup="{g}" role="tablist" aria-label="Ansichten {g}" hidden>'+''.join(f'<button id="btn-view-{id}" role="tab" aria-selected="false" tabindex="-1" data-tab="{id}" aria-controls="tab-{id}">{label}</button>' for id,label in items)+'</div>' for g,items in subgroups.items())
     scope_data=d['material_scopes'];items=lambda key:sum(scope_data[key]['counts'].values())
     material_notice=f'<div class="notice"><p id="materialScopeNote" role="status">Haus und Keller ohne Gelände und Nebengebäude.</p><p><b>{count(items("house"))} Items Haus und Keller</b> · {count(items("outdoor"))} Außenanlagen und Nebengebäude · {count(items("terrain"))} Gelände. Die große Erd- und Bruchsteinmenge liegt in der Auffüllung.</p><p>Die Mengen beschreiben den Zielplan. Vorhandene Blöcke und wiederverwendbarer Aushub reduzieren den zusätzlich zu beschaffenden Bedarf. Erdarbeitslisten nicht nochmals zur Gesamtmaterialliste addieren.</p><a href="materialpruefung.md">Ausführlicher Prüfbericht</a> · <a href="materialbedarf_bestandsvergleich.csv" download>Vergleich mit altem Weltstand</a></div>'
@@ -102,7 +102,7 @@ def build(d):
     if changes and changes.get('hall_gable_windows'):
         structure_section=structure_section.replace('<div class="grid2">'+cards, '<a href="assets/hallenfenster_5.24.svg"><img src="assets/hallenfenster_5.24.svg" alt="Obere Hallenfenster vorher und nachher, aus dem Blockmodell berechnet" loading="lazy" style="width:100%;max-height:480px;object-fit:contain"></a><div class="grid2">'+cards)
     shared=(ROOT/'tools/shared_section.html').read_text()
-    all_tabs='\n'.join(tabs[id] for id in ['overview','3d','plan','steps','rooms','terrain','storage','system','build','material'])+structure_section+viewer+lighting+downloads+shared
+    all_tabs='\n'.join(tabs[id] for id in ['overview','3d','plan','steps','rooms','terrain','storage','system','build','material'])+structure_section+viewer+lighting+downloads+shared+(ROOT/'tools/live_section.html').read_text()
     all_tabs=re.sub(r'<h1(.*?)>(.*?)</h1>',r'<h2\1>\2</h2>',all_tabs,flags=re.S)
     all_tabs=all_tabs.replace('value="157"','value="'+str(d['meta']['bbox'][3])+'"').replace('max="157"','max="'+str(d['meta']['bbox'][3])+'"')
     all_tabs=group_panels(all_tabs)
@@ -110,7 +110,7 @@ def build(d):
     for canvas,label in canvas_labels.items():
         all_tabs=all_tabs.replace(f'<canvas id="{canvas}"',f'<canvas role="img" aria-label="{label}" id="{canvas}"')
     all_tabs=all_tabs.replace('</canvas>','Diese Ansicht benötigt JavaScript und Canvas. Die CSV-Dateien enthalten die Baudaten als Text.</canvas>')
-    scripts='\n'.join(f'<script src="{n}.js"></script>' for n in ['blueprint-data','progress','logistics','app','steps','terrain','system','ui','minecraft_viewer','shared-list'])
+    scripts='\n'.join(f'<script src="{n}.js"></script>' for n in ['blueprint-data','progress','logistics','app','steps','terrain','system','ui','minecraft_viewer','shared-list','live-progress'])
     import base64
     viewer_payload=base64.b64encode((ROOT/d['structure_export']['file']).read_bytes()).decode('ascii')
     module_payloads={m['key']:base64.b64encode((ROOT/'litematics'/m['source']).read_bytes()).decode('ascii') for m in modules['modules']}
