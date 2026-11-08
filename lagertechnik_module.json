@@ -1,27 +1,27 @@
 {
   "source": "cubicmetre",
   "source_note": "Originale Litematic-Dateien; Inventardaten/Blockentities und Entities bleiben in den Dateien erhalten.",
-  "placement_status": "Planungsvorschlag; Grube, Zugang und Redstone-Verbindung noch nicht im Hauptbauplan bzw. im Spiel abgenommen.",
+  "placement_status": "V6: Dustless-Blockgeometrie integriert. V6-Litematic enthält Filterinventare und Entities.",
   "vault": {
     "bounds": [
-      -715,
-      -659,
-      80,
-      103,
-      770,
-      796
+      -701,
+      -675,
+      102,
+      123,
+      771,
+      797
     ],
-    "width": 57,
-    "height": 24,
+    "width": 27,
+    "height": 22,
     "depth": 27,
     "service_gap_x": [
-      -688,
-      -686
+      -674,
+      -659
     ],
     "shaft_target": [
-      -687,
-      105,
-      790
+      -661,
+      95,
+      803
     ],
     "note": "Vorgeschlagene Technikhalle direkt unter Keller 3; die Litematics separat und ohne Rotation an ihren Ankern platzieren."
   },
@@ -214,9 +214,9 @@
     },
     {
       "name": "Golem MIS Dustless Filter",
-      "source": "Golem MIS Dustless Filter.litematic",
+      "source": "Blackthorn_V6_Dustless.litematic",
       "author": "cubicmetre",
-      "sha256": "795e4c199bd558fbce7969dd967e29c28ad7087bb1e82ae8b007903340c8f6ca",
+      "sha256": "0ebb16d82b599621d1443512fc7c777181caa7cd34c9e60eb9fcbb1ebf919c39",
       "data_version": 4556,
       "litematic_version": 7,
       "total_blocks": 4543,
@@ -273,7 +273,7 @@
         }
       ],
       "materials": {
-        "white_stained_glass": 1884,
+        "gray_stained_glass": 1884,
         "chest": 488,
         "oxidized_copper": 479,
         "hopper": 383,
@@ -334,11 +334,11 @@
       "entity_total": 60,
       "key": "dustless_filter",
       "proposed_world_anchor": [
-        -685,
-        82,
-        770
+        -701,
+        102,
+        771
       ],
-      "rotation": "unverändert; Quellorientierung beibehalten"
+      "rotation": "unverändert"
     }
   ]
 }

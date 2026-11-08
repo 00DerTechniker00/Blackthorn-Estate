@@ -22,7 +22,7 @@ class Snapshot:
         root=NBTReader(data).root()
         if root.get('Status') not in ('full','minecraft:full'):raise ValueError('Incomplete chunk')
         return {s['Y']:s for s in root['sections']}
-    def block(self,x,y,z):
+    def block_state(self,x,y,z):
         section=self.chunk(x//16,z//16).get(y//16)
         if section is None or 'block_states' not in section:raise ValueError('Missing block section')
         states=section['block_states'];palette=states['palette'];slot=0
@@ -30,4 +30,7 @@ class Snapshot:
             bits=max(4,(len(palette)-1).bit_length());per=64//bits;index=(y%16)*256+(z%16)*16+x%16
             slot=(states['data'][index//per]>>((index%per)*bits))&((1<<bits)-1)
         entry=palette[slot]
-        return (entry if isinstance(entry,str) else entry.get('Name') or entry.get('id') or entry['']).removeprefix('minecraft:')
+        name=(entry if isinstance(entry,str) else entry.get('Name') or entry.get('id') or entry['']).removeprefix('minecraft:')
+        return name,dict(entry.get('Properties',{})) if isinstance(entry,dict) else {}
+    def block(self,x,y,z):
+        return self.block_state(x,y,z)[0]

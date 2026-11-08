@@ -49,6 +49,8 @@ def build(d):
     tabs['3d']=tabs['3d'][:a]+f'''<div class="scene-controls"><div class="toolbar"><div class="button-group" aria-label="Kamera"><button class="mini" data-cam="iso">Anwesen</button><button class="mini" data-cam="east">Poolseite</button><button class="mini" data-cam="west">Eingang</button><button class="mini" data-cam="estate">Gesamtgelände</button></div><details class="camera-options"><summary>Weitere Ansichten</summary><div><button class="mini" data-cam="north">Nord</button><button class="mini" data-cam="south">Süd</button><button class="mini" data-cam="top">Draufsicht</button></div></details><span class="sp"></span><button class="mini" id="resetScene">Ansicht zurücksetzen</button></div>
       <div class="toolbar"><label>Etage <select id="sceneFloor"><option value="{d['meta']['bbox'][3]}">Gesamtes Haus</option><option value="144">Obergeschoss</option><option value="136">Erdgeschoss</option><option value="128">Keller 1</option><option value="120">Keller 2</option><option value="112">Keller 3</option><option value="custom" disabled>Eigene Höhe</option></select></label><div class="slider"><button class="mini" id="cutDown" aria-label="Eine Ebene tiefer">−</button><input type="range" id="cut" step="1" aria-label="3D-Schnitthöhe"><button class="mini" id="cutUp" aria-label="Eine Ebene höher">+</button><b id="cutLabel">Y</b></div><label class="chk"><input type="checkbox" id="single"><span>Nur diese Ebene</span></label></div>
       <div class="toolbar terrain-controls"><label class="chk"><input type="checkbox" id="terrainChk" checked><span>Gelände anzeigen</span></label><select id="terrainState" aria-label="Geländezustand"><option value="target">Geplantes Gelände</option><option value="original">Originalgelände</option><option value="work">Erdarbeiten farbig</option></select><small class="muted">Ziehen: drehen · Shift: verschieben · Mausrad: zoomen</small></div></div>'''+tabs['3d'][z:]
+    if version.startswith('6.'):
+        tabs['3d']=tabs['3d'].replace('value="128">Keller 1','value="128">Porter-Galerie').replace('value="120">Keller 2','value="123">Großlager').replace('value="112">Keller 3','value="101">Geheimräume')
     tabs['3d']=tabs['3d'].replace('<details open>','<details>').replace('<div class="hint">ziehen = drehen · Rechtsklick = verschieben · Rad = zoomen</div>','')
     tabs['3d']=tabs['3d'].replace('<canvas id="gl"></canvas>','<canvas id="gl"></canvas><div id="detailBanner" class="detail-banner" hidden><span>Leuchtendetail · mit Träger und Kette</span><button class="mini" id="leaveDetail">Zur Hausansicht</button></div>')
     terrain=(ROOT/'tools/terrain_section.html').read_text()
@@ -102,6 +104,9 @@ def build(d):
     if changes and changes.get('hall_gable_windows'):
         structure_section=structure_section.replace('<div class="grid2">'+cards, '<a href="assets/hallenfenster_5.24.svg"><img src="assets/hallenfenster_5.24.svg" alt="Obere Hallenfenster vorher und nachher, aus dem Blockmodell berechnet" loading="lazy" style="width:100%;max-height:480px;object-fit:contain"></a><div class="grid2">'+cards)
     shared=(ROOT/'tools/shared_section.html').read_text()
+    if version.startswith('6.'):
+        from web_v6 import prepare
+        structure_section,tabs['system'],downloads=prepare(d,structure_section,tabs,downloads)
     all_tabs='\n'.join(tabs[id] for id in ['overview','3d','plan','steps','rooms','terrain','storage','system','build','material'])+structure_section+viewer+lighting+downloads+shared+(ROOT/'tools/live_section.html').read_text()
     all_tabs=re.sub(r'<h1(.*?)>(.*?)</h1>',r'<h2\1>\2</h2>',all_tabs,flags=re.S)
     all_tabs=all_tabs.replace('value="157"','value="'+str(d['meta']['bbox'][3])+'"').replace('max="157"','max="'+str(d['meta']['bbox'][3])+'"')
@@ -193,6 +198,10 @@ def build(d):
     app=app.replace('Dach 145–157</b>', 'Dach 145–157 · Turm bis 171</b>')
     app=app.replace('Halle Y 157 · Gauben Y 154', 'Halle Y 157 · Aussichtsturm Y 171')
     app=app.replace('window.__groupName=gname;', 'window.__groupName=gname;window.__materialName=deName;')
+    if version.startswith('6.'):
+        newgroups=[g for g in d['groups'] if g.startswith('v6_')]
+        app=app.replace('Keller 105–128','Keller 95–128').replace('PHASES.map(ph =>', 'PHASES.filter(ph=>ph.groups.some(g=>D.gstats[g])).map(ph =>')
+        app=app.replace('const gname = g =>', 'Object.assign(GROUP_DE,'+json.dumps({g:g.replace('v6_','V6 · ').replace('_',' ') for g in newgroups},ensure_ascii=False)+');PHASES.unshift({id:"v6",name:"V6 · Keller nach Bestand",text:"Bestand erhalten, Freiräume ausheben, Lager mit Inventardaten separat übernehmen, Porterflächen frei lassen.",groups:'+json.dumps(newgroups)+'});\nconst gname = g =>')
     (ROOT/'app.js').write_text(app)
     steps=(BASE/'steps.js').read_text().replace('Revision 5.9',f'Revision {version}')
     a=steps.index('function renderStorage()');end=steps.index("\n$('#storageQuery')",a)

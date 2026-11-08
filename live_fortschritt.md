@@ -20,7 +20,7 @@ Der Atlas enthält jetzt **Organisation → Live-Baufortschritt**. Das Plugin li
    ```
 
    `world` muss der echte Bukkit-Weltname sein. Die Offsets bleiben null, wenn an den Koordinaten aus dem Atlas gebaut wird. Bei versetztem Bau gilt: Weltkoordinate = Atlas-Koordinate + Offset. Eine Rotation wird nicht unterstützt. Der Endpoint muss direkt auf das richtige Deployment zeigen; HTTP-Weiterleitungen werden nicht verfolgt. Der Server muss diese HTTPS-Adresse erreichen können. Bei einer geschützten Vercel-Vorschau kann deren Zugangsschutz den Aufruf blockieren; normale Production-Adresse verwenden.
-6. Server neu starten. Als Operator `/blackthornlive status` ausführen. Es müssen **138506 Positionen** geladen sein. Nach kurzer Zeit sollte bei Upload `OK` erscheinen.
+6. Server neu starten. Als Operator `/blackthornlive status` ausführen. Es müssen die zum V6-Atlas passende Anzahl an Positionen geladen sein. Nach kurzer Zeit sollte bei Upload `OK` erscheinen.
 7. Im Baugebiet spielen oder vorhandene Chunks laden. Im Atlas **Organisation → Live-Baufortschritt** mit eurem gemeinsamen Teamcode anmelden. Der Plugin-Schreibtoken gehört nicht ins Website-Anmeldefeld.
 
 ## Anzeige und Aktualisierung

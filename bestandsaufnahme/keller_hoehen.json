@@ -1,0 +1,175 @@
+{
+  "source_sha256": "7cd9c6a49767ce66d15b69db7835c9670bac768bfa97324ccf3158d508f804f1",
+  "bounds": {
+    "x": [
+      -710,
+      -658
+    ],
+    "y": [
+      94,
+      129
+    ],
+    "z": [
+      766,
+      814
+    ]
+  },
+  "counts_per_y": {
+    "94": {
+      "stone": 2477,
+      "coal_ore": 62,
+      "gravel": 37,
+      "andesite": 10,
+      "iron_ore": 6,
+      "copper_ore": 5
+    },
+    "95": {
+      "polished_deepslate": 1199,
+      "deepslate_tiles": 1198,
+      "cobblestone": 176,
+      "stone": 24
+    },
+    "96": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "97": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "98": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "99": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "100": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "101": {
+      "air": 2091,
+      "deepslate_tiles": 306,
+      "deepslate_bricks": 200
+    },
+    "102": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "103": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "104": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "105": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "106": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "107": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "108": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "109": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "110": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "111": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "112": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "113": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "114": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "115": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "116": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "117": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "118": {
+      "air": 2316,
+      "deepslate_bricks": 200,
+      "iron_block": 81
+    },
+    "119": {
+      "air": 2348,
+      "deepslate_bricks": 200,
+      "iron_block": 49
+    },
+    "120": {
+      "air": 2372,
+      "deepslate_bricks": 200,
+      "iron_block": 25
+    },
+    "121": {
+      "air": 2388,
+      "deepslate_bricks": 200,
+      "iron_block": 9
+    },
+    "122": {
+      "air": 2395,
+      "deepslate_bricks": 200,
+      "oak_wall_sign": 1,
+      "beacon": 1
+    },
+    "123": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "124": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "125": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "126": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "127": {
+      "air": 2397,
+      "deepslate_bricks": 200
+    },
+    "128": {
+      "air": 2597
+    },
+    "129": {
+      "air": 2596,
+      "cherry_planks": 1
+    }
+  }
+}

@@ -439,4 +439,6 @@ Quellen: [Mojang: gemeißelte Bücherregale](https://www.minecraft.net/es-es/art
         'browser_render_verified':False,'in_game_walk_test':False,'in_game_redstone_verified':False}
     (ROOT/'pruefprotokoll.json').write_text(json.dumps(protocol,ensure_ascii=False,indent=2)+'\n')
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    from build_v6 import main as build_current
+    build_current()

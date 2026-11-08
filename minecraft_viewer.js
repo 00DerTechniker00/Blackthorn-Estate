@@ -4,7 +4,7 @@
   const $=s=>document.querySelector(s),frame=$('#textureViewer'),status=$('#textureViewerStatus');
   const origin='https://structure-viewer.ewanhowell.com',version='26.3',pending=new Map();
   let sequence=0,ready=false,started=false,packsReady=false,requested='house';
-  const models={house:{element:'structureNbt',name:'Blackthorn Estate · Revision '+window.BLACKTHORN_DATA.meta.version+'.nbt',url:'blackthorn_estate_'+window.BLACKTHORN_DATA.meta.version+'.nbt'},copper:{element:'litematicCopper',name:'Copper Golem MIS Cherry.litematic',url:'litematics/Copper Golem MIS Cherry.litematic'},filter:{element:'litematicFilter',name:'Golem MIS Dustless Filter.litematic',url:'litematics/Golem MIS Dustless Filter.litematic'}};
+  const models={house:{element:'structureNbt',name:'Blackthorn Estate · Revision '+window.BLACKTHORN_DATA.meta.version+'.nbt',url:'blackthorn_estate_'+window.BLACKTHORN_DATA.meta.version+'.nbt'},copper:{element:'litematicCopper',name:'Copper Golem MIS Cherry.litematic',url:'litematics/Copper Golem MIS Cherry.litematic'},filter:{element:'litematicFilter',name:'Blackthorn_V6_Dustless.litematic',url:'litematics/Blackthorn_V6_Dustless.litematic'}};
   const say=(message,error=false)=>{status.textContent=message;status.classList.toggle('error',error);};
   function send(type,body,transfer=[]){return new Promise((resolve,reject)=>{
     const id=++sequence,timer=setTimeout(()=>{pending.delete(id);reject(Error('Der Minecraft-Viewer hat nicht rechtzeitig geantwortet.'));},90000);

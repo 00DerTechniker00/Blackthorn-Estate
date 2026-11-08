@@ -1,3 +1,7 @@
+# Version 6.0 · Keller nach gebautem Bestand
+
+Aktueller Build: `python tools/build.py`. [Umbaufolge, Porterflächen und Lagerimport](umbau_v6.md). Der unten dokumentierte Stand 5.x ist Projektgeschichte; maßgeblich sind der V6-Atlas und die aktuellen Block- und Materiallisten. Nach dem Update das neue Live-Plugin 1.1.0 installieren.
+
 # Blackthorn Estate · Revision 5.26
 
 Dach-Geheimraum, Strukturprüfung und Verschönerung

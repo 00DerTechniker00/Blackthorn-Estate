@@ -64,7 +64,7 @@
   $('#lightRows').onclick=e=>{const key=e.target.dataset.light3d||e.target.dataset.lightPlan;if(!key)return;const f=fixtures.find(x=>x.id===key);if(!f)return;
     if(e.target.dataset.light3d){window.__focusFixture(f);$('#sceneFloor').value='custom';}else window.__focusPlan(f.x,f.y,f.z);
   };
-  function syncFloor(){const value=$('#cut').value;$('#sceneFloor').value=[String(D.meta.bbox[3]),'144','136','128','120','112'].includes(value)?value:'custom';}
+  function syncFloor(){const value=$('#cut').value;$('#sceneFloor').value=[...$('#sceneFloor').options].some(o=>o.value===value&&o.value!=='custom')?value:'custom';}
   $('#sceneFloor').onchange=e=>{if(e.target.value==='custom')return;window.__leaveFixture();$('#cut').value=e.target.value;$('#cut').dispatchEvent(new Event('input'));};
   $('#cut').addEventListener('input',syncFloor);$('#cutDown').addEventListener('click',syncFloor);$('#cutUp').addEventListener('click',syncFloor);
   $('#resetScene').onclick=()=>{window.__resetScene();$('#sceneFloor').value=String(D.meta.bbox[3]);$('#terrainState').value='target';$('#terrainState').dispatchEvent(new Event('change'));};
