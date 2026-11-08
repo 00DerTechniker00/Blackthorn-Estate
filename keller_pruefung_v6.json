@@ -1,6 +1,6 @@
 {
   "revision": "6.0",
-  "fingerprint": "ca0429a60f97299fa435c318b3f787df08572d82f1aa265e4451f1e502a4753e",
+  "fingerprint": "765bb60257fb8acd47f5ade325d38b043535ccd4cbda6b13a5614730c0cd9087",
   "route_model": "Static supported-cell traversal; no player collision or redstone simulation",
   "rooms": [
     {

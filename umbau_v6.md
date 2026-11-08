@@ -52,7 +52,7 @@ Die bisherige kleine Bulk-/Golem-Anlage, das 400-Fass-Regallager und die alte Ke
 
 ## Atlas und Live-Plugin
 
-Website und neuer Plugin-Bauplan verwenden denselben V6-Fingerprint. Nach Veröffentlichung das neue `downloads/BlackthornLive.jar` (Version 1.1.2) auf dem Server austauschen und neu starten. Bestehende Konfiguration und Schreibtoken bleiben verwendbar. Alte Plugin-Prüfstände werden nicht mit dem neuen Bauplan vermischt.
+Website und neuer Plugin-Bauplan verwenden denselben V6-Fingerprint. Nach Veröffentlichung das neue `downloads/BlackthornLive.jar` (Version 1.2.0) auf dem Server austauschen und neu starten. Bestehende Konfiguration und Schreibtoken bleiben verwendbar. Alte Plugin-Prüfstände werden nicht mit dem neuen Bauplan vermischt.
 
 Lokale Bauhäkchen aus 5.26 werden nur für unveränderte Positionen übernommen. Entfernte Lagerbuchten und geänderte Bauteil-Fertigmeldungen werden verworfen. Gemeinsame Materialbestände bleiben gespeichert; neue Sollmengen und Häkchen im Team gegenprüfen.
 
@@ -62,7 +62,7 @@ Statische Prüfung: eindeutige Positionen, Materialmengen, Türhälften, direkte
 
 ## Nachprüfung der Kellerwege
 
-Die Leiteröffnungen wurden bis auf die eigentliche Leitersäule mit Trittflächen geschlossen; seitliche Mauergeländer begrenzen die Öffnung. Östliche Austritte bleiben frei. Die Deckenleuchten sind dichter bis an die Raumränder verteilt. Der Modelltest erreicht alle neuen Raumgruppen und alle 714 Porterpositionen. In den untersuchten freien Bodenzellen der unteren Räume und der Porterfläche gibt es im vereinfachten Blocklichtmodell keine Zellen mit Lichtlevel 0. Details und Grenzen stehen in `keller_pruefung_v6.json`; ein Ingame-Test bleibt erforderlich. Das neue Plugin 1.1.2 enthält den aktualisierten Plan und zeigt dessen Kennung im Statusbefehl.
+Die Leiteröffnungen wurden bis auf die eigentliche Leitersäule mit Trittflächen geschlossen; seitliche Mauergeländer begrenzen die Öffnung. Östliche Austritte bleiben frei. Die Deckenleuchten sind dichter bis an die Raumränder verteilt. Der Modelltest erreicht alle neuen Raumgruppen und alle 714 Porterpositionen. In den untersuchten freien Bodenzellen der unteren Räume und der Porterfläche gibt es im vereinfachten Blocklichtmodell keine Zellen mit Lichtlevel 0. Details und Grenzen stehen in `keller_pruefung_v6.json`; ein Ingame-Test bleibt erforderlich. Das neue Plugin 1.2.0 enthält den aktualisierten Plan und zeigt dessen Kennung im Statusbefehl.
 
 ## Endgültiger Bestandsboden
 

@@ -1,7 +1,7 @@
 """Convert block states to placeable items and keep the terrain budget explicit."""
 from collections import Counter
 
-OUTDOOR={'zufahrt','terrasse','pool','gartendeko','poolboegen','klippenfuesse','kaskaden','klippenvegetation','gartentreppe','stall_remise','orangerie','gartenlicht','steglicht','ruestungsnischen','weinberg','klippenpfad','bootshaus'}
+OUTDOOR={'v6_pool','v6_garten','zufahrt','terrasse','pool','gartendeko','poolboegen','klippenfuesse','kaskaden','klippenvegetation','gartentreppe','stall_remise','orangerie','gartenlicht','steglicht','ruestungsnischen','weinberg','klippenpfad','bootshaus'}
 
 def items_for_block(block,state):
     if block in ('air','water','bubble_column','piston_head') or block.endswith('_door') and 'half=upper' in state or block.endswith('_bed') and 'part=head' in state:return []

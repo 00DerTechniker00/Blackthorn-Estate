@@ -10,7 +10,7 @@ def check():
  for y,z,x,n,i in d['runs']:
   bid,st,g=d['reg'][i]
   for xx in range(x,x+n):b[xx,y,z]=(bid,st,d['groups'][g])
- routes=reachability(b,d['rooms']);rooms=[r for r in routes['rooms'] if r['room'] in [v['name'] for v in d['rooms'] if v['y'][0]<129]]
+ routes=reachability(b,d['rooms']);rooms=[r for r in routes['rooms'] if r['room'] in [v['name'] for v in d['rooms'] if v['y'][0]<129 and v['group'] not in ('v6_pool','v6_garten')]]
  assert all(r['reached']>0 for r in rooms)
  assert next(r for r in rooms if r['room'].startswith('Porter'))['reached']==714
  def inside(p):x,y,z=p;return -710<=x<=-658 and 80<=y<=129 and 766<=z<=814

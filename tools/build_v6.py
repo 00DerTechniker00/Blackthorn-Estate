@@ -151,6 +151,8 @@ def main():
         for xx in range(x,x+n):
             if -709<=xx<=-659 and 767<=z<=813:
                 put(xx,95,z,pal['name'],','.join(f'{k}={v}' for k,v in sorted(pal['properties'].items())),'v6_bestand')
+    from outdoors_v6 import enhance as improve_outdoors
+    outdoor_changes=improve_outdoors(d,b,air)
     # No blocks and required-air positions may overlap.
     air.update(prior.keys()-b.keys())
     air.difference_update(b)
@@ -185,6 +187,8 @@ def main():
     room('Handlager und Nebenräume','v6_handlager',[-708,-659],[96,100],[795,812],'Manuelle Fässer als Reserve; keine alte Trading-Hall unterstellt.')
     room('Dustless-Großlager','v6_grosslager',[-701,-675],[102,123],[771,797],'Originale Schaltungshöhe, graue Glasverkleidung. Inventare und Golems aus V6-Litematic übernehmen.')
     room('Porter-Galerie · gesamte Nordwand','v6_keller',[-709,-659],[125,128],[767,780],'51 × 14 freie Bodenpositionen; gesamte Nordseite bleibt ohne Möbel. Eigene Porter chunkweise einsetzen.')
+    room('Poolterrasse und flacher Einstieg','v6_pool',[-657,-634],[130,130],[770,810],'Ruhiger Steinbelag, Holzbänke und beleuchtetes Becken; mittlerer Hauszugang bleibt frei.')
+    room('Rosenterrasse mit Pergola','v6_garten',[-736,-728],[126,126],[841,849],'Über den nördlichen Kiesweg erreichbar; offene Mitte und Sitzbank im Süden.')
     d['storage_zones']=[];d['storage_bays']=[]
     for i,x in enumerate(range(-708,-699,2),1):
         id=f'V6-H{i:02d}';d['storage_zones'].append(dict(id=id,name=f'Reserve {i}',contents='1 Fass · 27 Plätze',room='Unteres Handlager',group='v6_handlager',x=[x,x],y=[96,96],z=[812,812]))
@@ -203,7 +207,7 @@ def main():
     d['structure']['logistics']=[{'label':'Dustless-Großlager','y':[102,123]},{'label':'Porter-Galerie · Nordwand frei','y':[124,128]}]
     d['structure']['enhancements']['title']='Version 6 · Keller nach eurem gebauten Bestand'
     d['structure']['enhancements']['features']=[dict(name='Gebauter Keller bleibt erhalten',description='Boden Y95 und Außenwände bilden die Grundlage.',group='v6_bestand'),dict(name='Großlager integriert',description='Dustless-Litematic in voller Höhe, keine gestauchten Schaltungen.',group='v6_grosslager'),dict(name='Nordwand vollständig frei',description='51 × 14 Bodenpositionen für eure vorhandenen Porter; Chunkraster im Plan beachten.',group='v6_keller')]
-    d['structure']['v6']={'north_reserve':[-709,-659,125,128,767,780],'storage_anchor':[-701,102,771],'source_sha256':survey['source_sha256']}
+    d['structure']['v6']={'north_reserve':[-709,-659,125,128,767,780],'storage_anchor':[-701,102,771],'source_sha256':survey['source_sha256'],'outdoors':outdoor_changes}
     # Preserve original entity and inventory data in the derived Litematic. Main house NBT is block-only.
     modules=json.loads((ROOT/'lagertechnik_module.json').read_text())
     meta.update(key='dustless_filter',proposed_world_anchor=[-701,102,771],rotation='unverändert')
@@ -227,10 +231,14 @@ def main():
     (ROOT/'freiraeume_6.0.csv').write_text('X;Y;Z\n'+'\n'.join(';'.join(map(str,p)) for p in sorted(air))+'\n')
     from render_v6 import render
     render()
+    from render_outdoors import render as render_exterior
+    render_exterior()
     from web import build
     build(d)
     from check_cellar_routes import check
     check()
+    from check_outdoors_v6 import check as check_outdoors
+    check_outdoors()
     print('V6 built:',len(b),'positions;',len(storage),'storage blocks;',len(air),'explicit clearance positions.')
 
 def write_current_delta(survey,b,air):

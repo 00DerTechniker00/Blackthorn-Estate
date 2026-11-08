@@ -1,7 +1,7 @@
 {
   "revision": "6.0",
-  "positions": 138582,
-  "items": 137891,
+  "positions": 138980,
+  "items": 138068,
   "duplicates": [],
   "material_counts_match": true,
   "packing_errors": [],
@@ -18,9 +18,9 @@
     "sha256": "e0f4c700a52f8f91ea067fa0eaea19cd118656793a11c5388014c589831f352b",
     "materials": {
       "dirt": {
-        "planned": 38148,
+        "planned": 38159,
         "same_type_in_snapshot": 2051,
-        "different_type": 36097,
+        "different_type": 36108,
         "unknown_positions": 0
       },
       "cobblestone": {
@@ -30,9 +30,9 @@
         "unknown_positions": 0
       },
       "grass_block": {
-        "planned": 7931,
+        "planned": 7912,
         "same_type_in_snapshot": 772,
-        "different_type": 7159,
+        "different_type": 7140,
         "unknown_positions": 0
       },
       "stone": {
@@ -56,21 +56,21 @@
     },
     "outdoor": {
       "label": "Außenanlagen und Nebengebäude",
-      "items": 5826,
+      "items": 6048,
       "focus": {
-        "dirt": 0,
+        "dirt": 24,
         "cobblestone": 817,
-        "grass_block": 126,
+        "grass_block": 136,
         "stone": 0
       }
     },
     "terrain": {
       "label": "Gelände und Auffüllung",
-      "items": 61910,
+      "items": 61865,
       "focus": {
-        "dirt": 38148,
+        "dirt": 38135,
         "cobblestone": 13132,
-        "grass_block": 7805,
+        "grass_block": 7776,
         "stone": 2254
       }
     }

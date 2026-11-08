@@ -3,7 +3,8 @@ function buildTerrain() {
   const T=D.terrain,[x0,x1,z0,z1]=T.bounds,mode=S3.terrainMode||'target';
   const H=mode==='original'?T.heights:T.target_heights,work=new Map(T.work.map(r=>[r[0]+','+r[1],r]));
   const B=mkB(),bottom=Math.min(...T.heights.map(row=>Math.min(...row)))-8;
-  const height=(x,z)=>(x<x0||x>x1||z<z0||z>z1)?bottom:H[z-z0][x-x0]+1;
+  const modeledSteps=new Set((D.structure?.v6?.outdoors?.steps||[]).map(([x,z])=>x+','+z));
+  const height=(x,z)=>(x<x0||x>x1||z<z0||z>z1)?bottom:H[z-z0][x-x0]+1-(mode!=='original'&&modeledSteps.has(x+','+z)?1:0);
   // A height field cannot describe an underground cellar. Its old surface must not cover V6 blocks.
   const hasCellar=!!D.structure?.v6&&mode!=='original';
   const cutout=(x,z)=>hasCellar&&((x>=-710&&x<=-658&&z>=766&&z<=814)||(x>=-714&&x<=-711&&z>=774&&z<=778));

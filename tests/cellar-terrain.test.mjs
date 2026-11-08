@@ -29,3 +29,9 @@ test('all 212 boundary faces close the cellar and west shaft without a horizonta
  assert(boundary.some(f=>f.dir==='north'));assert(boundary.some(f=>f.dir==='south'));assert(boundary.some(f=>f.dir==='east'));assert(boundary.some(f=>f.dir==='west'));
  assert(!faces.some(f=>f.dir==='up'&&f.box[0]===-684&&f.box[2]===790));
 });
+test('garden stair surface is rendered below the modeled step instead of covering it',()=>{
+ for(const mode of ['target','original']){
+  const faces=[],context={D:{structure:{v6:{outdoors:{steps:[[-733,838]]}}},terrain:{bounds:[-733,-733,838,838],heights:[[126]],target_heights:[[126]],surface_blocks:[['stone']],target_surface_blocks:[['stone_brick_stairs']],work:[]}},S3:{terrainMode:mode},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>faces.push({dir,box})};
+  vm.runInNewContext(source,context);context.buildTerrain();assert.equal(faces.find(f=>f.dir==='up').box[4],mode==='target'?126:127);
+ }
+});
