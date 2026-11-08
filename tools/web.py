@@ -158,7 +158,7 @@ def build(d):
 ''' + app[end:]
     start=app.index('function buildTerrain()');end=app.index('/* Dependency-free WebGL viewer.',start)
     app=app[:start]+(ROOT/'tools/terrain_viewer.js').read_text()+'\n'+app[end:]
-    app=app.replace("function predNow() { return i=>", "function predNow() { return i=>!S3.terrainOnly&&")
+    app=app.replace("function predNow() { return i=>", "function predNow() { return i=>S3.terrainOnly ? (S3.terrain && S3.terrainMode!=='original' && Y[i]===95 && REG[R[i]].g==='v6_bestand') : ")
     app=app.replace("window.__resetScene=()=>{if(!GL)return;", "window.__resetScene=()=>{if(!GL)return;S3.terrainOnly=false;$('#houseChk').checked=true;")
     app=app.replace("window.__focusFixture=f=>{", "window.__focusFixture=f=>{S3.terrainOnly=false;$('#houseChk').checked=true;")
     app=app.replace("window.__openRoom = (idx) => {", "window.__openRoom = (idx) => {S3.terrainOnly=false;$('#houseChk').checked=true;")
@@ -202,6 +202,8 @@ def build(d):
         newgroups=[g for g in d['groups'] if g.startswith('v6_')]
         app=app.replace('Keller 105–128','Keller 95–128').replace('PHASES.map(ph =>', 'PHASES.filter(ph=>ph.groups.some(g=>D.gstats[g])).map(ph =>')
         app=app.replace('const gname = g =>', 'Object.assign(GROUP_DE,'+json.dumps({g:g.replace('v6_','V6 · ').replace('_',' ') for g in newgroups},ensure_ascii=False)+');PHASES.unshift({id:"v6",name:"V6 · Keller nach Bestand",text:"Bestand erhalten, Freiräume ausheben, Lager mit Inventardaten separat übernehmen, Porterflächen frei lassen.",groups:'+json.dumps(newgroups)+'});\nconst gname = g =>')
+    if version.startswith('6.'):
+        app += "\n$('#terrainChk').addEventListener('change',()=>{if(S3.terrainOnly&&GL)rebuild();});$('#terrainState').addEventListener('change',()=>{if(S3.terrainOnly&&GL)rebuild();});\nwindow.__showCellarFloor=()=>{window.__showTab('3d');const wait=()=>{if(!GL)return;if(!GL.terrain)return setTimeout(wait,80);window.__resetScene();S3.ymax=100;$('#cut').value=100;$('#sceneFloor').value='custom';$('#terrainState').value='target';$('#terrainState').dispatchEvent(new Event('change'));applyCut();focusBox(-684,98,790,65);};wait();};\n"
     (ROOT/'app.js').write_text(app)
     steps=(BASE/'steps.js').read_text().replace('Revision 5.9',f'Revision {version}')
     a=steps.index('function renderStorage()');end=steps.index("\n$('#storageQuery')",a)

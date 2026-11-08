@@ -301,15 +301,20 @@ function buildTerrain() {
   const H=mode==='original'?T.heights:T.target_heights,work=new Map(T.work.map(r=>[r[0]+','+r[1],r]));
   const B=mkB(),bottom=Math.min(...T.heights.map(row=>Math.min(...row)))-8;
   const height=(x,z)=>(x<x0||x>x1||z<z0||z>z1)?bottom:H[z-z0][x-x0]+1;
+  // A height field cannot describe an underground cellar. Its old surface must not cover V6 blocks.
+  const hasCellar=!!D.structure?.v6&&mode!=='original';
+  const cutout=(x,z)=>hasCellar&&((x>=-710&&x<=-658&&z>=766&&z<=814)||(x>=-714&&x<=-711&&z>=774&&z<=778));
   const rgb={water:[.24,.47,.66],grass_block:[.39,.56,.31],dirt:[.52,.39,.25],stone:[.49,.51,.52],stone_bricks:[.53,.55,.55],gravel:[.67,.62,.51],iron_block:[.75,.78,.77],dark_oak_planks:[.32,.23,.14]};
   for(let z=z0;z<=z1;z++)for(let x=x0;x<=x1;x++){
+    if(cutout(x,z))continue;
     const h=height(x,z),r=work.get(x+','+z),variation=.95+.1*hash3(x,7,z);
     const mat=mode==='original'?T.surface_blocks[z-z0][x-x0]:T.target_surface_blocks[z-z0][x-x0];
     let top=(rgb[mat]||[.46,.49,.43]).map(v=>v*variation);
     if(mode==='work'&&r)top=r[4]&&r[5]?[.65,.48,.73]:r[4]?[.90,.51,.23]:r[5]?[.21,.67,.64]:[.73,.68,.41];
     addFace(B,'up',[x,0,z,x+1,h,z+1],top,1);
     for(const dir of ['north','south','east','west']){
-      const v=DIRV[dir],neighbour=height(x+v[0],z+v[2]);
+      const v=DIRV[dir];if(cutout(x+v[0],z+v[2]))continue;
+      const neighbour=height(x+v[0],z+v[2]);
       if(neighbour<h){
         const side=mode==='work'&&r?top:[.45*variation,.35*variation,.24*variation];
         addFace(B,dir,[x,neighbour,z,x+1,h,z+1],side,1);
@@ -407,7 +412,7 @@ function resize3d() {
   cv.width=Math.max(1,Math.round(st.clientWidth*ratio)); cv.height=Math.max(1,Math.round(st.clientHeight*ratio));
   GL.gl.viewport(0,0,cv.width,cv.height); GL.dirty=true;
 }
-function predNow() { return i=>!S3.terrainOnly&&(!S3.isolate||S3.isolate.has(i))&&!S3.hidden.has(REG[R[i]].gi) && !['terraform_auffuellung','terraform_oberflaeche','zufahrt'].includes(REG[R[i]].g); }
+function predNow() { return i=>S3.terrainOnly ? (S3.terrain && S3.terrainMode!=='original' && Y[i]===95 && REG[R[i]].g==='v6_bestand') : (!S3.isolate||S3.isolate.has(i))&&!S3.hidden.has(REG[R[i]].gi) && !['terraform_auffuellung','terraform_oberflaeche','zufahrt'].includes(REG[R[i]].g); }
 function rebuild() {
   const gl=GL.gl;
   for(const layer of Object.values(GL.meshes)) for(const mesh of Object.values(layer)) if(mesh) mesh.buffers.forEach(b=>gl.deleteBuffer(b));
@@ -800,3 +805,6 @@ $('#houseChk').onchange=e=>{S3.terrainOnly=!e.target.checked;S3.isolate=null;$('
         const y=D.terrain.target_heights[z-z0][x-x0]+1;focusBox(x,y,z,only?(mode==='work'?95:30):24);GL.hl.position.set(x+.5,y+.5,-z-.5);GL.hl.visible=mode!=='work';GL.cam.ph=.8;GL.dirty=true;};
       if(GL.terrain)ready();else setTimeout(ready,100);};
 })();
+
+$('#terrainChk').addEventListener('change',()=>{if(S3.terrainOnly&&GL)rebuild();});$('#terrainState').addEventListener('change',()=>{if(S3.terrainOnly&&GL)rebuild();});
+window.__showCellarFloor=()=>{window.__showTab('3d');const wait=()=>{if(!GL)return;if(!GL.terrain)return setTimeout(wait,80);window.__resetScene();S3.ymax=100;$('#cut').value=100;$('#sceneFloor').value='custom';$('#terrainState').value='target';$('#terrainState').dispatchEvent(new Event('change'));applyCut();focusBox(-684,98,790,65);};wait();};

@@ -76,5 +76,6 @@
   $('#leaveDetail').onclick=()=>$('#resetScene').click();
   const showCode=$('#sharedShowCode');
   if(showCode)showCode.onclick=()=>{const input=$('#sharedCode'),show=input.type==='password';input.type=show?'text':'password';showCode.textContent=show?'Verbergen':'Anzeigen';showCode.setAttribute('aria-pressed',String(show));};
+  document.querySelector('[data-cellar-floor]')?.addEventListener('click',()=>window.__showCellarFloor());
   saved();renderLights();paint();
 })();
