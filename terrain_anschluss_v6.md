@@ -2,9 +2,9 @@
 
 ## Fehlende Erdseiten
 
-Die Hausmaske soll die oberen Geländeplatten unter Gebäuden ausblenden. Sie darf jedoch nicht sämtliche Seiten einer solchen Spalte löschen. Zwischen einer flachen Hausausspartiefe und dem tiefen Kellerausschnitt müssen weiterhin vertikale Erdflächen sichtbar sein. Genau diese fehlten nach der letzten Erweiterung der Maske.
+Die Hausmaske begrenzt das Gelände auf die Höhe unter dem Fußboden. Außerhalb des tatsächlichen Kellers bleibt dieses Erdreich geschlossen – auch wenn die darüberliegenden Hausgeschosse in einer Schnittansicht ausgeblendet werden. Nur die echte Kellerhöhlung und die westliche Zugangsnische werden oben ausgespart. Zwischen einer flachen Hausausspartiefe und dem tiefen Kellerausschnitt müssen weiterhin vertikale Erdflächen sichtbar sein. Genau diese fehlten nach der letzten Erweiterung der Maske.
 
-Der Renderer trennt jetzt obere Flächen von Seitenflächen und vergleicht die tatsächlichen Schnitthöhen beider Nachbarn. Er zeichnet auch zwischen zwei maskierten Spalten den nötigen Erdabschluss. Die Seiten liegen minimal hinter dem Mauerwerk, damit die realen Mauerblöcke im Vordergrund bleiben. Die echten Öffnungen zum Geheimgang und zur Flussgalerie sind aus diesen Flächen ausgeschnitten.
+Der Renderer unterscheidet echte Hohlräume von massivem Boden unter einem Gebäude. Außerhalb der Hohlräume zeichnet er auch die korrekt abgesenkte Oberseite, damit keine schwarzen Hausgrundrisse entstehen. Zusätzlich vergleicht er die tatsächlichen Schnitthöhen beider Nachbarn. Er zeichnet auch zwischen zwei maskierten Spalten den nötigen Erdabschluss. Die Seiten liegen minimal hinter dem Mauerwerk, damit die realen Mauerblöcke im Vordergrund bleiben. Die echten Öffnungen zum Geheimgang und zur Flussgalerie sind aus diesen Flächen ausgeschnitten.
 
 Die Kellerwände selbst waren vollständig vorhanden. Es wurden weder Fenster zugemauert noch der fertige Boden auf Y 95 verändert. Tests prüfen den gesamten 214 Kanten langen Außenabschluss, einen vollständig umlaufenden Hausmaskenring und die weiterhin offene Flussgalerie.
 

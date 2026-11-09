@@ -43,7 +43,7 @@ test('target terrain never covers house rooms, doors or the relocated stable',()
    vm.runInNewContext(source,context);context.buildTerrain();
    if(mode==='original')assert(faces.some(f=>f.dir==='up'&&f.box[0]===x));
    else{
-    assert(!faces.some(f=>f.dir==='up'&&f.box[0]===x),'terrain roof through structure at '+x+','+z);
+    const ground=faces.find(f=>f.dir==='up'&&f.box[0]===x);assert(ground,'missing solid ground below structure');assert.equal(ground.box[4],base+1);
     const edge=faces.find(f=>f.dir==='west'&&f.box[3]===x+2);
     assert(edge);assert.equal(edge.box[1],base+1);assert(edge.box[0]>x+1,'soil side must stay behind the house');
    }
@@ -64,7 +64,8 @@ test('modeled original road remains visible when the terrain proxy is masked',()
 test('masked house earth still closes the deeper masked cellar',()=>{
  const faces=[],context={D:{structure:{v6:{}},terrain:{bounds:[-711,-710,790,790],heights:[[128,128]],target_heights:[[126,104]],surface_blocks:[['dirt','dirt']],target_surface_blocks:[['dirt','dirt']],structure_clearance:[[-711,790,126]],work:[]}},S3:{terrainMode:'target'},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>faces.push({dir,box})};
  vm.runInNewContext(source,context);context.buildTerrain();
- assert(!faces.some(f=>f.dir==='up'));
+ assert(faces.some(f=>f.dir==='up'&&f.box[0]===-711&&f.box[4]===127));
+ assert(!faces.some(f=>f.dir==='up'&&f.box[0]===-710));
  const wall=faces.find(f=>f.dir==='east'&&f.box[0]===-711);assert(wall);assert.equal(wall.box[1],95);assert.equal(wall.box[4],127);assert(wall.box[3]<-710);
 });
 test('earth closure respects the real river-gallery opening',()=>{
@@ -79,5 +80,20 @@ test('the full earth perimeter stays closed even with a surrounding house mask',
  const context={D:{structure:{v6:{}},terrain:{bounds,heights:grid(),target_heights:grid(),surface_blocks:grid().map(r=>r.map(()=> 'stone')),target_surface_blocks:grid().map(r=>r.map(()=> 'stone')),structure_clearance:mask,work:[]}},S3:{terrainMode:'target'},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>faces.push({dir,box})};
  vm.runInNewContext(source,context);context.buildTerrain();
  const earth=faces.filter(f=>[80,95].includes(f.box[1])&&f.box[4]===127);
- assert.equal(earth.length,214);assert(!faces.some(f=>f.dir==='up'));
+ assert.equal(earth.length,214);assert(!faces.some(f=>f.dir==='up'&&f.box[0]>=-710&&f.box[0]<=-658&&f.box[2]>=766&&f.box[2]<=814));
+});
+
+test('actual estate terrain has no empty house-wing footprints in a cellar cutaway',()=>{
+ const D=JSON.parse(readFileSync('blueprint.json','utf8')),tops=new Map();
+ const context={D,S3:{terrainMode:'target',terrainOnly:false,ymax:121},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>{if(dir==='up')tops.set(box[0]+','+box[2],box[4]);}};
+ vm.runInNewContext(source,context);context.buildTerrain();
+ let checked=0;
+ for(const [x,z,base] of D.terrain.structure_clearance){
+  const deep=x>=-710&&x<=-658&&z>=766&&z<=814||x>=-715&&x<=-711&&z>=774&&z<=783;
+  if(deep){assert(!tops.has(x+','+z));continue;}
+  assert(tops.has(x+','+z),'black void outside actual cellar at '+x+','+z);
+  assert(tops.get(x+','+z)<=base+1,'ground covers building at '+x+','+z);checked++;
+ }
+ assert(checked>3000);
+ for(const point of ['-733,787','-692,765','-673,815'])assert(tops.has(point),point);
 });

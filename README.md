@@ -1,3 +1,5 @@
+Keller-Schnittansicht korrigiert: keine schwarzen Aussparungen mehr unter den übrigen Hausflügeln. Das abgesenkte Gelände unter ihren Fußböden bleibt geschlossen; nur die tatsächliche Kellerhöhlung wird ausgespart.
+
 Neuer Plateauanschluss und geschlossene Erdseiten in der Kelleransicht: [Bauhinweise](terrain_anschluss_v6.md). Die flache Geländemaske blendet nur Oberseiten aus; vertikale Erdabschlüsse und echte Zugänge bleiben erhalten.
 
 Haus-/Geländeüberlagerung und Stallkonflikt mit der Zufahrt korrigiert: [Freiraumkorrektur](freiraumkorrektur_v6.md). Der Stall steht jetzt westlich der Hauptzufahrt, die originale Wegführung ist wiederhergestellt.

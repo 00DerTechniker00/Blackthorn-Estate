@@ -1,4 +1,4 @@
-/* A masked top is not an empty column: earth sides still close deeper cutaways. */
+/* Keep solid ground below shallow building masks; only real deep cavities omit their tops. */
 function buildTerrain() {
   const T=D.terrain,[x0,x1,z0,z1]=T.bounds,mode=S3.terrainMode||'target';
   const H=mode==='original'?T.heights:T.target_heights,work=new Map(T.work.map(r=>[r[0]+','+r[1],r]));
@@ -37,7 +37,9 @@ function buildTerrain() {
     const mat=mode==='original'?T.surface_blocks[z-z0][x-x0]:T.target_surface_blocks[z-z0][x-x0];
     let top=(rgb[mat]||[.46,.49,.43]).map(v=>v*variation);
     if(mode==='work'&&r)top=r[4]&&r[5]?[.65,.48,.73]:r[4]?[.90,.51,.23]:r[5]?[.21,.67,.64]:[.73,.68,.41];
-    if(!hidden)addFace(B,'up',[x,0,z,x+1,h,z+1],top,1);
+    // The corrected ground lies below the building floor. Removing its top
+    // would expose a black footprint as soon as upper building layers are cut away.
+    if(cavity(x,z)===null)addFace(B,'up',[x,0,z,x+1,h,z+1],top,1);
     for(const dir of ['north','south','east','west']){
       const v=DIRV[dir],nx=x+v[0],nz=z+v[2],other=level(nx,nz);
       if(other>=h)continue;
