@@ -1,5 +1,5 @@
 {
-  "fingerprint": "b72d43e798e6a8923ce5d452e49ae1e245de2d2735e1391603e0c97a7fec7de8",
+  "fingerprint": "69aa1e8bb70ac8304ae2d0f639a763ec8ddbd408220b3194aa8bfa853aa64fa8",
   "checks": {
     "landscape": {
       "terrain_columns_consistent": 191,
@@ -45,6 +45,13 @@
       "known_door_and_room_conflicts_resolved": 9,
       "pool_ground_below_bed": true,
       "masked_columns": 6995
+    },
+    "terrain_blend": {
+      "softened_columns": 2237,
+      "local_cut_blocks": 2962,
+      "landscape_band_fill": 0,
+      "underpinning_columns": 104,
+      "underpinning_blocks": 987
     },
     "routes": [
       {

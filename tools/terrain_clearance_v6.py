@@ -50,6 +50,7 @@ def enhance(d,b,air,architecture):
             else:packed.append([low,high])
         merged.extend([x,z,low,high] for low,high in packed)
     T['cut_spans']=merged
+    T['soil_portals']=[[-713,-710,96,98,775,777],[-711,-710,96,98,781,782],[-711,-710,81,83,775,782],[-658,-629,108,112,783,787]]
     T['structure_clearance']=[[x,z,y] for (x,z),y in sorted(cap.items())]
     assert T['heights']==before_heights
     return {'masked_columns':len(cap),'corrected_columns':len(changes),'surface_changes':changes,'house_floor':127,'stable_floor':floor,'pool_floor':124,'new_explicit_air_positions':extra_clearance}

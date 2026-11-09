@@ -24,7 +24,7 @@ test('all 214 boundary faces close the cellar and west shaft without a horizonta
  const grid=()=>Array.from({length:height},()=>Array(width).fill(128));
  const context={D:{structure:{v6:{}},terrain:{bounds,heights:grid(),target_heights:grid(),surface_blocks:grid().map(r=>r.map(()=> 'stone')),target_surface_blocks:grid().map(r=>r.map(()=> 'stone')),work:[]}},S3:{terrainMode:'target'},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>faces.push({dir,box})};
  vm.runInNewContext(source,context);context.buildTerrain();
- const boundary=faces.filter(f=>f.dir!=='up'&&[80,95].includes(f.box[1]));
+ const boundary=faces.filter(f=>f.dir!=='up'&&[80,95].includes(f.box[1])&&f.box[4]===129);
  assert.equal(boundary.length,214);assert(boundary.every(f=>f.box[4]===129));
  assert(boundary.some(f=>f.dir==='north'));assert(boundary.some(f=>f.dir==='south'));assert(boundary.some(f=>f.dir==='east'));assert(boundary.some(f=>f.dir==='west'));
  assert(!faces.some(f=>f.dir==='up'&&f.box[0]===-684&&f.box[2]===790));
@@ -45,7 +45,7 @@ test('target terrain never covers house rooms, doors or the relocated stable',()
    else{
     assert(!faces.some(f=>f.dir==='up'&&f.box[0]===x),'terrain roof through structure at '+x+','+z);
     const edge=faces.find(f=>f.dir==='west'&&f.box[3]===x+2);
-    assert(edge);assert.equal(edge.box[1],base);assert(edge.box[0]>x+1,'soil side must stay behind the house');
+    assert(edge);assert.equal(edge.box[1],base+1);assert(edge.box[0]>x+1,'soil side must stay behind the house');
    }
   }
  }
@@ -59,4 +59,25 @@ test('modeled original road remains visible when the terrain proxy is masked',()
  const app=readFileSync('app.js','utf8'),definition=app.match(/function predNow\(\) \{[^\n]+/)[0];
  const context={S3:{terrainOnly:false,hidden:new Set()},Y:[118],R:[0],REG:[{g:'zufahrt',gi:0}]};
  vm.runInNewContext(definition,context);assert(context.predNow()(0));
+});
+
+test('masked house earth still closes the deeper masked cellar',()=>{
+ const faces=[],context={D:{structure:{v6:{}},terrain:{bounds:[-711,-710,790,790],heights:[[128,128]],target_heights:[[126,104]],surface_blocks:[['dirt','dirt']],target_surface_blocks:[['dirt','dirt']],structure_clearance:[[-711,790,126]],work:[]}},S3:{terrainMode:'target'},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>faces.push({dir,box})};
+ vm.runInNewContext(source,context);context.buildTerrain();
+ assert(!faces.some(f=>f.dir==='up'));
+ const wall=faces.find(f=>f.dir==='east'&&f.box[0]===-711);assert(wall);assert.equal(wall.box[1],95);assert.equal(wall.box[4],127);assert(wall.box[3]<-710);
+});
+test('earth closure respects the real river-gallery opening',()=>{
+ const faces=[],context={D:{structure:{v6:{}},terrain:{bounds:[-658,-657,785,785],heights:[[128,128]],target_heights:[[104,126]],surface_blocks:[['dirt','dirt']],target_surface_blocks:[['dirt','dirt']],structure_clearance:[[-657,785,126]],soil_portals:[[-658,-629,108,112,783,787]],work:[]}},S3:{terrainMode:'target'},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>faces.push({dir,box})};
+ vm.runInNewContext(source,context);context.buildTerrain();const wall=faces.filter(f=>f.dir==='west'&&f.box[0]>-657&&f.box[0]<-656);
+ assert(wall.some(f=>f.box[1]===95&&f.box[4]===108));assert(wall.some(f=>f.box[1]===113&&f.box[4]===127));assert(wall.every(f=>f.box[4]<=108||f.box[1]>=113));
+});
+test('the full earth perimeter stays closed even with a surrounding house mask',()=>{
+ const bounds=[-716,-655,764,816],width=62,height=53,faces=[],mask=[];
+ for(let z=bounds[2];z<=bounds[3];z++)for(let x=bounds[0];x<=bounds[1];x++)mask.push([x,z,126]);
+ const grid=()=>Array.from({length:height},()=>Array(width).fill(128));
+ const context={D:{structure:{v6:{}},terrain:{bounds,heights:grid(),target_heights:grid(),surface_blocks:grid().map(r=>r.map(()=> 'stone')),target_surface_blocks:grid().map(r=>r.map(()=> 'stone')),structure_clearance:mask,work:[]}},S3:{terrainMode:'target'},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>faces.push({dir,box})};
+ vm.runInNewContext(source,context);context.buildTerrain();
+ const earth=faces.filter(f=>[80,95].includes(f.box[1])&&f.box[4]===127);
+ assert.equal(earth.length,214);assert(!faces.some(f=>f.dir==='up'));
 });

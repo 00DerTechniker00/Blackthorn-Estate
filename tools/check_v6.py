@@ -82,6 +82,9 @@ def check():
  assert review['checks']['architecture']['drive_blocks_preserved']==489
  assert review['checks']['architecture']['drive_clearance_height']==4
  assert review['checks']['terrain_clearance']['terrain_below_house_and_stable'] is True
+ assert review['checks']['terrain_blend']['landscape_band_fill']==0
+ assert review['checks']['terrain_blend']['softened_columns']>0
+ assert review['checks']['terrain_blend']['underpinning_columns']==104
  assert review['checks']['lighting']['sampled_zero_light_cells']==0
  assert all(r['reached']>0 for r in review['checks']['routes'])
  class HTML(HTMLParser):
