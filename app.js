@@ -394,7 +394,7 @@ function vec(x,y,z) { return {x,y,z,set(a,b,c){this.x=a;this.y=b;this.z=c;}}; }
 function cameraBasis() {
   const c=GL.cam, sp=Math.sin(c.ph), cp=Math.cos(c.ph), st=Math.sin(c.th), ct=Math.cos(c.th);
   return {eye:[c.t.x+c.d*sp*ct,c.t.y+c.d*cp,c.t.z+c.d*sp*st],
-    right:[st,0,-ct], up:[-cp*ct,sp,-cp*st], back:[sp*ct,cp,sp*st]};
+    right:[-st,0,ct], up:[-cp*ct,sp,-cp*st], back:[sp*ct,cp,sp*st]};
 }
 function viewProjection() {
   const {eye,right:r,up:u,back:b}=cameraBasis(), dot=(a,c)=>a.reduce((s,v,i)=>s+v*c[i],0);
@@ -444,6 +444,7 @@ function applyCut() {
 }
 function loop() {
   if(!GL || !GL.dirty || !$('#tab-3d').classList.contains('on')) return;
+  updateSceneCompass();
   GL.dirty=false; const gl=GL.gl, dark=css('--mode')==='dark';
   gl.clearColor(...(dark?[.05,.075,.06,1]:[.81,.85,.85,1])); gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
   gl.useProgram(GL.program); gl.uniformMatrix4fv(GL.matrix,false,viewProjection());
@@ -827,3 +828,17 @@ $('#terrainChk').addEventListener('change',()=>{if(S3.terrainOnly&&GL)rebuild();
 window.__showCellarFloor=()=>{window.__showTab('3d');const wait=()=>{if(!GL)return;if(!GL.terrain)return setTimeout(wait,80);window.__resetScene();S3.ymax=100;$('#cut').value=100;$('#sceneFloor').value='custom';$('#terrainState').value='target';$('#terrainState').dispatchEvent(new Event('change'));applyCut();focusBox(-684,98,790,65);};wait();};
 
 window.__showWaterAccessV6=(kind)=>{window.__showTab('3d');const wait=()=>{if(!GL)return;if(!GL.terrain)return setTimeout(wait,80);window.__resetScene();S3.terrain=false;$('#terrainChk').checked=false;const configs={room:[87,-677,84,777,25],secret:[99,-712,90,779,25],house:[139,-667,118,803,55]};const [cut,x,y,z,size]=configs[kind]||configs.house;if(kind!=='room'){S3.isolate=new Set();for(let i=0;i<N;i++)if(REG[R[i]].g==='v6_wasserzugang'&&(kind==='house'?X[i]>=-670&&X[i]<=-666:X[i]<-710))S3.isolate.add(i);rebuild();}S3.ymax=cut;$('#cut').value=cut;$('#sceneFloor').value='custom';applyCut();focusBox(x,y,z,size);};wait();};
+
+/* Directions are Minecraft world vectors converted into the viewer's reflected Z coordinates. */
+function updateSceneCompass(){
+  const root=document.getElementById('sceneCompass');if(!root||!GL)return;
+  const {right,up}=cameraBasis();
+  root.style.visibility='visible';
+  const headingScale=Math.hypot(up[0],up[2])||1;
+  const vectors={north:[0,0,1],east:[1,0,0],south:[0,0,-1],west:[-1,0,0]};
+  for(const [name,v] of Object.entries(vectors)){
+    const el=root.querySelector('[data-direction="'+name+'"]');
+    const x=v.reduce((sum,n,i)=>sum+n*right[i],0),y=v.reduce((sum,n,i)=>sum+n*up[i],0)/headingScale;
+    el.style.left=(50+x*31)+'px';el.style.top=(44-y*31)+'px';
+  }
+}
