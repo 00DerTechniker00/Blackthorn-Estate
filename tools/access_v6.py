@@ -26,7 +26,7 @@ def enhance(b,air):
             for x,facing in ((left+1,'east'),(left+3,'west')):
                 for y in (feet,feet+1):put(x,y,z+1,'spruce_wall_sign',f'facing={facing},waterlogged=false')
         return {'up':[left+1,base+1,z],'down':[left+3,base+1,z],'base':base,'top':top,'landings':landings,'sign_z':z+1}
-    main=twin(-670,801,96,139,[95,102,124,129,137])
+    main=twin(-670,801,96,137,[95,101,107,113,121,127,135])
     # Shallow entry step above the existing finished floor, not a hole through it.
     for x in range(-670,-665):
         put(x,96,805,'polished_deepslate_stairs','facing=north,half=bottom,shape=straight,waterlogged=false')

@@ -10,7 +10,7 @@ def check():
  for y,z,x,n,i in d['runs']:
   bid,st,g=d['reg'][i]
   for xx in range(x,x+n):b[xx,y,z]=(bid,st,d['groups'][g])
- routes=reachability(b,d['rooms']);rooms=[r for r in routes['rooms'] if r['room'] in [v['name'] for v in d['rooms'] if v['y'][0]<129 and v['group'] not in ('v6_pool','v6_garten')]]
+ routes=reachability(b,d['rooms'],start_y=d['meta']['floors']['EG']+1);rooms=[r for r in routes['rooms'] if r['room'] in [v['name'] for v in d['rooms'] if v['y'][0]<127 and v['group'] not in ('v6_pool','v6_garten')]]
  assert all(r['reached']>0 for r in rooms)
  assert next(r for r in rooms if r['room'].startswith('Porter'))['reached']==714
  def inside(p):x,y,z=p;return -710<=x<=-658 and 80<=y<=129 and 766<=z<=814
@@ -28,7 +28,7 @@ def check():
    if not inside(p) or p in b and opaque(b[p][0]) or light.get(p,0)>=value:continue
    light[p]=value;queue.append(p)
  checks={}
- for label,floor,zlo,zhi in [('Untere Räume',95,767,813),('Porterfläche',124,767,780)]:
+ for label,floor,zlo,zhi in [('Untere Räume',95,767,813),('Porterfläche',121,767,780)]:
   samples=[]
   for x in range(-709,-658):
    for z in range(zlo,zhi+1):
@@ -36,7 +36,7 @@ def check():
   checks[label]={'sampled_floor_cells':len(samples),'minimum_block_light':min(samples),'zero_light_cells':samples.count(0)}
   assert 0 not in samples,(label,checks[label])
  # Side guards must leave a walkable eastern landing, with the ladder column continuous.
- for floor in (102,124,129):
+ for floor in (101,107,113,121,127):
   for z in (802,804):assert b[-661,floor+1,z][0]=='polished_blackstone_wall'
   assert (-660,floor+1,803) not in b and (-660,floor+2,803) not in b
  result={'revision':d['meta']['version'],'fingerprint':d['meta']['fingerprint'],'route_model':'Static supported-cell traversal; no player collision or redstone simulation','rooms':rooms,'block_light':checks,'limits':['Block opacity approximated for non-full blocks','No sky light, changing redstone states, entity collisions or real server test','Reachable furniture tops are counted as floor cells; partial room coverage is not a claim that every surface is walkable','Spawn rules of individual mobs are not simulated']}

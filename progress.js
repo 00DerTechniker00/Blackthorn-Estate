@@ -8,6 +8,7 @@
   function validate(snapshot){
     const migration=[compat,...(compat.additional||[])].find(candidate=>candidate.fingerprint===snapshot?.blueprint);
     const migrate=!!migration,changedForMigration=new Set(migration?.changed_positions||[]);
+    for(const [y,z,x,n] of migration?.changed_runs||[])for(let dx=0;dx<n;dx++)changedForMigration.add(`${x+dx},${y},${z}`);
     if(!snapshot||snapshot.format!=='blackthorn-progress'||snapshot.schema!==1||snapshot.blueprint!==data.meta.fingerprint&&!migrate)
       throw Error('Das Backup gehört nicht zu diesem Bauplan. Aktuellen Bauplan oder ein kompatibles Backup der Vorversion verwenden.');
     if(!snapshot.state||typeof snapshot.state!=='object')throw Error('Im Backup fehlt der Fortschritt.');

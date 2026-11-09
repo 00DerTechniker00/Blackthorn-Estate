@@ -8,16 +8,16 @@ def render():
  d=json.loads((ROOT/'blueprint.json').read_text());b={}
  for y,z,x,n,i in d['runs']:
   for xx in range(x,x+n):b[xx,y,z]=d['reg'][i][0]
- im=Image.new('RGB',(1850,750),'#e5e8e4');draw=ImageDraw.Draw(im)
+ im=Image.new('RGB',(3070,750),'#e5e8e4');draw=ImageDraw.Draw(im)
  f=ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf',17);big=ImageFont.truetype('/usr/share/fonts/TTF/DejaVuSans.ttf',27)
  draw.text((30,20),'Blackthorn Estate · V6 · Keller und Chunkgrenzen',font=big,fill='#223b32')
- for index,(y,name) in enumerate([(96,'Untere Räume'),(116,'Großlager · mittlerer Schnitt'),(125,'Porter-Galerie · Nordwand frei')]):
+ for index,(y,name) in enumerate([(96,'Keller 5 · Geheimräume'),(102,'Keller 4 · Reserve'),(108,'Keller 3 · Reserve'),(114,'Keller 2 · Lagerfläche'),(122,'Keller 1 · Porter')]):
   left=35+index*610;top=125
   draw.text((left,85),f'{name} · Y {y}',font=f,fill='#223b32')
   for z in range(766,815):
    for x in range(-710,-657):
     block=b.get((x,y,z));color='#f7f4ee'
-    if y==125 and 767<=z<=780:color='#dfc58e'
+    if y==122 and 767<=z<=780:color='#dfc58e'
     if block:
      color='#647581' if 'deepslate' in block else '#a0b8c0' if 'glass' in block else '#b68558' if block in ('chest','barrel','bookshelf','ladder') else '#8f918a'
     px=left+(x+710)*10;py=top+(z-766)*10;draw.rectangle((px,py,px+9,py+9),fill=color)

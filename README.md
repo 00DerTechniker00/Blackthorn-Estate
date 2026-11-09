@@ -1,3 +1,5 @@
+Aktueller V6-Umbau: EG-Boden Y 127; fertiger Kellerboden Y 95 unverändert. Fünf Kelleretagen mit 5 / 7 / 5 / 5 / 5 Blöcken freier Höhe. Das alte Dustless-Lager ist entfernt; das neue Lager hat eine freie Baufläche auf Boden Y 113. Details: [Kellerhöhen](keller_hoehenplanung.md) und [Umbaufolge](umbau_v6.md). Frühere Revisionsangaben unten beschreiben den historischen Stand.
+
 **Live-Plugin 1.4.0:** übernimmt neue Website-Baupläne automatisch; bei künftigen Hausänderungen ist kein erneuter JAR-Austausch nötig. Einmalig die neue Website und JAR installieren. Details: [Automatischer Planabgleich](live_fortschritt.md).
 
 # Version 6.0 · Keller nach gebautem Bestand

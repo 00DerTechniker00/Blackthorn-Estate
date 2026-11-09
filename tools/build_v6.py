@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""V6: preserve surveyed cellar shell, integrate original Dustless storage geometry."""
+"""V6: preserve finished floor, create five cellar floors and lower the house to Y127."""
 import copy,csv,gzip,hashlib,json,struct
 from pathlib import Path
 from collections import Counter,defaultdict
@@ -10,6 +10,15 @@ import build as reports
 ROOT=Path(__file__).resolve().parent.parent
 VERSION='6.0'
 SEED=ROOT/'tools/seeds/revision-5.26/blueprint.json'
+
+def pack_positions(positions):
+    rows=defaultdict(list);result=[]
+    for x,y,z in positions:rows[y,z].append(x)
+    for (y,z),xs in sorted(rows.items()):
+        for x in sorted(set(xs)):
+            if result and result[-1][:2]==[y,z] and result[-1][2]+result[-1][3]==x:result[-1][3]+=1
+            else:result.append([y,z,x,1])
+    return result
 
 def module():
     source=ROOT/'litematics/Golem MIS Dustless Filter.litematic'
@@ -66,24 +75,11 @@ def main():
     for y in range(96,129):
         for x in range(-709,-658):
             for z in range(767,814):clear(x,y,z)
-    for x in range(-710,-657):
-        for z in (766,814):put(x,128,z,'deepslate_bricks')
-    for z in range(767,814):
-        for x in (-710,-658):put(x,128,z,'deepslate_bricks')
-    floor(101);floor(102);floor(124)
+    for y in (101,107,113,121):floor(y)
     for x in range(-709,-658):
         for z in range(767,814):
-            if (x,129,z) not in b:put(x,129,z,'dark_oak_planks')
-    # Full-height storage, original orientation. Air within its envelope is part of the mechanism.
-    for y in range(102,124):
-        for x in range(-701,-674):
-            for z in range(771,798):clear(x,y,z)
-    storage,meta=module()
-    for p,value in storage.items():b[p]=value;air.discard(p)
-    # Walkable outside ring at the lower entry level.
-    for x in range(-709,-658):
-        for z in range(767,814):
-            if not(-701<=x<=-675 and 771<=z<=797):put(x,102,z,'polished_deepslate')
+            put(x,127,z,'dark_oak_planks')
+    storage={}  # Original modules retained as files, never integrated in this layout.
     # Lower rooms, central east-west corridor and broad door openings (no misleading piston mock-up).
     for z in (787,794):
         for x in range(-709,-658):
@@ -97,31 +93,15 @@ def main():
     for x in range(-708,-699,2):
         put(x,96,812,'barrel','facing=north,open=false','v6_handlager')
     # Ceiling lights, no floor lanterns or obstructions in portals.
-    for y in (101,129):
+    for y in (101,107,113,121,127):
         for x in (-706,-698,-690,-682,-674,-666,-662):
             for z in (770,778,784,790,798,806,812):put(x,y,z,'sea_lantern',group='v6_licht')
     # Generous unobstructed north strip across the whole interior width. Chunk boundaries remain visible in atlas.
     for x in range(-709,-658):
         for z in range(767,781):
-            for y in range(125,129):clear(x,y,z)
+            for y in range(122,127):clear(x,y,z)
     for x in (-704,-688,-672):
-        for z in range(767,781):put(x,124,z,'chiseled_stone_bricks',group='v6_chunkraster')
-    # Main vertical access in the southeast, entirely outside the storage envelope.
-    for y in range(96,132):
-        for x in (-662,-661,-660):
-            for z in (802,803,804):clear(x,y,z)
-        put(-662,y,803,'polished_deepslate',group='v6_zugang')
-        put(-661,y,803,'ladder','facing=east,waterlogged=false','v6_zugang')
-    # EG landing connects to existing southeast residence, with headroom.
-    for x in range(-661,-658):
-        for z in (802,804):put(x,129,z,'dark_oak_planks',group='v6_zugang')
-    for y in (102,124,129):
-        for x in (-660,-659):put(x,y,803,'polished_deepslate',group='v6_zugang')
-    for y in (102,124,129):
-        for x in (-662,-661,-660):
-            for z in (802,803,804):
-                if (x,z)!=(-661,803):put(x,y,z,'polished_deepslate',group='v6_zugang')
-        for z in (802,804):put(-661,y+1,z,'polished_blackstone_wall',group='v6_zugang')
+        for z in range(767,781):put(x,121,z,'chiseled_stone_bricks',group='v6_chunkraster')
     # Secret descent is outside the west wall: the existing Y95 interior floor stays intact.
     for y in range(81,100):
         for x in range(-714,-709):
@@ -144,8 +124,6 @@ def main():
             for y in range(81,84):
                 if (x,z) not in ((-713,776),(-712,776)):clear(x,y,z)
             if x>-711:put(x,84,z,'deepslate_bricks',group='v6_geheimabstieg')
-    from access_v6 import enhance as build_water_access
-    water_access=build_water_access(b,air)
     # Restore every one of the 2397 original floor blocks including their exact properties.
     for y,z,x,n,ri in survey['runs']:
         if y!=95:continue
@@ -155,6 +133,31 @@ def main():
                 put(xx,95,z,pal['name'],','.join(f'{k}={v}' for k,v in sorted(pal['properties'].items())),'v6_bestand')
     from outdoors_v6 import enhance as improve_outdoors
     outdoor_changes=improve_outdoors(d,b,air)
+    from lower_estate_v6 import lower
+    house_lowering=lower(d,b,air,outdoor_changes)
+    # Main vertical access in the southeast, entirely outside the storage envelope.
+    for y in range(96,130):
+        for x in (-662,-661,-660):
+            for z in (802,803,804):clear(x,y,z)
+        put(-662,y,803,'polished_deepslate',group='v6_zugang')
+        put(-661,y,803,'ladder','facing=east,waterlogged=false','v6_zugang')
+    # EG landing connects to existing southeast residence, with headroom.
+    for x in range(-661,-658):
+        for z in (802,804):put(x,127,z,'dark_oak_planks',group='v6_zugang')
+    for y in (101,107,113,121,127):
+        for x in (-660,-659):put(x,y,803,'polished_deepslate',group='v6_zugang')
+    for y in (101,107,113,121,127):
+        for x in (-662,-661,-660):
+            for z in (802,803,804):
+                if (x,z)!=(-661,803):put(x,y,z,'polished_deepslate',group='v6_zugang')
+        for z in (802,804):put(-661,y+1,z,'polished_blackstone_wall',group='v6_zugang')
+    # Clear the EG approach around the north side of the guarded ladder hatch.
+    for x in range(-662,-658):
+        for z in (800,801):
+            put(x,127,z,'dark_oak_planks',group='v6_zugang')
+            for y in (128,129,130):clear(x,y,z)
+    from access_v6 import enhance as build_water_access
+    water_access=build_water_access(b,air)
     # No blocks and required-air positions may overlap.
     air.update(prior.keys()-b.keys())
     air.difference_update(b)
@@ -176,46 +179,49 @@ def main():
     d['meta'].update(version=VERSION,total=len(b),fingerprint=hashlib.sha256(json.dumps(seq,separators=(',',':')).encode()).hexdigest())
     d['material_scopes']=scopes(d['gcounts']);d['material_stack_sizes']={k:stack_size(k) for k in counts}
     changes={p:(prior.get(p),b.get(p)) for p in prior.keys()|b.keys() if prior.get(p)!=b.get(p)}
-    d['progress_compat']={'revision':'5.26','fingerprint':json.loads(SEED.read_text())['meta']['fingerprint'],'changed_positions':[','.join(map(str,p)) for p in changes],'changed_groups':sorted({v[2] for pair in changes.values() for v in pair if v})}
+    d['progress_compat']={'revision':'5.26','fingerprint':json.loads(SEED.read_text())['meta']['fingerprint'],'changed_positions':[],'changed_runs':pack_positions(changes),'changed_groups':sorted({v[2] for pair in changes.values() for v in pair if v})}
     migration_path=ROOT/'tools/seeds/revision-6.0/progress_compat.json'
     if migration_path.exists():
         migration=json.loads(migration_path.read_text())
         candidates=migration if isinstance(migration,list) else [migration]
         d['progress_compat']['additional']=[m for m in candidates if m['target_fingerprint']==d['meta']['fingerprint']]
-    d['rooms']=[r for r in d['rooms'] if r['y'][0]>=129]
+    d['rooms']=[r for r in d['rooms'] if r['y'][0]>=127]
     def room(name,g,x,y,z,text):d['rooms'].append(dict(name=name,group=g,x=x,y=y,z=z,text=text,access='Zentraler Leiterzugang im Südosten, X −661 / Z 803.',stand=0,reach=0))
     room('Geheime Bibliothek','v6_geheimraeume',[-708,-687],[96,100],[768,786],'Bestehender Schachbrettboden; geheimer Leiterabstieg zum Y80-Gang.')
     room('Werkstatt und Reserve','v6_geheimraeume',[-685,-659],[96,100],[768,786],'Freier Ausbauplatz für weitere Funktionen.')
     room('Handlager und Nebenräume','v6_handlager',[-708,-659],[96,100],[795,812],'Manuelle Fässer als Reserve; keine alte Trading-Hall unterstellt.')
-    room('Dustless-Großlager','v6_grosslager',[-701,-675],[102,123],[771,797],'Originale Schaltungshöhe, graue Glasverkleidung. Inventare und Golems aus V6-Litematic übernehmen.')
-    room('Porter-Galerie · gesamte Nordwand','v6_keller',[-709,-659],[125,128],[767,780],'51 × 14 freie Bodenpositionen; gesamte Nordseite bleibt ohne Möbel. Eigene Porter chunkweise einsetzen.')
-    room('Poolterrasse und flacher Einstieg','v6_pool',[-657,-634],[130,130],[770,810],'Ruhiger Steinbelag, Holzbänke und beleuchtetes Becken; mittlerer Hauszugang bleibt frei.')
-    room('Rosenterrasse mit Pergola','v6_garten',[-736,-728],[126,126],[841,849],'Über den nördlichen Kiesweg erreichbar; offene Mitte und Sitzbank im Süden.')
+    room('Untere Ausbauetage','v6_keller',[-709,-659],[102,106],[767,813],'Fünf Blöcke freie Raumhöhe; Nutzung offen.')
+    room('Mittlere Ausbauetage','v6_keller',[-709,-659],[108,112],[767,813],'Fünf Blöcke freie Raumhöhe; Nutzung offen.')
+    room('Neues Lager · freie Baufläche','v6_keller',[-709,-659],[114,120],[767,813],'Sieben Blöcke freie Höhe in der zweiten Kelleretage von oben. Ersatzschaltung noch nicht geliefert.')
+    room('Porter-Galerie · gesamte Nordwand','v6_keller',[-709,-659],[122,126],[767,780],'51 × 14 freie Bodenpositionen; gesamte Nordseite bleibt ohne Möbel. Eigene Porter chunkweise einsetzen.')
+    room('Poolterrasse und flacher Einstieg','v6_pool',[-657,-634],[128,128],[770,810],'Ruhiger Steinbelag, Holzbänke und beleuchtetes Becken; mittlerer Hauszugang bleibt frei.')
+    room('Rosenterrasse mit Pergola','v6_garten',[-736,-728],[124,124],[841,849],'Über den nördlichen Kiesweg erreichbar; offene Mitte und Sitzbank im Süden.')
     room('Geheimsalon am tiefen Gang','v6_geheimsalon',[-684,-670],[81,87],[770,783],'15 × 14 freie Innenabmessung vor Möbeln, sieben Blöcke hoch; Auf- und Abfahrt in der westlichen Nische.')
     d['storage_zones']=[];d['storage_bays']=[]
     for i,x in enumerate(range(-708,-699,2),1):
         id=f'V6-H{i:02d}';d['storage_zones'].append(dict(id=id,name=f'Reserve {i}',contents='1 Fass · 27 Plätze',room='Unteres Handlager',group='v6_handlager',x=[x,x],y=[96,96],z=[812,812]))
     d['storage_summary']={'bays':len(d['storage_zones']),'containers':len(d['storage_zones']),'slots':27*len(d['storage_zones'])}
-    d['storage_system'].update(input={'x':-677,'y':103,'z':773},bulk=[],regular=[],stations=[],stalls=[])
+    d['storage_system'].update(title='Neues Lager · Einbau offen',input=None,bulk=[],regular=[],stations=[],stalls=[],copper_input=None,golem_spawn=None,secrets=[],mechanics=[],mechanism='Sieben Blöcke freie Raumhöhe; Ersatzlager noch nicht geliefert.')
     d['storage_system']['modules']=[]
     d['storage_bays']=[dict(id=z['id'],name=z['name'],floor=95,x=z['x'][0],y=96,z=812,containers=[[z['x'][0],96,812]],container_count=1,slots=27,front=[z['x'][0],96,811],automation='Manuell') for z in d['storage_zones']]
     d['lighting']['fixtures']=[f for f in d['lighting']['fixtures'] if b.get((f['x'],f['y'],f['z']),('',))[0] in ('lantern','soul_lantern') and b.get(tuple(f['anchor']))]
     d['checks'].update(doors=sum(v[0].endswith('_door') and 'half=lower' in v[1] for v in b.values()),stairs=sum(v[0].endswith('_stairs') for v in b.values()),panes=sum(v[0]=='glass_pane' or v[0].endswith('_stained_glass_pane') for v in b.values()))
     d['lighting']['total']=sum(v[0] in ('lantern','soul_lantern') for v in b.values())
     d['lighting']['light_simulated']=False;d['lighting']['light_report']=None
-    levels=[('v6_salon','Tiefer Geheimsalon',80,88),('v6_unten','Geheim- und Nebenräume',95,101),('v6_lager','Großlager · 22 Ebenen',102,123),('v6_porter','Porter-Galerie · Nordwand frei',124,128),('erdgeschoss','Erdgeschoss',129,136),('obergeschoss','Obergeschoss & Galerie',137,144),('dach','Dach & Türme',145,171)]
+    levels=[('v6_salon','Tiefer Geheimsalon',80,88),('v6_unten','Keller 5 · Geheim- und Nebenräume',95,100),('v6_reserve_unten','Keller 4 · Ausbaureserve',101,106),('v6_reserve_mitte','Keller 3 · Ausbaureserve',107,112),('v6_lager','Keller 2 · Lagerfläche · 7 Blöcke frei',113,120),('v6_porter','Keller 1 · Porter · 5 Blöcke frei',121,126),('erdgeschoss','Erdgeschoss',127,134),('obergeschoss','Obergeschoss & Galerie',135,142),('dach','Dach & Türme',143,169)]
     d['structure']['levels']=[dict(id=k,label=label,y=[lo,hi],height=hi-lo+1,groups=sorted({v[2] for p,v in b.items() if lo<=p[1]<=hi}),positions=sum(lo<=p[1]<=hi for p in b),rooms=[r['name'] for r in d['rooms'] if lo<=r['y'][0]<=hi]) for k,label,lo,hi in levels]
     d['structure']['stair_runs']=[];d['structure']['stair_clearance']=[]
-    d['structure']['service_shaft']={'position':[-661,95,803],'vault_bounds':[-701,-675,102,123,771,797],'vault_size':[27,22,27],'service_gap_x':[-674,-659],'vertical_floor_blocks':[],'note':'Durchgehende Leiter Y96–131 mit Austritten auf Y95, 102, 124 und 129.'}
-    d['structure']['logistics']=[{'label':'Dustless-Großlager','y':[102,123]},{'label':'Porter-Galerie · Nordwand frei','y':[124,128]}]
+    d['structure']['service_shaft']={'position':[-661,95,803],'vault_bounds':None,'vault_size':None,'service_gap_x':[-674,-659],'vertical_floor_blocks':[],'note':'Durchgehende Leiter Y96–129 mit Austritten auf Y95, 101, 107, 113, 121 und 127.'}
+    d['structure']['logistics']=[{'label':'Neues Lager · sieben Blöcke frei','y':[114,120]},{'label':'Porter-Galerie · Nordwand frei','y':[122,126]}]
     d['structure']['enhancements']['title']='Version 6 · Keller nach eurem gebauten Bestand'
-    d['structure']['enhancements']['features']=[dict(name='Gebauter Keller bleibt erhalten',description='Boden Y95 und Außenwände bilden die Grundlage.',group='v6_bestand'),dict(name='Großlager integriert',description='Dustless-Litematic in voller Höhe, keine gestauchten Schaltungen.',group='v6_grosslager'),dict(name='Nordwand vollständig frei',description='51 × 14 Bodenpositionen für eure vorhandenen Porter; Chunkraster im Plan beachten.',group='v6_keller')]
-    d['structure']['v6']={'north_reserve':[-709,-659,125,128,767,780],'storage_anchor':[-701,102,771],'source_sha256':survey['source_sha256'],'outdoors':outdoor_changes,'water_access':water_access}
-    # Preserve original entity and inventory data in the derived Litematic. Main house NBT is block-only.
+    d['structure']['enhancements']['features']=[dict(name='Gebauter Keller bleibt erhalten',description='Boden Y95 und Außenwände bilden die Grundlage.',group='v6_bestand'),dict(name='Bisheriges Großlager entfernt',description='Neues sieben Blöcke hohes Lager in der zweiten Kelleretage von oben vorgesehen; Neue Kelleretagen mit freier Lagerfläche.',group='v6_keller'),dict(name='Nordwand vollständig frei',description='51 × 14 Bodenpositionen für eure vorhandenen Porter; Chunkraster im Plan beachten.',group='v6_keller')]
+    d['structure']['v6']={'north_reserve':[-709,-659,122,126,767,780],'storage_anchor':None,'source_sha256':survey['source_sha256'],'outdoors':outdoor_changes,'water_access':water_access,'house_lowering':house_lowering}
+    d['structure']['v6']['storage_removed']=True
+    d['structure']['v6']['proposed_cellar_layout']={'status':'implemented_empty_storage','clear_heights_top_down':[5,7,5,5,5],'floors_bottom_up':[95,101,107,113,121,127],'ceiling_layers':[[101],[107],[113],[121],[127]],'existing_floor':95,'current_house_floor':127,'new_storage_supplied':False}
     modules=json.loads((ROOT/'lagertechnik_module.json').read_text())
-    meta.update(key='dustless_filter',proposed_world_anchor=[-701,102,771],rotation='unverändert')
-    modules['modules'][1]=meta;modules['placement_status']='V6: Dustless-Blockgeometrie integriert. V6-Litematic enthält Filterinventare und Entities.'
-    modules['vault'].update(bounds=[-701,-675,102,123,771,797],width=27,height=22,depth=27,service_gap_x=[-674,-659],shaft_target=[-661,95,803])
+    modules['placement_status']='Nicht eingebaut: altes Dustless-Lager entfernt. Ersatzlager mit sieben Blöcken Höhe noch nicht geliefert; Fünf Kelleretagen umgesetzt; Lagerraum Y114–120 bleibt frei.'
+    for item in modules['modules']:item.pop('proposed_world_anchor',None)
+    modules['vault']=None
     (ROOT/'lagertechnik_module.json').write_text(json.dumps(modules,ensure_ascii=False,indent=2)+'\n')
     reports.VERSION=VERSION;reports.VERSION_PREVIOUS='5.26';reports.write_blocklist(seq);reports.write_materials(counts,gc,groups);reports.write_diff(changes)
     for key,label in [('house','haus'),('outdoor','aussenanlagen'),('terrain','gelaende')]:reports.write_material_csv(ROOT/f'materialbedarf_{label}.csv',d['material_scopes'][key]['counts'])
@@ -227,7 +233,7 @@ def main():
     d['validation'].update(material_items=sum(counts.values()),material_audit_passed=True,doors_checked=d['material_audit']['doors_checked'])
     d['meta']['water_positions']=sum(v[0]=='water' for v in b.values())
     d['meta']['bubble_column_positions']=sum(v[0]=='bubble_column' for v in b.values())
-    d['structure']['maintenance_shaft']={'bounds':[-662,-659,95,131,802,804],'access_floors':[95,102,124,129],'type':'Leiterzugang','automatic_items':False}
+    d['structure']['maintenance_shaft']={'bounds':[-662,-659,95,129,802,804],'access_floors':[95,101,107,113,121,127],'type':'Leiterzugang','automatic_items':False}
     (ROOT/'blueprint.json').write_text(json.dumps(d,ensure_ascii=False,separators=(',',':'))+'\n')
     (ROOT/'check_report.json').write_text(json.dumps(d['validation'],ensure_ascii=False,indent=2)+'\n')
     write_current_delta(survey,b,air)

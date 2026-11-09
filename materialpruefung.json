@@ -1,7 +1,7 @@
 {
   "revision": "6.0",
-  "positions": 140959,
-  "items": 139983,
+  "positions": 139084,
+  "items": 138139,
   "duplicates": [],
   "material_counts_match": true,
   "packing_errors": [],
@@ -19,20 +19,20 @@
     "materials": {
       "dirt": {
         "planned": 38159,
-        "same_type_in_snapshot": 2051,
-        "different_type": 36108,
+        "same_type_in_snapshot": 9385,
+        "different_type": 28774,
         "unknown_positions": 0
       },
       "cobblestone": {
-        "planned": 13949,
+        "planned": 13947,
         "same_type_in_snapshot": 0,
-        "different_type": 13949,
+        "different_type": 13947,
         "unknown_positions": 0
       },
       "grass_block": {
         "planned": 7912,
-        "same_type_in_snapshot": 772,
-        "different_type": 7140,
+        "same_type_in_snapshot": 1111,
+        "different_type": 6801,
         "unknown_positions": 0
       },
       "stone": {
@@ -46,7 +46,7 @@
   "scopes": {
     "house": {
       "label": "Haus und Keller",
-      "items": 72070,
+      "items": 70228,
       "focus": {
         "dirt": 0,
         "cobblestone": 0,
@@ -56,10 +56,10 @@
     },
     "outdoor": {
       "label": "Außenanlagen und Nebengebäude",
-      "items": 6048,
+      "items": 6046,
       "focus": {
         "dirt": 24,
-        "cobblestone": 817,
+        "cobblestone": 815,
         "grass_block": 136,
         "stone": 0
       }

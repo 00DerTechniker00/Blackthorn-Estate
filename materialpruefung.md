@@ -2,7 +2,7 @@
 
 ## Positionen
 
-140.959 eindeutige Baupositionen. 30 Türen auf Gegenhälfte, direkte Durchgänge und Boden geprüft. Befunde: 0 blockierte Nachbarzellen, 0 fehlende Türhälften, 0 Türen ohne Boden, 0 eindeutig frei hängende Schwerkraftblöcke. 0 Schwerkraftpositionen benötigen den lokalen Snapshot für eine vollständige Prüfung.
+139.084 eindeutige Baupositionen. 30 Türen auf Gegenhälfte, direkte Durchgänge und Boden geprüft. Befunde: 0 blockierte Nachbarzellen, 0 fehlende Türhälften, 0 Türen ohne Boden, 0 eindeutig frei hängende Schwerkraftblöcke. 0 Schwerkraftpositionen benötigen den lokalen Snapshot für eine vollständige Prüfung.
 
 Korrigiert: zweite Wandlagen vor fünf K1-Türen geöffnet; die Südgartentür in die tatsächliche Außenwand bei Z 829 versetzt und mit der Freitreppe verbunden. Störenden Fassadenschmuck im Durchgang entfernt. Anschläge des westlichen Hauptportals nach außen gesetzt. Im übrigen Haus bleiben die bestehenden Architekturentscheidungen bestehen.
 
@@ -10,8 +10,8 @@ Korrigiert: zweite Wandlagen vor fünf K1-Türen geöffnet; die Südgartentür i
 
 | Bereich | Items | Erde | Bruchstein |
 | --- | ---: | ---: | ---: |
-| Haus und Keller | 72.070 | 0 | 0 |
-| Außenanlagen und Nebengebäude | 6.048 | 24 | 817 |
+| Haus und Keller | 70.228 | 0 | 0 |
+| Außenanlagen und Nebengebäude | 6.046 | 24 | 815 |
 | Gelände und Auffüllung | 61.865 | 38.135 | 13.132 |
 
 Die Gesamtmaterialliste enthält den vollständigen Zielplan einschließlich Gelände. Die Standardansicht im Atlas zeigt jetzt Haus und Keller; Außenanlagen und Gelände sind separat auswählbar. materialbedarf.csv bleibt die vollständige Gesamtplanung. Die zwei originalen Lager-Litematics und die Einrichtung mit Büchern/Rüstungen sind zusätzliche separate Listen.

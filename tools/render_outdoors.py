@@ -15,7 +15,7 @@ def render():
   draw.text((left,top-35),title,font=f,fill='#223b32')
   for z in range(z0,z1+1):
    for x in range(x0,x1+1):
-    candidates=[(y,b[x,y,z]) for y in range(123,136) if (x,y,z) in b]
+    candidates=[(y,b[x,y,z]) for y in range(121,134) if (x,y,z) in b]
     block=max(candidates)[1] if candidates else 'grass_block';color=colors.get(block,'#536664' if 'deepslate' in block else '#775c40' if any(v in block for v in ('oak','spruce','cherry')) else '#929b91')
     px=left+(x-x0)*scale;py=top+(z-z0)*scale;draw.rectangle((px,py,px+scale-1,py+scale-1),fill=color)
  draw.text((540,525),'Blockplan: sichtbare Oberseiten, keine Lichtsimulation.',font=f,fill='#223b32')

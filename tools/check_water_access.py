@@ -37,6 +37,6 @@ def check():
  for y,z,x,n,i in old['runs']:
   block,state,g=old['reg'][i]
   if old['groups'][g]!='halle_treppe':continue
-  for xx in range(x,x+n):assert b[xx,y,z]==[block,state]
+  for xx in range(x,x+n):assert b[xx,y-2,z]==[block,state]
  print('Water columns, supported fluid-stop signs, landings, clear drops, room doorway and existing main stairs passed.')
 if __name__=='__main__':check()

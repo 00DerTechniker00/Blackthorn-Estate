@@ -15,7 +15,7 @@ def check():
    b[xx,y,z]=(bid,st,d['groups'][gi])
  assert d['meta']['version']=='6.0'
  assert not set(map(tuple,d['required_air']))&b.keys()
- for y in range(96,128):
+ for y in range(96,127):
   for x in range(-710,-657):
    for z in (766,814):assert b[x,y,z][0]=='deepslate_bricks'
   for z in range(767,814):
@@ -24,9 +24,9 @@ def check():
     assert b[x,y,z][0]=='deepslate_bricks'
  for x in range(-709,-658):
   for z in range(767,781):
-   for y in range(125,129):assert (x,y,z) not in b
- for y in range(96,132):assert b[-661,y,803][0]=='ladder'
- for floor in (102,124,129):
+   for y in range(122,127):assert (x,y,z) not in b
+ for y in range(96,130):assert b[-661,y,803][0]=='ladder'
+ for floor in (101,107,113,121,127):
   assert b[-660,floor,803][0]=='polished_deepslate'
   for dy in (1,2):assert (-660,floor+dy,803) not in b
  survey=json.loads(gzip.decompress((ROOT/'bestandsaufnahme/keller_bestand.json.gz').read_bytes()))
@@ -50,12 +50,19 @@ def check():
   for pal in region['BlockStatePalette']:
    if pal['Name']=='minecraft:white_stained_glass':pal['Name']='minecraft:gray_stained_glass'
   assert region==dest
- # Decode source geometry again and compare every integrated block/state.
- from build_v6 import module
- module_blocks,meta=module()
- assert len(module_blocks)==4543
- for p,block in module_blocks.items():assert b[p]==block,p
- assert {(x//16,z//16) for x,y,z in module_blocks}=={(-44,48),(-44,49),(-43,48),(-43,49)}
+ # Removed storage must not remain in the model or material counts.
+ assert 'v6_grosslager' not in d['groups']
+ assert d['structure']['v6']['storage_removed'] is True
+ assert not any(-701<=x<=-675 and 114<=y<=120 and 771<=z<=797 for x,y,z in b)
+ # Five real clear heights, single-layer floors, unchanged house footprint.
+ assert d['meta']['floors']=={'EG':127,'OG':135,'Decke':142,'Dach':143}
+ assert d['structure']['v6']['proposed_cellar_layout']['floors_bottom_up']==[95,101,107,113,121,127]
+ for bottom,top,height in ((101,107,5),(107,113,5),(113,121,7),(121,127,5)):
+  assert top-bottom-1==height
+  for x in range(-701,-674):
+   for z in range(771,798):
+    assert (x,bottom,z) in b and (x,top,z) in b
+    for y in range(bottom+1,top):assert (x,y,z) not in b,(x,y,z)
  with zipfile.ZipFile(ROOT/'downloads/BlackthornLive.jar') as jar:
   embedded=gzip.decompress(jar.read('plan.tsv.gz')).decode().splitlines()
   assert len(embedded)>1 and len(embedded[0].split('\t')[0])==64
@@ -80,5 +87,5 @@ def check():
  for link in html.links:
   if urlsplit(link).scheme or link.startswith('#'):continue
   assert (ROOT/unquote(urlsplit(link).path)).exists(),link
- print(f'V6 passed: {len(b)} positions; existing walls; north clearance; ladder exits; 4543 source blocks; inventories/entities; hosted plan fingerprint; links/ARIA.')
+ print(f'V6 passed: {len(b)} positions; existing walls; north clearance; ladder exits; old storage removed; original inventories/entities retained in source; hosted plan fingerprint; links/ARIA.')
 if __name__=='__main__':check()

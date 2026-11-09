@@ -1,8 +1,10 @@
+Aktuelle Keller-Austritte: Böden Y 95, 101, 107, 113, 121, 127 und 135.
+
 # Wasserzugänge und Geheimsalon · V6
 
 ## Im Haus
 
-Der neue Schacht liegt im Südosten des Hauses, außerhalb der Lagertechnik. **Aufwärts: X −669 / Z 801**, Seelensand auf Y 96, zusammenhängende Blasensäule Y 97…139. Austritte befinden sich neben dem Schacht auf den Etagen mit Boden Y 102, 124, 129 und 137. Der unterste Zugang liegt auf einem kleinen Podest über dem bestehenden Boden Y 95; eine Stufe führt hinauf. Kein vorhandener Bodenblock auf Y 95 wird ersetzt.
+Der neue Schacht liegt im Südosten des Hauses, außerhalb der Lagertechnik. **Aufwärts: X −669 / Z 801**, Seelensand auf Y 96, zusammenhängende Blasensäule Y 97…137. Austritte befinden sich neben dem Schacht auf den Etagen mit Boden Y 101, 107, 113, 121, 127 und 135. Der unterste Zugang liegt auf einem kleinen Podest über dem bestehenden Boden Y 95; eine Stufe führt hinauf. Kein vorhandener Bodenblock auf Y 95 wird ersetzt.
 
 **Abwärts: X −667 / Z 801.** Ein separater freier Fallschacht führt bis zu einem zwei Blöcke tiefen Wasserbecken auf Y 97/98. Er führt nach unten zum Keller, nicht automatisch zu einer ausgewählten Zwischenetage. Für Zwischenetagen die Aufwärtssäule und deren seitliche Austritte verwenden. Es ist kein Magmablock verbaut.
 

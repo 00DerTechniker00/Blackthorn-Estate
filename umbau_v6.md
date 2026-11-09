@@ -1,75 +1,20 @@
-# Blackthorn Estate · Version 6.0
+# Kellerumbau · Haus auf Y 127
 
-## Bestehender Keller als Grundlage
+Der vorhandene Schachbrettboden bleibt auf Y 95 mit allen 2.397 Blöcken unverändert. Das alte Dustless-Lager ist entfernt. Seine Originaldateien dienen nur noch als Referenz; seine Blöcke zählen nicht zum aktuellen Materialbedarf.
 
-Grundriss außen X −710…−658 / Z 766…814 (53 × 49), innen 51 × 47. Der aus eurer aktuellen Region ausgelesene Schachbrettboden auf Y 95 und die Außenwände bis Y 127 werden übernommen. Die obere Wandlage Y 128 wird bis zur Geschossdecke geschlossen. Alle 2.397 vorhandenen Bodenblöcke auf Y 95 bleiben exakt erhalten. Der Hauptleiterzugang endet über diesem Boden; der geheime Abstieg wird in eine neue Nische außerhalb der westlichen Kellerwand verlegt. Nur dort wird ein Wanddurchgang geöffnet. Die neue untere Decke auf Y 101 erweitert die bereits begonnene nördliche Teilfläche; lichte Höhe darunter Y 96…100, also fünf Blöcke.
+Die aktuelle [Höhenplanung](keller_hoehenplanung.md) enthält fünf Kelleretagen mit 5 / 7 / 5 / 5 / 5 Blöcken freier Höhe von oben nach unten. Alle Geschossdecken sind einen Block dick. Böden von unten: Y 95, 101, 107, 113 und 121; EG-Boden Y 127. Obergeschoss Y 135, Dachbeginn Y 143. Das Haus und seine oberen Anschlüsse sind zwei Blöcke tiefer als im bisherigen Plan.
 
-| Zone | Höhen | Nutzung |
-| --- | --- | --- |
-| Untere Räume | Boden 95, Decke 101 | Bibliothek, geheime Nebenräume, Werkstattreserve und Handlager |
-| Großlager | Modul 102…123 | Volle Dustless-Schaltung, vier Chunks |
-| Porter-Galerie | Boden 124, freie Höhe 125…128 | Gesamte Nordwand frei; Decke / EG-Boden 129 |
+## Umsetzung
 
-Die große Bühne des Lagers ist technisch mehrgeschossig. Sie wurde nicht auf eine gewöhnliche Geschosshöhe zusammengestaucht. Hauptzugang: durchgehende Leiter im Südosten bei X −661 / Z 803, vom EG zu den drei Ebenen. Zwei zusammenhängende freie Säulen neben der Leiter bieten Austrittsraum; die Deckendurchbrüche bleiben offen. Im Spiel gegen Absturz sichern. Es gibt hier keine als fertige Treppe ausgegebene Leiter.
+1. Fertigen Boden auf Y 95 schützen. Alte Lagerblöcke und nicht mehr passende Zwischendecken nach der aktuellen Umbau-CSV entfernen.
+2. Neue Geschossböden Y 101, 107, 113 und 121 bauen. Leiter- und Wasserschächte einschließlich ihrer Austritte offen lassen.
+3. Untere Geheim- und Nebenräume bleiben bei Y 96–100; der externe Abstieg und der Salon am Gang auf Y 80 bleiben erhalten.
+4. Die freien Reservegeschosse liegen bei Y 102–106 und Y 108–112. Das Ersatzlager erhält freie Höhe Y 114–120 auf Boden Y 113. Noch keine Schaltung für das neue Lager modelliert.
+5. Porter an der gesamten Nordwand auf Boden Y 121, freie Höhe Y 122–126. Bereich X −709…−659 / Z 767…780 bleibt frei. Chunkgrenzen bei X −704, −688, −672 und Z 768, 784, 800 beachten; jedes vollständige Portermodul muss passend geladen sein.
+6. Haus, Poolterrasse und Gartenanschlüsse anhand des abgesenkten Hausmodells bauen. Bootshaus und Steg bleiben auf ihrer bisherigen Meereshöhe. Die Verbindung des Klippenpfads ist angepasst.
 
-Außerhalb der Westwand führt die zweite Leiter bei X −712 / Z 776 nach Y 81 auf den Gangboden Y 80. Ein drei Blöcke hoher, drei Blöcke breiter Verbindungsgang schließt dort in Richtung des bisherigen Technikzugangs an. Die Öffnung ist begehbar modelliert; ein neues automatisches Geheimtürschloss ist nicht vorgetäuscht.
+## Dateien und Prüfgrenzen
 
-## Gesamte nördliche Wand für eure Porter
+`keller_umbau_6.0.csv` und `materialbedarf_keller_zusaetzlich.csv` vergleichen mit eurem zuletzt gelieferten Kellerbestand. `blackthorn_estate_6.0.nbt`, `blockliste.csv` und die Materiallisten gehören zum aktuellen Zielmodell. Historische globale Geländeexporte beziehen sich auf den älteren Weltstand. Der Atlas zeigt die abgesenkten Zieloberflächen; Gelände vor Ort an den Bestand anpassen.
 
-Freier Streifen: **X −709…−659 / Z 767…780**, also **51 × 14 = 714 Bodenpositionen**. Zwischen Boden Y 124 und Decke Y 129 sind vier Blöcke frei. Keine Möbel, Beleuchtungsständer oder dekorativen Säulen stehen im Streifen. Beleuchtung sitzt bündig in der Decke. Meißelsteinlinien im Boden bei X −704, −688 und −672 kennzeichnen Chunkgrenzen ohne Stolperkanten.
-
-Für die technische Umsetzung eurer bereits gebauten Porter sind drei Chunkzonen vorgesehen:
-
-| Bereich | X | Z | Chunk X/Z |
-| --- | --- | --- | --- |
-| West | −703…−690 | 769…780 | −44 / 48 |
-| Mitte | −687…−674 | 769…780 | −43 / 48 |
-| Ost | −671…−660 | 769…780 | −42 / 48 |
-
-Die Zone ganz im Westen bleibt für Wartung und Zugang nutzbar. Die nördliche Chunkgrenze liegt auf Z 768. Perlen, Auslöser und gesamte notwendige Schaltung innerhalb der jeweiligen Zone aufbauen; Bodenmarkierungen allein gewährleisten keine Chunkladung. Eure Porter werden selbst umgesetzt und sind nicht in Materialmengen, Entities oder Live-Baupositionen enthalten. Wenn eure vorhandene Schaltung höher als vier Blöcke ist, muss dafür ein gezielter Deckeneingriff geplant werden.
-
-## Lager übernehmen – wichtig für die Funktion
-
-Verwendete Vorlage: **Golem MIS Dustless Filter von cubicmetre**, 4.543 Blöcke und 27 × 22 × 27 Gesamtausdehnung. Ursprung **X −701 / Y 102 / Z 771**, keine Rotation. Maximalkoordinate X −675 / Y 123 / Z 797. Die vier Chunks X −44/−43 und Z 48/49 müssen für den Betrieb gemeinsam ausreichend geladen sein.
-
-`litematics/Blackthorn_V6_Dustless.litematic` ist die angepasste Vorlage: Nur weißes Glas wurde in graues Glas geändert. Alle ursprünglichen Containerdaten, Inventare, Blockstates und Entities bleiben erhalten. Die mechanischen Positionen wurden nicht verschoben. Vorlage zuerst auf das richtige Ursprungsschema in Litematica prüfen; die Quelle besitzt mehrere Regionen mit teilweise negativen Abmessungen. Im Atlas entsprechen diese bereits der oben genannten normalisierten Gesamthülle.
-
-Die komplette Blockgeometrie ist auch im Hausmodell und den Materiallisten enthalten. Das Haus-NBT enthält jedoch **keine Container-NBT oder Entities**. Für Filter-Seed-Inventare und Golems die V6-Litematic heranziehen. Im Survival-Modus sind Materialien und Bestückung im Spiel einzubauen; ein Bauplan-Import bestückt nicht automatisch alle Inventare. Die Cherry-Litematic bleibt nur als alternative Originalvorlage verfügbar und wird nicht zusätzlich eingebaut.
-
-Die bisherige kleine Bulk-/Golem-Anlage, das 400-Fass-Regallager und die alte Keller-Trading-Hall entfallen an ihren alten Positionen. Die neuen fünf Reservefässer stehen unten auf Y 96. Ein neuer automatischer Materiallift ins EG und weitere Technikstationen sind keine Bestandteile dieser Revision. Die alten Techniktexte und älteren Geländeberichte sind historische Dokumente, keine neuen Abnahmeprotokolle.
-
-## Empfohlene Umbaufolge
-
-1. Welt sichern und vorhandenen Boden / Außenwände mit den Bestandsplänen abgleichen.
-2. `keller_umbau_6.0.csv` verwenden: Sie vergleicht die Zielpositionen mit eurer gelieferten Region, einschließlich notwendiger Durchbrüche. Sie ist auf X −710…−658 / Z 766…814 / Y 94…129 begrenzt. Der tiefere Gang und seine Erdarbeiten stehen zusätzlich in der vollständigen Freiraumliste.
-3. Durchbrüche und den tiefen Zugang ausheben. Den vorhandenen Schachbrettboden auf Y 95 vollständig erhalten. Der tiefe Abstieg liegt außerhalb der Westwand; nur obere Geschossdecken und der westliche Wanddurchgang werden dafür geöffnet.
-4. Untere Räume, Decke Y 101, seitliche Lagerzugänge sowie Leiterkerne setzen.
-5. Großlager in Originalhöhe nach der V6-Litematic bauen und bestücken. Binnenluft und Wartungszugänge erhalten.
-6. Galerieboden Y 124 und Deckenanschlüsse ergänzen, Nordstreifen frei halten. Vorhandene Porter chunkweise versetzen.
-7. Alle Zugänge ablaufen, Lagerfunktionen und Relog-Porter auf eurem Paper-Server prüfen.
-
-`materialbedarf.csv` ist der komplette Zielplan. **`materialbedarf_keller_zusaetzlich.csv`** enthält nur zusätzlich zu setzende Items innerhalb des ausgewerteten Bestandsschnitts; vorhandene passende Blöcke werden nicht erneut verlangt. Wiedergewinnbare Materialien beim Rückbau sind darin nicht gegengerechnet. Die globale alte Terraforming-Karte ist keine aktuelle Vermessung dieser gelieferten Serverregion; für den Keller sind die neue Umbau- und Freiraumliste maßgeblich.
-
-## Atlas und Live-Plugin
-
-Website und neuer Plugin-Bauplan verwenden denselben V6-Fingerprint. Nach Veröffentlichung das neue `downloads/BlackthornLive.jar` (Version 1.4.0) auf dem Server austauschen und neu starten. Bestehende Konfiguration und Schreibtoken bleiben verwendbar. Alte Plugin-Prüfstände werden nicht mit dem neuen Bauplan vermischt.
-
-Lokale Bauhäkchen aus 5.26 werden nur für unveränderte Positionen übernommen. Entfernte Lagerbuchten und geänderte Bauteil-Fertigmeldungen werden verworfen. Gemeinsame Materialbestände bleiben gespeichert; neue Sollmengen und Häkchen im Team gegenprüfen.
-
-## Prüfung
-
-Statische Prüfung: eindeutige Positionen, Materialmengen, Türhälften, direkte Türzugänge, Luft-/Blockkonflikte, durchgehende Leiterwege, Freihaltung der Porterzone, unveränderte Schaltungsgeometrie und erhaltene Litematic-Container-/Entitydaten. Das ersetzt keinen Ingame-Lauftest, keine Lichtsimulation und keine Redstone-Abnahme.
-
-## Nachprüfung der Kellerwege
-
-Die Leiteröffnungen wurden bis auf die eigentliche Leitersäule mit Trittflächen geschlossen; seitliche Mauergeländer begrenzen die Öffnung. Östliche Austritte bleiben frei. Die Deckenleuchten sind dichter bis an die Raumränder verteilt. Der Modelltest erreicht alle neuen Raumgruppen und alle 714 Porterpositionen. In den untersuchten freien Bodenzellen der unteren Räume und der Porterfläche gibt es im vereinfachten Blocklichtmodell keine Zellen mit Lichtlevel 0. Details und Grenzen stehen in `keller_pruefung_v6.json`; ein Ingame-Test bleibt erforderlich. Das neue Plugin 1.4.0 enthält den aktualisierten Plan und zeigt dessen Kennung im Statusbefehl.
-
-## Endgültiger Bestandsboden
-
-Alle **2.397 Innenbodenpositionen auf Y 95** werden mit identischem Blocktyp und identischen Blockzuständen aus eurer gelieferten Region übernommen. Es gibt darin keine Leiterlöcher und keine ausgetauschten Trittplatten. Der geheime Schacht liegt nun außerhalb der Westwand bei X −712 / Z 776, mit Zugang durch die Wand auf Y 96…98. Der Hauptzugang im Südosten beginnt auf Y 96 über dem bestehenden Boden. Eine automatisierte Prüfung gleicht jede Bodenposition mit der Bestandsdatei ab.
-
-## Wasserzugänge und vergrößerter Geheimsalon
-
-Zusätzlich sind ein Hauszugang EG/OG ↔ Keller sowie ein Wasserzugang zum Y80-Gang eingebaut. Aufwärts jeweils durch eine Blasensäule, abwärts durch einen getrennten Fallschacht mit Wasserlandung. Bestehende Haupttreppe und Leiterzugänge bleiben erhalten. Die unteren Quellen des Hauszugangs liegen auf einem kleinen Podest über dem unveränderten Y95-Boden. Am tiefen Gang liegt jetzt ein 15 × 14 Blöcke großer, sieben Blöcke hoher Geheimsalon. Die aktuelle Baufolge und Bedienung stehen in [wasserwege_v6.md](wasserwege_v6.md).
-
-Ab installierter Plugin-Version 1.4.0 wird der Bauplan automatisch von der Website aktualisiert. Der genannte JAR-Austausch ist für den einmaligen Wechsel von älteren Plugin-Versionen erforderlich, nicht bei jeder weiteren Bauplanänderung. Website und Server-Plandatei gemeinsam veröffentlichen; bei Bedarf `/blackthornlive sync` verwenden.
+Durchgänge, vorhandener Boden, Lagerfreiraum, Leiter-Austritte und Wasserzugänge werden statisch geprüft. Fluidverhalten, Absturzschutz, Porter und Ersatzlager müssen im Spiel abgenommen werden. Die Automatik des Paper-Plugins lädt nach Deployment den aktuellen Bauplan; eine neue JAR ist dafür nicht nötig.

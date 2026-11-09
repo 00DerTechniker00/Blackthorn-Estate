@@ -2,8 +2,9 @@
   'use strict';
   const $=s=>document.querySelector(s),D=window.BLACKTHORN_DATA,S=D.storage_system;
   if(D.meta.version.startsWith('6.')){
-    $('#v6OpenStorage').onclick=()=>window.__openGroup('v6_grosslager');
-    $('#v6OpenNorth').onclick=()=>window.__focusPlan(-684,124,774);
+    const storage=$('#v6OpenStorage'),north=$('#v6OpenNorth');
+    if(storage)storage.onclick=()=>window.__focusPlan(-684,113,790);
+    if(north)north.onclick=()=>window.__focusPlan(-684,121,774);
     return;
   }
   const fmt=n=>n.toLocaleString('de-DE');

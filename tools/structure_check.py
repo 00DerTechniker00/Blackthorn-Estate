@@ -98,7 +98,7 @@ PASSABLE_SUFFIX=('_carpet','_door','_trapdoor','_button','_sign','_banner','_fen
 PASSABLE={'air','ladder','lever','vine','flower_pot','allium','cornflower','oxeye_daisy','azalea','flowering_azalea','redstone_wire','iron_chain','water','bubble_column','lantern','candle','comparator','repeater','redstone_torch','torch','wall_torch','piston_head'}
 SMALL={'lantern','candle','comparator','repeater','redstone_torch','torch','wall_torch','piston_head','water','bubble_column'}
 
-def reachability(occ,rooms,start_x_range=range(-760,-735),start_z=790):
+def reachability(occ,rooms,start_x_range=range(-760,-735),start_z=790,start_y=130):
     """Begehbarkeit vom Hauptportal: Gehen, Stufen von einem Block, Fallen bis drei Blöcke, Leitern, geschlossene Türen."""
     def passable(b):return b in PASSABLE or b.endswith(PASSABLE_SUFFIX)
     def free(p):
@@ -107,7 +107,7 @@ def reachability(occ,rooms,start_x_range=range(-760,-735),start_z=790):
         v=occ.get((p[0],p[1]-1,p[2]))
         if v and not passable(v[0]):return True
         c=occ.get(p);return bool(c and c[0]=='ladder')
-    start=next((x,130,start_z) for x in start_x_range if free((x,130,start_z)) and free((x,131,start_z)) and supported((x,130,start_z)))
+    start=next((x,start_y,start_z) for x in start_x_range if free((x,start_y,start_z)) and free((x,start_y+1,start_z)) and supported((x,start_y,start_z)))
     seen={start};dq=deque([start])
     while dq:
         x,y,z=dq.popleft();cur=occ.get((x,y,z));on_l=bool(cur and cur[0]=='ladder')

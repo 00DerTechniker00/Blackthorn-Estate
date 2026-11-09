@@ -1,30 +1,8 @@
 {
   "source": "cubicmetre",
   "source_note": "Originale Litematic-Dateien; Inventardaten/Blockentities und Entities bleiben in den Dateien erhalten.",
-  "placement_status": "V6: Dustless-Blockgeometrie integriert. V6-Litematic enthält Filterinventare und Entities.",
-  "vault": {
-    "bounds": [
-      -701,
-      -675,
-      102,
-      123,
-      771,
-      797
-    ],
-    "width": 27,
-    "height": 22,
-    "depth": 27,
-    "service_gap_x": [
-      -674,
-      -659
-    ],
-    "shaft_target": [
-      -661,
-      95,
-      803
-    ],
-    "note": "Vorgeschlagene Technikhalle direkt unter Keller 3; die Litematics separat und ohne Rotation an ihren Ankern platzieren."
-  },
+  "placement_status": "Nicht eingebaut: altes Dustless-Lager entfernt. Ersatzlager mit sieben Blöcken Höhe noch nicht geliefert; Fünf Kelleretagen umgesetzt; Lagerraum Y114–120 bleibt frei.",
+  "vault": null,
   "modules": [
     {
       "name": "Copper Golem MIS Cherry",
@@ -205,11 +183,6 @@
       },
       "entity_total": 56,
       "key": "golem_mis",
-      "proposed_world_anchor": [
-        -715,
-        80,
-        770
-      ],
       "rotation": "unverändert; Quellorientierung beibehalten"
     },
     {
@@ -333,11 +306,6 @@
       },
       "entity_total": 60,
       "key": "dustless_filter",
-      "proposed_world_anchor": [
-        -701,
-        102,
-        771
-      ],
       "rotation": "unverändert"
     }
   ]
