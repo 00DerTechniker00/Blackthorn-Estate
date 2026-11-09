@@ -1,7 +1,7 @@
 {
   "revision": "6.0",
-  "positions": 140147,
-  "items": 139209,
+  "positions": 140262,
+  "items": 139324,
   "duplicates": [],
   "material_counts_match": true,
   "packing_errors": [],
@@ -18,9 +18,9 @@
     "sha256": "e0f4c700a52f8f91ea067fa0eaea19cd118656793a11c5388014c589831f352b",
     "materials": {
       "dirt": {
-        "planned": 38162,
-        "same_type_in_snapshot": 9387,
-        "different_type": 28775,
+        "planned": 38315,
+        "same_type_in_snapshot": 9467,
+        "different_type": 28848,
         "unknown_positions": 0
       },
       "cobblestone": {
@@ -30,9 +30,9 @@
         "unknown_positions": 0
       },
       "grass_block": {
-        "planned": 7828,
-        "same_type_in_snapshot": 1101,
-        "different_type": 6727,
+        "planned": 7917,
+        "same_type_in_snapshot": 1096,
+        "different_type": 6821,
         "unknown_positions": 0
       },
       "stone": {
@@ -46,7 +46,7 @@
   "scopes": {
     "house": {
       "label": "Haus und Keller",
-      "items": 71050,
+      "items": 71051,
       "focus": {
         "dirt": 0,
         "cobblestone": 0,
@@ -56,9 +56,9 @@
     },
     "outdoor": {
       "label": "Außenanlagen und Nebengebäude",
-      "items": 6409,
+      "items": 6359,
       "focus": {
-        "dirt": 58,
+        "dirt": 122,
         "cobblestone": 392,
         "grass_block": 136,
         "stone": 0
@@ -66,11 +66,11 @@
     },
     "terrain": {
       "label": "Gelände und Auffüllung",
-      "items": 61750,
+      "items": 61914,
       "focus": {
-        "dirt": 38104,
+        "dirt": 38193,
         "cobblestone": 13132,
-        "grass_block": 7692,
+        "grass_block": 7781,
         "stone": 2254
       }
     }

@@ -7,7 +7,9 @@ function buildTerrain() {
   const height=(x,z)=>(x<x0||x>x1||z<z0||z>z1)?bottom:H[z-z0][x-x0]+1-(mode!=='original'&&modeledSteps.has(x+','+z)?1:0);
   // A height field cannot describe an underground cellar. Its old surface must not cover V6 blocks.
   const hasCellar=!!D.structure?.v6&&mode!=='original';
-  const cutout=(x,z)=>hasCellar&&((x>=-710&&x<=-658&&z>=766&&z<=814)||(x>=-715&&x<=-711&&z>=774&&z<=783));
+  const structureGround=new Map((T.structure_clearance||[]).map(([x,z,y])=>[x+','+z,y]));
+  const cutout=(x,z)=>hasCellar&&((x>=-710&&x<=-658&&z>=766&&z<=814)||(x>=-715&&x<=-711&&z>=774&&z<=783)||(!S3.terrainOnly&&structureGround.has(x+','+z)));
+  const cutBase=(x,z)=>x>=-710&&x<=-658&&z>=766&&z<=814?95:x>=-715&&x<=-711&&z>=774&&z<=783?80:structureGround.get(x+','+z);
   const rgb={water:[.24,.47,.66],grass_block:[.39,.56,.31],dirt:[.52,.39,.25],stone:[.49,.51,.52],stone_bricks:[.53,.55,.55],gravel:[.67,.62,.51],iron_block:[.75,.78,.77],dark_oak_planks:[.32,.23,.14]};
   for(let z=z0;z<=z1;z++)for(let x=x0;x<=x1;x++){
     if(cutout(x,z))continue;
@@ -21,7 +23,7 @@ function buildTerrain() {
       if(cutout(x+v[0],z+v[2])){
         // Close the exposed soil edge, never the top of the cellar cavity.
         // Move the face slightly into the soil so the actual masonry wins the depth test.
-        const base=(x+v[0]<-710)?80:95,box=[x,base,z,x+1,h,z+1],epsilon=.002;
+        const base=cutBase(x+v[0],z+v[2]),box=[x,base,z,x+1,h,z+1],epsilon=.002;
         if(dir==='east')box[3]-=epsilon;
         if(dir==='west')box[0]+=epsilon;
         if(dir==='south')box[5]-=epsilon;

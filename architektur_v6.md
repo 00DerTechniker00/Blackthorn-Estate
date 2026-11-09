@@ -2,20 +2,22 @@
 
 Alle Koordinaten beziehen sich auf den abgesenkten Hausstand: EG-Boden Y 127, OG-Boden Y 135, Dachgeschossboden Y 143. Der fertige Kellerboden Y 95 und die bestehende Haupttreppe bleiben unverändert.
 
-## Pferdestall mit tatsächlich nutzbaren Boxen
+## Pferdestall westlich der Hauptzufahrt
 
-Die bisherige Stallhülle hatte ein zwei Blöcke breites Tor und kaum voneinander getrennte Unterstände. Der südliche Anschluss bestand teilweise aus hohen Bruchsteinlagen. Der neue Stall steht auf einer 14 × 10 großen, dem Gelände unterfütterten Fläche: **X −754…−741, Z 763…772, Boden Y 123**. Holzfachwerk, dunkles Ziegeldach, schwarze Portalprofile und hohe vergitterte Seitenfenster passen zum Herrenhaus.
+Der Stall wurde vom bisherigen Standort versetzt, weil seine erweiterte Hülle und der alte Anschlussweg Teile der nordwestlichen Hauptzufahrt überdeckten. Das Gebäude steht jetzt vollständig **westlich neben der Zufahrt**, auf einer 14 × 10 großen Fläche: **X −774…−761, Z 744…753, Boden Y 123**. Das Gelände dort liegt überwiegend auf Y 121/122 und braucht nur eine niedrige Unterfütterung. Holzfachwerk, dunkles Ziegeldach, schwarze Portalprofile und hohe vergitterte Seitenfenster passen zum Herrenhaus.
 
-- Haupttor und Mittelgang: **X −748…−746**, drei Blöcke breit. Das Haupttor liegt bei **Z 772**.
-- Vier völlig freie Blocklagen im Mittelgang, Y 124…127. Zwei kleine Deckenlaternen hängen über dem westlichen Boxrand bei X −750 auf Y 127 an einer echten Decke und stehen nicht im Reitweg.
-- Westbox: X −753…−750 / Z 764…770, **4 × 7 = 28** Bodenpositionen.
-- Ostbox: X −744…−742 / Z 764…770, **3 × 7 = 21** Bodenpositionen.
-- Jede Box besitzt einen drei Blöcke breiten seitlichen Zugang im Trennzaun bei Z 766…768. Den Platz unmittelbar hinter den Toren halten Futterballen und Tränken frei.
-- Zwei Fässer lagern Sättel, Leinen und Futter. Wassergefüllte Kessel und Heuballen geben dem Stall einen passenden Charakter; sie sind kein automatisches Versorgungssystem.
+- Haupttor und Mittelgang: **X −768…−766**, drei Blöcke breit. Das Haupttor liegt bei **Z 753**.
+- Vier völlig freie Blocklagen im Mittelgang, Y 124…127. Zwei kleine Deckenlaternen hängen über dem westlichen Boxrand bei X −770 auf Y 127 an einer echten Decke und stehen nicht im Reitweg.
+- Westbox: X −773…−770 / Z 745…751, **4 × 7 = 28** Bodenpositionen.
+- Ostbox: X −764…−762 / Z 745…751, **3 × 7 = 21** Bodenpositionen.
+- Jede Box besitzt einen drei Blöcke breiten seitlichen Zugang im Trennzaun bei Z 747…749. Den Platz unmittelbar hinter den Toren halten Futterballen und Tränken frei.
+- Zwei Fässer lagern Sättel, Leinen und Futter. Wassergefüllte Kessel und Heuballen sind Dekoration und Lager; sie sind kein automatisches Versorgungssystem.
 
 Vor dem Reiten **alle drei Haupttorflügel und die drei Flügel des jeweiligen Boxentors öffnen**. Es gibt keine als funktionsfähig ausgegebene automatische Torschaltung. Pferde und Rüstungsständer sind Entitäten und werden von euch im Spiel eingesetzt. Die vorhandenen Zaunabschnitte können als Anbindepunkte für Leinen dienen. Zum sicheren Einschließen Tore wieder schließen; Sprungversuche eines berittenen Pferdes gehören zur Abnahme vor Ort.
 
-Ein durchgehend drei Blöcke breiter Steinweg führt vom Tor südlich bis **Z 790** zur Zufahrt. Er folgt dem Hang mit höchstens einem Block Höhenunterschied je Längsschritt. Der Weg ist unterfüttert, die alten herausragenden Bruchsteinrampen sind entfernt. Der Atlas-Zielboden folgt dem tatsächlichen neuen Fundament und Weg.
+Der neue dreibreite Seitenweg führt vom Tor auf X −768…−766 nach Süden und auf **Z 756…758 nach Osten bis X −755**. Er endet vor der Hauptzufahrt bei X −754 und trifft sie mit höchstens einem Block Höhenunterschied. Der Weg ist unterfüttert und besitzt mindestens vier freie Höhenblöcke; er kreuzt die Hauptzufahrt nicht und führt nicht durch das Gebäude.
+
+Am alten Standort X −754…−741 / Z 763…772 und entlang der früheren Rampe werden Stall-, Reservierungs- und Unterstützungsblöcke vollständig entfernt. Außerhalb der Hauptzufahrt entsteht wieder eine grasbedeckte Geländefläche. **Alle 489 Original-Zufahrtblöcke** aus dem vorherigen Hausstand bleiben an ihren um zwei Blöcke abgesenkten Koordinaten erhalten. Die betroffene Schotterzufahrt wird zusätzlich auf vier Blöcke freien Luftraum geprüft. Eingangsportal und dessen seitliche Steinbauteile werden nicht als Fahrweg beseitigt.
 
 ## Räumlich tiefere Außenfassade
 
@@ -40,6 +42,6 @@ Das bestehende hohe Giebelfenster bei X −714 / Z 790 bleibt frei und verglast.
 
 ## Prüfstand und Abnahme im Spiel
 
-Die statische Prüfung kontrolliert Tor- und Gangbreite, freie Reithöhe, unterstützt aufgebaute Weglagen, zusammenhängende Boxen, Leitermast, Austritt und freie Giebelverglasung. Beim Einzeltest waren 90 von 90 geometrisch erfassten Stallzellen erreichbar; im Lesesaal waren 148 von 152 erfassten Zellen erreichbar. Die vier übrigen Zellen umfassen Möbel-/Schrägenbereiche und werden nicht als vollständige Bewegungsfläche zugesichert. Die anschließende Lichtüberarbeitung kann den tatsächlichen Zählstand leicht verändern.
+Die statische Prüfung kontrolliert Tor- und Gangbreite, vier freie Reithöhenblöcke, unterstützt aufgebaute Weglagen, zusammenhängende Boxen, Leitermast, Austritt und freie Giebelverglasung. Alle 489 ursprünglichen Zufahrtblöcke werden auf exakten Erhalt geprüft. Am Anschluss des neuen Seitenwegs zur Zufahrt darf die Steigung höchstens einen Block betragen. Der Stall war im Einzeltest mit 90 von 90 geometrisch erfassten Zellen erreichbar. Möbeloberseiten und niedrige Ränder des Lesesaals werden nicht als vollständig begehbare Fläche zugesichert.
 
 Im Spiel beide Boxen mit Pferd und Reiter befahren, alle Torflügel prüfen, den Weg in beiden Richtungen reiten sowie Leiteröffnung und Dachschrägen ablaufen. Die Tests ersetzen keine Minecraft-Kollisions- oder Entitätensimulation.

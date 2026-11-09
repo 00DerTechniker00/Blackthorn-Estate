@@ -1,3 +1,5 @@
+Haus-/Geländeüberlagerung und Stallkonflikt mit der Zufahrt korrigiert: [Freiraumkorrektur](freiraumkorrektur_v6.md). Der Stall steht jetzt westlich der Hauptzufahrt, die originale Wegführung ist wiederhergestellt.
+
 Überarbeitung von Licht, Garten, Stall, Westgiebel und Flussaussicht: [Ausbauübersicht](ausbau_v6.md). Im Atlas unter Bauatlas → Hausstruktur öffnen die neuen Ansichtsbuttons die tatsächlichen Baukoordinaten.
 
 Aktueller V6-Umbau: EG-Boden Y 127; fertiger Kellerboden Y 95 unverändert. Fünf Kelleretagen mit 5 / 7 / 5 / 5 / 5 Blöcken freier Höhe. Das alte Dustless-Lager ist entfernt; das neue Lager hat eine freie Baufläche auf Boden Y 113. Details: [Kellerhöhen](keller_hoehenplanung.md) und [Umbaufolge](umbau_v6.md). Frühere Revisionsangaben unten beschreiben den historischen Stand.

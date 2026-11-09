@@ -119,7 +119,7 @@ const PHASES = [
   { id: 'p8', name: '8 · Zusatzbeleuchtung', text: 'Gezielte Deckenleuchten mit kurzen Ketten. Bestehende Kronleuchter und Sockelleuchten bleiben erhalten; Lichtwirkung im Spiel prüfen.', groups: ['beleuchtung'] }
 ];
 GROUP_DE.dachgeheimraum='Dachraum · Kartenkammer';GROUP_DE.dachgeheimraum_technik='Dach-Geheimraum · Technik';PHASES.push({id:'p18',name:'18 · Dach-Geheimraum',text:'Zuerst Leiter, Regalschrank und Kolbenluke mit Lesepult, dann Dachraum einrichten. Redstone im Spiel prüfen.',groups:['dachgeheimraum_technik','dachgeheimraum']});GROUP_DE.fassade_laternen='Fassadenlaternen';GROUP_DE.fassade_beet='Beete an der Fassade';GROUP_DE.teppiche='Teppiche & Läufer';GROUP_DE.lichtkorrektur='Zusatzlicht';PHASES.push({id:'p19',name:'19 · Verschönerung und Licht',text:'Zuletzt: Fassadenlaternen, Beete, Teppiche; Zusatzlaternen gegen Monsterspawn überall dort setzen, wo es dunkel bleibt.',groups:['fassade_laternen','fassade_beet','teppiche','lichtkorrektur']});GROUP_DE.anschluss_korrekturen='Türanschlüsse';PHASES.push({id:'p17',name:'17 · Geprüfte Türanschlüsse',text:'K1-Wandöffnungen ausheben, Gartentür und Brücke korrigieren.',groups:['anschluss_korrekturen']});GROUP_DE.halle_giebelfenster='Halle · obere Giebelfenster';PHASES.push({id:'p16',name:'16 · Obere Hallenfenster',text:'Fenster im West- und Ostgiebel nach der Dachform einsetzen.',groups:['halle_giebelfenster']});GROUP_DE.fassade_laeden='Fensterläden';GROUP_DE.fassade_fenster='Sohlbänke & Stürze';GROUP_DE.fassade_zahnschnitt='Zahnschnitt-Gesims';GROUP_DE.fassade_efeu='Efeu';GROUP_DE.fassade_alterung='Verwitterte Mauer';PHASES.push({id:'p15',name:'15 · Fassadenschmuck',text:'Zuletzt bauen: Läden, Bänke und Stürze, dann Zahnschnitt; Efeu und Verwitterung nach Geschmack.',groups:['fassade_fenster','fassade_laeden','fassade_zahnschnitt','fassade_efeu','fassade_alterung']});GROUP_DE.weinberg='Südweinberg';GROUP_DE.steglicht='Stegbeleuchtung';GROUP_DE.ruestungsnischen='Rüstungsnischen';GROUP_DE.bibliothek_details='Bibliotheksregale';GROUP_DE.liefergong='Liefergong';PHASES.push({id:'p14',name:'14 · Weinberg und Liefergong',text:'Regale und Rüstungsständer nach dem Import einrichten; den Gong im Spiel prüfen.',groups:['weinberg','steglicht','ruestungsnischen','bibliothek_details','liefergong']});GROUP_DE.stall_remise='Stall und Remise';GROUP_DE.orangerie='Orangerie';GROUP_DE.gartenlicht='Gartenlicht';GROUP_DE.hallen_prunk='Hallenkronleuchter';GROUP_DE.wohn_details='Suiten und Kamine';GROUP_DE.liftanzeige='Liftanzeige';GROUP_DE.buchsteuerung='Buchsteuerung';PHASES.push({id:'p13',name:'13 · Hofleben und Innenräume',text:'Nebengebäude und Inneneinrichtung ergänzen; Technik danach im Spiel prüfen.',groups:['stall_remise','orangerie','gartenlicht','hallen_prunk','wohn_details','liftanzeige','buchsteuerung']});GROUP_DE.geheimtechnik='Geheimtür';GROUP_DE.fluchtgang='Geheimgang';GROUP_DE.materiallift='Materiallift';GROUP_DE.poollicht='Poollicht';GROUP_DE.klippenpfad='Klippenpfad';GROUP_DE.bootshaus='Bootshaus';GROUP_DE.klippenvegetation='Klippenvegetation';PHASES.push({id:'p12',name:'12 · Uferweg & Technik',text:'Freiräume vorab ausheben, Redstone und Wasser erst danach in Betrieb nehmen.',groups:['geheimtechnik','fluchtgang','materiallift','poollicht','klippenpfad','bootshaus','klippenvegetation']});GROUP_DE.prunkportal='Westportal';GROUP_DE.aussichtsturm='Aussichtsturm';GROUP_DE.gartentreppe='Gartentreppe';GROUP_DE.klippenfuesse='Klippenfüße';GROUP_DE.kaskaden='Kaskaden';GROUP_DE.fassadenlicht='Portallicht';PHASES.push({id:'p11',name:'11 · Portal, Turm & Garten',text:'Zusätzliche Erdarbeiten beachten; Wasser zuletzt einsetzen.',groups:['prunkportal','aussichtsturm','gartentreppe','klippenfuesse','kaskaden','fassadenlicht']});GROUP_DE.poolfassade='Poolfassade';GROUP_DE.panoramabalkon='Panoramabalkon';GROUP_DE.poolboegen='Pool-Stützbögen';GROUP_DE.dach_kamine='Dachkamine';PHASES.push({id:'p10',name:'10 · Architektur & Klippenbögen',text:'Bogenfüße vor Ort mit Fels abgleichen, anschließend Fassade und Balkon bauen.',groups:['poolfassade','panoramabalkon','poolboegen','dach_kamine']});GROUP_DE.gartendeko='Garten & Außendekoration';PHASES.push({id:'p9',name:'9 · Garten & Außendekoration',text:'Begrünte Böschungen zuerst; danach Hecken, Blütenbeete, Bänke und Gartenpavillon.',groups:['gartendeko']});
-Object.assign(GROUP_DE,{"v6_beleuchtung_verdeckt": "V6 · beleuchtung verdeckt", "v6_bestand": "V6 · bestand", "v6_chunkraster": "V6 · chunkraster", "v6_fassadendetails": "V6 · fassadendetails", "v6_fassadenprofil": "V6 · fassadenprofil", "v6_flussloggia": "V6 · flussloggia", "v6_garten": "V6 · garten", "v6_gartenpflege": "V6 · gartenpflege", "v6_geheimabstieg": "V6 · geheimabstieg", "v6_geheimraeume": "V6 · geheimraeume", "v6_geheimsalon": "V6 · geheimsalon", "v6_gelaendepflege": "V6 · gelaendepflege", "v6_giebelsaal": "V6 · giebelsaal", "v6_giebelzugang": "V6 · giebelzugang", "v6_handlager": "V6 · handlager", "v6_keller": "V6 · keller", "v6_licht": "V6 · licht", "v6_pool": "V6 · pool", "v6_stall": "V6 · stall", "v6_stallweg": "V6 · stallweg", "v6_wasserzugang": "V6 · wasserzugang", "v6_zugang": "V6 · zugang"});PHASES.unshift({id:"v6",name:"V6 · Keller und Außenanlagen",text:"Bestand erhalten, freie Lagerfläche und Porterzone schützen, Garten, Stall und Hausdetails ausbauen.",groups:["v6_beleuchtung_verdeckt", "v6_bestand", "v6_chunkraster", "v6_fassadendetails", "v6_fassadenprofil", "v6_flussloggia", "v6_garten", "v6_gartenpflege", "v6_geheimabstieg", "v6_geheimraeume", "v6_geheimsalon", "v6_gelaendepflege", "v6_giebelsaal", "v6_giebelzugang", "v6_handlager", "v6_keller", "v6_licht", "v6_pool", "v6_stall", "v6_stallweg", "v6_wasserzugang", "v6_zugang"]});
+Object.assign(GROUP_DE,{"v6_ankunftsweg": "V6 · ankunftsweg", "v6_beleuchtung_verdeckt": "V6 · beleuchtung verdeckt", "v6_bestand": "V6 · bestand", "v6_chunkraster": "V6 · chunkraster", "v6_fassadendetails": "V6 · fassadendetails", "v6_fassadenprofil": "V6 · fassadenprofil", "v6_flussloggia": "V6 · flussloggia", "v6_garten": "V6 · garten", "v6_gartenpflege": "V6 · gartenpflege", "v6_geheimabstieg": "V6 · geheimabstieg", "v6_geheimraeume": "V6 · geheimraeume", "v6_geheimsalon": "V6 · geheimsalon", "v6_gelaendepflege": "V6 · gelaendepflege", "v6_giebelsaal": "V6 · giebelsaal", "v6_giebelzugang": "V6 · giebelzugang", "v6_handlager": "V6 · handlager", "v6_keller": "V6 · keller", "v6_licht": "V6 · licht", "v6_pool": "V6 · pool", "v6_stall": "V6 · stall", "v6_stall_rueckbau": "V6 · stall rueckbau", "v6_stallweg": "V6 · stallweg", "v6_wasserzugang": "V6 · wasserzugang", "v6_zugang": "V6 · zugang"});PHASES.unshift({id:"v6",name:"V6 · Keller und Außenanlagen",text:"Bestand erhalten, freie Lagerfläche und Porterzone schützen, Garten, Stall und Hausdetails ausbauen.",groups:["v6_ankunftsweg", "v6_beleuchtung_verdeckt", "v6_bestand", "v6_chunkraster", "v6_fassadendetails", "v6_fassadenprofil", "v6_flussloggia", "v6_garten", "v6_gartenpflege", "v6_geheimabstieg", "v6_geheimraeume", "v6_geheimsalon", "v6_gelaendepflege", "v6_giebelsaal", "v6_giebelzugang", "v6_handlager", "v6_keller", "v6_licht", "v6_pool", "v6_stall", "v6_stall_rueckbau", "v6_stallweg", "v6_wasserzugang", "v6_zugang"]});
 const gname = g => GROUP_DE[g] || g;
 
 /* ---------- Räume ---------- */
@@ -304,7 +304,9 @@ function buildTerrain() {
   const height=(x,z)=>(x<x0||x>x1||z<z0||z>z1)?bottom:H[z-z0][x-x0]+1-(mode!=='original'&&modeledSteps.has(x+','+z)?1:0);
   // A height field cannot describe an underground cellar. Its old surface must not cover V6 blocks.
   const hasCellar=!!D.structure?.v6&&mode!=='original';
-  const cutout=(x,z)=>hasCellar&&((x>=-710&&x<=-658&&z>=766&&z<=814)||(x>=-715&&x<=-711&&z>=774&&z<=783));
+  const structureGround=new Map((T.structure_clearance||[]).map(([x,z,y])=>[x+','+z,y]));
+  const cutout=(x,z)=>hasCellar&&((x>=-710&&x<=-658&&z>=766&&z<=814)||(x>=-715&&x<=-711&&z>=774&&z<=783)||(!S3.terrainOnly&&structureGround.has(x+','+z)));
+  const cutBase=(x,z)=>x>=-710&&x<=-658&&z>=766&&z<=814?95:x>=-715&&x<=-711&&z>=774&&z<=783?80:structureGround.get(x+','+z);
   const rgb={water:[.24,.47,.66],grass_block:[.39,.56,.31],dirt:[.52,.39,.25],stone:[.49,.51,.52],stone_bricks:[.53,.55,.55],gravel:[.67,.62,.51],iron_block:[.75,.78,.77],dark_oak_planks:[.32,.23,.14]};
   for(let z=z0;z<=z1;z++)for(let x=x0;x<=x1;x++){
     if(cutout(x,z))continue;
@@ -318,7 +320,7 @@ function buildTerrain() {
       if(cutout(x+v[0],z+v[2])){
         // Close the exposed soil edge, never the top of the cellar cavity.
         // Move the face slightly into the soil so the actual masonry wins the depth test.
-        const base=(x+v[0]<-710)?80:95,box=[x,base,z,x+1,h,z+1],epsilon=.002;
+        const base=cutBase(x+v[0],z+v[2]),box=[x,base,z,x+1,h,z+1],epsilon=.002;
         if(dir==='east')box[3]-=epsilon;
         if(dir==='west')box[0]+=epsilon;
         if(dir==='south')box[5]-=epsilon;
@@ -428,7 +430,7 @@ function resize3d() {
   cv.width=Math.max(1,Math.round(st.clientWidth*ratio)); cv.height=Math.max(1,Math.round(st.clientHeight*ratio));
   GL.gl.viewport(0,0,cv.width,cv.height); GL.dirty=true;
 }
-function predNow() { return i=>S3.terrainOnly ? (S3.terrain && S3.terrainMode!=='original' && Y[i]===95 && REG[R[i]].g==='v6_bestand') : (!S3.isolate||S3.isolate.has(i))&&!S3.hidden.has(REG[R[i]].gi) && !['terraform_auffuellung','terraform_oberflaeche','zufahrt'].includes(REG[R[i]].g); }
+function predNow() { return i=>S3.terrainOnly ? (S3.terrain && S3.terrainMode!=='original' && Y[i]===95 && REG[R[i]].g==='v6_bestand') : (!S3.isolate||S3.isolate.has(i))&&!S3.hidden.has(REG[R[i]].gi) && !['terraform_auffuellung','terraform_oberflaeche'].includes(REG[R[i]].g); }
 function rebuild() {
   const gl=GL.gl;
   for(const layer of Object.values(GL.meshes)) for(const mesh of Object.values(layer)) if(mesh) mesh.buffers.forEach(b=>gl.deleteBuffer(b));
@@ -508,7 +510,7 @@ function pick(e) {
 }
 function buildGroupPanel() {
   const box = $('#groupList'); box.innerHTML = '';
-  D.groups.map((g, i) => [g, i]).filter(([g])=>!['terraform_auffuellung','terraform_oberflaeche','zufahrt'].includes(g)).sort((a, b) => gname(a[0]).localeCompare(gname(b[0]), 'de')).forEach(([g, i]) => {
+  D.groups.map((g, i) => [g, i]).filter(([g])=>!['terraform_auffuellung','terraform_oberflaeche'].includes(g)).sort((a, b) => gname(a[0]).localeCompare(gname(b[0]), 'de')).forEach(([g, i]) => {
     const l = document.createElement('label'); l.className = 'chk';
     l.innerHTML = `<input type="checkbox" data-gi="${i}" checked><span>${gname(g)}</span><em>${fmt(D.gstats[g].n)}</em>`; box.appendChild(l);
   });
@@ -533,13 +535,13 @@ $('#single').onchange = e => { S3.single = e.target.checked; if (GL) applyCut();
 $('#terrainChk').onchange = e => { S3.terrain = e.target.checked; if (GL) applyCut(); };
 $$('[data-cam]').forEach(b => b.onclick = () => { ensureGL(); if (GL && GL.meshes) { if(S3.isolate)window.__leaveFixture();preset(b.dataset.cam); } });
 $$('[data-floor]').forEach(b => b.onclick = () => { $('#cut').value = b.dataset.floor; $('#cut').oninput({ target: $('#cut') }); });
-window.__openRoom = (idx) => {S3.terrainOnly=false;$('#houseChk').checked=true;
+window.__openRoom = (idx) => {S3.terrainOnly=false;$('#houseChk').checked=true;$('#terrainState').dispatchEvent(new Event('change'));
   const r = D.rooms[idx]; showTab('3d');
   const wait = () => { if (!GL) return; if (!GL.terrain) return setTimeout(wait, 80); S3.hidden.clear(); D.groups.forEach((g, i) => { if (g !== r.group) S3.hidden.add(i); });
     $$('#groupList input').forEach(c => c.checked = !S3.hidden.has(+c.dataset.gi)); rebuild(); focusBox((r.x[0] + r.x[1]) / 2, (r.y[0] + r.y[1]) / 2, (r.z[0] + r.z[1]) / 2, Math.max(r.x[1] - r.x[0], r.z[1] - r.z[0], 20)); };
   wait();
 };
-window.__openGroup = (g) => {S3.terrainOnly=false;$('#houseChk').checked=true;
+window.__openGroup = (g) => {S3.terrainOnly=false;$('#houseChk').checked=true;$('#terrainState').dispatchEvent(new Event('change'));
   showTab('3d');
   const wait = () => { if (!GL) return; if (!GL.terrain) return setTimeout(wait, 80); S3.hidden.clear(); D.groups.forEach((gg, i) => { if (gg !== g) S3.hidden.add(i); });
     $$('#groupList input').forEach(c => c.checked = !S3.hidden.has(+c.dataset.gi)); rebuild(); const s = D.gstats[g]; focusBox((s.x[0] + s.x[1]) / 2, (s.y[0] + s.y[1]) / 2, (s.z[0] + s.z[1]) / 2, Math.max(s.x[1] - s.x[0], s.z[1] - s.z[0], 20)); };
@@ -802,10 +804,10 @@ window.__focusBlock=(x,y,z)=>{const j=at(x,y,z);if(j<0)return false;showTab('3d'
         applyCut();focusBox(x,y+.5,z,8);GL.hl.position.set(x+.5,y+.5,-z-.5);GL.hl.visible=true;const q=describe(j);
         $('#selInfo').innerHTML=`<div class="selhead"><b>${q.title}</b></div><code>${q.id}</code><p><b>#${j+1}</b> · ${q.pos}</p><small>${REG[R[j]].props}</small>`;GL.dirty=true;};
       if(GL.terrain)ready();else setTimeout(ready,100);return true;};
-    window.__resetScene=()=>{if(!GL)return;S3.terrainOnly=false;$('#houseChk').checked=true;S3.isolate=null;$('#detailBanner').hidden=true;S3.hidden.clear();$$('#groupList input').forEach(c=>c.checked=true);S3.ymax=BB[3];S3.single=false;S3.terrain=true;
+    window.__resetScene=()=>{if(!GL)return;S3.terrainOnly=false;$('#houseChk').checked=true;$('#terrainState').dispatchEvent(new Event('change'));S3.isolate=null;$('#detailBanner').hidden=true;S3.hidden.clear();$$('#groupList input').forEach(c=>c.checked=true);S3.ymax=BB[3];S3.single=false;S3.terrain=true;
       $('#cut').value=BB[3];$('#single').checked=false;$('#terrainChk').checked=true;GL.hl.visible=false;rebuild();preset('iso');};
     window.__leaveFixture=()=>{if(!GL||!S3.isolate)return;S3.isolate=null;$('#detailBanner').hidden=true;S3.terrain=true;$('#terrainChk').checked=true;GL.hl.visible=false;rebuild();};
-    window.__focusFixture=f=>{S3.terrainOnly=false;$('#houseChk').checked=true;const j=at(f.x,f.y,f.z);if(j<0)return false;showTab('3d');if(!GL)return false;
+    window.__focusFixture=f=>{S3.terrainOnly=false;$('#houseChk').checked=true;$('#terrainState').dispatchEvent(new Event('change'));const j=at(f.x,f.y,f.z);if(j<0)return false;showTab('3d');if(!GL)return false;
       const ready=()=>{if(!GL||!GL.terrain)return;S3.hidden.clear();S3.isolate=new Set([j]);
         const a=f.anchor;for(let yy=Math.min(f.y,a[1]);yy<=Math.max(f.y,a[1]);yy++){const k=at(f.x,yy,f.z);if(k>=0)S3.isolate.add(k);}
         if(!f.hanging){for(let yy=a[1]-1;yy>=Math.max(BB[2],a[1]-2);yy--){const k=at(f.x,yy,f.z);if(k>=0)S3.isolate.add(k);}}
@@ -814,7 +816,7 @@ window.__focusBlock=(x,y,z)=>{const j=at(x,y,z);if(j<0)return false;showTab('3d'
         GL.hl.position.set(f.x+.5,f.y+.5,-f.z-.5);GL.hl.visible=true;$('#detailBanner').hidden=false;
         $('#selInfo').innerHTML=`<b>${f.id} · ${f.hanging?'Hängend':'Stehend'}</b><p>X ${f.x} / Y ${f.y} / Z ${f.z}</p><small>${f.chain} Kettenblöcke<br>Träger: ${f.anchor_block}<br>X ${a[0]} / Y ${a[1]} / Z ${a[2]}</small>`;GL.dirty=true;};
       if(GL.terrain)ready();else setTimeout(ready,100);return true;};
-$('#houseChk').onchange=e=>{S3.terrainOnly=!e.target.checked;S3.isolate=null;$('#detailBanner').hidden=true;if(GL)rebuild();};
+$('#houseChk').onchange=e=>{S3.terrainOnly=!e.target.checked;S3.isolate=null;$('#detailBanner').hidden=true;if(GL){rebuild();$('#terrainState').dispatchEvent(new Event('change'));}};
     window.__openTerrain=(mode='work',x=-695,z=790,only=true)=>{showTab('3d');if(!GL)return;
       const ready=()=>{if(!GL.terrain)return;window.__resetScene();S3.terrainOnly=only;$('#houseChk').checked=!only;
         S3.terrain=true;$('#terrainChk').checked=true;$('#terrainState').value=mode;$('#terrainState').dispatchEvent(new Event('change'));
@@ -837,6 +839,8 @@ window.__showRefinementV6=(kind)=>{
     if(!GL||!GL.terrain){if(++attempts<100)setTimeout(wait,80);return;}
     window.__resetScene();
     const configs={stable:[127,-747,126,772,35,true],garden:[169,-707,125,845,80,true],roof:[146,-709,145,790,26,false],river:[112,-643,110,785,48,false],facade:[169,-692,141,790,120,true]};
+    const stable=D.structure?.v6?.refinement?.architecture?.stable_bounds;
+    if(stable)configs.stable=[stable[2]+4,(stable[0]+stable[1])/2,stable[2]+3,(stable[4]+stable[5])/2,35,true];
     const [cut,x,y,z,span,terrain]=configs[kind]||configs.facade;
     S3.terrain=terrain;$('#terrainChk').checked=terrain;
     $('#terrainState').value='target';$('#terrainState').dispatchEvent(new Event('change'));

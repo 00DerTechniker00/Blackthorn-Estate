@@ -2,18 +2,22 @@
 import csv
 from collections import defaultdict
 
-def finalize_terrain(d,root):
+def finalize_terrain(d,root,architecture=None):
     T=d['terrain'];x0,_,z0,_=T['bounds'];rows={(r[0],r[1]):r for r in T['work']}
-    # The stable also changes the final ground, so add its columns after all agents.
-    for x in range(-754,-740):
-        for z in range(763,791):
-            target=T['target_heights'][z-z0][x-x0]
-            old=rows.get((x,z))
-            if old and old[3]==target:continue
-            actual=T['heights'][z-z0][x-x0]
-            rows[x,z]=[x,z,actual,target,max(0,actual-target),max(0,target-actual),'Stall und Zufahrt V6',T['target_surface_blocks'][z-z0][x-x0]]
+    # Include relocated stable / approach and restored road columns, with final metadata.
+    columns={(x,z) for x,z,*_ in (architecture or {}).get('surface_columns',[])}
+    if architecture:
+        sx0,sx1,_,_,sz0,sz1=architecture['stable_bounds']
+        columns.update((x,z) for x in range(sx0,sx1+1) for z in range(sz0,sz1+1))
+    for x,z in columns:
+        target=T['target_heights'][z-z0][x-x0];old=rows.get((x,z))
+        if old and old[3]==target:continue
+        actual=T['heights'][z-z0][x-x0]
+        rows[x,z]=[x,z,actual,target,max(0,actual-target),max(0,target-actual),'Stall und Zufahrt V6',T['target_surface_blocks'][z-z0][x-x0]]
     for (x,z),row in rows.items():
-        row[3]=T['target_heights'][z-z0][x-x0]
+        final=T['target_heights'][z-z0][x-x0]
+        if row[3]!=final:row[4]=max(0,row[2]-final);row[5]=max(0,final-row[2])
+        row[3]=final
         row[7]=T['target_surface_blocks'][z-z0][x-x0]
     T['work']=sorted(rows.values(),key=lambda r:(r[0],r[1]))
     T['excavate_total']=sum(r[4] for r in T['work']);T['fill_total']=sum(r[5] for r in T['work'])

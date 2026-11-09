@@ -22,15 +22,21 @@ def render():
   if any(w in block for w in ('oak','spruce','barrel','bookshelf','ladder')):return '#947653'
   if 'copper' in block:return '#64998b'
   return '#647477'
- def cut(x0,x1,z0,z1,y,left,top,scale,title):
+ def cut(x0,x1,z0,z1,y,left,top,scale,title,min_y=None):
   draw.text((left,top-35),title,font=small,fill='#213b31')
   for z in range(z0,z1+1):
    for x in range(x0,x1+1):
     px=left+(x-x0)*scale;py=top+(z-z0)*scale
-    draw.rectangle((px,py,px+scale-1,py+scale-1),fill=color(b.get((x,y,z))))
-  draw.text((left,top+(z1-z0+1)*scale+12),f'Y {y} · X {x0}…{x1}',font=small,fill='#213b31')
+    block=b.get((x,y,z))
+    if min_y is not None:
+     layers=[(yy,b[x,yy,z]) for yy in range(min_y,y+1) if (x,yy,z) in b]
+     block=max(layers)[1] if layers else None
+    draw.rectangle((px,py,px+scale-1,py+scale-1),fill=color(block))
+  draw.text((left,top+(z1-z0+1)*scale+12),f'{"Bis Y" if min_y is not None else "Y"} {y} · X {x0}…{x1}',font=small,fill='#213b31')
   draw.text((left,top+(z1-z0+1)*scale+37),f'Z {z0}…{z1} · Norden ↑',font=small,fill='#213b31')
- cut(-755,-740,762,782,124,35,125,20,'Stall · Boxen und südlicher Hauptzugang')
+ stable=d['structure']['v6']['refinement']['architecture']['stable_bounds']
+ sx0,sx1,floor,_,sz0,sz1=stable
+ cut(sx0-1,sx1+7,sz0-1,sz1+5,floor+1,35,125,14,'Stall und eigener Anschlussweg',min_y=115)
  cut(-714,-704,781,800,144,420,125,20,'Westgiebel · Lesesaal')
  cut(-661,-628,781,789,108,760,125,26,'Flussgalerie · Zugang aus Keller 3, Osten →')
  # Longitudinal section shows the cliff and enclosed window, with a real block slice.

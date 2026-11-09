@@ -1,7 +1,7 @@
 ﻿Material;Anzahl;Stackgroesse;volle_Stacks;Rest;volle_Shulkers;Rest_nach_Shulkern;Rest_Stacks_nach_Shulkern;Einzeln_nach_Stacks
 deepslate_bricks;1405;64;21;61;0;1405;21;61
-stone_bricks;865;64;13;33;0;865;13;33
-gravel;439;64;6;55;0;439;6;55
+stone_bricks;673;64;10;33;0;673;10;33
+gravel;517;64;8;5;0;517;8;5
 smooth_sandstone;393;64;6;9;0;393;6;9
 cobblestone;392;64;6;8;0;392;6;8
 dark_oak_planks;297;64;4;41;0;297;4;41
@@ -13,6 +13,7 @@ spruce_fence;151;64;2;23;0;151;2;23
 grass_block;136;64;2;8;0;136;2;8
 polished_deepslate;132;64;2;4;0;132;2;4
 white_stained_glass_pane;128;64;2;0;0;128;2;0
+dirt;122;64;1;58;0;122;1;58
 oak_leaves;118;64;1;54;0;118;1;54
 stone_brick_wall;103;64;1;39;0;103;1;39
 glass;92;64;1;28;0;92;1;28
@@ -23,7 +24,6 @@ polished_blackstone_bricks;77;64;1;13;0;77;1;13
 coarse_dirt;72;64;1;8;0;72;1;8
 cobblestone_stairs;72;64;1;8;0;72;1;8
 white_stained_glass;71;64;1;7;0;71;1;7
-dirt;58;64;0;58;0;58;0;58
 dark_oak_fence;40;64;0;40;0;40;0;40
 dark_oak_slab;37;64;0;37;0;37;0;37
 stone_brick_stairs;34;64;0;34;0;34;0;34

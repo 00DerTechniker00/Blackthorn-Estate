@@ -1,5 +1,5 @@
 {
-  "fingerprint": "662914b577c31ad5faf54bcf2b79679b1b07ad49b7a82b2cf8ba6b5b49ad8169",
+  "fingerprint": "b72d43e798e6a8923ce5d452e49ae1e245de2d2735e1391603e0c97a7fec7de8",
   "checks": {
     "landscape": {
       "terrain_columns_consistent": 191,
@@ -14,7 +14,9 @@
         28,
         21
       ],
-      "approach_steps_checked": 18,
+      "approach_steps_checked": 38,
+      "drive_blocks_preserved": 489,
+      "drive_clearance_height": 4,
       "gable_ladder_continuous": true,
       "main_stairs_protected": true
     },
@@ -37,6 +39,12 @@
         "zero_light_cells": 0
       },
       "sampled_zero_light_cells": 0
+    },
+    "terrain_clearance": {
+      "terrain_below_house_and_stable": true,
+      "known_door_and_room_conflicts_resolved": 9,
+      "pool_ground_below_bed": true,
+      "masked_columns": 6995
     },
     "routes": [
       {

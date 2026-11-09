@@ -35,3 +35,28 @@ test('garden stair surface is rendered below the modeled step instead of coverin
   vm.runInNewContext(source,context);context.buildTerrain();assert.equal(faces.find(f=>f.dir==='up').box[4],mode==='target'?126:127);
  }
 });
+test('target terrain never covers house rooms, doors or the relocated stable',()=>{
+ const columns=[[-733,787,126],[-657,789,126],[-768,748,122]];
+ for(const mode of ['target','work','original']){
+  for(const [x,z,base] of columns){
+   const faces=[],context={D:{structure:{v6:{}},terrain:{bounds:[x,x+1,z,z],heights:[[128,128]],target_heights:[[base,128]],surface_blocks:[['stone','stone']],target_surface_blocks:[['stone','stone']],structure_clearance:[[x,z,base]],work:[]}},S3:{terrainMode:mode},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>faces.push({dir,box})};
+   vm.runInNewContext(source,context);context.buildTerrain();
+   if(mode==='original')assert(faces.some(f=>f.dir==='up'&&f.box[0]===x));
+   else{
+    assert(!faces.some(f=>f.dir==='up'&&f.box[0]===x),'terrain roof through structure at '+x+','+z);
+    const edge=faces.find(f=>f.dir==='west'&&f.box[3]===x+2);
+    assert(edge);assert.equal(edge.box[1],base);assert(edge.box[0]>x+1,'soil side must stay behind the house');
+   }
+  }
+ }
+});
+
+test('bare terrain view keeps the planned ground visible under hidden buildings',()=>{
+ const faces=[],context={D:{structure:{v6:{}},terrain:{bounds:[-733,-733,787,787],heights:[[128]],target_heights:[[126]],surface_blocks:[['stone']],target_surface_blocks:[['stone']],structure_clearance:[[-733,787,126]],work:[]}},S3:{terrainMode:'target',terrainOnly:true},mkB:()=>({}),hash3:()=>.5,DIRV:{north:[0,0,-1],south:[0,0,1],west:[-1,0,0],east:[1,0,0]},addFace:(_b,dir,box)=>faces.push({dir,box})};
+ vm.runInNewContext(source,context);context.buildTerrain();assert(faces.some(f=>f.dir==='up'&&f.box[4]===127));
+});
+test('modeled original road remains visible when the terrain proxy is masked',()=>{
+ const app=readFileSync('app.js','utf8'),definition=app.match(/function predNow\(\) \{[^\n]+/)[0];
+ const context={S3:{terrainOnly:false,hidden:new Set()},Y:[118],R:[0],REG:[{g:'zufahrt',gi:0}]};
+ vm.runInNewContext(definition,context);assert(context.predNow()(0));
+});

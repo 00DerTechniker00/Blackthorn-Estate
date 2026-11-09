@@ -1,7 +1,7 @@
 ﻿Material;Anzahl;Stackgroesse;volle_Stacks;Rest;volle_Shulkers;Rest_nach_Shulkern;Rest_Stacks_nach_Shulkern;Einzeln_nach_Stacks
-dirt;38104;64;595;24;22;88;1;24
+dirt;38193;64;596;49;22;177;2;49
 cobblestone;13132;64;205;12;7;1036;16;12
-grass_block;7692;64;120;12;4;780;12;12
+grass_block;7781;64;121;37;4;869;13;37
 stone;2254;64;35;14;1;526;8;14
-gravel;487;64;7;39;0;487;7;39
+gravel;473;64;7;25;0;473;7;25
 dark_oak_planks;81;64;1;17;0;81;1;17

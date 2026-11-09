@@ -8,13 +8,14 @@ test('same-version V6 correction retains unchanged ticks and resets only changed
  for(const [y,z,x,n] of previous.changed_runs||[])for(let dx=0;dx<n;dx++)changed.add(`${x+dx},${y},${z}`);
  const [y,z,x]=data.runs.find(([y,z,x])=>!changed.has(`${x},${y},${z}`));
  const keep=`${x},${y},${z}`,reset=changed.values().next().value;assert(changed.has(reset));
+ const resetGroup=previous.changed_groups.find(g=>g!=='bootshaus'&&data.groups.includes(g));assert(resetGroup);
  const key='blackthorn:'+data.meta.version+':progress';
- const storage=new Map([[key,JSON.stringify({format:'blackthorn-progress',schema:1,blueprint:previous.fingerprint,state:{groups:{bootshaus:true,halle:true},people:{halle:'Piet'},blocks:{[keep]:true,[reset]:true},inventory:{'V6-H01':'Material'}}})]]);
+ const storage=new Map([[key,JSON.stringify({format:'blackthorn-progress',schema:1,blueprint:previous.fingerprint,state:{groups:{bootshaus:true,[resetGroup]:true},people:{halle:'Piet'},blocks:{[keep]:true,[reset]:true},inventory:{'V6-H01':'Material'}}})]]);
  const nodes=new Map();
  const document={getElementById:id=>{if(!nodes.has(id))nodes.set(id,{classList:{toggle(){}}});return nodes.get(id);}};
  const window={BLACKTHORN_DATA:data,dispatchEvent(){}};
  vm.runInNewContext(readFileSync('progress.js','utf8'),{window,document,localStorage:{getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v)},Event,Blob,URL,setTimeout});
  assert(window.BT.storageOK());assert.equal(window.BT.state.blocks[keep],true);assert.equal(window.BT.state.blocks[reset],undefined);
- assert.equal(window.BT.state.groups.bootshaus,true);assert.equal(window.BT.state.groups.halle,undefined);assert.equal(window.BT.state.people.halle,'Piet');assert.equal(window.BT.state.inventory['V6-H01'],'Material');
+ assert.equal(window.BT.state.groups.bootshaus,true);assert.equal(window.BT.state.groups[resetGroup],undefined);assert.equal(window.BT.state.people.halle,'Piet');assert.equal(window.BT.state.inventory['V6-H01'],'Material');
  assert.equal(JSON.parse(storage.get(key)).blueprint,data.meta.fingerprint);
 });

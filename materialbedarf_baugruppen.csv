@@ -368,11 +368,11 @@ teppiche;black_carpet;104
 teppiche;brown_carpet;39
 teppiche;green_carpet;17
 teppiche;white_carpet;5
-terraform_auffuellung;dirt;38086
+terraform_auffuellung;dirt;38130
 terraform_auffuellung;cobblestone;13132
 terraform_auffuellung;stone;2129
-terraform_oberflaeche;grass_block;7675
-terraform_oberflaeche;gravel;487
+terraform_oberflaeche;grass_block;7611
+terraform_oberflaeche;gravel;473
 terraform_oberflaeche;stone;125
 terraform_oberflaeche;dark_oak_planks;81
 terrasse;deepslate_bricks;609
@@ -381,6 +381,7 @@ terrasse;stone_brick_wall;78
 terrasse;spruce_planks;24
 terrasse;lantern;17
 terrasse;dark_oak_fence;8
+v6_ankunftsweg;stone_bricks;6
 v6_beleuchtung_verdeckt;sea_lantern;145
 v6_beleuchtung_verdeckt;brown_carpet;108
 v6_beleuchtung_verdeckt;red_carpet;20
@@ -460,7 +461,7 @@ v6_pool;dark_oak_stairs;12
 v6_pool;smooth_quartz_stairs;10
 v6_pool;sea_lantern;6
 v6_pool;polished_blackstone_brick_slab;4
-v6_stall;stone_bricks;488
+v6_stall;stone_bricks;289
 v6_stall;nether_brick_stairs;140
 v6_stall;dark_oak_planks;118
 v6_stall;stripped_oak_log;88
@@ -478,8 +479,10 @@ v6_stall;hay_block;2
 v6_stall;lantern;2
 v6_stall;polished_blackstone_brick_stairs;2
 v6_stall;polished_blackstone_bricks;2
-v6_stallweg;stone_bricks;54
-v6_stallweg;dirt;32
+v6_stall_rueckbau;grass_block;153
+v6_stall_rueckbau;dirt;45
+v6_stallweg;dirt;96
+v6_stallweg;stone_bricks;48
 v6_wasserzugang;gray_stained_glass;770
 v6_wasserzugang;deepslate_bricks;253
 v6_wasserzugang;polished_deepslate;94
@@ -498,7 +501,7 @@ vestibuel;red_carpet;63
 vestibuel;lantern;8
 vestibuel;deepslate_bricks;6
 vestibuel;dark_oak_stairs;4
-weg_sicherung;stone_brick_wall;25
+weg_sicherung;stone_brick_wall;26
 wegfuehrung;yellow_carpet;11
 weinberg;grass_block;126
 weinberg;cobblestone;66
@@ -519,5 +522,5 @@ wohn_details;green_banner;4
 wohn_details;orange_banner;4
 wohn_details;purple_banner;4
 wohn_details;red_banner;4
-zufahrt;gravel;394
-zufahrt;stone_bricks;10
+zufahrt;gravel;472
+zufahrt;stone_bricks;17

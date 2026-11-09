@@ -166,8 +166,10 @@ def main():
     river_changes=build_river_loggia(d,b,air)
     from lighting_estate_v6 import enhance as improve_lighting
     lighting_changes=improve_lighting(d,b,air)
+    from terrain_clearance_v6 import enhance as clear_terrain_from_structures
+    terrain_clearance=clear_terrain_from_structures(d,b,air,architecture_changes)
     from estate_integration_v6 import finalize_terrain, lamp_registry
-    terrain_review=finalize_terrain(d,ROOT)
+    terrain_review=finalize_terrain(d,ROOT,architecture_changes)
     lamp_registry(d,b)
     # No blocks and required-air positions may overlap.
     air.update(prior.keys()-b.keys())
@@ -229,7 +231,7 @@ def main():
     d['structure']['enhancements']['title']='Version 6 · Keller nach eurem gebauten Bestand'
     d['structure']['enhancements']['features']=[dict(name='Gebauter Keller bleibt erhalten',description='Boden Y95 und Außenwände bilden die Grundlage.',group='v6_bestand'),dict(name='Bisheriges Großlager entfernt',description='Neues sieben Blöcke hohes Lager in der zweiten Kelleretage von oben vorgesehen; Neue Kelleretagen mit freier Lagerfläche.',group='v6_keller'),dict(name='Nordwand vollständig frei',description='51 × 14 Bodenpositionen für eure vorhandenen Porter; Chunkraster im Plan beachten.',group='v6_keller')]
     d['structure'].setdefault('v6',{}).update({'north_reserve':[-709,-659,122,126,767,780],'storage_anchor':None,'source_sha256':survey['source_sha256'],'outdoors':outdoor_changes,'water_access':water_access,'house_lowering':house_lowering})
-    d['structure']['v6']['refinement']={'landscape':landscape_changes,'architecture':architecture_changes,'river':river_changes,'lighting':lighting_changes,'terrain':terrain_review}
+    d['structure']['v6']['refinement']={'landscape':landscape_changes,'architecture':architecture_changes,'river':river_changes,'lighting':lighting_changes,'terrain':terrain_review,'terrain_clearance':terrain_clearance}
     d['structure']['v6']['storage_removed']=True
     d['structure']['v6']['proposed_cellar_layout']={'status':'implemented_empty_storage','clear_heights_top_down':[5,7,5,5,5],'floors_bottom_up':[95,101,107,113,121,127],'ceiling_layers':[[101],[107],[113],[121],[127]],'existing_floor':95,'current_house_floor':127,'new_storage_supplied':False}
     modules=json.loads((ROOT/'lagertechnik_module.json').read_text())
@@ -271,6 +273,8 @@ def main():
     from river_loggia_v6 import check as check_river
     from lighting_estate_v6 import check as check_lighting
     improvement_checks={'landscape':check_landscape(d,b),'architecture':check_architecture(d,b),'river':check_river(d,b),'lighting':check_lighting(d,b,lighting_changes)}
+    from terrain_clearance_v6 import check as check_clearance
+    improvement_checks['terrain_clearance']=check_clearance(d,b)
     from structure_check import reachability
     routes=reachability(b,d['rooms'],start_y=d['meta']['floors']['EG']+1)
     names={r['name'] for r in architecture_changes.get('rooms',[])+river_changes.get('rooms',[])}

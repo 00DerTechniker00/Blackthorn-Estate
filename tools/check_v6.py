@@ -79,6 +79,9 @@ def check():
  assert review['fingerprint']==d['meta']['fingerprint']
  assert review['checks']['architecture']['riding_passage_width']==3
  assert review['checks']['architecture']['riding_passage_clear_height']==4
+ assert review['checks']['architecture']['drive_blocks_preserved']==489
+ assert review['checks']['architecture']['drive_clearance_height']==4
+ assert review['checks']['terrain_clearance']['terrain_below_house_and_stable'] is True
  assert review['checks']['lighting']['sampled_zero_light_cells']==0
  assert all(r['reached']>0 for r in review['checks']['routes'])
  class HTML(HTMLParser):

@@ -6,6 +6,8 @@ window.__showRefinementV6=(kind)=>{
     if(!GL||!GL.terrain){if(++attempts<100)setTimeout(wait,80);return;}
     window.__resetScene();
     const configs={stable:[127,-747,126,772,35,true],garden:[169,-707,125,845,80,true],roof:[146,-709,145,790,26,false],river:[112,-643,110,785,48,false],facade:[169,-692,141,790,120,true]};
+    const stable=D.structure?.v6?.refinement?.architecture?.stable_bounds;
+    if(stable)configs.stable=[stable[2]+4,(stable[0]+stable[1])/2,stable[2]+3,(stable[4]+stable[5])/2,35,true];
     const [cut,x,y,z,span,terrain]=configs[kind]||configs.facade;
     S3.terrain=terrain;$('#terrainChk').checked=terrain;
     $('#terrainState').value='target';$('#terrainState').dispatchEvent(new Event('change'));
