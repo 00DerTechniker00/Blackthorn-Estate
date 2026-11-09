@@ -21,6 +21,7 @@ def check():
   for z in range(767,814):
    for x in (-710,-658):
     if x==-710 and 96<=y<=98 and (775<=z<=777 or 781<=z<=782):continue
+    if x==-658 and 108<=y<=112 and 783<=z<=787:continue
     assert b[x,y,z][0]=='deepslate_bricks'
  for x in range(-709,-658):
   for z in range(767,781):
@@ -74,6 +75,12 @@ def check():
  i=1
  for y,z,x,n,ri in d['runs']:
   for xx in range(x,x+n):assert rows[i].split('\t')[:3]==list(map(str,(xx,y,z)));i+=1
+ review=json.loads((ROOT/'ausbau_pruefung_v6.json').read_text())
+ assert review['fingerprint']==d['meta']['fingerprint']
+ assert review['checks']['architecture']['riding_passage_width']==3
+ assert review['checks']['architecture']['riding_passage_clear_height']==4
+ assert review['checks']['lighting']['sampled_zero_light_cells']==0
+ assert all(r['reached']>0 for r in review['checks']['routes'])
  class HTML(HTMLParser):
   def __init__(self):super().__init__();self.ids=[];self.targets=[];self.links=[]
   def handle_starttag(self,t,a):

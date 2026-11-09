@@ -1,0 +1,59 @@
+{
+  "fingerprint": "662914b577c31ad5faf54bcf2b79679b1b07ad49b7a82b2cf8ba6b5b49ad8169",
+  "checks": {
+    "landscape": {
+      "terrain_columns_consistent": 191,
+      "supported_path_cells": 428,
+      "hidden_hedge_lights": 8,
+      "soft_apron_columns": 17
+    },
+    "architecture": {
+      "riding_passage_width": 3,
+      "riding_passage_clear_height": 4,
+      "box_areas": [
+        28,
+        21
+      ],
+      "approach_steps_checked": 18,
+      "gable_ladder_continuous": true,
+      "main_stairs_protected": true
+    },
+    "river": {
+      "minimum_path_block_light": 4,
+      "central_path_width": 3,
+      "clear_headroom": 5,
+      "window_closed": true,
+      "view_axis": "east",
+      "near_cliff_line_clear": true
+    },
+    "lighting": {
+      "removed_floor_lanterns": 132,
+      "checked_decorative_lanterns": 148,
+      "maximum_chain_length": 2,
+      "existing_floor_preserved": true,
+      "roof_reading_room": {
+        "sampled_floor_cells": 142,
+        "minimum_block_light": 5,
+        "zero_light_cells": 0
+      },
+      "sampled_zero_light_cells": 0
+    },
+    "routes": [
+      {
+        "room": "Pferdestall · zwei Boxen",
+        "cells": 90,
+        "reached": 90
+      },
+      {
+        "room": "Westgiebel · Lesesaal",
+        "cells": 150,
+        "reached": 146
+      },
+      {
+        "room": "Flussgalerie im Klippenkeller",
+        "cells": 140,
+        "reached": 140
+      }
+    ]
+  }
+}

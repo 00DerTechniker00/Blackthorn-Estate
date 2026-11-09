@@ -158,6 +158,17 @@ def main():
             for y in (128,129,130):clear(x,y,z)
     from access_v6 import enhance as build_water_access
     water_access=build_water_access(b,air)
+    from landscape_estate_v6 import enhance as improve_landscape
+    landscape_changes=improve_landscape(d,b,air)
+    from architecture_estate_v6 import enhance as improve_architecture
+    architecture_changes=improve_architecture(d,b,air)
+    from river_loggia_v6 import enhance as build_river_loggia
+    river_changes=build_river_loggia(d,b,air)
+    from lighting_estate_v6 import enhance as improve_lighting
+    lighting_changes=improve_lighting(d,b,air)
+    from estate_integration_v6 import finalize_terrain, lamp_registry
+    terrain_review=finalize_terrain(d,ROOT)
+    lamp_registry(d,b)
     # No blocks and required-air positions may overlap.
     air.update(prior.keys()-b.keys())
     air.difference_update(b)
@@ -197,6 +208,8 @@ def main():
     room('Poolterrasse und flacher Einstieg','v6_pool',[-657,-634],[128,128],[770,810],'Ruhiger Steinbelag, Holzbänke und beleuchtetes Becken; mittlerer Hauszugang bleibt frei.')
     room('Rosenterrasse mit Pergola','v6_garten',[-736,-728],[124,124],[841,849],'Über den nördlichen Kiesweg erreichbar; offene Mitte und Sitzbank im Süden.')
     room('Geheimsalon am tiefen Gang','v6_geheimsalon',[-684,-670],[81,87],[770,783],'15 × 14 freie Innenabmessung vor Möbeln, sieben Blöcke hoch; Auf- und Abfahrt in der westlichen Nische.')
+    d['rooms'].extend(architecture_changes.get('rooms',[]))
+    d['rooms'].extend(river_changes.get('rooms',[]))
     d['storage_zones']=[];d['storage_bays']=[]
     for i,x in enumerate(range(-708,-699,2),1):
         id=f'V6-H{i:02d}';d['storage_zones'].append(dict(id=id,name=f'Reserve {i}',contents='1 Fass · 27 Plätze',room='Unteres Handlager',group='v6_handlager',x=[x,x],y=[96,96],z=[812,812]))
@@ -215,7 +228,8 @@ def main():
     d['structure']['logistics']=[{'label':'Neues Lager · sieben Blöcke frei','y':[114,120]},{'label':'Porter-Galerie · Nordwand frei','y':[122,126]}]
     d['structure']['enhancements']['title']='Version 6 · Keller nach eurem gebauten Bestand'
     d['structure']['enhancements']['features']=[dict(name='Gebauter Keller bleibt erhalten',description='Boden Y95 und Außenwände bilden die Grundlage.',group='v6_bestand'),dict(name='Bisheriges Großlager entfernt',description='Neues sieben Blöcke hohes Lager in der zweiten Kelleretage von oben vorgesehen; Neue Kelleretagen mit freier Lagerfläche.',group='v6_keller'),dict(name='Nordwand vollständig frei',description='51 × 14 Bodenpositionen für eure vorhandenen Porter; Chunkraster im Plan beachten.',group='v6_keller')]
-    d['structure']['v6']={'north_reserve':[-709,-659,122,126,767,780],'storage_anchor':None,'source_sha256':survey['source_sha256'],'outdoors':outdoor_changes,'water_access':water_access,'house_lowering':house_lowering}
+    d['structure'].setdefault('v6',{}).update({'north_reserve':[-709,-659,122,126,767,780],'storage_anchor':None,'source_sha256':survey['source_sha256'],'outdoors':outdoor_changes,'water_access':water_access,'house_lowering':house_lowering})
+    d['structure']['v6']['refinement']={'landscape':landscape_changes,'architecture':architecture_changes,'river':river_changes,'lighting':lighting_changes,'terrain':terrain_review}
     d['structure']['v6']['storage_removed']=True
     d['structure']['v6']['proposed_cellar_layout']={'status':'implemented_empty_storage','clear_heights_top_down':[5,7,5,5,5],'floors_bottom_up':[95,101,107,113,121,127],'ceiling_layers':[[101],[107],[113],[121],[127]],'existing_floor':95,'current_house_floor':127,'new_storage_supplied':False}
     modules=json.loads((ROOT/'lagertechnik_module.json').read_text())
@@ -242,6 +256,8 @@ def main():
     render()
     from render_outdoors import render as render_exterior
     render_exterior()
+    from render_refinements_v6 import render as render_refinements
+    render_refinements()
     from web import build
     build(d)
     from check_cellar_routes import check
@@ -250,6 +266,18 @@ def main():
     check_outdoors()
     from check_water_access import check as check_access
     check_access()
+    from landscape_estate_v6 import check as check_landscape
+    from architecture_estate_v6 import check as check_architecture
+    from river_loggia_v6 import check as check_river
+    from lighting_estate_v6 import check as check_lighting
+    improvement_checks={'landscape':check_landscape(d,b),'architecture':check_architecture(d,b),'river':check_river(d,b),'lighting':check_lighting(d,b,lighting_changes)}
+    from structure_check import reachability
+    routes=reachability(b,d['rooms'],start_y=d['meta']['floors']['EG']+1)
+    names={r['name'] for r in architecture_changes.get('rooms',[])+river_changes.get('rooms',[])}
+    improvement_checks['routes']=[r for r in routes['rooms'] if r['room'] in names]
+    assert all(r['reached']>0 for r in improvement_checks['routes'])
+    assert improvement_checks['lighting']['sampled_zero_light_cells']==0
+    (ROOT/'ausbau_pruefung_v6.json').write_text(json.dumps({'fingerprint':d['meta']['fingerprint'],'checks':improvement_checks},ensure_ascii=False,indent=2)+'\n')
     print('V6 built:',len(b),'positions;',len(storage),'storage blocks;',len(air),'explicit clearance positions.')
 
 def write_current_delta(survey,b,air):

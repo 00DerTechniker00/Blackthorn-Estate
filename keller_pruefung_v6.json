@@ -1,6 +1,6 @@
 {
   "revision": "6.0",
-  "fingerprint": "844553d944891773dacb9b6adb6dee37b94fcdde4e66e0887c4f8d0f49d6d3b0",
+  "fingerprint": "662914b577c31ad5faf54bcf2b79679b1b07ad49b7a82b2cf8ba6b5b49ad8169",
   "route_model": "Static supported-cell traversal; no player collision or redstone simulation",
   "rooms": [
     {
@@ -42,6 +42,16 @@
       "room": "Geheimsalon am tiefen Gang",
       "cells": 210,
       "reached": 203
+    },
+    {
+      "room": "Pferdestall · zwei Boxen",
+      "cells": 90,
+      "reached": 90
+    },
+    {
+      "room": "Flussgalerie im Klippenkeller",
+      "cells": 140,
+      "reached": 140
     }
   ],
   "block_light": {

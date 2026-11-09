@@ -36,7 +36,7 @@ def check():
  old=json.loads((ROOT/'tools/seeds/revision-5.26/blueprint.json').read_text())
  for y,z,x,n,i in old['runs']:
   block,state,g=old['reg'][i]
-  if old['groups'][g]!='halle_treppe':continue
+  if old['groups'][g] not in ('halle_treppe','poolboegen'):continue
   for xx in range(x,x+n):assert b[xx,y-2,z]==[block,state]
- print('Water columns, supported fluid-stop signs, landings, clear drops, room doorway and existing main stairs passed.')
+ print('Water columns, supported fluid-stop signs, landings, clear drops, room doorway existing main stairs and pool support arches passed.')
 if __name__=='__main__':check()

@@ -206,7 +206,7 @@ def build(d):
     if version.startswith('6.'):
         newgroups=[g for g in d['groups'] if g.startswith('v6_')]
         app=app.replace('Keller 105–128','Keller 95–126').replace('PHASES.map(ph =>', 'PHASES.filter(ph=>ph.groups.some(g=>D.gstats[g])).map(ph =>')
-        app=app.replace('const gname = g =>', 'Object.assign(GROUP_DE,'+json.dumps({g:g.replace('v6_','V6 · ').replace('_',' ') for g in newgroups},ensure_ascii=False)+');PHASES.unshift({id:"v6",name:"V6 · Keller und Außenanlagen",text:"Bestand erhalten, Freiräume ausheben, Lager mit Inventardaten separat übernehmen, Porterflächen frei lassen.",groups:'+json.dumps(newgroups)+'});\nconst gname = g =>')
+        app=app.replace('const gname = g =>', 'Object.assign(GROUP_DE,'+json.dumps({g:g.replace('v6_','V6 · ').replace('_',' ') for g in newgroups},ensure_ascii=False)+');PHASES.unshift({id:"v6",name:"V6 · Keller und Außenanlagen",text:"Bestand erhalten, freie Lagerfläche und Porterzone schützen, Garten, Stall und Hausdetails ausbauen.",groups:'+json.dumps(newgroups)+'});\nconst gname = g =>')
     if version.startswith('6.'):
         app += "\nwindow.__showOutdoorV6=(kind)=>{window.__showTab('3d');const wait=()=>{if(!GL)return;if(!GL.terrain)return setTimeout(wait,80);window.__resetScene();$('#terrainState').value='target';$('#terrainState').dispatchEvent(new Event('change'));if(kind==='pool'){preset('east');focusBox(-644,128,790,45);}else{preset('iso');focusBox(-706,126,845,75);}};wait();};\n$('#terrainChk').addEventListener('change',()=>{if(S3.terrainOnly&&GL)rebuild();});$('#terrainState').addEventListener('change',()=>{if(S3.terrainOnly&&GL)rebuild();});\nwindow.__showCellarFloor=()=>{window.__showTab('3d');const wait=()=>{if(!GL)return;if(!GL.terrain)return setTimeout(wait,80);window.__resetScene();S3.ymax=100;$('#cut').value=100;$('#sceneFloor').value='custom';$('#terrainState').value='target';$('#terrainState').dispatchEvent(new Event('change'));applyCut();focusBox(-684,98,790,65);};wait();};\n"
     if version.startswith('6.'):
@@ -214,6 +214,7 @@ def build(d):
     # Geometry is stored as (X,Y,-Z); compensate this reflection in the camera basis.
     app=patch(app,'right:[st,0,-ct]','right:[-st,0,ct]')
     app=app.replace('  GL.dirty=false; const gl=', '  updateSceneCompass();\n  GL.dirty=false; const gl=')
+    app+='\n'+(ROOT/'tools/estate_refinement_viewer.js').read_text()
     app+='\n'+(ROOT/'tools/compass_viewer.js').read_text()
     (ROOT/'app.js').write_text(app)
     steps=(BASE/'steps.js').read_text().replace('Revision 5.9',f'Revision {version}')
